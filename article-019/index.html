@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CKG 2026 bergeser dari sekadar skrining ke pengobatan nyata: 19 juta peserta terdeteksi, obat hipertensi dan diabetes langsung diberikan di puskesmas hari yang sama. HIFDI urai kesiapan yang dibutuhkan fasyankes primer untuk mengelola lonjakan kunjungan tindak lanjut.">
+  <meta property="og:title" content="CKG 2026: Dari Skrining ke Pengobatan — Kesiapan Fasyankes Primer Mengelola Tindak Lanjut — HIFDI">
+  <meta property="og:description" content="Program Cek Kesehatan Gratis tahun kedua mewajibkan puskesmas dan klinik pratama langsung menangani pasien hipertensi dan diabetes di hari yang sama. HIFDI membahas kesiapan operasional, alur pelayanan, dan tantangan yang dihadapi fasyankes primer.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:type" content="article">
+  <title>CKG 2026: Dari Skrining ke Pengobatan — Kesiapan Fasyankes Primer Mengelola Tindak Lanjut — HIFDI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary:        #1B4028;
+      --color-primary-hover:  #245535;
+      --green-50:   #EFF7F3;
+      --green-100:  #D6EFE0;
+      --green-200:  #AEDDBF;
+      --green-800:  #1B4028;
+      --green-900:  #122B1A;
+      --gold-300:   #F5C554;
+      --gold-400:   #E8AB28;
+      --neutral-50:  #F7F9F7;
+      --neutral-100: #EFF2EF;
+      --neutral-200: #DDE3DD;
+      --neutral-500: #737874;
+      --neutral-600: #565B56;
+      --neutral-800: #2C302D;
+      --neutral-900: #1A1D1B;
+      --font-display: 'Playfair Display', serif;
+      --font-body:    'DM Sans', sans-serif;
+      --font-mono:    'DM Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--neutral-50);
+      color: var(--neutral-900);
+      line-height: 1.7;
+    }
+
+    header {
+      background: var(--green-900);
+      border-bottom: 2px solid var(--gold-400);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .header-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid var(--gold-400);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .header-brand-name {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .back-link {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      padding: 6px 12px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .back-link:hover {
+      color: #ffffff;
+      border-color: rgba(255,255,255,0.35);
+    }
+
+    .article-container {
+      max-width: 740px;
+      margin: 48px auto;
+      padding: 0 24px 80px;
+    }
+
+    .article-category {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--green-800);
+      background: var(--green-50);
+      padding: 4px 10px;
+      border-radius: 100px;
+      border: 1px solid var(--green-200);
+      margin-bottom: 20px;
+    }
+
+    .article-title {
+      font-family: var(--font-display);
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--neutral-900);
+      margin-bottom: 8px;
+    }
+
+    .article-subtitle {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--neutral-600);
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--neutral-500);
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--neutral-200);
+      margin-bottom: 28px;
+    }
+
+    .featured-image {
+      width: 100%;
+      max-height: 420px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 32px;
+      border: 1px solid var(--neutral-200);
+    }
+
+    .byline {
+      background: var(--neutral-100);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 32px;
+    }
+
+    .byline-name {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--neutral-900);
+      margin-bottom: 4px;
+    }
+
+    .byline-roles {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--neutral-500);
+      line-height: 1.8;
+    }
+
+    .article-body p {
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: var(--neutral-800);
+      line-height: 1.85;
+      margin-bottom: 22px;
+    }
+
+    .article-body h2 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--green-800);
+      margin: 36px 0 14px;
+    }
+
+    .article-body h3 {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--neutral-800);
+      margin: 28px 0 10px;
+      font-style: italic;
+    }
+
+    .article-body blockquote {
+      border-left: 3px solid var(--gold-400);
+      padding: 12px 20px;
+      margin: 28px 0;
+      background: var(--green-50);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .article-body blockquote p {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 15px;
+      color: var(--green-800);
+      margin-bottom: 0;
+    }
+
+    .article-body ol {
+      margin: 0 0 22px 20px;
+    }
+
+    .article-body ol li {
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: var(--neutral-800);
+      line-height: 1.85;
+      margin-bottom: 14px;
+      padding-left: 8px;
+    }
+
+    .sources-box {
+      background: var(--neutral-100);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 36px 0;
+      border: 1px solid var(--neutral-200);
+    }
+
+    .sources-title {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--neutral-500);
+      margin-bottom: 12px;
+    }
+
+    .sources-box ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .sources-box li {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--neutral-600);
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .sources-box li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--neutral-500);
+    }
+
+    .article-footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--neutral-200);
+    }
+
+    .back-to-portal {
+      display: inline-block;
+      padding: 10px 20px;
+      background: var(--green-800);
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .back-to-portal:hover { background: var(--color-primary-hover); }
+
+    footer {
+      background: var(--green-900);
+      border-top: 2px solid var(--gold-400);
+      padding: 24px;
+      text-align: center;
+    }
+
+    footer p {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    footer a { color: var(--gold-300); text-decoration: none; }
+    footer a:hover { color: var(--gold-400); }
+
+    @media (max-width: 600px) {
+      .article-title { font-size: 24px; }
+      .article-subtitle { font-size: 16px; }
+      .article-container { padding: 0 16px 60px; }
+      .article-body p { font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="header-left" href="https://hifdi.id">
+      <img class="header-logo" src="../images/logo-hifdi.png" alt="Logo HIFDI">
+      <span class="header-brand-name">Berita HIFDI</span>
+    </a>
+    <a class="back-link" href="../">← Kembali ke Portal</a>
+  </div>
+</header>
+
+<div class="article-container">
+
+  <span class="article-category">Edukasi</span>
+
+  <h1 class="article-title">CKG 2026: Dari Skrining ke Pengobatan — Kesiapan Fasyankes Primer Mengelola Tindak Lanjut</h1>
+  <div class="article-subtitle">Ketika 19 Juta Peserta Terdeteksi Masalah Kesehatan, Puskesmas dan Klinik Pratama Menjadi Garda Penanganan</div>
+
+  <div class="article-meta">
+    <span>18 Juni 2026</span>
+    <span>Redaksi Berita HIFDI</span>
+    <span>Edukasi</span>
+  </div>
+
+  <img
+    class="featured-image"
+    src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=1200&q=80"
+    alt="Pemeriksaan tekanan darah sebagai bagian dari Cek Kesehatan Gratis (CKG) di fasyankes primer"
+  >
+
+  <div class="byline">
+    <div class="byline-name">Redaksi Berita HIFDI</div>
+    <div class="byline-roles">
+      Tim Redaksi Berita HIFDI (Himpunan Fasyankes Dokter Indonesia)
+    </div>
+  </div>
+
+  <div class="article-body">
+
+    <p>Memasuki tahun kedua pelaksanaannya, program Cek Kesehatan Gratis (CKG) milik Kementerian Kesehatan RI mengalami pergeseran fokus yang signifikan. Jika pada 2025 ukuran keberhasilan program ini lebih tertuju pada jumlah peserta yang terlayani, maka sejak awal 2026 Kemenkes menegaskan bahwa keberhasilan CKG tidak lagi hanya diukur dari angka partisipasi — melainkan dari seberapa nyata dampak kesehatan yang dihasilkan dari setiap pemeriksaan yang dilakukan.</p>
+
+    <p>Sebanyak 19 juta orang telah menggunakan layanan CKG. Data evaluasi 2025 membuka fakta yang tidak bisa diabaikan: satu dari tiga orang dewasa mengalami obesitas sentral, satu dari lima remaja memiliki tekanan darah di atas normal, dan lebih dari separuh lansia hidup dengan hipertensi. Angka ini bukan sekadar statistik — ini adalah daftar tunggu tindak lanjut yang harus dikelola oleh puskesmas dan klinik pratama di seluruh Indonesia.</p>
+
+    <h2>Kebijakan Baru: Obat di Hari yang Sama</h2>
+
+    <p>Salah satu perubahan operasional paling konkret yang dibawa CKG 2026 adalah komitmen Kemenkes bahwa pasien hipertensi dan diabetes yang terdeteksi melalui CKG akan langsung mendapatkan obat di puskesmas pada hari yang sama — bukan diarahkan untuk datang kembali di lain waktu. Pernyataan ini disampaikan langsung oleh Direktur Jenderal Kesehatan Masyarakat dr. Maria Endang Sumiwi dalam rilis resmi Kemenkes pada Januari 2026.</p>
+
+    <p>Kebijakan ini secara langsung mengubah alur pelayanan di fasyankes primer. Puskesmas dan klinik yang sebelumnya berperan hanya sebagai titik skrining kini harus siap bertransisi menjadi titik penanganan — dengan stok obat yang memadai, kapasitas dokter yang cukup, dan sistem pencatatan yang terintegrasi dengan SATUSEHAT Mobile agar hasil pemeriksaan dan tindak lanjutnya dapat terlacak.</p>
+
+    <blockquote>
+      <p>"Target kita di 2026 bukan hanya melakukan cek kesehatan, tetapi memastikan masyarakat benar-benar sehat. Bukan hanya pemeriksaannya yang gratis, pencegahan dan penanganannya juga gratis." — Menteri Kesehatan Budi Gunadi Sadikin, Januari 2026.</p>
+    </blockquote>
+
+    <h2>Tantangan Operasional yang Harus Diantisipasi</h2>
+
+    <p>Pergeseran dari skrining ke pengobatan membawa konsekuensi operasional yang tidak kecil bagi fasyankes primer. Setidaknya ada tiga tantangan utama yang perlu diantisipasi:</p>
+
+    <ol>
+      <li><strong>Lonjakan volume kunjungan tindak lanjut.</strong> Ketika peserta CKG yang terdeteksi masalah kesehatan diarahkan kembali ke fasyankes primer untuk penanganan, jumlah kunjungan harian dapat meningkat signifikan. Fasyankes perlu memastikan kapasitas jadwal, rasio dokter terhadap pasien, dan ketersediaan kamar periksa mampu mengakomodasi lonjakan ini tanpa mengorbankan kualitas layanan rutin.</li>
+      <li><strong>Kecukupan stok obat esensial.</strong> Jaminan pengobatan gratis selama 15 hari pertama pasca-CKG mensyaratkan bahwa obat antihipertensi dan antidiabetes generik tersedia di fasilitas secara konsisten. Kekurangan stok obat di tingkat puskesmas atau klinik mitra JKN dapat memutus rantai penanganan yang sudah dimulai dari skrining.</li>
+      <li><strong>Pencatatan dan pelaporan ke SATUSEHAT.</strong> Tindak lanjut CKG mensyaratkan integrasi data antara hasil skrining (yang tercatat di SATUSEHAT Mobile) dengan rekam medis fasyankes. Puskesmas dan klinik yang belum menyelesaikan migrasi ke rekam medis elektronik (RME) berpotensi menghadapi hambatan dalam memverifikasi riwayat CKG pasien dan melaporkan data penanganan secara real-time.</li>
+    </ol>
+
+    <h2>Perluasan Skrining: Kasus Kritis dan Penyakit Menular</h2>
+
+    <p>CKG 2026 juga memperluas cakupan skrining ke beberapa kondisi baru yang sebelumnya tidak tercakup: kanker paru dan kanker usus besar untuk perempuan dan laki-laki dewasa, serta deteksi penyakit kulit menular seperti kusta, skabies, dan frambusia. Perluasan ini semakin memperkuat peran fasyankes primer sebagai titik deteksi dini sekaligus titik rujukan terstruktur.</p>
+
+    <p>Kasus kritis — seperti bayi baru lahir yang terdeteksi kekurangan enzim atau penyakit jantung bawaan — dirujuk langsung ke fasilitas rujukan lanjutan. Namun tetap diperlukan fasyankes primer yang mampu mengidentifikasi tanda bahaya awal dan menjalankan mekanisme rujukan dengan cepat dan tepat, termasuk mengisi dokumen rujukan berbasis BPJS secara akurat.</p>
+
+    <h2>Posisi HIFDI</h2>
+
+    <p>Himpunan Fasyankes Dokter Indonesia (HIFDI) menyambut positif pergeseran arah CKG 2026 dari skrining menuju pengobatan nyata. Ini adalah arah yang tepat: program skrining massal tidak akan bermakna jika hanya menghasilkan daftar diagnosa tanpa penanganan yang nyata di lapangan.</p>
+
+    <p>Namun HIFDI juga menekankan bahwa keberhasilan kebijakan ini sangat bergantung pada kesiapan fasyankes primer yang menjadi ujung tombak pelaksanaannya. HIFDI mendorong Kemenkes dan BPJS Kesehatan untuk memastikan tiga hal secara bersamaan: ketersediaan pasokan obat esensial yang stabil di seluruh fasyankes mitra JKN, dukungan teknis percepatan integrasi RME dengan SATUSEHAT agar data tindak lanjut terpantau, serta penguatan kapasitas SDM dokter umum di fasyankes primer dalam menatalaksana hipertensi dan diabetes secara komprehensif — bukan sekadar pemberian obat satu kali.</p>
+
+    <h2>Penutup</h2>
+
+    <p>CKG 2026 bukan sekadar lanjutan tahun lalu — ini adalah evolusi menuju sistem kesehatan primer yang benar-benar menangani penyakit, bukan hanya mendeteksinya. Bagi puskesmas dan klinik pratama, pergeseran ini membawa tanggung jawab baru yang harus disambut dengan kesiapan nyata: dari sisi stok obat, SDM, sistem informasi, hingga kapasitas pelayanan harian. Fasyankes yang siap akan menjadi tulang punggung keberhasilan program strategis nasional ini.</p>
+
+    <div class="sources-box">
+      <div class="sources-title">Referensi</div>
+      <ul>
+        <li>Kementerian Kesehatan RI — "Tahun 2026, Kemenkes Fokuskan CKG pada Penanganan Hasil Pemeriksaan", 23 Januari 2026 (kemkes.go.id).</li>
+        <li>Direktorat Jenderal Farmasi dan Alkes Kemenkes — "Satu Tahun CKG, Fokus Bergeser dari Deteksi ke Pengobatan Nyata", Februari 2026 (farmalkes.kemkes.go.id).</li>
+        <li>Badan Kebijakan Pembangunan Kesehatan Kemenkes — "Cek Kesehatan Gratis Jangkau 25 Juta Siswa, Pemerintah Tekankan Deteksi Dini dan Tindak Lanjut" (badankebijakan.kemkes.go.id).</li>
+        <li>Indonesia Baik / Kominfo — "Cek Kesehatan Gratis 2026 Perkuat Pencegahan dan Penanganannya" (indonesiabaik.id).</li>
+        <li>SATUSEHAT Kemenkes — FAQ CKG Umum 2026 (satusehat.kemkes.go.id).</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <a class="back-to-portal" href="../">← Kembali ke Portal Berita</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Himpunan Fasyankes Dokter Indonesia (HIFDI) &nbsp;|&nbsp; <a href="https://hifdi.id">hifdi.id</a> &nbsp;|&nbsp; <a href="https://academy.hifdi.id">academy.hifdi.id</a></p>
+</footer>
+
+</body>
+</html>

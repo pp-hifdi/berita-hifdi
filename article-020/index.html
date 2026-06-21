@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kemenkes resmi menutup PRIME Skin Clinic Bali pada 16 Juni 2026 — tidak terdaftar di sistem Kemenkes, pekerjakan dokter WNA tanpa STR/SIP. HIFDI menguraikan implikasi bagi ekosistem fasyankes legal dan perlindungan pasien.">
+  <meta property="og:title" content="Klinik Kecantikan Ilegal di Bali: Ketika Fasyankes Beroperasi di Luar Sistem — HIFDI">
+  <meta property="og:description" content="Penutupan PRIME Skin Clinic Bali oleh Kemenkes menjadi momentum penegasan: izin resmi, STR, dan SIP bukan formalitas birokrasi, melainkan jaminan keselamatan pasien.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:type" content="article">
+  <title>Klinik Kecantikan Ilegal di Bali: Ketika Fasyankes Beroperasi di Luar Sistem — HIFDI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary:        #1B4028;
+      --color-primary-hover:  #245535;
+      --green-50:   #EFF7F3;
+      --green-100:  #D6EFE0;
+      --green-200:  #AEDDBF;
+      --green-800:  #1B4028;
+      --green-900:  #122B1A;
+      --gold-300:   #F5C554;
+      --gold-400:   #E8AB28;
+      --neutral-50:  #F7F9F7;
+      --neutral-100: #EFF2EF;
+      --neutral-200: #DDE3DD;
+      --neutral-500: #737874;
+      --neutral-600: #565B56;
+      --neutral-800: #2C302D;
+      --neutral-900: #1A1D1B;
+      --font-display: 'Playfair Display', serif;
+      --font-body:    'DM Sans', sans-serif;
+      --font-mono:    'DM Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--neutral-50);
+      color: var(--neutral-900);
+      line-height: 1.7;
+    }
+
+    header {
+      background: var(--green-900);
+      border-bottom: 2px solid var(--gold-400);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .header-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid var(--gold-400);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .header-brand-name {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .back-link {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      padding: 6px 12px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .back-link:hover {
+      color: #ffffff;
+      border-color: rgba(255,255,255,0.35);
+    }
+
+    .article-container {
+      max-width: 740px;
+      margin: 48px auto;
+      padding: 0 24px 80px;
+    }
+
+    .article-category {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--green-800);
+      background: var(--green-50);
+      padding: 4px 10px;
+      border-radius: 100px;
+      border: 1px solid var(--green-200);
+      margin-bottom: 20px;
+    }
+
+    .article-title {
+      font-family: var(--font-display);
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--neutral-900);
+      margin-bottom: 8px;
+    }
+
+    .article-subtitle {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--neutral-600);
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--neutral-500);
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--neutral-200);
+      margin-bottom: 28px;
+    }
+
+    .featured-image {
+      width: 100%;
+      max-height: 420px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 32px;
+      border: 1px solid var(--neutral-200);
+    }
+
+    .byline {
+      background: var(--neutral-100);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 32px;
+    }
+
+    .byline-name {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--neutral-900);
+      margin-bottom: 4px;
+    }
+
+    .byline-roles {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--neutral-500);
+      line-height: 1.8;
+    }
+
+    .article-body p {
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: var(--neutral-800);
+      line-height: 1.85;
+      margin-bottom: 22px;
+    }
+
+    .article-body h2 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--green-800);
+      margin: 36px 0 14px;
+    }
+
+    .article-body h3 {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--neutral-800);
+      margin: 28px 0 10px;
+      font-style: italic;
+    }
+
+    .article-body blockquote {
+      border-left: 3px solid var(--gold-400);
+      padding: 12px 20px;
+      margin: 28px 0;
+      background: var(--green-50);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .article-body blockquote p {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 15px;
+      color: var(--green-800);
+      margin-bottom: 0;
+    }
+
+    .article-body ol {
+      margin: 0 0 22px 20px;
+    }
+
+    .article-body ol li {
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: var(--neutral-800);
+      line-height: 1.85;
+      margin-bottom: 14px;
+      padding-left: 8px;
+    }
+
+    .sources-box {
+      background: var(--neutral-100);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 36px 0;
+      border: 1px solid var(--neutral-200);
+    }
+
+    .sources-title {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--neutral-500);
+      margin-bottom: 12px;
+    }
+
+    .sources-box ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .sources-box li {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--neutral-600);
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .sources-box li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--neutral-500);
+    }
+
+    .article-footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--neutral-200);
+    }
+
+    .back-to-portal {
+      display: inline-block;
+      padding: 10px 20px;
+      background: var(--green-800);
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .back-to-portal:hover { background: var(--color-primary-hover); }
+
+    footer {
+      background: var(--green-900);
+      border-top: 2px solid var(--gold-400);
+      padding: 24px;
+      text-align: center;
+    }
+
+    footer p {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    footer a { color: var(--gold-300); text-decoration: none; }
+    footer a:hover { color: var(--gold-400); }
+
+    @media (max-width: 600px) {
+      .article-title { font-size: 24px; }
+      .article-subtitle { font-size: 16px; }
+      .article-container { padding: 0 16px 60px; }
+      .article-body p { font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="header-left" href="https://hifdi.id">
+      <img class="header-logo" src="../images/logo-hifdi.png" alt="Logo HIFDI">
+      <span class="header-brand-name">Berita HIFDI</span>
+    </a>
+    <a class="back-link" href="../">← Kembali ke Portal</a>
+  </div>
+</header>
+
+<div class="article-container">
+
+  <span class="article-category">Advokasi</span>
+
+  <h1 class="article-title">Klinik Kecantikan Ilegal di Bali: Ketika Fasyankes Beroperasi di Luar Sistem, Siapa yang Dirugikan?</h1>
+  <div class="article-subtitle">Penutupan PRIME Skin Clinic oleh Kemenkes Jadi Pengingat: STR, SIP, dan Izin Operasional Bukan Birokrasi — Melainkan Jaminan Keselamatan Pasien</div>
+
+  <div class="article-meta">
+    <span>19 Juni 2026</span>
+    <span>Redaksi Berita HIFDI</span>
+    <span>Advokasi</span>
+  </div>
+
+  <img
+    class="featured-image"
+    src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&w=1200&q=80"
+    alt="Dokter memeriksa dokumen perizinan klinik — ilustrasi pengawasan fasyankes legal"
+  >
+
+  <div class="byline">
+    <div class="byline-name">Redaksi Berita HIFDI</div>
+    <div class="byline-roles">
+      Tim Redaksi Berita HIFDI (Himpunan Fasyankes Dokter Indonesia)
+    </div>
+  </div>
+
+  <div class="article-body">
+
+    <p>Pada 16 Juni 2026, Kementerian Kesehatan (Kemenkes) RI mengumumkan penutupan resmi sebuah klinik kecantikan ilegal di Kabupaten Badung, Bali. Klinik yang dikenal dengan nama PRIME Skin Clinic — sebelumnya beroperasi dengan nama Elasto Beauty — terbukti menyelenggarakan layanan estetika medis tanpa izin operasional resmi dan mempekerjakan tenaga medis warga negara asing (WNA) asal Rusia dan Armenia tanpa dokumen Surat Tanda Registrasi (STR) maupun Surat Izin Praktik (SIP) yang sah.</p>
+
+    <p>Langkah penutupan ini merupakan hasil koordinasi multi-sektoral yang dipimpin Kemenkes, melibatkan Kementerian Luar Negeri, Kementerian Imigrasi dan Pemasyarakatan, Kementerian Ketenagakerjaan, Kementerian Dalam Negeri, Badan Intelijen Negara (BIN), BAIS TNI, serta Dinas Kesehatan Provinsi Bali dan Kabupaten Badung selaku eksekutor di lapangan. Fakta bahwa butuh koordinasi lintas tujuh instansi untuk menutup satu klinik menunjukkan betapa kompleks — dan seriusnya — masalah fasyankes ilegal di kawasan wisata.</p>
+
+    <h2>Tiga Pelanggaran Serius yang Ditemukan</h2>
+
+    <p>Berdasarkan hasil investigasi Kemenkes, setidaknya tiga pelanggaran berat ditemukan pada PRIME Skin Clinic. Pertama, fasilitas tersebut sama sekali tidak terdaftar dalam sistem Registrasi Fasilitas Pelayanan Kesehatan Kemenkes — artinya tidak ada data, tidak ada pengawasan, dan tidak ada akuntabilitas atas layanan yang diberikan kepada pasien. Kedua, klinik ini mempekerjakan tenaga medis WNA tanpa STR dan SIP yang diterbitkan oleh otoritas Indonesia — sebuah pelanggaran terhadap Undang-Undang Nomor 17 Tahun 2023 tentang Kesehatan. Ketiga, dugaan penggunaan obat dan alat kesehatan tanpa izin edar turut menjadi bagian dari temuan investigasi.</p>
+
+    <p>Kepala Biro Komunikasi dan Informasi Publik Kemenkes, Aji Muhawarman, menegaskan bahwa praktik semacam ini tidak dapat ditoleransi: <em>"Kemenkes berkomitmen melindungi masyarakat melalui pengawasan mutu pelayanan. Setiap pelanggaran akan ditindak tegas sesuai hukum yang berlaku demi menjaga integritas sistem kesehatan nasional."</em></p>
+
+    <h2>Risiko Nyata bagi Pasien: Layanan Medis Tanpa Jaring Pengaman</h2>
+
+    <p>Bagi pasien yang mengakses klinik semacam PRIME Skin Clinic, risikonya berlapis. Prosedur estetika medis — dari suntik botulinum toksin, filler, laser, hingga peeling kimia — bukan prosedur kosmetik sederhana. Semuanya melibatkan tindakan medis yang memerlukan kompetensi terverifikasi, standar keamanan yang diawasi, serta kemampuan menangani komplikasi. Tenaga medis tanpa STR dan SIP Indonesia berarti kompetensinya tidak tervalidasi oleh sistem kesehatan nasional — tidak ada jaminan bahwa mereka memenuhi standar yang berlaku di Indonesia.</p>
+
+    <p>Lebih jauh, klinik yang tidak terdaftar tidak terikat pada kewajiban pelaporan insiden, standar keselamatan pasien, maupun mekanisme pengaduan yang dapat diakses publik. Jika terjadi malpraktik atau komplikasi serius, pasien hampir tidak memiliki jalur hukum yang jelas untuk memperoleh pertanggungjawaban.</p>
+
+    <h2>Dampak terhadap Fasyankes Legal: Kompetisi yang Tidak Setara</h2>
+
+    <p>Di sisi lain, keberadaan klinik ilegal menciptakan ketidakadilan struktural bagi fasyankes yang taat aturan. Klinik pratama dan praktik dokter mandiri (TPMD) yang telah menempuh proses akreditasi, memenuhi standar LAMFI, memastikan seluruh staf memiliki STR dan SIP valid, mendaftarkan fasilitas dalam sistem Kemenkes, serta membayar pajak secara tertib — harus bersaing dengan operator yang mengabaikan semua kewajiban tersebut demi menekan biaya operasional.</p>
+
+    <p>Ini bukan sekadar persaingan bisnis yang tidak sehat. Ini adalah persoalan ekuitas sistem kesehatan: ketika fasyankes ilegal dibiarkan beroperasi — bahkan di destinasi wisata internasional seperti Bali — maka reputasi sistem kesehatan Indonesia secara keseluruhan yang dipertaruhkan, termasuk kepercayaan wisatawan mancanegara terhadap kualitas layanan kesehatan di Indonesia.</p>
+
+    <blockquote>
+      <p>Ketika fasyankes beroperasi di luar sistem registrasi nasional, yang paling dirugikan adalah pasien — karena tidak ada pengawasan, tidak ada akuntabilitas, dan tidak ada jaring pengaman jika terjadi komplikasi.</p>
+    </blockquote>
+
+    <h2>Posisi HIFDI</h2>
+
+    <p>Himpunan Fasyankes Dokter Indonesia (HIFDI) menyambut langkah penegakan hukum Kemenkes atas PRIME Skin Clinic sebagai preseden penting yang harus ditindaklanjuti secara sistemik — bukan hanya reaktif terhadap satu kasus. HIFDI mendorong Kemenkes dan pemerintah daerah untuk memperkuat tiga hal: pertama, pengawasan aktif berbasis data terhadap fasyankes yang beroperasi tanpa registrasi, khususnya di kawasan pariwisata dengan mobilitas tenaga asing tinggi; kedua, akselerasi verifikasi publik melalui sistem HFIS (Health Facility Information System) BPJS Kesehatan dan platform registrasi Kemenkes, sehingga masyarakat dapat mandiri memverifikasi legalitas sebuah klinik sebelum mengakses layanan; dan ketiga, penguatan sanksi administratif dan pidana terhadap operator fasyankes ilegal agar efek jera benar-benar terasa.</p>
+
+    <p>HIFDI juga mengajak seluruh anggota — pengelola klinik pratama, TPMD, dan TPMDG — untuk memastikan bahwa seluruh perizinan operasional, STR, dan SIP staf medis selalu dalam kondisi aktif dan terbarui. Kepatuhan terhadap regulasi bukan beban administratif, melainkan bentuk pertanggungjawaban profesional kepada pasien yang mempercayakan kesehatan mereka kepada kita.</p>
+
+    <h2>Penutup</h2>
+
+    <p>Penutupan PRIME Skin Clinic di Bali adalah satu kasus yang terungkap. Pertanyaannya: berapa banyak yang belum? Sektor estetika medis tumbuh pesat di Indonesia, termasuk di daerah wisata, dengan permintaan yang datang dari dalam dan luar negeri. Tanpa pengawasan yang sistemik dan proaktif, ruang bagi fasyankes ilegal untuk beroperasi akan terus terbuka. HIFDI menegaskan bahwa keselamatan pasien dan keadilan bagi fasyankes yang taat aturan adalah dua sisi dari satu mata uang yang sama — dan keduanya hanya bisa terjaga jika penegakan regulasi berjalan konsisten, bukan hanya pada momen-momen tertentu ketika kasus sudah viral.</p>
+
+    <div class="sources-box">
+      <div class="sources-title">Referensi</div>
+      <ul>
+        <li>Kemenkes RI — "Pemerintah Menutup Klinik Kecantikan Ilegal Milik Asing di Bali", siaran pers 16 Juni 2026 (kemkes.go.id).</li>
+        <li>ANTARA News — "RI tutup klinik kecantikan ilegal milik asing di Bali lindungi publik", 16 Juni 2026 (antaranews.com).</li>
+        <li>JPNN.com Bali — "Kemenkes Tutup PRIME Skin Clinic Bali, Terbukti Ilegal & Pekerjakan Medis Asing" (bali.jpnn.com).</li>
+        <li>Tribunnews.com — "Terungkap! Klinik Kecantikan di Bali Tak Terdaftar di Kemenkes, Gunakan Tenaga Medis Asing Ilegal" (tribunnews.com).</li>
+        <li>Detik.com Bali — "Klinik Kecantikan di Canggu Diduga Pekerjakan 5 Dokter Asing Tanpa Izin" (detik.com).</li>
+        <li>Undang-Undang Nomor 17 Tahun 2023 tentang Kesehatan — ketentuan STR dan SIP tenaga medis.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <a class="back-to-portal" href="../">← Kembali ke Portal Berita</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Himpunan Fasyankes Dokter Indonesia (HIFDI) &nbsp;|&nbsp; <a href="https://hifdi.id">hifdi.id</a> &nbsp;|&nbsp; <a href="https://academy.hifdi.id">academy.hifdi.id</a></p>
+</footer>
+
+</body>
+</html>
