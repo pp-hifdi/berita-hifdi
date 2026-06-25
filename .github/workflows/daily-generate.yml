@@ -1,0 +1,38 @@
+name: Generate HIFDI Article
+
+on:
+  schedule:
+      - cron: '0 23 * * *'   # 06:00 WIB
+          - cron: '0 11 * * *'   # 18:00 WIB
+            workflow_dispatch:         # manual trigger dari GitHub UI
+
+            jobs:
+              generate:
+                  runs-on: ubuntu-latest
+                      permissions:
+                            contents: write
+
+                                steps:
+                                      - name: Checkout repo
+                                              uses: actions/checkout@v4
+
+                                                    - name: Setup Python
+                                                            uses: actions/setup-python@v5
+                                                                    with:
+                                                                              python-version: '3.11'
+
+                                                                                    - name: Install dependencies
+                                                                                            run: pip install anthropic
+
+                                                                                                  - name: Generate article
+                                                                                                          env:
+                                                                                                                    ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+                                                                                                                            run: python scripts/generate_article.py
+                                                                                                                            
+                                                                                                                                  - name: Commit & push
+                                                                                                                                          run: |
+                                                                                                                                                    git config user.name "HIFDI Bot"
+                                                                                                                                                              git config user.email "bot@hifdi.id"
+                                                                                                                                                                        git add -A
+                                                                                                                                                                                  git diff --cached --quiet || git commit -m "auto: artikel baru $(date +'%Y-%m-%d %H:%M') WIB"
+                                                                                                                                                                                            git push
