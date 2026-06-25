@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portal berita dan informasi kesehatan dari Himpunan Fasyankes Dokter Indonesia (HIFDI).">
+  <meta property="og:title" content="Berita HIFDI — Portal Informasi Kesehatan">
+  <meta property="og:description" content="Berita, advokasi, edukasi, dan informasi terkini dari HIFDI.">
+  <meta property="og:image" content="https://berita.hifdi.id/images/og-image.png">
+  <meta property="og:type" content="website">
+  <title>Berita HIFDI — Portal Informasi Kesehatan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary:        #1B4028;
+      --color-primary-hover:  #245535;
+      --color-primary-light:  #EFF7F3;
+      --color-accent:         #E8AB28;
+      --color-accent-text:    #3D2A00;
+      --color-accent-light:   #FEFAE8;
+      --color-text-primary:   #1A1D1B;
+      --color-text-secondary: #565B56;
+      --color-text-muted:     #737874;
+      --color-border:         #DDE3DD;
+      --color-surface:        #F7F9F7;
+      --color-white:          #FFFFFF;
+      --green-50:   #EFF7F3;
+      --green-100:  #D6EFE0;
+      --green-200:  #AEDDBF;
+      --green-700:  #245535;
+      --green-800:  #1B4028;
+      --green-900:  #122B1A;
+      --green-950:  #0A1F12;
+      --gold-300:   #F5C554;
+      --gold-400:   #E8AB28;
+      --gold-900:   #3D2A00;
+      --neutral-50:  #F7F9F7;
+      --neutral-100: #EFF2EF;
+      --neutral-200: #DDE3DD;
+      --neutral-500: #737874;
+      --neutral-600: #565B56;
+      --neutral-800: #2C302D;
+      --neutral-900: #1A1D1B;
+      --font-display: 'Playfair Display', serif;
+      --font-body:    'DM Sans', sans-serif;
+      --font-mono:    'DM Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--neutral-50);
+      color: var(--color-text-primary);
+      line-height: 1.6;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--green-900);
+      border-bottom: 2px solid var(--gold-400);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      gap: 16px;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .header-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid var(--gold-400);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .header-brand {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header-brand-name {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-white);
+      line-height: 1.2;
+    }
+
+    .header-brand-tagline {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--gold-300);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .header-link {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.15);
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .header-link:hover {
+      color: var(--color-white);
+      border-color: rgba(255,255,255,0.4);
+    }
+
+    .header-link.accent {
+      background: var(--gold-400);
+      color: var(--gold-900);
+      border-color: var(--gold-400);
+      font-weight: 600;
+    }
+
+    .header-link.accent:hover {
+      background: #d49a20;
+      border-color: #d49a20;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--green-800);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      gap: 2px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .nav-inner::-webkit-scrollbar { display: none; }
+
+    .filter-btn {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.6);
+      padding: 12px 16px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover {
+      color: rgba(255,255,255,0.9);
+    }
+
+    .filter-btn.active {
+      color: var(--gold-300);
+      border-bottom-color: var(--gold-400);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--green-950);
+      border-bottom: 1px solid rgba(232,171,40,0.2);
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 24px;
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .hero-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--gold-300);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--color-white);
+      line-height: 1.25;
+    }
+
+    .hero-desc {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--green-200, #AEDDBF);
+      line-height: 1.75;
+      max-width: 520px;
+    }
+
+    .hero-legal {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.04em;
+      padding-top: 4px;
+    }
+
+    .hero-image-wrap {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(232,171,40,0.25);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+
+    .hero-image-wrap a {
+      display: block;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.3s;
+    }
+
+    .hero-image:hover {
+      opacity: 0.88;
+    }
+
+    /* ── PORTAL CONTENT ── */
+    .portal-container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 24px 80px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 28px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--neutral-200);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--green-800);
+    }
+
+    .section-count {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--neutral-500);
+    }
+
+    /* ── GRID ── */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .article-card {
+      background: var(--color-white);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--neutral-200);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .article-card:hover {
+      box-shadow: 0 6px 24px rgba(27,64,40,0.12);
+      transform: translateY(-2px);
+      border-color: var(--green-200);
+    }
+
+    .card-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      background: var(--neutral-100);
+    }
+
+    .card-body {
+      padding: 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .card-category-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .card-category {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--green-800);
+      background: var(--green-50);
+      padding: 3px 8px;
+      border-radius: 100px;
+      border: 1px solid var(--green-200);
+    }
+
+    .external-badge {
+      font-size: 11px;
+      color: var(--neutral-500);
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--neutral-900);
+      flex: 1;
+    }
+
+    .card-excerpt {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--neutral-600);
+      line-height: 1.6;
+    }
+
+    .card-meta {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--neutral-500);
+      padding-top: 4px;
+      border-top: 1px solid var(--neutral-200);
+      margin-top: auto;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--green-900);
+      border-top: 2px solid var(--gold-400);
+      padding: 32px 24px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-links a {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--gold-300);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold-400);
+    }
+
+    .footer-sep {
+      color: rgba(255,255,255,0.2);
+      font-size: 12px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        padding: 32px 24px;
+      }
+
+      .hero-image-wrap {
+        display: none;
+      }
+
+      .hero-title {
+        font-size: 26px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .articles-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .header-brand-tagline {
+        display: none;
+      }
+
+      .header-link:not(.accent) {
+        display: none;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a class="header-left" href="https://hifdi.id">
+      <img class="header-logo" src="./images/logo-hifdi.png" alt="Logo HIFDI">
+      <div class="header-brand">
+        <span class="header-brand-name">Berita HIFDI</span>
+        <span class="header-brand-tagline">Portal Informasi Fasyankes Dokter Indonesia</span>
+      </div>
+    </a>
+    <div class="header-right">
+      <a class="header-link" href="https://hifdi.id">hifdi.id</a>
+      <a class="header-link accent" href="https://academy.hifdi.id">Daftar Program</a>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <button class="filter-btn active" onclick="filterArticles('all', this)">Semua</button>
+    <button class="filter-btn" onclick="filterArticles('advokasi', this)">Advokasi</button>
+    <button class="filter-btn" onclick="filterArticles('edukasi', this)">Edukasi</button>
+    <button class="filter-btn" onclick="filterArticles('mutu', this)">Mutu</button>
+    <button class="filter-btn" onclick="filterArticles('kabar-hifdi', this)">Kabar HIFDI</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="hero-label">Himpunan Fasyankes Dokter Indonesia</span>
+      <h1 class="hero-title">HIFDI</h1>
+      <p class="hero-desc">HIFDI adalah perhimpunan independen yang menghimpun para dokter, pengelola, dan pemilik fasilitas pelayanan kesehatan di seluruh Indonesia. Organisasi ini didirikan dengan tujuan untuk meningkatkan kualitas dan aksesibilitas pelayanan kesehatan melalui integrasi berbagai fasilitas kesehatan seperti klinik, fasilitas pelayanan kesehatan primer, dan praktik dokter mandiri.</p>
+      <span class="hero-legal">Badan Hukum — SK Menkumham RI No. AHU 0005242.AH.01.07.Tahun 2023 · 5 Juli 2023</span>
+    </div>
+    <div class="hero-image-wrap">
+      <a href="https://hifdi.id/tentang-kami" target="_blank">
+        <img class="hero-image" src="./images/hero-hifdi.jpg" alt="Rapat Pengurus HIFDI">
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PORTAL CONTENT -->
+<div class="portal-container">
+
+  <div class="section-header">
+    <h2 class="section-title">Berita &amp; Informasi Terkini</h2>
+    <span class="section-count" id="articleCount">43 artikel</span>
+  </div>
+
+  <div class="articles-grid" id="articlesGrid">
+
+    <!-- ARTIKEL 034 — Advokasi — 25 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-034/" data-category="advokasi">
+      <img class="card-image" src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80" alt="Dokter menggunakan sistem rekam medis elektronik untuk merujuk pasien — ilustrasi Satu Sehat Rujukan berbasis kompetensi">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Advokasi</span>
+        </div>
+        <div class="card-title">Sistem Rujukan BPJS Berbasis Kompetensi Resmi Berlaku: Dokter FKTP Kini Penentu Arah Setiap Pasien JKN</div>
+        <div class="card-excerpt">Permenkes 16/2024 hapus sistem berjenjang D–C–B–A dan ganti dengan rujukan berbasis kompetensi lewat Satu Sehat Rujukan. HIFDI soroti tiga hal kritis yang wajib disiapkan klinik pratama dan TPMD agar tidak jadi bottleneck baru.</div>
+        <div class="card-meta">25 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 033 — Advokasi — 24 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-033/" data-category="advokasi">
+      <img class="card-image" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80" alt="Dokter memeriksa pasien di fasilitas kesehatan primer — ilustrasi krisis distribusi tenaga dokter umum Indonesia">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Advokasi</span>
+        </div>
+        <div class="card-title">93.200 Dokter "Kurang": Soal Jumlah atau Distribusi? HIFDI Urai Dua Masalah yang Tidak Bisa Dipilih Salah Satunya</div>
+        <div class="card-excerpt">Menkes sebut Indonesia kekurangan 93.200 dokter umum pada 2032, Kemendiktisaintek balas: masalahnya bukan jumlah tapi distribusi. HIFDI tegaskan keduanya nyata — dan fasyankes primer di 3T tak bisa menunggu debat selesai.</div>
+        <div class="card-meta">24 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 032 — Advokasi — 23 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-032/" data-category="advokasi">
+      <img class="card-image" src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=800&q=80" alt="Petugas administrasi klinik melayani pasien di meja penerimaan — ilustrasi manajemen jadwal kontrol di fasyankes primer">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Advokasi</span>
+        </div>
+        <div class="card-title">Aturan Baru BPJS: Kontrol Pasien Wajib Sesuai Jadwal — Peluang dan Tantangan bagi Klinik Pratama</div>
+        <div class="card-excerpt">Mulai 1 Juni 2026, pasien JKN tidak bisa lagi datang lebih awal dari tanggal surat kontrol. Klinik pratama kini harus berbenah: sistem reservasi digital, edukasi pasien, dan manajemen antrean berbasis data — atau tertinggal dalam ekosistem JKN.</div>
+        <div class="card-meta">23 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 031 — Kabar HIFDI — 23 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-031/" data-category="kabar-hifdi">
+      <img class="card-image" src="https://www.pdui-pusat.org/uploads/setting/20251224204514-2025-12-24setting204511.png" alt="Logo resmi Perhimpunan Dokter Umum Indonesia (PDUI)">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Kabar HIFDI</span>
+        </div>
+        <div class="card-title">Selamat Dilantik, PP PDUI & KDI 2026–2029: HIFDI Sambut Kepemimpinan Baru Dokter Umum Indonesia</div>
+        <div class="card-excerpt">HIFDI mengucapkan selamat atas pelantikan PP PDUI dan KDI periode 2026–2029 di Hotel JS Luwansa Jakarta, 27 Juni 2026. Agenda hari ini — dari gatekeeper FKTP hingga kepastian karier dokter umum — membuktikan bahwa suara profesi ini kini didengar di level tertinggi.</div>
+        <div class="card-meta">23 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 030 — Mutu — 23 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-030/" data-category="mutu">
+      <img class="card-image" src="https://images.unsplash.com/photo-1632833239869-a37e3a5806d2?auto=format&fit=crop&w=800&q=80" alt="Petugas kesehatan memberikan imunisasi pada anak — ilustrasi program vaksinasi campak di fasyankes primer">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Mutu</span>
+        </div>
+        <div class="card-title">58 KLB Campak di 39 Kabupaten: Saat Cakupan Imunisasi Bolong, Fasyankes Primer Jadi Garis Terdepan</div>
+        <div class="card-excerpt">Indonesia catat 10.453 kasus suspek campak dan 6 kematian di awal 2026 — cermin celah imunisasi pasca-pandemi yang belum tertutup. HIFDI soroti peran MTBS, surveilans, dan integrasi klinik pratama ke sistem EWARS Kemenkes.</div>
+        <div class="card-meta">23 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 029 — Edukasi — 23 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-029/" data-category="edukasi">
+      <img class="card-image" src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=800&q=80" alt="Kaki bayi baru lahir terbungkus selimut — ilustrasi pertolongan persalinan oleh bidan">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Edukasi</span>
+        </div>
+        <div class="card-title">Hari Bidan Nasional & HUT ke-75 IBI: "Satu Juta Lebih Bidan" dan PR Pemerataan Tenaga Kebidanan di Fasyankes Primer</div>
+        <div class="card-excerpt">24 Juni 2026 bertepatan HUT ke-75 IBI. Tema global "One Million More Midwives" jadi pengingat: masalah utama bidan Indonesia bukan jumlah, tapi distribusi — kota besar kelebihan, wilayah 3T dan Indonesia Timur kekurangan kronis.</div>
+        <div class="card-meta">23 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 028 — Advokasi — 22 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-028/" data-category="advokasi">
+      <img class="card-image" src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="Dokter memeriksa ponsel pintar — ilustrasi adopsi teknologi digital dalam layanan kesehatan primer">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Advokasi</span>
+        </div>
+        <div class="card-title">Akses Layanan Kesehatan Asia-Pasifik Makin Terhimpit: Empat Jalur Teknologi dan Pelajaran bagi Fasyankes Primer Indonesia</div>
+        <div class="card-excerpt">Laporan WEF-Deloitte ungkap akses kesehatan Asia-Pasifik makin terhimpit oleh permintaan, pasokan, biaya, dan mutu. HIFDI ingatkan: transformasi digital fasyankes primer Indonesia harus dimulai dari wilayah 3T, bukan kota besar yang sudah terlayani.</div>
+        <div class="card-meta">22 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 027 — Mutu — 22 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-027/" data-category="mutu">
+      <img class="card-image" src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=800&q=80" alt="Lorong fasilitas kesehatan — ilustrasi layanan primer yang tetap beroperasi saat libur panjang">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Mutu</span>
+        </div>
+        <div class="card-title">Saat Libur Panjang, Layanan Primer Tak Boleh Libur: Pelajaran dari Qatar untuk Fasyankes Primer Indonesia</div>
+        <div class="card-excerpt">PHCC Qatar layani 18.700 pasien lewat rotasi 21 pusat kesehatan primer dan hotline virtual saat libur Idul Adha. HIFDI urai tiga pelajaran model ini bagi puskesmas dan klinik pratama Indonesia yang masih sering tutup total saat hari besar.</div>
+        <div class="card-meta">22 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 026 — Advokasi — 22 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-026/" data-category="advokasi">
+      <img class="card-image" src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80" alt="Tim dokter berjalan di koridor rumah sakit — ilustrasi krisis kekurangan tenaga medis di Indonesia">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Advokasi</span>
+        </div>
+        <div class="card-title">Indonesia Kekurangan 93.200 Dokter Umum: Krisis SDM yang Mengancam Fasyankes Primer</div>
+        <div class="card-excerpt">Menkes Budi Gunadi Sadikin ungkap data proyeksi 10 tahun pertama: gap dokter umum nasional capai 93.200, sementara lulusan baru hanya 12.000-14.000 per tahun. HIFDI urai dampaknya bagi puskesmas, klinik pratama, dan TPMD.</div>
+        <div class="card-meta">22 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 025 — Mutu — 21 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-025/" data-category="mutu">
+      <img class="card-image" src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Dokter memeriksa area perut pasien — ilustrasi deteksi dini penyakit hati di fasyankes primer">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Mutu</span>
+        </div>
+        <div class="card-title">Deteksi Dini Penyakit Hati Naik Level: Kemenkes Siapkan USG dan AI untuk Dokter Umum di Puskesmas</div>
+        <div class="card-excerpt">Menkes Budi Gunadi Sadikin umumkan kebijakan baru: USG dan AI dipakai dokter umum di puskesmas untuk deteksi dini penyakit hati. HIFDI soroti tiga prasyarat — pelatihan, pemerataan alat, dan kepastian hukum diagnosis berbantuan AI.</div>
+        <div class="card-meta">21 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 024 — Edukasi — 21 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-024/" data-category="edukasi">
+      <img class="card-image" src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80" alt="Sekelompok lanjut usia berlatih yoga bersama di luar ruangan">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Edukasi</span>
+        </div>
+        <div class="card-title">Hari Yoga Internasional 2026: "Yoga for Healthy Ageing" dan Peluang Posyandu Lansia di Fasyankes Primer</div>
+        <div class="card-excerpt">Tema global "Yoga for Healthy Ageing" jadi pengingat: Posbindu PTM dan Posyandu Lansia di Indonesia masih berhenti pada cek tensi dan gula darah, belum optimal sebagai wadah aktivitas fisik terstruktur bagi lanjut usia.</div>
+        <div class="card-meta">21 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 023 — Mutu — 20 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-023/" data-category="mutu">
+      <img class="card-image" src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=800&q=80" alt="Tenaga kesehatan menggunakan tablet digital untuk mengakses data rekam medis elektronik">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Mutu</span>
+        </div>
+        <div class="card-title">1.210 dari 1.650 Rumah Sakit Vietnam Sudah Pakai Rekam Medis Elektronik: Bagaimana Posisi Fasyankes Primer Indonesia?</div>
+        <div class="card-excerpt">Vietnam integrasikan 34 juta rekam medis elektronik ke identitas digital nasional VNeID, dengan 73% rumah sakit sudah migrasi. HIFDI bandingkan capaian ini dengan tenggat ASRI gratis Desember 2026 di Indonesia yang masih mendekat.</div>
+        <div class="card-meta">20 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 022 — Edukasi — 20 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-022/" data-category="edukasi">
+      <img class="card-image" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=80" alt="Percakapan empatik antara tenaga kesehatan dan pasien — ilustrasi layanan kesehatan jiwa di fasyankes primer">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Edukasi</span>
+        </div>
+        <div class="card-title">Panduan Intervensi Jiwa Mandiri WHO 2026: Momentum bagi Puskesmas yang Baru 40% Siap Layani Kesehatan Mental</div>
+        <div class="card-excerpt">WHO rilis panduan self-help psikologis berbasis bukti — Step-by-Step dan Doing What Matters — yang bisa dijalankan kader puskesmas tanpa pelatihan spesialis panjang. Sementara 1.443 kasus pemasungan skizofrenia masih tercatat di 2026, 60% puskesmas belum punya layanan jiwa sama sekali.</div>
+        <div class="card-meta">20 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 021 — Mutu — 19 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-021/" data-category="mutu">
+      <img class="card-image" src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=800&q=80" alt="Pemeriksaan laboratorium untuk diagnosis TBC — mikroskop dan sampel dahak">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Mutu</span>
+        </div>
+        <div class="card-title">Empat Tahun Menuju Eliminasi TBC 2030: Fasyankes Primer Sebagai Kunci yang Belum Optimal</div>
+        <div class="card-excerpt">Indonesia tercatat sebagai negara dengan beban TBC kedua terbesar di dunia — 889 ribu kasus ternotifikasi pada 2024 dengan target eliminasi 2030 yang masih berat. HIFDI soroti peran klinik pratama dan TPMD dalam jaringan penanggulangan TBC yang selama ini kerap jadi celah.</div>
+        <div class="card-meta">19 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 020 — Advokasi — 19 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-020/" data-category="advokasi">
+      <img class="card-image" src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&w=800&q=80" alt="Dokter memeriksa dokumen perizinan klinik — ilustrasi pengawasan fasyankes legal">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Advokasi</span>
+        </div>
+        <div class="card-title">Klinik Kecantikan Ilegal di Bali: Ketika Fasyankes Beroperasi di Luar Sistem, Siapa yang Dirugikan?</div>
+        <div class="card-excerpt">Kemenkes tutup PRIME Skin Clinic Bali — tidak terdaftar di sistem Kemenkes, pekerjakan dokter WNA tanpa STR/SIP. HIFDI soroti dampak bagi pasien, fasyankes legal, dan urgensi pengawasan sistemik terhadap klinik ilegal di kawasan wisata.</div>
+        <div class="card-meta">19 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 019 — Edukasi — 18 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-019/" data-category="edukasi">
+      <img class="card-image" src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=800&q=80" alt="Pemeriksaan tekanan darah sebagai bagian dari Cek Kesehatan Gratis (CKG) di fasyankes primer">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Edukasi</span>
+        </div>
+        <div class="card-title">CKG 2026: Dari Skrining ke Pengobatan — Kesiapan Fasyankes Primer Mengelola Tindak Lanjut</div>
+        <div class="card-excerpt">Kemenkes tegaskan CKG 2026 tidak berhenti di skrining: pasien hipertensi dan diabetes langsung mendapat obat di puskesmas hari yang sama. HIFDI urai tiga tantangan operasional kritis yang harus disiapkan fasyankes primer.</div>
+        <div class="card-meta">18 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 018 — Advokasi — 18 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-018/" data-category="advokasi">
+      <img class="card-image" src="https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe?auto=format&fit=crop&w=800&q=80" alt="Proses penandatanganan perjanjian kerjasama fasyankes — ilustrasi kredensial BPJS klinik pratama">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Advokasi</span>
+        </div>
+        <div class="card-title">Kredensial BPJS 2026: Akreditasi Wajib, Bridging RME, dan Antrean Online — Tiga Kunci Lolos Menjadi FKTP Mitra JKN</div>
+        <div class="card-excerpt">BPJS Kesehatan kini mewajibkan akreditasi minimal Dasar/Madya, RME dengan bridging P-Care, dan antrean online Mobile JKN sebagai syarat kredensialing FKTP. HIFDI urai implikasi bagi klinik pratama dan TPMD yang belum siap.</div>
+        <div class="card-meta">18 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 017 — Edukasi — 17 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-017/" data-category="edukasi">
+      <img class="card-image" src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800&q=80" alt="Tenaga kesehatan menggunakan teknologi digital dalam layanan primer">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Edukasi</span>
+        </div>
+        <div class="card-title">WHO SEARO Bangun Kerangka AI Berbasis Bukti untuk Layanan Primer: Momentum bagi Fasyankes Indonesia</div>
+        <div class="card-excerpt">WHO SEARO dan George Institute tandatangani kolaborasi implementasi AI berbasis bukti untuk fasyankes primer dan PTM. Indonesia sebagai anggota SEARO berpeluang langsung memanfaatkan panduan tata kelola AI dan standar interoperabilitas RME yang dihasilkan.</div>
+        <div class="card-meta">17 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 016 — Mutu — 16 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-016/" data-category="mutu">
+      <img class="card-image" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="Dokter menggunakan sistem rekam medis elektronik SATUSEHAT">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Mutu</span>
+        </div>
+        <div class="card-title">ASRI Gratis Berakhir Desember 2026: Saatnya Praktik Mandiri Dokter Serius Migrasi ke Rekam Medis Elektronik</div>
+        <div class="card-excerpt">Enam bulan sebelum masa gratis ASRI berakhir, banyak TPMD dan TPMDG belum terintegrasi SATUSEHAT. HIFDI dorong fasyankes primer segera selesaikan registrasi RME sesuai Permenkes 24/2022.</div>
+        <div class="card-meta">16 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+
+    <!-- ARTIKEL 015 — Advokasi — 16 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-015/" data-category="advokasi">
+      <img class="card-image" src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80" alt="Fasilitas pelayanan kesehatan — puskesmas dan klinik sebagai FKTP BPJS Kesehatan">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Advokasi</span>
+        </div>
+        <div class="card-title">Aturan Baru Kontrol BPJS Mulai 1 Juni 2026: Kesiapan FKTP Menjadi Kunci Keberhasilan Implementasi</div>
+        <div class="card-excerpt">BPJS wajibkan pasien datang tepat tanggal surat kontrol mulai 1 Juni 2026. HIFDI menyoroti implikasi operasional bagi klinik pratama dan puskesmas serta risiko hambatan akses bagi pasien rentan yang belum melek digital.</div>
+        <div class="card-meta">16 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 014 — Kabar HIFDI — 16 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-014/" data-category="kabar-hifdi">
+      <img class="card-image" src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=800&q=80" alt="Bulan sabit di langit malam — simbol tahun baru Hijriyah 1 Muharram">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Kabar HIFDI</span>
+        </div>
+        <div class="card-title">Selamat Tahun Baru Islam 1448 H: Muhasabah Kesehatan dan Puasa Asyura bagi Fasyankes Primer</div>
+        <div class="card-excerpt">HIFDI mengucapkan selamat 1 Muharram 1448 H. Bulan Muharram dan tradisi puasa Asyura membawa pesan penting bagi dokter dan fasyankes dalam mendampingi pasien kronis berpuasa secara aman.</div>
+        <div class="card-meta">16 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 013 — Mutu — 15 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-013/" data-category="mutu">
+      <img class="card-image" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Teknologi kecerdasan buatan (AI) dalam layanan kesehatan modern">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Mutu</span>
+        </div>
+        <div class="card-title">Rumah Sakit Berbasis AI di China: Sinyal Transformasi Digital yang Perlu Disiapkan Fasyankes Indonesia</div>
+        <div class="card-excerpt">China meluncurkan rumah sakit berbasis AI pertama di Hainan. HIFDI membahas peluang dan tantangan adopsi AI bagi fasyankes primer Indonesia, dari skrining massal hingga literasi digital dokter.</div>
+        <div class="card-meta">15 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 012 — Edukasi — 15 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-012/" data-category="edukasi">
+      <img class="card-image" src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?auto=format&fit=crop&w=800&q=80" alt="Nyamuk Aedes aegypti — vektor penularan demam berdarah dengue (DBD)">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Edukasi</span>
+        </div>
+        <div class="card-title">ASEAN Dengue Day 2026: "Zero Dengue Deaths" dan Peran Fasyankes Primer dalam Diagnosis Dini DBD</div>
+        <div class="card-excerpt">Memperingati ASEAN Dengue Day bertema "Zero Dengue Deaths by 2030", HIFDI menyoroti peran puskesmas dan klinik dalam diagnosis dini, surveilans, dan edukasi 3M Plus di tengah musim kemarau panjang.</div>
+        <div class="card-meta">15 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 011 — Mutu — 14 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-011/" data-category="mutu">
+      <img class="card-image" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80" alt="Dokter berkonsultasi dengan pasien di fasilitas kesehatan primer">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Mutu</span>
+        </div>
+        <div class="card-title">Setahun Cek Kesehatan Gratis: Fasyankes Primer Hadapi Tantangan Baru, dari Skrining ke Pengobatan Nyata</div>
+        <div class="card-excerpt">Kemenkes tegaskan fokus CKG tahun kedua bergeser dari skrining ke pengobatan. HIFDI soroti kesiapan puskesmas dan klinik menjalankan tata laksana berkelanjutan bagi pasien hipertensi, diabetes, dan gangguan gigi-mulut.</div>
+        <div class="card-meta">14 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 010 — Edukasi — 14 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-010/" data-category="edukasi">
+      <img class="card-image" src="https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&fit=crop&w=800&q=80" alt="Proses donor darah — ilustrasi kegiatan donor darah sukarela">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Edukasi</span>
+        </div>
+        <div class="card-title">Hari Donor Darah Sedunia 2026: Fasyankes dan Dokter Jadi Garda Terdepan Jamin Darah Aman bagi Pasien</div>
+        <div class="card-excerpt">Memperingati Hari Donor Darah Sedunia bertema "One Drop of Humanity. Give Blood. Save Lives.", HIFDI menyoroti peran fasyankes dan dokter dalam edukasi donor sukarela serta menjaga mutu pelayanan transfusi darah.</div>
+        <div class="card-meta">14 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 009 — Kabar HIFDI — 13 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-009/" data-category="kabar-hifdi">
+      <img class="card-image" src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=800&q=80" alt="Seseorang tertidur di malam hari — ilustrasi kurang tidur akibat begadang">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Kabar HIFDI</span>
+        </div>
+        <div class="card-title">Begadang Nonton Piala Dunia 2026? Sekjen HIFDI Bagikan Tips Agar Badan Tetap Fit</div>
+        <div class="card-excerpt">Sekjen HIFDI dr. Putro S. Muhammad membagikan tips menjaga kondisi tubuh bagi penggemar bola yang begadang menonton Piala Dunia 2026 — power nap, pilih laga penting, dan kompensasi tidur.</div>
+        <div class="card-meta">13 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 008 — Mutu — 13 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-008/" data-category="mutu">
+      <img class="card-image" src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80" alt="Sampel darah untuk pemeriksaan laboratorium — ilustrasi skrining kesehatan">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Mutu</span>
+        </div>
+        <div class="card-title">CKG dan Deteksi Dini Penyakit Hati: Peran Baru Puskesmas dalam Menjaring Fatty Liver Sejak Awal</div>
+        <div class="card-excerpt">Kemenkes mendorong skrining risiko gangguan hati lewat program Cek Kesehatan Gratis di Puskesmas. HIFDI menyoroti kesiapan dokter umum dan fasyankes primer menjalankan peran baru ini.</div>
+        <div class="card-meta">13 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 007 — Edukasi — 12 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-007/" data-category="edukasi">
+      <img class="card-image" src="https://images.unsplash.com/photo-1480044965905-02098d419e96?auto=format&fit=crop&w=800&q=80" alt="Nyamuk hinggap di kulit — ilustrasi risiko penularan demam berdarah dengue (DBD)">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Edukasi</span>
+        </div>
+        <div class="card-title">Musim Kemarau Panjang 2026: Kemenkes Ingatkan Risiko DBD, ISPA, dan Heat Stroke</div>
+        <div class="card-excerpt">Kemarau 2026 diprediksi lebih panjang dan kering. Kemenkes ingatkan lonjakan DBD, ISPA, dan heat stroke — HIFDI menyoroti kesiapsiagaan fasyankes primer menghadapi pola risiko musiman ini.</div>
+        <div class="card-meta">12 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 006 — Mutu — 11 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-006/" data-category="mutu">
+      <img class="card-image" src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?auto=format&fit=crop&w=800&q=80" alt="Tenaga kesehatan memeriksa tekanan darah pasien di fasilitas kesehatan primer">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Mutu</span>
+        </div>
+        <div class="card-title">Obat Langsung di Hari yang Sama: Tantangan Fasyankes Primer Menjalankan Kebijakan Baru CKG 2026</div>
+        <div class="card-excerpt">Mulai 2026, pasien hipertensi dan diabetes hasil CKG akan langsung mendapat obat di Puskesmas pada hari yang sama. HIFDI menyoroti kesiapan fasyankes primer menjalankan komitmen ini.</div>
+        <div class="card-meta">11 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 005 — Edukasi — 11 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-005/" data-category="edukasi">
+      <img class="card-image" src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=800&q=80" alt="Dokter memegang stetoskop — ilustrasi pemeriksaan kesehatan pria">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Edukasi</span>
+        </div>
+        <div class="card-title">Hari Kanker Prostat Sedunia: Saatnya Pria Indonesia Tak Lagi Abai pada Deteksi Dini</div>
+        <div class="card-excerpt">Setiap 11 Juni diperingati Hari Kanker Prostat Sedunia. Kenali risiko, gejala, dan pentingnya skrining PSA — serta bagaimana program Cek Kesehatan Gratis bisa jadi pintu masuk deteksi dini di fasyankes.</div>
+        <div class="card-meta">11 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 004 — Edukasi — 12 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-004/" data-category="edukasi">
+      <img class="card-image" src="./images/article-004-featured.jpg" alt="Ilustrasi komunitas sehat dan alam lestari">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Edukasi</span>
+        </div>
+        <div class="card-title">Ekologi, Keadilan, dan Tanggung Jawab Peradaban: Menuju Paradigma Pembangunan yang Benar-Benar Membangun</div>
+        <div class="card-excerpt">Krisis ekologis dan krisis sosial adalah dua wajah dari satu penyakit. Kolom dr. Zaenal Abidin tentang integrasi analisis kritis, etika keadilan ekologis Al-Qaradhawi, dan visi spiritual Nasr sebagai fondasi paradigma pembangunan baru.</div>
+        <div class="card-meta">12 Juni 2026 · dr. Zaenal Abidin SH MH</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 003 — Advokasi — 11 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-003/" data-category="advokasi">
+      <img class="card-image" src="./images/article-003-featured.jpg" alt="Puskesmas di pedesaan Indonesia">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Advokasi</span>
+        </div>
+        <div class="card-title">Negara Hadir, Pintu Terkunci: Krisis Eksklusi PBI dan Tanggung Jawab Moral atas Program JKN</div>
+        <div class="card-excerpt">11,17 juta peserta PBI JKN dinonaktifkan sekaligus dalam hitungan jam. Di balik setiap nomor kepesertaan ada manusia — pasien gagal ginjal, penderita kanker, ibu hamil — yang kini menggantung antara hak konstitusional dan pintu yang tertutup rapat.</div>
+        <div class="card-meta">11 Juni 2026 · dr. Zaenal Abidin SH MH</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 002 — Edukasi — 9 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-002/" data-category="edukasi">
+      <img class="card-image" src="./images/article-002-featured.jpg" alt="Pohon hijau dan langit biru — udara bersih">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Edukasi</span>
+        </div>
+        <div class="card-title">Udara yang Kita Hirup dan Kesehatan Kita</div>
+        <div class="card-excerpt">Indonesia tercatat sebagai negara paling berpolusi di Asia Tenggara. PM2.5 Jakarta delapan kali di atas batas aman WHO. Kolom dr. Zaenal Abidin tentang ancaman nyata polusi udara dan apa yang harus kita lakukan.</div>
+        <div class="card-meta">9 Juni 2026 · dr. Zaenal Abidin SH MH</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 001 — Kabar HIFDI — 8 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-001/" data-category="kabar-hifdi">
+      <img class="card-image" src="./images/article-001-featured.jpg" alt="dr. Zaenal Abidin SH MH, Ketua Umum HIFDI">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Kabar HIFDI</span>
+        </div>
+        <div class="card-title">Ketika Laut Bicara: Kearifan Bugis terhadap Tasi' yang Terlupakan</div>
+        <div class="card-excerpt">Dalam rangka Hari Laut Sedunia, Ketua Umum HIFDI dr. Zaenal Abidin SH MH merenungkan kearifan lokal Bugis dalam menjaga tasi' — dan mengapa kita perlu mengingat kembali perjanjian manusia dengan laut.</div>
+        <div class="card-meta">8 Juni 2026 · dr. Zaenal Abidin SH MH</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 1 — Kabar HIFDI — 24 Jan 2026 -->
+    <a class="article-card" href="https://wanitaindonesianews.com/2026/01/hifdi-soroti-peran-strategis-gizi-dalam-ketahanan-nasional-pada-hari-gizi-nasional-2026/" target="_blank" data-category="kabar-hifdi">
+      <img class="card-image" src="https://wanitaindonesianews.com/wp-content/uploads/2026/01/1001068316-737x1400.jpg" alt="HIFDI webinar gizi nasional 2026">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Kabar HIFDI</span>
+          <span class="external-badge">↗</span>
+        </div>
+        <div class="card-title">HIFDI Soroti Peran Strategis Gizi dalam Ketahanan Nasional pada Hari Gizi Nasional 2026</div>
+        <div class="card-excerpt">HIFDI menggelar webinar "Mengasuh Gizi Bangsa: Menguatkan Ketahanan Nasional" dengan tiga narasumber lintas disiplin yang membahas peran strategis gizi dalam membangun generasi bangsa yang sehat dan berkualitas.</div>
+        <div class="card-meta">24 Januari 2026 · Wanita Indonesia News</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 2 — Kabar HIFDI — 20-21 Mei 2025 -->
+    <a class="article-card" href="https://www.pinisi.co.id/hari-kebangkitan-nasional-2025-hifdi-bangkit-dokter-bersatu-bangsa-sehat/" target="_blank" data-category="kabar-hifdi">
+      <img class="card-image" src="https://pinisi.co.id/wp-content/uploads/2025/05/IMG-20250521-WA0211.jpg" alt="Forum Diskusi Nasional HIFDI Bangkit 2025">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Kabar HIFDI</span>
+          <span class="external-badge">↗</span>
+        </div>
+        <div class="card-title">Hari Kebangkitan Nasional 2025 "HIFDI Bangkit: Dokter Bersatu, Bangsa Sehat"</div>
+        <div class="card-excerpt">HIFDI menggelar Forum Diskusi Nasional bertema "HIFDI Bangkit: Dokter Bersatu, Bangsa Sehat" dengan pengurus HIFDI dan perwakilan tenaga kesehatan dari berbagai fasyankes di seluruh Indonesia, membahas tantangan strategis sektor kesehatan.</div>
+        <div class="card-meta">20–21 Mei 2025 · Pinisi.co.id</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 3 — Kabar HIFDI — 21 Mei 2025 -->
+    <a class="article-card" href="https://www.politikindonesia.id/hari-kebangkitan-nasional-hifdi-serukan-dokter-bersatu" target="_blank" data-category="kabar-hifdi">
+      <img class="card-image" src="https://dashboard.politikindonesia.id/uploads/images/2025/05/image_750x500_682ddd1995478.jpg" alt="HIFDI serukan dokter bersatu hari kebangkitan nasional">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Kabar HIFDI</span>
+          <span class="external-badge">↗</span>
+        </div>
+        <div class="card-title">Hari Kebangkitan Nasional, HIFDI Serukan Dokter Bersatu</div>
+        <div class="card-excerpt">Sekjen HIFDI Dr. Putro S. Muhammad menyatakan komitmen HIFDI untuk memperkuat layanan primer, memperjuangkan keadilan sistemik bagi tenaga kesehatan, dan membangun kolaborasi yang erat antara masyarakat, pemerintah, dan sektor kesehatan.</div>
+        <div class="card-meta">21 Mei 2025 · Politik Indonesia.id</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 4 — Advokasi — 16 Des 2024 -->
+    <a class="article-card" href="https://ameera.republika.co.id/berita/sokmfc425/dokter-koas-dianiaya-hifdi-soroti-pentingnya-perlindungan-hukum" target="_blank" data-category="advokasi">
+      <img class="card-image" src="https://static.republika.co.id/uploads/images/kanal_slide/stetoskop-dokter-_170723195717-289.jpg" alt="Stetoskop dokter ilustrasi perlindungan hukum">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Advokasi</span>
+          <span class="external-badge">↗</span>
+        </div>
+        <div class="card-title">Dokter Koas Dianiaya, HIFDI Soroti Pentingnya Perlindungan Hukum</div>
+        <div class="card-excerpt">Sekjen HIFDI dr. Putro Muhammad menyampaikan keprihatinan terhadap kasus kekerasan yang dialami Muhammad Luthfi, chief koas di Universitas Sriwijaya, dan menyoroti pentingnya penguatan perlindungan hukum dari institusi kampus dan pemerintah terhadap dokter muda.</div>
+        <div class="card-meta">16 Desember 2024 · Republika</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 5 — Advokasi — 17 Des 2024 -->
+    <a class="article-card" href="https://rejogja.republika.co.id/berita/son1cs282/diperiksa-polisi-di-polsek-ilir-timur-majikan-sopir-penganiaya-dokter-koas-minta-maaf" target="_blank" data-category="advokasi">
+      <img class="card-image" src="https://static.republika.co.id/uploads/images/kanal_slide/polisi-ilustrasi-_130203224911-413.jpg" alt="Ilustrasi polisi pemeriksaan">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Advokasi</span>
+          <span class="external-badge">↗</span>
+        </div>
+        <div class="card-title">Diperiksa Polisi di Polsek Ilir Timur, Majikan Sopir Penganiaya Dokter Koas Minta Maaf</div>
+        <div class="card-excerpt">Lina Dedy, majikan sopir penganiaya dokter koas, diperiksa polisi selama 12 jam dan menyampaikan permohonan maaf kepada korban Muhammad Luthfi atas penganiayaan yang dilakukan oleh sopirnya.</div>
+        <div class="card-meta">17 Desember 2024 · Republika</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 9 — Mutu — 11 Nov 2024 -->
+    <a class="article-card" href="https://pinisi.co.id/risalah-dialog-publik-himpunan-fasyankes-dokter-indonesia-hifdi/" target="_blank" data-category="mutu">
+      <img class="card-image" src="https://pinisi.co.id/wp-content/uploads/2024/11/IMG-20241112-WA0262.jpg" alt="Dialog publik HIFDI obesitas anak">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Mutu</span>
+          <span class="external-badge">↗</span>
+        </div>
+        <div class="card-title">Risalah Dialog Publik HIFDI: Melawan Obesitas Anak Mewujudkan Generasi Sehat Menuju Indonesia Emas 2045</div>
+        <div class="card-excerpt">HIFDI, bekerja sama dengan IDI dan KPAI, menyelenggarakan dialog publik daring tentang obesitas anak dengan menghadirkan empat narasumber yang membahas pendekatan komprehensif mulai dari perspektif akademik, klinis, jaminan sosial, hingga perlindungan anak.</div>
+        <div class="card-meta">11 November 2024 · Pinisi.co.id</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 6 — Advokasi — 16 Ags 2024 -->
+    <a class="article-card" href="https://www.antaranews.com/berita/4268311/akses-pasien-kanker-payudara-ke-trastuzumab-terhalang-birokrasi" target="_blank" data-category="advokasi">
+      <img class="card-image" src="https://cdn.antaranews.com/cache/1200x800/2024/07/06/kanker.jpeg" alt="Ilustrasi pasien kanker payudara trastuzumab">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Advokasi</span>
+          <span class="external-badge">↗</span>
+        </div>
+        <div class="card-title">Akses Pasien Kanker Payudara ke Trastuzumab Terhalang Birokrasi</div>
+        <div class="card-excerpt">Ketua Perhimpunan Onkologi Indonesia (POI) menyayangkan bahwa akses pasien ke trastuzumab, pengobatan standar untuk kanker payudara jenis HER2+, masih belum optimal karena kendala birokrasi meskipun regulasi Menteri Kesehatan telah dikeluarkan.</div>
+        <div class="card-meta">16 Agustus 2024 · ANTARA News</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 7 — Advokasi — 16 Ags 2024 -->
+    <a class="article-card" href="https://nasional.sindonews.com/read/1437313/15/pemerintah-didorong-jamin-akses-trastuzumab-untuk-pengobatan-kanker-1723856929" target="_blank" data-category="advokasi">
+      <img class="card-image" src="https://cdn.antaranews.com/cache/1200x800/2024/07/06/kanker.jpeg" alt="Ilustrasi akses pengobatan kanker trastuzumab">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Advokasi</span>
+          <span class="external-badge">↗</span>
+        </div>
+        <div class="card-title">Pemerintah Didorong Jamin Akses Trastuzumab untuk Pengobatan Kanker</div>
+        <div class="card-excerpt">HIFDI melalui keikutsertaannya dalam forum diskusi mendorong pemerintah dan BPJS Kesehatan untuk memastikan akses obat trastuzumab bagi pasien kanker payudara stadium dini sebagai bagian dari upaya pemenuhan hak pasien.</div>
+        <div class="card-meta">16 Agustus 2024 · Sindonews</div>
+      </div>
+    </a>
+
+    <!-- ARTIKEL 8 — Advokasi — 17 Ags 2024 -->
+    <a class="article-card" href="https://www.inibalikpapan.com/cisc-sesalkan-bpjs-belum-tanggung-obat-trastuzumab-bagi-pasien-kanker-payudara/" target="_blank" data-category="advokasi">
+      <img class="card-image" src="https://cdn.antaranews.com/cache/1200x800/2024/07/06/kanker.jpeg" alt="Ilustrasi BPJS trastuzumab kanker payudara">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Advokasi</span>
+          <span class="external-badge">↗</span>
+        </div>
+        <div class="card-title">CISC Sesalkan BPJS Belum Sediakan Obat Trastuzumab Bagi Pasien Kanker Payudara</div>
+        <div class="card-excerpt">Cancer Information and Support Center (CISC) menyesalkan BPJS Kesehatan belum menyediakan obat trastuzumab bagi pasien kanker payudara, dalam diskusi yang melibatkan HIFDI dan berbagai stakeholder kesehatan tentang solusi ketersediaan obat.</div>
+        <div class="card-meta">17 Agustus 2024 · Inibalikpapan.com</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-copy">© 2026 Himpunan Fasyankes Dokter Indonesia (HIFDI)</span>
+    <div class="footer-links">
+      <a href="https://hifdi.id">hifdi.id</a>
+      <span class="footer-sep">|</span>
+      <a href="https://academy.hifdi.id">academy.hifdi.id</a>
+      <span class="footer-sep">|</span>
+      <a href="mailto:pp.hifdi@gmail.com">pp.hifdi@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function filterArticles(category, btn) {
+    const cards = document.querySelectorAll('.article-card');
+    const buttons = document.querySelectorAll('.filter-btn');
+
+    buttons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    let visible = 0;
+    cards.forEach(card => {
+      const show = category === 'all' || card.dataset.category === category;
+      card.style.display = show ? 'flex' : 'none';
+      if (show) visible++;
+    });
+
+    document.getElementById('articleCount').textContent = visible + ' artikel';
+  }
+</script>
+
+</body>
+</html>
