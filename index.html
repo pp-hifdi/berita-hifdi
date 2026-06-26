@@ -529,10 +529,23 @@
 
   <div class="section-header">
     <h2 class="section-title">Berita &amp; Informasi Terkini</h2>
-    <span class="section-count" id="articleCount">44 artikel</span>
+    <span class="section-count" id="articleCount">45 artikel</span>
   </div>
 
   <div class="articles-grid" id="articlesGrid">
+
+    <!-- ARTIKEL 036 — Edukasi — 26 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-036/" data-category="edukasi">
+      <img class="card-image" src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="Tenaga kesehatan bekerja dengan sistem informasi digital di fasilitas pelayanan kesehatan">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Edukasi</span>
+        </div>
+        <div class="card-title">Burnout Nakes dan Beban Administrasi: Apa yang Bisa AI Lakukan untuk Klinik Pratama?</div>
+        <div class="card-excerpt">Data ILO Jakarta 2026: 1 dari 3 nakes burnout bukan karena pasien, tapi karena sepertiga waktunya habis untuk administrasi. Indonesia punya >16.000 klinik dengan sistem berbeda — inilah celah yang bisa diisi AI, beserta batas amannya.</div>
+        <div class="card-meta">26 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
 
     <!-- ARTIKEL 035 — Mutu — 26 Juni 2026 — INTERNAL -->
     <a class="article-card" href="./article-035/" data-category="mutu">
@@ -1120,36 +1133,4 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <span class="footer-copy">© 2026 Himpunan Fasyankes Dokter Indonesia (HIFDI)</span>
-    <div class="footer-links">
-      <a href="https://hifdi.id">hifdi.id</a>
-      <span class="footer-sep">|</span>
-      <a href="https://academy.hifdi.id">academy.hifdi.id</a>
-      <span class="footer-sep">|</span>
-      <a href="mailto:pp.hifdi@gmail.com">pp.hifdi@gmail.com</a>
-    </div>
-  </div>
-</footer>
-
-<script>
-  function filterArticles(category, btn) {
-    const cards = document.querySelectorAll('.article-card');
-    const buttons = document.querySelectorAll('.filter-btn');
-
-    buttons.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    let visible = 0;
-    cards.forEach(card => {
-      const show = category === 'all' || card.dataset.category === category;
-      card.style.display = show ? 'flex' : 'none';
-      if (show) visible++;
-    });
-
-    document.getElementById('articleCount').textContent = visible + ' artikel';
-  }
-</script>
-
-</body>
-</html>
+  <div class="footer-
