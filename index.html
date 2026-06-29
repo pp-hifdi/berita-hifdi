@@ -529,10 +529,23 @@
 
   <div class="section-header">
     <h2 class="section-title">Berita &amp; Informasi Terkini</h2>
-    <span class="section-count" id="articleCount">47 artikel</span>
+    <span class="section-count" id="articleCount">48 artikel</span>
   </div>
 
   <div class="articles-grid" id="articlesGrid">
+
+    <!-- ARTIKEL 039 — Advokasi — 30 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-039/" data-category="advokasi">
+      <img class="card-image" src="https://images.unsplash.com/photo-1504813184591-01572f98c85f?auto=format&fit=crop&w=800&q=80" alt="Tenaga kesehatan mencatat hasil pemeriksaan pasien dalam program skrining nasional CKG">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Advokasi</span>
+        </div>
+        <div class="card-title">CKG Masuk Tahun Kedua: Fokus Bergeser ke Penanganan — Klinik Pratama Harus Siap Jadi Ujung Eksekusi</div>
+        <div class="card-excerpt">100 juta peserta CKG sudah diskrining — kini fase sesungguhnya dimulai. Pasien terdeteksi hipertensi dan diabetes langsung dapat obat di hari yang sama, dan klinik pratama ada di garis terdepan tindak lanjutnya.</div>
+        <div class="card-meta">30 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
 
     <!-- ARTIKEL 038 — Edukasi — 30 Juni 2026 — INTERNAL -->
     <a class="article-card" href="./article-038/" data-category="edukasi">
@@ -1160,36 +1173,4 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <span class="footer-copy">© 2026 Himpunan Fasyankes Dokter Indonesia (HIFDI)</span>
-    <div class="footer-links">
-      <a href="https://hifdi.id">hifdi.id</a>
-      <span class="footer-sep">|</span>
-      <a href="https://academy.hifdi.id">academy.hifdi.id</a>
-      <span class="footer-sep">|</span>
-      <a href="mailto:pp.hifdi@gmail.com">pp.hifdi@gmail.com</a>
-    </div>
-  </div>
-</footer>
-
-<script>
-  function filterArticles(category, btn) {
-    const cards = document.querySelectorAll('.article-card');
-    const buttons = document.querySelectorAll('.filter-btn');
-
-    buttons.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    let visible = 0;
-    cards.forEach(card => {
-      const show = category === 'all' || card.dataset.category === category;
-      card.style.display = show ? 'flex' : 'none';
-      if (show) visible++;
-    });
-
-    document.getElementById('articleCount').textContent = visible + ' artikel';
-  }
-</script>
-
-</body>
-</html>
+  <div class="footer-inner"
