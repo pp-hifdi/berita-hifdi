@@ -529,10 +529,23 @@
 
   <div class="section-header">
     <h2 class="section-title">Berita &amp; Informasi Terkini</h2>
-    <span class="section-count" id="articleCount">45 artikel</span>
+    <span class="section-count" id="articleCount">46 artikel</span>
   </div>
 
   <div class="articles-grid" id="articlesGrid">
+
+    <!-- ARTIKEL 037 — Mutu — 26 Juni 2026 — INTERNAL -->
+    <a class="article-card" href="./article-037/" data-category="mutu">
+      <img class="card-image" src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80" alt="Obat-obatan dan formularium — manajemen klaim obat JKN di klinik pratama">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Mutu</span>
+        </div>
+        <div class="card-title">Fornas 2025 Sudah Berlaku 3 Bulan — Empat Restriksi Obat yang Paling Sering Jadi Temuan Audit BPJS di Klinik Pratama</div>
+        <div class="card-excerpt">Kepmenkes 1199/2025 berlaku April 2026 membawa restriksi lebih ketat untuk candesartan, atorvastatin, bisoprolol, dan klozapin. Klinik pratama yang belum sinkron sistem peresepannya menanggung risiko klaim JKN bermasalah yang terakumulasi diam-diam.</div>
+        <div class="card-meta">26 Juni 2026 · Redaksi Berita HIFDI</div>
+      </div>
+    </a>
 
     <!-- ARTIKEL 036 — Edukasi — 26 Juni 2026 — INTERNAL -->
     <a class="article-card" href="./article-036/" data-category="edukasi">
@@ -806,6 +819,7 @@
         <div class="card-meta">16 Juni 2026 · Redaksi Berita HIFDI</div>
       </div>
     </a>
+
 
     <!-- ARTIKEL 015 — Advokasi — 16 Juni 2026 — INTERNAL -->
     <a class="article-card" href="./article-015/" data-category="advokasi">
@@ -1133,4 +1147,36 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-
+  <div class="footer-inner">
+    <span class="footer-copy">© 2026 Himpunan Fasyankes Dokter Indonesia (HIFDI)</span>
+    <div class="footer-links">
+      <a href="https://hifdi.id">hifdi.id</a>
+      <span class="footer-sep">|</span>
+      <a href="https://academy.hifdi.id">academy.hifdi.id</a>
+      <span class="footer-sep">|</span>
+      <a href="mailto:pp.hifdi@gmail.com">pp.hifdi@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function filterArticles(category, btn) {
+    const cards = document.querySelectorAll('.article-card');
+    const buttons = document.querySelectorAll('.filter-btn');
+
+    buttons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    let visible = 0;
+    cards.forEach(card => {
+      const show = category === 'all' || card.dataset.category === category;
+      card.style.display = show ? 'flex' : 'none';
+      if (show) visible++;
+    });
+
+    document.getElementById('articleCount').textContent = visible + ' artikel';
+  }
+</script>
+
+</body>
+</html>
