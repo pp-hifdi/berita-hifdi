@@ -859,7 +859,7 @@
       </div>
     </a>
 
-
+    
     <!-- ARTIKEL 015 — Advokasi — 16 Juni 2026 — INTERNAL -->
     <a class="article-card" href="./article-015/" data-category="advokasi">
       <img class="card-image" src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80" alt="Fasilitas pelayanan kesehatan — puskesmas dan klinik sebagai FKTP BPJS Kesehatan">
@@ -1168,4 +1168,54 @@
     </a>
 
     <!-- ARTIKEL 8 — Advokasi — 17 Ags 2024 -->
-    <a class="article-card" href="https://www.in
+    <a class="article-card" href="https://www.inibalikpapan.com/cisc-sesalkan-bpjs-belum-tanggung-obat-trastuzumab-bagi-pasien-kanker-payudara/" target="_blank" data-category="advokasi">
+      <img class="card-image" src="https://cdn.antaranews.com/cache/1200x800/2024/07/06/kanker.jpeg" alt="Ilustrasi BPJS trastuzumab kanker payudara">
+      <div class="card-body">
+        <div class="card-category-row">
+          <span class="card-category">Advokasi</span>
+          <span class="external-badge">↗</span>
+        </div>
+        <div class="card-title">CISC Sesalkan BPJS Belum Sediakan Obat Trastuzumab Bagi Pasien Kanker Payudara</div>
+        <div class="card-excerpt">Cancer Information and Support Center (CISC) menyesalkan BPJS Kesehatan belum menyediakan obat trastuzumab bagi pasien kanker payudara, dalam diskusi yang melibatkan HIFDI dan berbagai stakeholder kesehatan tentang solusi ketersediaan obat.</div>
+        <div class="card-meta">17 Agustus 2024 · Inibalikpapan.com</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-copy">© 2026 Himpunan Fasyankes Dokter Indonesia (HIFDI)</span>
+    <div class="footer-links">
+      <a href="https://hifdi.id">hifdi.id</a>
+      <span class="footer-sep">|</span>
+      <a href="https://academy.hifdi.id">academy.hifdi.id</a>
+      <span class="footer-sep">|</span>
+      <a href="mailto:pp.hifdi@gmail.com">pp.hifdi@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function filterArticles(category, btn) {
+    const cards = document.querySelectorAll('.article-card');
+    const buttons = document.querySelectorAll('.filter-btn');
+
+    buttons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    let visible = 0;
+    cards.forEach(card => {
+      const show = category === 'all' || card.dataset.category === category;
+      card.style.display = show ? 'flex' : 'none';
+      if (show) visible++;
+    });
+
+    document.getElementById('articleCount').textContent = visible + ' artikel';
+  }
+</script>
+
+</body>
+</html>
