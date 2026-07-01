@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Halaman Tidak Ditemukan — Berita HIFDI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green-800:  #1B4028;
+      --green-900:  #122B1A;
+      --gold-300:   #F5C554;
+      --gold-400:   #E8AB28;
+      --neutral-50:  #F7F9F7;
+      --neutral-200: #DDE3DD;
+      --neutral-500: #737874;
+      --neutral-600: #565B56;
+      --neutral-900: #1A1D1B;
+      --font-display: 'Playfair Display', serif;
+      --font-body:    'DM Sans', sans-serif;
+      --font-mono:    'DM Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      font-family: var(--font-body);
+      background: var(--neutral-50);
+      color: var(--neutral-900);
+      line-height: 1.7;
+    }
+
+    header {
+      background: var(--green-900);
+      border-bottom: 2px solid var(--gold-400);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .header-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid var(--gold-400);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .header-brand-name {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .notfound-container {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 100px 24px 120px;
+      text-align: center;
+    }
+
+    .notfound-code {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      color: var(--gold-400);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .notfound-title {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--neutral-900);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .notfound-desc {
+      font-size: 16px;
+      color: var(--neutral-600);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .back-home {
+      display: inline-block;
+      padding: 12px 28px;
+      background: var(--green-800);
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .back-home:hover { background: #245535; }
+
+    footer {
+      background: var(--green-900);
+      border-top: 2px solid var(--gold-400);
+      padding: 24px;
+      text-align: center;
+    }
+
+    footer p {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    footer a { color: var(--gold-300); text-decoration: none; }
+    footer a:hover { color: var(--gold-400); }
+
+    @media (max-width: 600px) {
+      .notfound-title { font-size: 24px; }
+      .notfound-container { padding: 70px 20px 90px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="header-left" href="/">
+      <img class="header-logo" src="images/logo-hifdi.png" alt="Logo HIFDI">
+      <span class="header-brand-name">Berita HIFDI</span>
+    </a>
+  </div>
+</header>
+
+<div class="notfound-container">
+  <div class="notfound-code">404 — Halaman Tidak Ditemukan</div>
+  <h1 class="notfound-title">Halaman yang kamu cari tidak ada, atau sudah dipindahkan.</h1>
+  <p class="notfound-desc">Coba kembali ke portal utama Berita HIFDI untuk melihat artikel-artikel terbaru seputar kebijakan kesehatan, mutu fasyankes, dan advokasi Himpunan Fasyankes Dokter Indonesia.</p>
+  <a class="back-home" href="/">← Kembali ke Portal Berita HIFDI</a>
+</div>
+
+<footer>
+  <p>© 2026 Himpunan Fasyankes Dokter Indonesia (HIFDI) &nbsp;|&nbsp; <a href="https://hifdi.id">hifdi.id</a> &nbsp;|&nbsp; <a href="https://academy.hifdi.id">academy.hifdi.id</a></p>
+</footer>
+
+</body>
+</html>
