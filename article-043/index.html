@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mulai 1 Juli 2026, BPJS Kesehatan menghapus denda keterlambatan iuran reguler bagi peserta JKN, kecuali untuk rawat inap dalam 45 hari sejak reaktivasi. HIFDI membahas dampaknya bagi klinik pratama dan puskesmas, termasuk beban verifikasi status kepesertaan di meja pendaftaran serta pertanyaan soal keberlanjutan pendanaan JKN.">
+  <meta property="og:title" content="BPJS Hapus Denda Keterlambatan Iuran per 1 Juli 2026 — Apa yang Perlu Disiapkan Klinik Pratama — HIFDI">
+  <meta property="og:description" content="Kebijakan baru menghapus denda keterlambatan iuran JKN mulai 1 Juli 2026, kecuali rawat inap dalam 45 hari reaktivasi. HIFDI menyoroti dampaknya bagi verifikasi status peserta di FKTP dan risiko moral hazard terhadap kepatuhan bayar iuran.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:type" content="article">
+  <title>BPJS Hapus Denda Keterlambatan Iuran per 1 Juli 2026 — Apa yang Perlu Disiapkan Klinik Pratama — HIFDI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary:        #1B4028;
+      --color-primary-hover:  #245535;
+      --green-50:   #EFF7F3;
+      --green-100:  #D6EFE0;
+      --green-200:  #AEDDBF;
+      --green-800:  #1B4028;
+      --green-900:  #122B1A;
+      --gold-300:   #F5C554;
+      --gold-400:   #E8AB28;
+      --neutral-50:  #F7F9F7;
+      --neutral-100: #EFF2EF;
+      --neutral-200: #DDE3DD;
+      --neutral-500: #737874;
+      --neutral-600: #565B56;
+      --neutral-800: #2C302D;
+      --neutral-900: #1A1D1B;
+      --font-display: 'Playfair Display', serif;
+      --font-body:    'DM Sans', sans-serif;
+      --font-mono:    'DM Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--neutral-50);
+      color: var(--neutral-900);
+      line-height: 1.7;
+    }
+
+    header {
+      background: var(--green-900);
+      border-bottom: 2px solid var(--gold-400);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .header-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid var(--gold-400);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .header-brand-name {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .back-link {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      padding: 6px 12px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .back-link:hover {
+      color: #ffffff;
+      border-color: rgba(255,255,255,0.35);
+    }
+
+    .article-container {
+      max-width: 740px;
+      margin: 48px auto;
+      padding: 0 24px 80px;
+    }
+
+    .article-category {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--green-800);
+      background: var(--green-50);
+      padding: 4px 10px;
+      border-radius: 100px;
+      border: 1px solid var(--green-200);
+      margin-bottom: 20px;
+    }
+
+    .article-title {
+      font-family: var(--font-display);
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--neutral-900);
+      margin-bottom: 8px;
+    }
+
+    .article-subtitle {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--neutral-600);
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--neutral-500);
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--neutral-200);
+      margin-bottom: 28px;
+    }
+
+    .featured-image {
+      width: 100%;
+      max-height: 420px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 32px;
+      border: 1px solid var(--neutral-200);
+    }
+
+    .byline {
+      background: var(--neutral-100);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 32px;
+    }
+
+    .byline-name {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--neutral-900);
+      margin-bottom: 4px;
+    }
+
+    .byline-roles {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--neutral-500);
+      line-height: 1.8;
+    }
+
+    .article-body p {
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: var(--neutral-800);
+      line-height: 1.85;
+      margin-bottom: 22px;
+    }
+
+    .article-body h2 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--green-800);
+      margin: 36px 0 14px;
+    }
+
+    .article-body h3 {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--neutral-800);
+      margin: 28px 0 10px;
+      font-style: italic;
+    }
+
+    .article-body blockquote {
+      border-left: 3px solid var(--gold-400);
+      padding: 12px 20px;
+      margin: 28px 0;
+      background: var(--green-50);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .article-body blockquote p {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 15px;
+      color: var(--green-800);
+      margin-bottom: 0;
+    }
+
+    .article-body ol {
+      margin: 0 0 22px 20px;
+    }
+
+    .article-body ol li {
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: var(--neutral-800);
+      line-height: 1.85;
+      margin-bottom: 14px;
+      padding-left: 8px;
+    }
+
+    .sources-box {
+      background: var(--neutral-100);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 36px 0;
+      border: 1px solid var(--neutral-200);
+    }
+
+    .sources-title {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--neutral-500);
+      margin-bottom: 12px;
+    }
+
+    .sources-box ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .sources-box li {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--neutral-600);
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .sources-box li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--neutral-500);
+    }
+
+    .article-footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--neutral-200);
+    }
+
+    .back-to-portal {
+      display: inline-block;
+      padding: 10px 20px;
+      background: var(--green-800);
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .back-to-portal:hover { background: var(--color-primary-hover); }
+
+    footer {
+      background: var(--green-900);
+      border-top: 2px solid var(--gold-400);
+      padding: 24px;
+      text-align: center;
+    }
+
+    footer p {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    footer a { color: var(--gold-300); text-decoration: none; }
+    footer a:hover { color: var(--gold-400); }
+
+    @media (max-width: 600px) {
+      .article-title { font-size: 24px; }
+      .article-subtitle { font-size: 16px; }
+      .article-container { padding: 0 16px 60px; }
+      .article-body p { font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="header-left" href="https://hifdi.id">
+      <img class="header-logo" src="../images/logo-hifdi.png" alt="Logo HIFDI">
+      <span class="header-brand-name">Berita HIFDI</span>
+    </a>
+    <a class="back-link" href="../">← Kembali ke Portal</a>
+  </div>
+</header>
+
+<div class="article-container">
+
+  <span class="article-category">Advokasi</span>
+
+  <h1 class="article-title">BPJS Hapus Denda Keterlambatan Iuran per 1 Juli 2026 — Apa yang Perlu Disiapkan Klinik Pratama</h1>
+  <div class="article-subtitle">Kabar Baik bagi Peserta, tapi Beban Verifikasi Status Berpotensi Berpindah ke Meja Pendaftaran FKTP</div>
+
+  <div class="article-meta">
+    <span>01 Juli 2026</span>
+    <span>Redaksi Berita HIFDI</span>
+    <span>Advokasi</span>
+  </div>
+
+  <img
+    class="featured-image"
+    src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=80"
+    alt="Dokumen dan kalkulator melambangkan administrasi iuran dan denda BPJS Kesehatan"
+  >
+
+  <div class="byline">
+    <div class="byline-name">Redaksi Berita HIFDI</div>
+    <div class="byline-roles">
+      Tim Redaksi Berita HIFDI (Himpunan Fasyankes Dokter Indonesia)
+    </div>
+  </div>
+
+  <div class="article-body">
+
+    <p>Mulai hari ini, 1 Juli 2026, BPJS Kesehatan resmi meniadakan denda keterlambatan pembayaran iuran bagi peserta Jaminan Kesehatan Nasional (JKN) yang menunggak secara reguler. Sebelumnya, keterlambatan bayar berpotensi dikenai sanksi finansial saat peserta kembali mengakses layanan. Dengan aturan baru ini, sanksi tersebut dihapus — kecuali bagi peserta yang mengakses layanan rawat inap dalam kurun 45 hari sejak status kepesertaannya diaktifkan kembali.</p>
+
+    <p>Bagi jutaan peserta mandiri yang selama ini menunda pembayaran karena alasan ekonomi, kebijakan ini jelas meringankan. Namun bagi klinik pratama, puskesmas, dan dokter praktik mandiri yang menjadi FKTP, perubahan ini membawa konsekuensi operasional yang tidak bisa diabaikan begitu saja.</p>
+
+    <h2>Apa yang Berubah</h2>
+
+    <p>Berdasarkan regulasi terbaru, denda keterlambatan iuran reguler — yang sebelumnya dihitung berdasarkan persentase biaya layanan dan lama tunggakan — kini ditiadakan untuk mayoritas peserta. Pengecualian hanya berlaku pada satu skenario spesifik: peserta yang menunggak, kemudian mengaktifkan kembali kepesertaannya, lalu langsung mengakses layanan rawat inap dalam 45 hari pertama. Pada skenario ini, denda sebesar 5 persen dari biaya diagnosis awal rawat inap dikalikan jumlah bulan tunggakan tetap berlaku, dengan batas maksimal 12 bulan tunggakan dan nilai denda tertinggi Rp30 juta per kasus. Peserta Penerima Bantuan Iuran (PBI) dan kelompok tidak mampu dikecualikan dari ketentuan ini.</p>
+
+    <p>Dengan kata lain, peserta yang hanya mengakses layanan rawat jalan di FKTP — puskesmas, klinik pratama, atau dokter keluarga — setelah melunasi tunggakan, tidak lagi dikenai denda apa pun. Ini adalah perubahan signifikan dari pola sebelumnya yang membuat banyak peserta menunda berobat karena takut terbebani sanksi finansial saat kembali aktif.</p>
+
+    <h2>Yang Perlu Disiapkan Klinik Pratama</h2>
+
+    <p>Perubahan aturan denda ini kemungkinan besar akan memicu lonjakan kunjungan dari peserta yang sebelumnya menunda reaktivasi kepesertaan karena khawatir kena denda. Klinik pratama dan puskesmas perlu menyiapkan diri menghadapi pertanyaan langsung dari pasien soal status kepesertaan, terutama karena verifikasi status aktif/nonaktif di aplikasi Pcare atau Mobile JKN tidak selalu real-time saat pembayaran baru saja dilakukan.</p>
+
+    <p>Petugas pendaftaran di FKTP juga perlu memahami dengan tepat pengecualian rawat inap 45 hari, agar tidak salah menjelaskan ke pasien — misalnya pasien yang datang untuk kontrol rutin rawat jalan seharusnya tidak dikenai kekhawatiran denda yang sebenarnya hanya berlaku untuk skenario rawat inap pascareaktivasi.</p>
+
+    <h2>Pertanyaan yang Belum Terjawab: Keberlanjutan Pendanaan</h2>
+
+    <p>Di balik manfaat langsung bagi peserta, penghapusan denda reguler memunculkan pertanyaan yang belum banyak dibahas publik: bagaimana dampaknya terhadap kepatuhan bayar iuran secara keseluruhan? Denda selama ini — di samping fungsi punitif — juga berfungsi sebagai insentif agar peserta mandiri membayar tepat waktu. Menghilangkan sanksi tanpa mekanisme insentif pengganti berisiko menimbulkan moral hazard: peserta menunda pembayaran karena tahu tidak akan ada konsekuensi finansial selama tidak butuh rawat inap dalam waktu dekat.</p>
+
+    <p>Pertanyaan ini penting karena arus kas BPJS Kesehatan pada akhirnya memengaruhi kelancaran pembayaran kapitasi dan klaim ke FKTP. Jika kepatuhan bayar iuran menurun sementara beban layanan di FKTP tetap atau meningkat, risiko keterlambatan pembayaran kapitasi ke klinik dan puskesmas — yang selama ini sudah menjadi keluhan berulang dari fasyankes primer — berpotensi memburuk, bukan membaik.</p>
+
+    <blockquote>
+      <p>Meringankan beban peserta adalah langkah yang patut diapresiasi, tetapi keringanan di satu sisi rantai pembiayaan tidak boleh menjadi beban baru yang dipindahkan ke sisi fasyankes primer.</p>
+    </blockquote>
+
+    <h2>Posisi HIFDI</h2>
+
+    <p>Himpunan Fasyankes Dokter Indonesia (HIFDI) menyambut baik semangat kebijakan ini sebagai upaya meningkatkan akses layanan kesehatan tanpa hambatan finansial. Namun HIFDI mendorong BPJS Kesehatan dan Kementerian Kesehatan untuk transparan mempublikasikan proyeksi dampak kebijakan ini terhadap arus kas Dana Jaminan Sosial Kesehatan, serta memastikan tidak ada penurunan kecepatan atau nilai pembayaran kapitasi dan klaim ke FKTP sebagai konsekuensi tidak langsung.</p>
+
+    <p>HIFDI juga meminta agar sistem verifikasi status kepesertaan di Pcare dan Mobile JKN diperbarui secara real-time, sehingga petugas pendaftaran di klinik pratama dan puskesmas tidak menanggung beban menjelaskan ketidaksesuaian data kepada pasien yang sesungguhnya berhak atas layanan tanpa denda. Edukasi publik yang jelas soal batas pengecualian 45 hari rawat inap juga perlu digencarkan BPJS Kesehatan secara langsung ke peserta — bukan dibebankan sepenuhnya kepada tenaga di meja pendaftaran FKTP.</p>
+
+    <h2>Penutup</h2>
+
+    <p>Penghapusan denda keterlambatan iuran per 1 Juli 2026 adalah kebijakan yang meringankan peserta JKN secara langsung, dan patut diapresiasi dari sisi akses layanan. Namun keberhasilannya jangka panjang bergantung pada dua hal yang masih perlu dipantau: apakah kepatuhan bayar iuran tetap terjaga tanpa insentif punitif, dan apakah FKTP tetap menerima haknya secara tepat waktu di tengah kemungkinan tekanan baru pada arus kas JKN. HIFDI akan terus mengawal implementasi kebijakan ini dari perspektif fasyankes primer yang berada di garis depan pelayanan.</p>
+
+    <div class="sources-box">
+      <div class="sources-title">Referensi</div>
+      <ul>
+        <li>Manajemen Pembiayaan Kesehatan — "BPJS Kesehatan: Pemerintah Hapus Denda Keterlambatan Pembayaran Iuran".</li>
+        <li>Berita Jejak Fakta — "BPJS Kesehatan Hapus Denda Keterlambatan Iuran Bulanan Peserta Mandiri".</li>
+        <li>Bloomberg Technoz — "BPJS Kesehatan Terapkan Aturan Baru per Juni 2026, Ini Detailnya".</li>
+        <li>BPJS Kesehatan — ketentuan denda layanan rawat inap pascareaktivasi kepesertaan.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <a class="back-to-portal" href="../">← Kembali ke Portal Berita</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Himpunan Fasyankes Dokter Indonesia (HIFDI) &nbsp;|&nbsp; <a href="https://hifdi.id">hifdi.id</a> &nbsp;|&nbsp; <a href="https://academy.hifdi.id">academy.hifdi.id</a></p>
+</footer>
+
+</body>
+</html>
