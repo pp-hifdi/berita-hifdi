@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Studi LPEM FEB UI yang dipaparkan BPJS Kesehatan pada 2 Juli 2026 menyebut JKN menyumbang Rp129 triliun ke PDB dan menyerap 3,5 juta lapangan kerja. HIFDI menyoroti sisi lain angka besar ini: distribusi nilai ekonomi yang timpang ke fasyankes primer, beban klaim Rp191,3 triliun, dan pertanyaan keberlanjutan kapitasi FKTP.">
+  <meta property="og:title" content="JKN Sumbang Rp129 Triliun ke PDB — Tapi Berapa yang Sampai ke FKTP? — HIFDI">
+  <meta property="og:description" content="JKN diklaim mendongkrak ekonomi Rp129 triliun dan menyerap 3,5 juta pekerja. HIFDI menilai narasi makro ini perlu ditimbang dengan realitas kapitasi FKTP yang stagnan dan beban klaim yang terus membengkak.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:type" content="article">
+  <title>JKN Sumbang Rp129 Triliun ke PDB — Tapi Berapa yang Sampai ke FKTP? — HIFDI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary:        #1B4028;
+      --color-primary-hover:  #245535;
+      --green-50:   #EFF7F3;
+      --green-100:  #D6EFE0;
+      --green-200:  #AEDDBF;
+      --green-800:  #1B4028;
+      --green-900:  #122B1A;
+      --gold-300:   #F5C554;
+      --gold-400:   #E8AB28;
+      --neutral-50:  #F7F9F7;
+      --neutral-100: #EFF2EF;
+      --neutral-200: #DDE3DD;
+      --neutral-500: #737874;
+      --neutral-600: #565B56;
+      --neutral-800: #2C302D;
+      --neutral-900: #1A1D1B;
+      --font-display: 'Playfair Display', serif;
+      --font-body:    'DM Sans', sans-serif;
+      --font-mono:    'DM Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--neutral-50);
+      color: var(--neutral-900);
+      line-height: 1.7;
+    }
+
+    header {
+      background: var(--green-900);
+      border-bottom: 2px solid var(--gold-400);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .header-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid var(--gold-400);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .header-brand-name {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .back-link {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      padding: 6px 12px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .back-link:hover {
+      color: #ffffff;
+      border-color: rgba(255,255,255,0.35);
+    }
+
+    .article-container {
+      max-width: 740px;
+      margin: 48px auto;
+      padding: 0 24px 80px;
+    }
+
+    .article-category {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--green-800);
+      background: var(--green-50);
+      padding: 4px 10px;
+      border-radius: 100px;
+      border: 1px solid var(--green-200);
+      margin-bottom: 20px;
+    }
+
+    .article-title {
+      font-family: var(--font-display);
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--neutral-900);
+      margin-bottom: 8px;
+    }
+
+    .article-subtitle {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--neutral-600);
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--neutral-500);
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--neutral-200);
+      margin-bottom: 28px;
+    }
+
+    .featured-image {
+      width: 100%;
+      max-height: 420px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 32px;
+      border: 1px solid var(--neutral-200);
+    }
+
+    .byline {
+      background: var(--neutral-100);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 32px;
+    }
+
+    .byline-name {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--neutral-900);
+      margin-bottom: 4px;
+    }
+
+    .byline-roles {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--neutral-500);
+      line-height: 1.8;
+    }
+
+    .article-body p {
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: var(--neutral-800);
+      line-height: 1.85;
+      margin-bottom: 22px;
+    }
+
+    .article-body h2 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--green-800);
+      margin: 36px 0 14px;
+    }
+
+    .article-body h3 {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--neutral-800);
+      margin: 28px 0 10px;
+      font-style: italic;
+    }
+
+    .article-body blockquote {
+      border-left: 3px solid var(--gold-400);
+      padding: 12px 20px;
+      margin: 28px 0;
+      background: var(--green-50);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .article-body blockquote p {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 15px;
+      color: var(--green-800);
+      margin-bottom: 0;
+    }
+
+    .article-body ol {
+      margin: 0 0 22px 20px;
+    }
+
+    .article-body ol li {
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: var(--neutral-800);
+      line-height: 1.85;
+      margin-bottom: 14px;
+      padding-left: 8px;
+    }
+
+    .sources-box {
+      background: var(--neutral-100);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 36px 0;
+      border: 1px solid var(--neutral-200);
+    }
+
+    .sources-title {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--neutral-500);
+      margin-bottom: 12px;
+    }
+
+    .sources-box ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .sources-box li {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--neutral-600);
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .sources-box li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--neutral-500);
+    }
+
+    .article-footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--neutral-200);
+    }
+
+    .back-to-portal {
+      display: inline-block;
+      padding: 10px 20px;
+      background: var(--green-800);
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .back-to-portal:hover { background: var(--color-primary-hover); }
+
+    footer {
+      background: var(--green-900);
+      border-top: 2px solid var(--gold-400);
+      padding: 24px;
+      text-align: center;
+    }
+
+    footer p {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    footer a { color: var(--gold-300); text-decoration: none; }
+    footer a:hover { color: var(--gold-400); }
+
+    @media (max-width: 600px) {
+      .article-title { font-size: 24px; }
+      .article-subtitle { font-size: 16px; }
+      .article-container { padding: 0 16px 60px; }
+      .article-body p { font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="header-left" href="https://hifdi.id">
+      <img class="header-logo" src="../images/logo-hifdi.png" alt="Logo HIFDI">
+      <span class="header-brand-name">Berita HIFDI</span>
+    </a>
+    <a class="back-link" href="../">← Kembali ke Portal</a>
+  </div>
+</header>
+
+<div class="article-container">
+
+  <span class="article-category">Advokasi</span>
+
+  <h1 class="article-title">JKN Sumbang Rp129 Triliun ke PDB — Tapi Berapa yang Sampai ke FKTP?</h1>
+  <div class="article-subtitle">Di balik angka makro yang gemilang, kapitasi fasyankes primer nyaris tak bergerak sementara beban klaim menembus Rp191,3 triliun.</div>
+
+  <div class="article-meta">
+    <span>4 Juli 2026</span>
+    <span>Redaksi Berita HIFDI</span>
+    <span>Advokasi</span>
+  </div>
+
+  <img
+    class="featured-image"
+    src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1200&q=80"
+    alt="Ilustrasi pertumbuhan ekonomi dan pembiayaan kesehatan"
+  >
+
+  <div class="byline">
+    <div class="byline-name">Redaksi Berita HIFDI</div>
+    <div class="byline-roles">
+      Tim Redaksi Berita HIFDI (Himpunan Fasyankes Dokter Indonesia)
+    </div>
+  </div>
+
+  <div class="article-body">
+
+    <p>Dalam paparan publik di Jakarta pada Kamis, 2 Juli 2026, BPJS Kesehatan memaparkan hasil kajian Lembaga Penyelidikan Ekonomi dan Masyarakat Fakultas Ekonomi dan Bisnis Universitas Indonesia (LPEM FEB UI) yang menempatkan Program Jaminan Kesehatan Nasional (JKN) bukan sekadar skema jaminan sosial, melainkan mesin ekonomi. Menurut kajian tersebut, JKN menyumbang hingga Rp129 triliun bagi Produk Domestik Bruto (PDB) nasional dan menyerap sekitar 3,5 juta lapangan kerja di industri kesehatan dan ritel sosial.</p>
+
+    <p>Angka itu mengundang decak kagum. Namun bagi ribuan fasilitas kesehatan tingkat pertama (FKTP) yang menjadi tulang punggung program ini — klinik pratama, tempat praktik mandiri dokter, dan puskesmas — pertanyaan yang lebih mendesak adalah: dari nilai ekonomi sebesar itu, berapa yang benar-benar mengalir ke garda terdepan yang setiap hari menampung pasien?</p>
+
+    <h2>Angka-Angka Besar di Balik JKN</h2>
+
+    <p>Data yang dipaparkan memang kolosal. Hingga 31 Desember 2025, kepesertaan JKN telah mencapai 282,7 juta jiwa, atau setara 98,62 persen penduduk Indonesia — salah satu cakupan jaminan kesehatan terluas di dunia. Sepanjang 2025, program ini mencatat lebih dari 725,3 juta pemanfaatan layanan kesehatan, atau rata-rata lebih dari 1,9 juta layanan setiap hari.</p>
+
+    <p>Kajian LPEM FEB UI juga menyoroti dampak sosial JKN: program ini disebut menyelamatkan sekitar 8,1 juta orang dari kemiskinan pada periode 2018–2019 dan melindungi sekitar 16 juta orang dari risiko jatuh miskin akibat biaya pengobatan katastrofik. Setiap kenaikan 1 persen kepesertaan JKN diperkirakan mendorong pengeluaran per kapita hingga 2,71 persen dan menaikkan angka harapan hidup hingga tiga tahun.</p>
+
+    <p>Tidak ada yang keliru dengan angka-angka ini. JKN adalah salah satu capaian kebijakan publik terpenting Indonesia dalam satu dekade terakhir, dan kontribusi ekonominya nyata. Persoalannya bukan pada validitas datanya, melainkan pada apa yang luput dari sorotan ketika narasi bergeser dari kesehatan menjadi pertumbuhan ekonomi.</p>
+
+    <h2>Nilai Ekonomi Besar, Distribusinya Timpang</h2>
+
+    <p>Beban pelayanan kesehatan JKN sepanjang 2025 tercatat menembus Rp191,3 triliun. Sebagian besar dana ini mengalir ke fasilitas kesehatan rujukan tingkat lanjutan (FKRTL) — rumah sakit — melalui skema pembayaran berbasis paket INA-CBG, serta ke industri farmasi dan alat kesehatan. Di sinilah efek pengganda ekonomi yang dirayakan itu paling terasa.</p>
+
+    <p>Bandingkan dengan mekanisme pembayaran di FKTP. Klinik pratama dan praktik mandiri dokter dibayar melalui skema kapitasi, dengan tarif yang berkisar Rp9.000 hingga Rp15.000 per peserta terdaftar per bulan. Angka batas atas itu pun tidak dijamin: dalam skema Kapitasi Berbasis Kinerja (KBK), pembayaran dapat dipotong bila indikator kinerja seperti angka kontak, rasio rujukan, dan rasio peserta Prolanis terkendali tidak tercapai. Dengan kata lain, garda terdepan yang menampung mayoritas dari 725 juta kunjungan justru menerima porsi paling kecil dan paling rentan dipangkas dari total belanja JKN.</p>
+
+    <p>Ketimpangan ini bukan sekadar soal keadilan pendapatan. Tarif kapitasi yang praktis stagnan selama bertahun-tahun — di tengah kenaikan biaya operasional, tuntutan digitalisasi rekam medis elektronik, dan beban administrasi yang terus bertambah — menekan kemampuan FKTP untuk berinvestasi pada mutu layanan, retensi tenaga medis, dan pencegahan penyakit di hulu. Padahal justru di hululah letak nilai ekonomi jangka panjang JKN: mencegah penyakit sebelum menjadi kasus katastrofik yang mahal di rumah sakit.</p>
+
+    <h2>Beban Rp191,3 Triliun dan Pertanyaan Keberlanjutan</h2>
+
+    <p>Menempatkan Rp129 triliun kontribusi PDB berdampingan dengan Rp191,3 triliun beban pelayanan memunculkan pertanyaan yang tidak boleh dihindari: seberapa berkelanjutan model pembiayaan ini? Efek pengganda ekonomi memang riil, tetapi ia tidak otomatis menutup selisih antara iuran yang masuk dan klaim yang keluar. Keberlanjutan Dana Jaminan Sosial (DJS) tetap bergantung pada keseimbangan aktuaria — dan keseimbangan itu paling murah dijaga bukan dengan menambah kapasitas rumah sakit, melainkan dengan memperkuat pencegahan dan deteksi dini di FKTP.</p>
+
+    <p>Di titik inilah logika "JKN sebagai mesin ekonomi" berisiko menyesatkan bila berdiri sendiri. Jika investasi terus terkonsentrasi di hilir yang menyerap belanja terbesar, sementara hulu dibiarkan dengan kapitasi yang tak memadai, maka pertumbuhan beban klaim akan selalu berlari lebih cepat daripada pertumbuhan iuran. Angka PDB yang gemilang tidak akan menyelamatkan program yang secara struktural membiayai penyakit lebih murah hati daripada membiayai upaya mencegahnya.</p>
+
+    <blockquote>
+      <p>JKN dirayakan sebagai mesin ekonomi Rp129 triliun, tetapi keberlanjutannya justru ditentukan di ruang praktik dokter FKTP yang dibayar Rp9.000–15.000 per peserta per bulan.</p>
+    </blockquote>
+
+    <h2>Posisi HIFDI</h2>
+
+    <p>Himpunan Fasyankes Dokter Indonesia (HIFDI) menyambut baik kajian yang menunjukkan kontribusi ekonomi JKN, sekaligus mengingatkan agar narasi makroekonomi tidak dijadikan pengganti evaluasi jujur atas struktur pembiayaan program. Kontribusi Rp129 triliun terhadap PDB tidak boleh membuat pembuat kebijakan lengah terhadap fakta bahwa fondasi ekonomi itu bertumpu pada FKTP yang secara sistemik kurang dibiayai.</p>
+
+    <p>HIFDI mendorong tiga hal konkret. Pertama, peninjauan ulang tarif kapitasi agar mencerminkan biaya riil penyelenggaraan layanan primer yang bermutu, termasuk biaya digitalisasi dan beban administrasi baru. Kedua, transparansi formula KBK sehingga pemotongan kapitasi didasarkan pada indikator yang benar-benar berada dalam kendali FKTP, bukan pada faktor di luar kewenangannya. Ketiga, pergeseran orientasi belanja JKN ke arah hulu — memperbesar porsi pembiayaan untuk pencegahan, promosi kesehatan, dan pengelolaan penyakit kronis di FKTP — sebagai strategi paling rasional untuk menjaga keberlanjutan DJS sekaligus memperkuat efek ekonomi jangka panjang program.</p>
+
+    <p>Bagi HIFDI, ukuran keberhasilan JKN bukanlah seberapa besar kontribusinya terhadap PDB, melainkan seberapa adil nilai yang dihasilkannya dibagikan kepada mereka yang menanggung beban terbesar di lapangan — dan seberapa serius program ini membiayai pencegahan, bukan hanya pengobatan.</p>
+
+    <h2>Penutup</h2>
+
+    <p>Data LPEM FEB UI adalah bukti bahwa investasi pada kesehatan adalah investasi pada ekonomi. Namun kesimpulan yang tepat dari data itu bukanlah selebrasi, melainkan agenda perbaikan: memastikan bahwa mesin ekonomi bernama JKN tidak digerakkan oleh FKTP yang kelelahan dan kurang dibiayai. Selama kapitasi tetap stagnan dan beban klaim terus membengkak, angka Rp129 triliun hanya akan menjadi catatan kaki yang gemilang bagi persoalan struktural yang belum terselesaikan.</p>
+
+    <div class="sources-box">
+      <div class="sources-title">Referensi</div>
+      <ul>
+        <li>SINDOnews — "Dirut BPJS Kesehatan Ungkap JKN Dongkrak PDB Rp129 Triliun dan Serap 3,5 Juta Pekerja" (ekbis.sindonews.com, 2 Juli 2026).</li>
+        <li>Bisnis.com — "BPJS Kesehatan: Peserta JKN 282,7 Juta Jiwa, Beban Pelayanan Kesehatan Capai Rp191,3 Triliun" (finansial.bisnis.com, 2 Juli 2026).</li>
+        <li>ANTARA News — "BPJS Kesehatan: Sebanyak 98,62 persen penduduk RI terlindungi JKN" (antaranews.com).</li>
+        <li>Kajian LPEM FEB UI — dampak ekonomi dan sosial Program JKN (dipaparkan dalam public exposure BPJS Kesehatan, Juli 2026).</li>
+        <li>eClinic / Medisy — standar tarif kapitasi Klinik Pratama dan skema Kapitasi Berbasis Kinerja (KBK) 2026.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <a class="back-to-portal" href="../">← Kembali ke Portal Berita</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Himpunan Fasyankes Dokter Indonesia (HIFDI) &nbsp;|&nbsp; <a href="https://hifdi.id">hifdi.id</a> &nbsp;|&nbsp; <a href="https://academy.hifdi.id">academy.hifdi.id</a></p>
+</footer>
+
+</body>
+</html>
