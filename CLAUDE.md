@@ -216,6 +216,13 @@ git status -sb        # harus "## main...origin/main" tanpa tanda ahead
 git log --oneline -2
 ```
 
+**Langkah 5 — WAJIB, jangan lewat:** setelah artikel terverifikasi live, buatkan
+caption WAG (3 varian, lihat bagian 6) dan kirim minimal varian formal/ringkas
+ke HIFDI Bangkit (bagian 6b — kalau sesi interaktif) atau tulis
+`wa-caption.txt` (bagian 6c — kalau dipanggil bridge). Pernah kelewat sekali
+(article-061) — publish selesai duluan, caption baru dibuat setelah ditegur
+pemilik repo. **Publish belum selesai kalau caption belum ada.**
+
 Catatan: `git push` di PowerShell dengan `2>&1` bisa memunculkan
 `NativeCommandError` dan exit code 1 **padahal push berhasil**. Git menulis
 progres ke stderr dan PowerShell menganggapnya error. **Patokan keberhasilan
