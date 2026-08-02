@@ -325,16 +325,34 @@ commit). Muat dulu sebelum kirim.
 
 **Grup tujuan:** HIFDI Bangkit -> `120363248843357431@g.us`
 
-**Perintah kirim (PowerShell):**
+**Perintah kirim (PowerShell) — WAJIB begini, JANGAN kirim `$b` sebagai string biasa:**
 ```powershell
 . .\wa-config.local.ps1   # muat kredensial OpenWA (file gitignored)
-$h = @{ "X-API-Key"=$OPENWA_KEY; "Content-Type"="application/json" }
-$b = @{ chatId=$HIFDI_GROUP; text=$captionText } | ConvertTo-Json
-Invoke-RestMethod -Uri "$OPENWA_URL/api/sessions/$OPENWA_SESSION/messages/send-text" -Method Post -Headers $h -Body $b
+$captionText = [System.IO.File]::ReadAllText("path\ke\caption.txt")   # BUKAN Get-Content -Raw (lihat catatan A)
+$h = @{ "X-API-Key"=$OPENWA_KEY; "Content-Type"="application/json; charset=utf-8" }
+$bStr = @{ chatId=$HIFDI_GROUP; text=$captionText } | ConvertTo-Json
+$bBytes = [System.Text.Encoding]::UTF8.GetBytes($bStr)   # BUKAN kirim $bStr langsung (lihat catatan B)
+Invoke-RestMethod -Uri "$OPENWA_URL/api/sessions/$OPENWA_SESSION/messages/send-text" -Method Post -Headers $h -Body $bBytes
 ```
 
+**Catatan A — bug `[object Object]`:** `Get-Content -Raw` membungkus hasilnya
+dengan metadata (PSPath dll), sehingga `ConvertTo-Json` menganggapnya objek,
+bukan string murni — hasilnya field `text` di WA berbunyi literal
+`[object Object]`. Pakai `[System.IO.File]::ReadAllText(...)` yang
+mengembalikan string murni .NET.
+
+**Catatan B — bug emoji jadi `??`:** `Invoke-RestMethod -Body <string>` di
+PowerShell 5.1 meng-encode body dengan encoding default sistem (bukan UTF-8)
+saat mengubah string ke bytes, sehingga karakter multi-byte (emoji, kadang
+em dash/curly quote) berubah jadi `?`. Sudah diverifikasi lewat tes nyata:
+kirim ke endpoint echo, `📌🔥✅` berubah jadi `?????` dengan `-Body $bStr`
+(string), tapi utuh dengan `-Body $bBytes` (byte array UTF-8 eksplisit).
+**Selalu konversi ke bytes UTF-8 eksplisit sebelum kirim**, jangan kirim
+string JSON apa adanya.
+
 **Verifikasi:** respons berisi `id`/`timestamp` tanpa error = terkirim. Cek juga
-pesan nongol di grup HIFDI Bangkit.
+pesan nongol di grup HIFDI Bangkit — dan kalau ada emoji, pastikan tidak
+berubah jadi `?`.
 
 **Safe-send:** OpenWA unofficial, ada risiko ban. Nomor gateway = nomor buangan
 (62895615779993). Kirim ke satu grup HIFDI Bangkit per artikel; jangan blast
