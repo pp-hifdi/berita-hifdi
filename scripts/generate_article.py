@@ -26,6 +26,7 @@ import json
 import os
 import re
 import sys
+import urllib.request
 from datetime import datetime, timedelta, timezone
 
 import feedparser
@@ -47,6 +48,34 @@ BULAN_ID = ["", "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli",
 
 def log(msg):
     print(f"[bot] {msg}", flush=True)
+
+
+def notify_telegram(text):
+    """Lapor ke Telegram. Tidak fatal kalau gagal.
+
+    KENAPA TELEGRAM, BUKAN WHATSAPP: bot ini jalan di server GitHub, sementara
+    gateway OpenWA hidup di laptop pemilik repo (localhost:2785) yang tidak bisa
+    dijangkau dari luar. Telegram punya endpoint HTTPS publik, jadi bisa.
+    Caption WA dikirim sebagai pesan terpisah supaya gampang diteruskan ke WAG.
+
+    Token & chat id dibaca dari env (GitHub Secrets) — TIDAK PERNAH di repo.
+    """
+    token = os.environ.get("TELEGRAM_BOT_TOKEN")
+    chat_id = os.environ.get("TELEGRAM_CHAT_ID")
+    if not token or not chat_id:
+        log("TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID belum diset — lapor dilewati.")
+        return
+    try:
+        req = urllib.request.Request(
+            f"https://api.telegram.org/bot{token}/sendMessage",
+            data=json.dumps({"chat_id": chat_id, "text": text}).encode("utf-8"),
+            headers={"Content-Type": "application/json"},
+        )
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            if resp.status != 200:
+                log(f"lapor Telegram gagal: HTTP {resp.status}")
+    except Exception as exc:
+        log(f"lapor Telegram gagal: {exc}")
 
 
 # --------------------------------------------------------------------------
@@ -390,12 +419,29 @@ def main():
     with open(INDEX, "w", encoding="utf-8", newline="\n") as f:
         f.write(insert_card(index_html, article, number, image, date_str))
 
+    link = f"https://berita.hifdi.id/article-{number:03d}/"
+    caption = (f"{article['caption']}\n\n{link}\n"
+               f"\n_Berita HIFDI — Himpunan Fasyankes Dokter Indonesia_")
+
     with open(os.path.join(REPO, "wa-caption.txt"), "w", encoding="utf-8", newline="\n") as f:
-        f.write(f"{article['caption']}\n\nhttps://berita.hifdi.id/article-{number:03d}/\n"
-                f"\n_Berita HIFDI — Himpunan Fasyankes Dokter Indonesia_\n")
+        f.write(caption + "\n")
 
     log(f"SELESAI article-{number:03d}: {article['title']}")
     log(f"kategori={article['category']} gambar={image['id']}")
+
+    # Dua pesan terpisah: laporan dulu, lalu caption polos supaya bisa
+    # diteruskan/disalin ke WAG tanpa ikut membawa teks laporan.
+    notify_telegram(
+        f"BOT HARIAN — artikel {number:03d} tayang\n\n"
+        f"Judul    : {article['title']}\n"
+        f"Kategori : {article['category']}\n"
+        f"Sumber   : {candidate['source']} (skor {candidate['score']})\n"
+        f"           {candidate['link']}\n"
+        f"Link     : {link}\n\n"
+        f"Cloudflare butuh 1-2 menit sebelum tayang.\n"
+        f"Caption WA menyusul di pesan berikut — tinggal teruskan ke WAG."
+    )
+    notify_telegram(caption)
     return 0
 
 

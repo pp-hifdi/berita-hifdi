@@ -28,9 +28,14 @@ jobs:
       - name: Install dependencies
         run: pip install openai feedparser
 
+      # TELEGRAM_* dipakai untuk lapor hasil + kirim caption WA ke Telegram.
+      # Bot ini tidak bisa menyapa OpenWA (hidup di laptop, localhost), jadi
+      # caption diteruskan manual dari Telegram ke WAG oleh pemilik repo.
       - name: Generate article
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python scripts/generate_article.py
 
       # Penambahan spesifik, BUKAN git add -A — supaya file nyasar
