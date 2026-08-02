@@ -244,7 +244,8 @@ KATEGORI dan nada Posisi HIFDI:
 - "Mutu": standar layanan, akreditasi, RME/SATUSEHAT. Evaluatif-teknis.
 - "Kabar HIFDI": kegiatan organisasi. Hangat.
 
-Balas HANYA JSON valid dengan kunci:
+Balas HANYA JSON valid. SEMUA enam kunci di bawah WAJIB ada dan terisi —
+jangan ada yang dikosongkan atau dilewat:
   title            judul artikel (bukan terjemahan mentah judul sumber)
   subtitle         satu kalimat rangkuman
   category         salah satu: Advokasi | Edukasi | Mutu | Kabar HIFDI
@@ -252,6 +253,9 @@ Balas HANYA JSON valid dengan kunci:
   body_html        badan artikel sesuai struktur di atas
   caption          caption WhatsApp: judul dibungkus *bold*, 2-3 paragraf
                    pendek, tanpa menyertakan link (skrip yang menambahkan)
+
+Tulis "caption" PALING AKHIR, setelah body_html selesai. Jangan berhenti
+sebelum caption terisi.
 """
 
 
@@ -280,18 +284,48 @@ def call_deepseek(candidate):
         ],
         response_format={"type": "json_object"},
         temperature=0.6,
-        max_tokens=4000,
+        # 4000 sempat bikin model kehabisan ruang sebelum menulis caption.
+        # Artikel ±500 kata Bahasa Indonesia + HTML + caption butuh kelonggaran.
+        max_tokens=8000,
     )
     raw = resp.choices[0].message.content.strip()
     raw = re.sub(r"^```(?:json)?|```$", "", raw, flags=re.M).strip()
     data = json.loads(raw)
 
-    for key in ("title", "subtitle", "category", "body_html", "caption"):
+    # HANYA judul & badan artikel yang esensial. Sisanya bisa diturunkan sendiri.
+    #
+    # Pelajaran 3 Agustus 2026: run pertama gagal total hanya karena model tidak
+    # mengisi 'caption'. Membuang artikel yang sudah jadi (dan token yang sudah
+    # terpakai) gara-gara caption WA kosong itu keliru — caption bisa disusun
+    # dari judul. Jangan pernah lagi menjadikan kolom turunan sebagai syarat.
+    for key in ("title", "body_html"):
         if not data.get(key):
-            raise SystemExit(f"Balasan model tidak lengkap: '{key}' kosong.")
-    if data["category"] not in IMAGE_BY_CATEGORY:
+            raise SystemExit(f"Balasan model tidak lengkap: '{key}' kosong — ini esensial.")
+
+    if data.get("category") not in IMAGE_BY_CATEGORY:
         data["category"] = "Advokasi"
-    data.setdefault("meta_description", data["subtitle"])
+
+    if not data.get("subtitle"):
+        # Ambil dari PARAGRAF PERTAMA saja, bukan seluruh badan artikel —
+        # kalau semua tag disapu, judul <h2> ("Posisi HIFDI") ikut terseret
+        # dan subjudulnya jadi kalimat sampah.
+        m = re.search(r"<p>(.*?)</p>", data["body_html"], re.S)
+        plain = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", m.group(1))).strip() if m else ""
+        if plain:
+            potongan = plain[:200]
+            data["subtitle"] = (potongan.rsplit(".", 1)[0] + "."
+                                if "." in potongan else potongan)
+        else:
+            data["subtitle"] = data["title"]
+        log("subtitle kosong -> diturunkan dari paragraf pertama")
+
+    if not data.get("meta_description"):
+        data["meta_description"] = data["subtitle"][:200]
+
+    if not data.get("caption"):
+        data["caption"] = f"*{data['title']}*\n\n{data['subtitle']}"
+        log("caption kosong -> disusun dari judul + subjudul")
+
     return data
 
 
