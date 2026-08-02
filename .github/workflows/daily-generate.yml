@@ -2,8 +2,10 @@ name: Generate HIFDI Article
 
 on:
   schedule:
+    # 23:00 UTC = 06:00 WIB. SATU KALI SEHARI (pagi).
+    # Jadwal kedua (11:00 UTC / 18:00 WIB) sengaja dihapus 3 Agustus 2026
+    # atas keputusan pemilik repo — cukup satu artikel otomatis per hari.
     - cron: '0 23 * * *'
-    - cron: '0 11 * * *'
   workflow_dispatch:
 
 jobs:
@@ -21,18 +23,23 @@ jobs:
         with:
           python-version: '3.11'
 
+      # DeepSeek API OpenAI-compatible -> pakai SDK openai, bukan anthropic.
+      # feedparser untuk menarik berita nyata dari RSS (grounding fakta).
       - name: Install dependencies
-        run: pip install anthropic
+        run: pip install openai feedparser
 
       - name: Generate article
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: python scripts/generate_article.py
 
+      # Penambahan spesifik, BUKAN git add -A — supaya file nyasar
+      # (mis. wa-caption.txt) tidak ikut ter-commit. Sejalan dengan
+      # keputusan no. 7 di CLAUDE.md.
       - name: Commit and push
         run: |
           git config user.name "HIFDI Bot"
           git config user.email "bot@hifdi.id"
-          git add -A
-          git diff --cached --quiet || git commit -m "auto: artikel baru"
+          git add index.html images/ article-*/
+          git diff --cached --quiet || git commit -m "auto: artikel baru (DeepSeek)"
           git push

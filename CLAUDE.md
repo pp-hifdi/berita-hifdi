@@ -198,17 +198,31 @@ berita-hifdi/
 ```bash
 cd "C:\OneDrive\Documents\GitHub\berita-hifdi"
 
-# 1. buat folder + file artikel
+# 0. WAJIB PERTAMA — sinkronkan dulu sebelum menghitung nomor artikel.
+#    Bot harian di GitHub Actions push ke origin tiap hari tanpa laptop tahu,
+#    jadi repo lokal PASTI basi kalau tidak ditarik dulu. Menghitung nomor
+#    dari keadaan basi = nomor bentrok + push ditolak (non-fast-forward).
+git pull --rebase
+
+# 1. baru hitung nomor artikel (folder article-XXX tertinggi + 1)
+# 2. buat folder + file artikel
 #    (salin struktur dari article-057/index.html)
 
-# 2. sisipkan kartu paling atas grid di index.html
-# 3. naikkan angka id="articleCount"
+# 3. sisipkan kartu paling atas grid di index.html
+# 4. naikkan angka id="articleCount"
 
-# 4. commit spesifik — JANGAN git add -A
+# 5. commit spesifik — JANGAN git add -A
 git add index.html article-0XX/
 git commit -m "publish: article-0XX/index.html"
 git push
 ```
+
+**Kenapa langkah 0 tidak boleh dilewat:** penomoran artikel bukan mekanisme
+penguncian — ia hanya konvensi yang *dibaca* ("folder tertinggi + 1"), bukan
+nomor yang di-*booking*. Dua penerbit yang membaca keadaan sama akan
+menyimpulkan nomor sama. `git pull --rebase` di awal mempersempit jendela
+bentrok jadi beberapa detik saja. Kalau push tetap ditolak: `git pull --rebase`
+lalu ulangi push — tidak ada yang hilang.
 
 **Verifikasi setelah push:**
 ```bash
