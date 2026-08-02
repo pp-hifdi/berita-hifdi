@@ -478,6 +478,39 @@ Aturan:
    gambar berulang daripada gambar mati.
 5. **`alt` harus menggambarkan isi foto sebenarnya**, bukan tema artikel.
 
+### ⚠️ `og:image` WAJIB rasio landscape ~1.91:1 — kalau tidak, preview WA hilang
+WhatsApp/Facebook menolak menampilkan kartu preview kalau `og:image` rasionya
+jauh dari 1.91:1 (idealnya **1200×630**). Gejalanya: link dikirim ke WAG, tapi
+yang muncul cuma teks polos tanpa gambar. Sudah dua kali terjadi
+(article-058 dengan gambar potret 1200×1525; article-062 dengan foto lokal
+potret 1067×1600).
+
+**Aturan per sumber gambar:**
+- **Unsplash (hotlink):** cukup tambahkan `&h=630` ke parameter, jadi
+  `?auto=format&fit=crop&w=1200&h=630&q=80` — Unsplash otomatis crop landscape.
+  (`.featured-image` di halaman boleh tetap tanpa `&h=630`.)
+- **Gambar host lokal di `images/`:** parameter URL tidak berlaku. **Buat file
+  varian landscape terpisah** bernama `<nama>-og.jpg` (1200×630), lalu arahkan
+  `og:image` ke file varian itu. `.featured-image` di halaman tetap pakai file
+  asli. Cara membuatnya:
+  ```bash
+  python3 -c "
+  from PIL import Image
+  im=Image.open('images/NAMA.jpg').convert('RGB'); W,H=im.size
+  nh=int(W/(1200/630)); top=int((H-nh)*0.12)   # 0.12 = condong ke atas; sesuaikan
+  im.crop((0,top,W,top+nh)).resize((1200,630), Image.LANCZOS).save(
+      'images/NAMA-og.jpg','JPEG',quality=85,optimize=True)"
+  ```
+  **Selalu lihat hasil crop-nya** (buka file-nya) sebelum commit — pastikan
+  subjek utama tidak terpotong.
+- `og:image` untuk gambar lokal harus **URL absolut**
+  (`https://berita.hifdi.id/images/...`), bukan path relatif — crawler WA tidak
+  bisa membaca path relatif.
+
+**Verifikasi cepat sebelum sebar link:** buka
+`https://www.opengraph.xyz/url/<URL-artikel-di-encode>` — kalau ada error
+"Image aspect ratio is wrong", perbaiki dulu sebelum kirim ke WAG.
+
 ### ⚠️ curl TIDAK bisa dipakai memverifikasi gambar Unsplash
 `images.unsplash.com` membalas **404 untuk semua permintaan curl**, termasuk
 URL yang jelas-jelas hidup di browser. Ini proteksi hotlink/User-Agent, bukan
