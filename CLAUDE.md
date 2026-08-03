@@ -178,7 +178,7 @@ berita-hifdi/
 │   ├─ logo-hifdi.png          ← dipakai header tiap artikel (../images/logo-hifdi.png)
 │   └─ hero-hifdi.jpg          ← hero portal
 ├─ .github/workflows/
-│   └─ daily-generate.yml      ← BOT OTOMATIS — RUSAK, lihat bagian 7
+│   └─ daily-generate.yml      ← BOT OTOMATIS — HIDUP, lihat bagian 5
 └─ article-005/ … article-064/
     └─ index.html
 ```
@@ -186,10 +186,13 @@ berita-hifdi/
 ### Domain
 - Situs utama organisasi: `https://hifdi.id`
 - Akademi: `https://academy.hifdi.id`
-- **Portal berita: `berita.hifdi.id` — BELUM DIKONFIRMASI.** Alamat ini dipakai
-  di caption distribusi tapi tidak pernah divalidasi ke pemilik repo. Tidak ada
-  berkas `CNAME` di repo, jadi domain diatur di luar (dashboard Cloudflare).
-  **Konfirmasi dulu sebelum menyebarkan tautan.**
+- **Portal berita: `berita.hifdi.id` — TERBUKTI HIDUP.** Diverifikasi berkali-kali
+  dengan curl (HTTP 200) sepanjang Agustus 2026, termasuk artikel individual.
+  Sudah dipakai berulang di caption WAG/Telegram tanpa keberatan pemilik repo.
+  Tidak ada berkas `CNAME` di repo — domain diatur di luar, di dashboard
+  Cloudflare. Kalau suatu saat halaman ini justru gagal dimuat, itu tanda
+  domainnya lepas dari Cloudflare Pages — cek dashboard, bukan curigai catatan
+  lama yang bilang "belum dikonfirmasi".
 
 ### Deploy
 - **Cloudflare Pages**, terhubung otomatis ke branch `main`.
@@ -506,21 +509,12 @@ pemilik repo di sesi interaktif dulu.
 Bagian ini lahir dari kesalahan nyata di sesi sebelumnya. Baca sebelum
 mengerjakan apa pun.
 
-### ⚠️ Bot otomatis harian sedang RUSAK
-`.github/workflows/daily-generate.yml` berjalan **dua kali sehari**
-(cron `0 23 * * *` dan `0 11 * * *` UTC = 06.00 dan 18.00 WIB). Skrip yang
-dipanggil adalah `scripts/generate_article.py` — **folder `scripts/` tidak ada
-di repo.** Artinya workflow ini gagal setiap kali jalan.
-
-Implikasi yang harus disadari:
-- Ada notifikasi kegagalan GitHub Actions dua kali sehari.
-- Bot memakai `git add -A` dan commit `"auto: artikel baru"` sebagai
-  **HIFDI Bot <bot@hifdi.id>**. Kalau skrip dipulihkan, bot bisa menyapu file
-  nyasar dan **bertabrakan dengan penomoran artikel manual**.
-- Bot pernah berhasil sekali: commit `1bc249d` (22 Juni 2026), membuat
-  article-025 dan article-026.
-- **Keputusan soal bot ini belum diambil.** Jangan diam-diam menghidupkan,
-  menghapus, atau menambal workflow tanpa persetujuan pemilik repo.
+### ✅ Bot otomatis harian — SUDAH DIPERBAIKI, jangan percaya versi lama catatan ini
+**Riwayat, bukan kondisi sekarang:** dulu (sebelum 3 Agustus 2026) workflow
+memanggil `scripts/generate_article.py` padahal folder `scripts/` tidak ada,
+jadi gagal tiap kali jalan. **Itu sudah tidak berlaku.** Skrip sudah ada, bot
+sudah terbukti jalan sendiri (lihat bagian 5 untuk detail lengkap). Kalau
+sesi mana pun menemukan catatan lama yang bilang bot "rusak", itu usang.
 
 ### ⚠️ URL gambar Unsplash — kesalahan yang paling mahal di sesi lalu
 **ID foto Unsplash itu string acak dan mustahil ditebak.** Di sesi sebelumnya
@@ -631,15 +625,14 @@ bukan keputusan Claude.
 
 ### Perlu keputusan pemilik repo
 
-**A1 — Tentukan nasib bot harian yang rusak.** `daily-generate.yml` gagal dua
-kali sehari karena `scripts/generate_article.py` tidak ada. Pilihannya:
-(a) pulihkan skripnya, (b) nonaktifkan workflow, (c) hapus workflow.
-Risiko bila dipulihkan tanpa penyesuaian: bot memakai `git add -A` dan bisa
-bertabrakan dengan penomoran artikel manual. **Jangan bertindak tanpa arahan.**
+**A1 — [SELESAI, 3 Agustus 2026] Nasib bot harian.** Diputuskan: dipulihkan
+dan dihidupkan, dengan skrip DeepSeek baru (bukan skrip lama yang hilang).
+`git add -A` sudah diganti penambahan spesifik supaya tidak bentrok penomoran
+manual. Lihat bagian 5 untuk detail dan bagian 7 catatan lama yang dibatalkan.
 
-**A2 — Konfirmasi domain portal berita.** `berita.hifdi.id` dipakai di caption
-distribusi tapi belum pernah divalidasi. Tidak ada `CNAME` di repo. Pastikan
-alamat yang benar sebelum tautan disebar lebih luas.
+**A2 — [SELESAI, terverifikasi Agustus 2026] Domain portal berita.**
+`berita.hifdi.id` terbukti hidup lewat pengujian curl berulang dan sudah
+dipakai aktif di caption WAG/Telegram. Lihat bagian 4.
 
 **A2b — Pasang PAT GitHub agar bridge Telegram headless bisa push.** Lihat
 bagian 6c. Tanpa ini, publish lewat bot Telegram akan macet di tahap
