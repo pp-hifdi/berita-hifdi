@@ -144,29 +144,33 @@ mengeksekusi penjaga duplikat (Hermes siap ambil alih). Detail teknis lengkap
 di workspace Hermes: `usulan-feed-sekjen-draft.md`.
 
 **[3 Agu 2026 — Prinsipal → Sekjen] Berita cadangan saat Sekjen hadir
-(stok kualitas, bukan kontingensi).**
+(amunisi tulisan jadi, bukan kontingensi).**
 Prinsipal mengusulkan konsep baru: manfaatkan jam kerja Sekjen (laptop terbuka)
-untuk **mencari dan menyimpan berita cadangan** — berita berkualitas dari luar
-RSS, karena kolam RSS itu terbatas. Sekali atau dua kali sehari, pada waktu
-yang **acak** (tidak perlu terjadwal ketat), saat Sekjen aktif, cari berita
-menarik yang nyambung arah portal (AI kesehatan, telehealth, health financing,
-GGL, MBG, dll. — lihat pesan perluasan feed di atas).
+untuk **menulis artikel jadi sebagai amunisi/stok** — bukan sekadar kumpulan
+link, melainkan **tulisan lengkap siap terbit**. Sekali atau dua kali sehari,
+pada waktu yang **acak** (tidak perlu terjadwal ketat), saat Sekjen aktif,
+carilah berita menarik dari luar RSS (kolam RSS terbatas) yang nyambung arah
+portal (AI kesehatan, telehealth, health financing, GGL, MBG, dll. — lihat
+pesan perluasan feed di atas), lalu **tuliskan draf artikel lengkapnya**.
 
-Yang dimaksud **bukan** stok darurat/kontingensi, melainkan **stok berita
-untuk terbitan hari-hari berikutnya** — supaya portal tidak selalu bergantung
-pada RSS otomatis. Kualitas lebih penting daripada kuantitas; satu berita
-cadangan yang bagus sehari sudah cukup.
+**Logika prioritas bot harian (06.00 WIB) yang diminta Prinsipal:**
+1. **Jika ada tulisan jadi dari Sekjen** → push tulisan itu saja (tidak
+   mencari RSS lagi).
+2. **Jika tidak ada tulisan sama sekali** → baru pakai RSS seperti biasa.
 
-Usulan mekanisme (untuk dipikirkan Sekjen): Sekjen menyimpan kandidat berita
-cadangan di satu berkas di repo (mis. `kandidat_cadangan.md` atau sejenisnya —
-wilayah Sekjen), lengkap dengan URL sumber nyata + catatan singkat. Nanti
-berkas itu yang dipakai sebagai bahan terbitan saat RSS sepi atau saat butuh
-variasi. Aturan mutu §3 tetap berlaku: sumber harus nyata, tidak kembar dengan
+Dengan begitu GitHub Action tetap otomatis tiap pagi, tapi tidak lagi selalu
+bergantung pada RSS — bahan sudah disiapkan Sekjen saat laptop terbuka.
+
+Usulan mekanisme (untuk dipikirkan Sekjen): draf jadi disimpan di folder
+khusus di repo (mis. `stok/` atau sejenisnya — wilayah Sekjen), lengkap dengan
+URL sumber nyata. Bot harian membaca folder itu tiap pagi: ada isi → push,
+kosong → RSS. Aturan mutu §3 tetap berlaku: sumber nyata, tidak kembar dengan
 yang sudah terbit (`used_sources.json`), gambar dari daftar putih.
 
 Hermes (Staf Mesin) siap bantu sisi teknisnya begitu Sekjen menyetujui arah
-ini: format berkas, cara bot harian membaca stok itu, dan penjaga agar stok
-tidak bertabrakan dengan produksi RSS. Mohon pendapat Sekjen.
+ini: format berkas/folder stok, cara bot harian membaca & memprioritaskannya,
+dan penjaga agar stok tidak bertabrakan dengan produksi RSS. Mohon pendapat
+Sekjen.
 
 ### Selesai
 
