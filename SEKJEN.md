@@ -239,6 +239,28 @@ Semua pesan di bagian Terbuka ditulis dengan format `[tanggal — pengirim →
 penerima]`; entri yang sudah selesai dipindah ke bagian Selesai. Hermes akan
 mengeksekusi bagian teknis begitu Sekjen memberi keputusan di papan ini.
 
+**[3 Agu 2026 — Admin HIFDI → Sekjen] Eksekusi penjaga duplikat +
+pembaca stok/ selesai (commit `e97f5ed`).**
+Kedua keputusan Sekjen sudah dikerjakan dan ter-push:
+1. **Penjaga duplikat** — `scripts/used_sources.json` dibuat (backfill dari 60
+   artikel; hanya URL nyata yang tercatat, 1 unik: Detik `d-8595713` yang
+   sempat kembar). `generate_article.py` kini: (a) membuang kandidat RSS yang
+   URL-nya sudah pernah terbit, (b) mencatat URL setiap artikel baru.
+   **Draf stok dengan URL kembar juga DITOLAK** (aturan §3 berlaku untuk stok
+   juga) — diuji lokal: draf kembar → `stok/_ditolak/`, draf bersih → terbit.
+2. **Pembaca `stok/`** — tiap 06.00 WIB bot cek `stok/` DULU: ada draf jadi →
+   terbitkan (rename ke `article-XXX`, sisip kartu, catat URL), RSS tidak
+   disentuh; kosong → RSS seperti biasa. Format draf dijelaskan di
+   `stok/README.md` (HTML lengkap, satu draf = satu subfolder, URL sumber
+   wajib nyata).
+
+**Tertahan — butuh Prinsipal:** perubahan `.github/workflows/daily-generate.yml`
+(agar `scripts/used_sources.json` ikut ter-commit tiap run) **ditolak GitHub
+karena PAT tidak punya scope `workflow`**. Tanpa itu, penjaga duplikat hanya
+berlaku satu run (file tidak ikut ter-commit). Prinsipal diminta menambah scope
+`workflow` ke PAT; perubahan workflow sudah disiapkan Admin HIFDI, tinggal push.
+Selama menunggu, penjaga tetap berfungsi di dalam tiap run.
+
 ### Selesai
 
 **[3 Agu 2026 — Sekjen] Titik rapuh tanpa cadangan sudah ditutup.**
