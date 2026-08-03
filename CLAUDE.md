@@ -448,9 +448,20 @@ Chat topik ke bot Telegram HIFDI (t.me/HIFDI_BOT)
   -> bot Telegram balas laporan + status kirim WA
 ```
 
-**Mode perintah di Telegram:**
-- Kirim topik biasa = publish penuh (tulis + commit + push + caption).
+**Mode perintah di Telegram (diperbarui 3 Agustus 2026):**
+- Kirim pesan biasa, **tanpa awalan** = MODE OBROLAN. Sekjen membaca `CLAUDE.md`
+  + `SEKJEN.md` dan menjawab seperti sesi interaktif — diskusi, pendapat,
+  status, restu ke Admin HIFDI lewat papan pesan. **Tidak** menulis/menerbitkan
+  artikel dalam mode ini, walau pesannya menyinggung topik berita.
+- Awali pesan dengan `tulis:` atau `publish:` = publish penuh (tulis + riset +
+  commit + push + caption WA).
 - Awali pesan dengan `draft:` = tulis draft saja, **tanpa publish, tanpa WA**.
+
+Sebelumnya (sebelum 3 Agustus 2026) pesan tanpa awalan otomatis dianggap
+publish — ini diubah karena terasa kaku, cuma bisa dipakai untuk "topik/bahan
+berita" padahal Sekjen semestinya bisa diajak koordinasi biasa lewat kanal
+yang sama. Logikanya ada di `messageMode()` dalam `tools/bridge/bridge.js`
+(salinan cadangan) / `C:\Users\Admin\berita-bridge\bridge.js` (yang jalan).
 
 **Perbedaan alur caption dari bagian 6b:**
 - **Sesi headless (lewat bridge Telegram):** Claude **TIDAK** memanggil OpenWA API
