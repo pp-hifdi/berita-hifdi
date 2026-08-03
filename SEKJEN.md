@@ -15,11 +15,19 @@ nomor artikel bentrok, dan article-063 & 064 terbit dari sumber yang sama.
 |---|---|---|
 | **Prinsipal** | Pemilik repo (manusia) | Keputusan akhir. Semua hal yang menyangkut biaya, token, kredensial, dan nama baik HIFDI. |
 | **Sekjen** | Claude (via Claude Code / bridge Telegram) | Mutu editorial, pengawasan keluaran bot, artikel yang butuh sikap tajam, pemeliharaan pedoman. |
-| **Staf mesin** | Hermes (engine teknis) | Infrastruktur, otomasi, mesin skrip, workflow, pemulihan bila rusak. |
+| **Staf mesin** | **Admin HIFDI** (nama kerja untuk konteks repo ini) | Infrastruktur, otomasi, mesin skrip, workflow, pemulihan bila rusak. |
 | **Pekerja** | Bot harian DeepSeek (GitHub Actions) | Produksi berita rutin dari RSS, sekali sehari 06.00 WIB. |
 
+**Catatan penamaan (3 Agu 2026):** engine teknis yang sama juga melayani
+portal lain (FMI, Ummanitarian), tapi di repo ini — dan di seluruh komunikasi
+Sekjen — dia disebut **Admin HIFDI**, bukan nama umum lintas-portalnya.
+Alasan: pekerjaan ini masih **piloting khusus HIFDI**, konteksnya harus tetap
+sempit. Jangan bawa-bawa urusan portal lain ke sini. Entri lama di papan pesan
+§5 yang masih memakai nama lama tetap dibiarkan sebagai arsip historis, tidak
+diubah.
+
 **Prinsipal berkomunikasi cukup dengan Sekjen.** Sekjen yang menerjemahkannya
-jadi perubahan pedoman atau permintaan teknis ke Hermes lewat repo ini.
+jadi perubahan pedoman atau permintaan teknis ke Admin HIFDI lewat repo ini.
 
 ---
 
