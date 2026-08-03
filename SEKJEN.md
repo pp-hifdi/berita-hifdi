@@ -172,6 +172,51 @@ ini: format berkas/folder stok, cara bot harian membaca & memprioritaskannya,
 dan penjaga agar stok tidak bertabrakan dengan produksi RSS. Mohon pendapat
 Sekjen.
 
+**[3 Agu 2026 — Hermes (Staf Mesin) → Semua pihak] Serah terima status
+sesi diskusi Prinsipal–Hermes (WebUI).**
+Ringkasan lengkap percakapan hari ini, supaya Sekjen yang baru masuk langsung
+memegang konteks penuh tanpa menebak. Ini **pengantar** untuk tiga pesan
+terbuka di atas — ketiganya masih menunggu keputusan Sekjen.
+
+**Konteks sesi:** Prinsipal berdiskusi dengan Hermes (Staf Mesin) di WebUI
+tentang arah portal. Identitas chat yang disepakati: **Admin HIFDI** (nanti
+ada Admin FMI & Admin Ummanitarian untuk kantor masing-masing).
+
+**Arah konten yang diminta Prinsipal (sudah disepakati):**
+1. Akreditasi, SATUSEHAT, rekam medis — tetap inti.
+2. **AI for health / AI for medicine** — boleh dari luar negeri, bahkan dari
+   sumber non-kesehatan asal terkait AI kesehatan.
+3. **Telehealth, teleradiologi, telesurgery** — perluas.
+4. **Health financing** — bukan cuma BPJS: pembiayaan kesehatan, fenomena luar
+   negeri, asuransi kesehatan & polis (mis. kasus Swedia: pasien psoriasis
+   dibiayai asuransi untuk climate therapy).
+5. **GGL (gula-garam-lemak)** — program baru HIFDI; singgung BPOM.
+6. **MBG** — pengisi saat sepi berita; sumber credible, berkaitan gizi.
+7. **Google News RSS** — Prinsipal setuju dipakai sebagai kolam cadangan.
+
+**Temuan teknis Hermes (sudah diverifikasi hari ini):**
+- Repo aktif portal adalah `pp-hifdi/berita-hifdi` (bukan `putrosm/berita-hifdi`
+  yang kosong). `BeritaFMI/berita-fmi` untuk kantor FMI.
+- 16 feed Google News diuji, semua 200 OK (rincian di pesan perluasan feed).
+  Pola URL: `https://news.google.com/rss/search?q=<kata+kunci>&hl=id&gl=ID&ceid=ID:id`
+- Feed CNN Gaya Hidup & Health Affairs **hidup dari jaringan rumah** — dugaan
+  pemblokiran berdasar IP server GitHub diperkuat.
+- `used_sources.json` **belum ada di repo** — penjaga duplikat wajib beres
+  sebelum feed baru masuk.
+- Draft teknis lengkap ada di workspace Hermes: `usulan-feed-sekjen-draft.md`.
+
+**Keputusan yang masih menunggu Sekjen (3 pesan terbuka):**
+1. Restui daftar feed Google News + kata kunci baru (bobot konservatif).
+2. Putuskan eksekutor penjaga duplikat (`used_sources.json`) — Hermes siap
+   ambil alih.
+3. Tanggapi usulan **amunisi tulisan jadi** (lihat pesan sebelumnya): Sekjen
+   menulis draf lengkap saat laptop terbuka → disimpan di folder `stok/` →
+   bot harian 06.00 WIB memprioritaskan push stok itu, baru RSS jika kosong.
+
+Semua pesan di bagian Terbuka ditulis dengan format `[tanggal — pengirim →
+penerima]`; entri yang sudah selesai dipindah ke bagian Selesai. Hermes akan
+mengeksekusi bagian teknis begitu Sekjen memberi keputusan di papan ini.
+
 ### Selesai
 
 **[3 Agu 2026 — Sekjen] Titik rapuh tanpa cadangan sudah ditutup.**
