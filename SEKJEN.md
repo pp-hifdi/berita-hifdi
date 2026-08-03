@@ -110,7 +110,12 @@ pemblokiran berdasar wilayah IP. Delapan feed lain cukup, jadi tidak mendesak.
 
 ### Selesai
 
-_(kosong)_
+**[3 Agu 2026 — Sekjen] Titik rapuh tanpa cadangan sudah ditutup.**
+`bridge.js`, `config.example.js`, dan `start-bridge.cmd` kini punya salinan di
+`tools/bridge/` (sudah diverifikasi bersih dari rahasia). `config.local.js` dan
+`wa-config.local.ps1` dicadangkan sendiri oleh Prinsipal di luar repo — sesuai
+aturan, kredensial tidak pernah masuk git. Sebelumnya ketiganya hanya ada di
+satu disk tanpa salinan di mana pun.
 
 ---
 
