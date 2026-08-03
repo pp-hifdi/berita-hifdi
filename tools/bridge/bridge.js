@@ -105,6 +105,18 @@ async function deliverCaption(bot) {
 
 const offsets = {}, busy = {}, jobStart = {};
 
+// Nama bot per akun, dipakai untuk deteksi "dicolek" (@nama) di grup.
+// Diisi sekali saat startup lewat getMe(), sebelum polling mulai.
+async function loadUsernames() {
+  for (const b of BOTS) {
+    try {
+      const r = await tg(b.token, "getMe", {});
+      b.username = r.result && r.result.username;
+      console.log(`${b.name}: @${b.username || "(gagal ambil username)"}`);
+    } catch (e) { console.log(`${b.name}: gagal ambil username -`, e.message); }
+  }
+}
+
 async function statusText() {
   let lines = ["STATUS BRIDGE"];
   for (const b of BOTS) {
@@ -128,9 +140,24 @@ async function pollBot(bot) {
     for (const upd of res.result) {
       offsets[bot.name] = upd.update_id + 1;
       const msg = upd.message; if (!msg || !msg.text) continue;
-      const chatId = msg.chat.id, fromId = msg.from.id, text = msg.text.trim();
+      const chatId = msg.chat.id, fromId = msg.from.id;
+      let text = msg.text.trim();
+
+      // Di grup/channel: HARUS dicolek (@nama_bot) atau reply ke pesan bot,
+      // atau /perintah eksplisit. Kalau tidak, abaikan diam-diam -- termasuk
+      // pesan Prinsipal sendiri, supaya obrolan biasa di grup tidak semuanya
+      // "ketangkep" bot. Chat pribadi (DM) tetap bebas seperti biasa.
+      if (msg.chat.type !== "private") {
+        const uname = bot.username;
+        const mentioned = uname && text.toLowerCase().includes("@" + uname.toLowerCase());
+        const repliedToBot = msg.reply_to_message && msg.reply_to_message.from && msg.reply_to_message.from.username === uname;
+        const isCommand = /^\s*\//.test(text);
+        if (!mentioned && !repliedToBot && !isCommand) continue;
+        if (mentioned) text = text.replace(new RegExp("@" + uname, "gi"), "").trim();
+      }
+
       if (/^\/id\b/i.test(text)) { await send(bot.token, chatId, `Telegram ID Anda: ${fromId}\nBot: ${bot.name}`); continue; }
-      if (/^\/start\b/i.test(text)) { await send(bot.token, chatId, `Bot ${bot.name} aktif. Kirim pesan biasa untuk NGOBROL dengan Sekjen. Awali "tulis:"/"publish:" untuk tulis+terbitkan artikel, atau "draft:" untuk draf saja.`); continue; }
+      if (/^\/start\b/i.test(text)) { await send(bot.token, chatId, `Bot ${bot.name} aktif. Kirim pesan biasa untuk NGOBROL dengan Sekjen. Awali "tulis:"/"publish:" untuk tulis+terbitkan artikel, atau "draft:" untuk draf saja. Di grup: harus dicolek (@${bot.username || bot.name}) atau reply ke pesan bot supaya ditanggapi.`); continue; }
       if (/^\/status\b/i.test(text)) { await send(bot.token, chatId, await statusText()); continue; }
       if (ALLOWED_CHAT_IDS.length && !ALLOWED_CHAT_IDS.includes(fromId)) {
         // Di grup, jangan balas publik ("Ditolak.") ke tiap pesan anggota lain
@@ -172,6 +199,9 @@ async function waWatch() {
 }
 setInterval(waWatch, 60000);
 
-console.log("Berita Bridge jalan. Bot:", BOTS.map((b) => b.name).join(", "));
-console.log("WA watchdog aktif (cek tiap 60 detik). Ctrl+C untuk berhenti.");
-(async function loop() { while (true) { await Promise.all(BOTS.map(pollBot)); } })();
+(async function main() {
+  await loadUsernames();
+  console.log("Berita Bridge jalan. Bot:", BOTS.map((b) => b.name).join(", "));
+  console.log("WA watchdog aktif (cek tiap 60 detik). Ctrl+C untuk berhenti.");
+  while (true) { await Promise.all(BOTS.map(pollBot)); }
+})();
