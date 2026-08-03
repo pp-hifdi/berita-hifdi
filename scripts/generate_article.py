@@ -41,6 +41,8 @@ from config import (  # noqa: E402
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 INDEX = os.path.join(REPO, "index.html")
+USED_SOURCES_FILE = os.path.join(REPO, "scripts", "used_sources.json")
+STOCK_DIR = os.path.join(REPO, "stok")
 WIB = timezone(timedelta(hours=7))
 BULAN_ID = ["", "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli",
             "Agustus", "September", "Oktober", "November", "Desember"]
@@ -110,6 +112,48 @@ def template_path():
 
 
 # --------------------------------------------------------------------------
+# 1b. Penjaga sumber duplikat (used_sources.json)
+# --------------------------------------------------------------------------
+def load_used_sources():
+    """URL sumber yang sudah pernah dipakai -> folder artikel.
+
+    Pelajaran 3 Agustus 2026: article-063 & 064 kembar karena dedup
+    membandingkan JUDUL feed dengan judul terbitan — dua hal yang berbeda.
+    Penjaga yang benar membandingkan URL sumber: satu URL = satu artikel,
+    selamanya. File ini ditulis mesin, jangan disunting tangan.
+    """
+    if not os.path.isfile(USED_SOURCES_FILE):
+        return {}
+    try:
+        with open(USED_SOURCES_FILE, encoding="utf-8") as f:
+            data = json.load(f)
+        return data if isinstance(data, dict) else {}
+    except (json.JSONDecodeError, OSError) as exc:
+        log(f"used_sources.json tidak terbaca ({exc}) — dianggap kosong")
+        return {}
+
+
+def save_used_sources(used):
+    with open(USED_SOURCES_FILE, "w", encoding="utf-8") as f:
+        json.dump(used, f, indent=2, ensure_ascii=False)
+        f.write("\n")
+
+
+def normalise_url(url):
+    """URL pembanding: buang fragment + trailing slash, turunkan huruf."""
+    return (url or "").strip().split("#")[0].rstrip("/").lower()
+
+
+def mark_source_used(used, url, article_dir):
+    """Catat URL ke penjaga. Beri tahu kalau ternyata sudah pernah dipakai."""
+    key = normalise_url(url)
+    if key and key not in used:
+        used[key] = article_dir
+    elif key:
+        log(f"PERHATIAN: URL sudah pernah dipakai di {used[key]} — {url}")
+
+
+# --------------------------------------------------------------------------
 # 2. Kandidat dari RSS
 # --------------------------------------------------------------------------
 def normalise(text):
@@ -147,7 +191,7 @@ def too_similar(title, old_titles):
     return False
 
 
-def collect_candidates(old_titles):
+def collect_candidates(old_titles, used_sources):
     """Kumpulkan kandidat dari semua feed, lalu URUTKAN BERDASAR SKOR.
 
     Urutan feed TIDAK boleh menentukan pilihan: Detik menyumbang 100 item
@@ -179,6 +223,12 @@ def collect_candidates(old_titles):
             title = re.sub(r"\s+", " ", title).strip()
             link = (entry.get("link") or "").strip()
             if not title or not link or link in seen_links:
+                continue
+            # PENJAGA DUPLEX: satu URL sumber = satu artikel, selamanya.
+            # Pelajaran 3 Agu 2026: article-063 & 064 kembar karena dedup
+            # judul gagal menangkap URL yang sama. Cek URL, bukan judul.
+            if normalise_url(link) in used_sources:
+                log(f"   dibuang (URL sudah dipakai): {link[:80]}")
                 continue
             if len(title.split()) < MIN_TITLE_WORDS:
                 continue
@@ -417,12 +467,165 @@ def insert_card(index_html, article, number, image, date_str):
 
 
 # --------------------------------------------------------------------------
+# 4b. Amunisi dari folder stok/ (draf jadi tulisan Sekjen)
+# --------------------------------------------------------------------------
+def extract_stock_meta(html_text):
+    """Baca metadata dari HTML draf stok (struktur sama dengan artikel jadi).
+
+    Kalau satu kolom tidak ada, isi fallback yang aman — bot TIDAK menolak
+    seluruh draf hanya karena satu tag kosmetik kurang.
+    """
+    def grab(pattern, flags=0):
+        m = re.search(pattern, html_text, flags)
+        return m.group(1).strip() if m else ""
+
+    title = grab(r'<h1 class="article-title">(.*?)</h1>', re.S) or \
+            grab(r'<meta property="og:title" content="([^"]*)"')
+    title = re.sub(r"\s+", " ", title).replace(" — HIFDI", "").strip()
+
+    category = grab(r'<span class="article-category">(.*?)</span>', re.S)
+    if category not in IMAGE_BY_CATEGORY:
+        category = "Advokasi"
+
+    subtitle = grab(r'<div class="article-subtitle">(.*?)</div>', re.S)
+    if not subtitle:
+        m = re.search(r"<p>(.*?)</p>", html_text, re.S)
+        plain = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", m.group(1))).strip() if m else ""
+        subtitle = plain[:200] if plain else title
+        subtitle = re.sub(r"\s+", " ", subtitle).strip()
+
+    meta_desc = grab(r'<meta name="description" content="([^"]*)"')
+    if not meta_desc:
+        meta_desc = subtitle[:200]
+
+    og_image = grab(r'<meta property="og:image" content="([^"]*)"')
+    m = re.search(r"photo-(\d+[-\w]*)", og_image)
+    image_id = m.group(1) if m else None
+
+    sources = re.findall(r'href="(https?://[^"]+)"', html_text)
+    sources = [s for s in sources if "unsplash" not in s and "hifdi.id" not in s
+               and "fonts" not in s and "w3.org" not in s]
+
+    return {
+        "title": title,
+        "category": category,
+        "subtitle": subtitle,
+        "meta_description": meta_desc,
+        "image_id": image_id,
+        "sources": sources,
+    }
+
+
+def publish_from_stock(used):
+    """Kalau ada draf jadi di stok/, terbitkan yang paling awal.
+
+    Prioritas (keputusan Prinsipal 3 Agu 2026): ada tulisan Sekjen -> push
+    itu, TANPA mencari RSS. Kosong -> main() lanjut ke RSS seperti biasa.
+
+    Draf yang memakai URL sumber yang SUDAH PERNAH TERBIT ditolak (aturan
+    mutu §3: satu URL = satu artikel, selamanya) — penjaga duplikat berlaku
+    untuk stok juga, bukan cuma RSS.
+    """
+    if not os.path.isdir(STOCK_DIR):
+        return False
+    drafts = sorted(
+        d for d in os.listdir(STOCK_DIR)
+        if os.path.isfile(os.path.join(STOCK_DIR, d, "index.html"))
+    )
+    if not drafts:
+        log("stok/ kosong — lanjut RSS seperti biasa")
+        return False
+
+    for draft in drafts:
+        src = os.path.join(STOCK_DIR, draft, "index.html")
+        with open(src, encoding="utf-8") as f:
+            html_text = f.read()
+
+        meta = extract_stock_meta(html_text)
+        if not meta["title"] or len(meta["title"].split()) < 2:
+            log(f"stok: draf {draft} tidak punya judul layak — dilewati")
+            continue
+
+        # PENJAGA DUPLEX untuk stok: kalau ada URL sumber yang sudah pernah
+        # terbit, tolak draf ini (aturan §3). Jangan terbitkan pelanggaran.
+        dup = [u for u in meta["sources"] if normalise_url(u) in used]
+        if dup:
+            log(f"stok: draf {draft} DITOLAK — URL sudah pernah terbit: {dup[0][:80]}")
+            log(f"       {len(dup)} URL kembar. Pindah ke stok/_ditolak/ ...")
+            os.makedirs(os.path.join(STOCK_DIR, "_ditolak"), exist_ok=True)
+            os.rename(
+                os.path.join(STOCK_DIR, draft),
+                os.path.join(STOCK_DIR, "_ditolak", draft),
+            )
+            continue
+
+        return _publish_draft(draft, meta, used)
+
+    log("stok: tidak ada draf layak — lanjut RSS seperti biasa")
+    return False
+
+
+def _publish_draft(draft, meta, used):
+    """Terbitkan satu draf stok yang sudah lolos pemeriksaan."""
+    number = next_article_number()
+    today = datetime.now(WIB)
+    date_str = f"{today.day} {BULAN_ID[today.month]} {today.year}"
+    folder = os.path.join(REPO, f"article-{number:03d}")
+
+    # Pindahkan draf -> artikel jadi (rename folder). Ini "terbit".
+    os.rename(os.path.join(STOCK_DIR, draft), folder)
+    log(f"stok: {draft} -> article-{number:03d}")
+
+    # Gambar kartu: pakai ID unsplash dari draf kalau ada, kalau tidak default.
+    if meta["image_id"]:
+        image = {"id": meta["image_id"], "alt": meta["subtitle"][:100]}
+    else:
+        image = IMAGES[IMAGE_BY_CATEGORY.get(meta["category"], DEFAULT_IMAGE)]
+
+    index_html = read_index()
+    with open(INDEX, "w", encoding="utf-8", newline="\n") as f:
+        f.write(insert_card(index_html, meta, number, image, date_str))
+
+    # Catat sumber draf ke penjaga duplikat — sekali dipakai, tak boleh lagi.
+    for url in meta["sources"]:
+        mark_source_used(used, url, f"article-{number:03d}")
+    save_used_sources(used)
+
+    link = f"https://berita.hifdi.id/article-{number:03d}/"
+    caption = (f"*{meta['title']}*\n\n{meta['subtitle']}\n\n{link}\n"
+               f"\n_Berita HIFDI — Himpunan Fasyankes Dokter Indonesia_")
+    with open(os.path.join(REPO, "wa-caption.txt"), "w", encoding="utf-8", newline="\n") as f:
+        f.write(caption + "\n")
+
+    log(f"SELESAI article-{number:03d} (dari stok Sekjen): {meta['title']}")
+    notify_telegram(
+        f"BOT HARIAN — artikel {number:03d} tayang (dari stok Sekjen)\n\n"
+        f"Judul    : {meta['title']}\n"
+        f"Kategori : {meta['category']}\n"
+        f"Link     : {link}\n\n"
+        f"Cloudflare butuh 1-2 menit sebelum tayang."
+    )
+    notify_telegram(caption)
+    return True
+
+
+# --------------------------------------------------------------------------
 def main():
+    used = load_used_sources()
+    log(f"URL sumber terpakai tercatat: {len(used)}")
+
+    # PRIORITAS AMUNISI (keputusan Prinsipal 3 Agu 2026): kalau ada draf
+    # jadi dari Sekjen di stok/, terbitkan itu DULU, tanpa sentuh RSS.
+    # Kosong -> lanjut RSS seperti biasa.
+    if publish_from_stock(used):
+        log("selesai dari stok — RSS tidak disentuh hari ini.")
+        return 0
+
     index_html = read_index()
     old_titles = existing_titles(index_html)
     log(f"artikel tayang sekarang: {len(old_titles)}")
 
-    candidates = collect_candidates(old_titles)
+    candidates = collect_candidates(old_titles, used)
     log(f"kandidat relevan & belum pernah ditulis: {len(candidates)}")
     if not candidates:
         log("tidak ada kandidat layak hari ini — berhenti tanpa menulis apa pun.")
@@ -452,6 +655,11 @@ def main():
 
     with open(INDEX, "w", encoding="utf-8", newline="\n") as f:
         f.write(insert_card(index_html, article, number, image, date_str))
+
+    # PENJAGA DUPLEX: catat URL sumber ke used_sources.json — sekali dipakai,
+    # tak boleh terbit lagi. Ini yang mencegah article-063/064 terulang.
+    mark_source_used(used, candidate["link"], f"article-{number:03d}")
+    save_used_sources(used)
 
     link = f"https://berita.hifdi.id/article-{number:03d}/"
     caption = (f"{article['caption']}\n\n{link}\n"
