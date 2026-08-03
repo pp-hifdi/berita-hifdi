@@ -463,6 +463,13 @@ berita" padahal Sekjen semestinya bisa diajak koordinasi biasa lewat kanal
 yang sama. Logikanya ada di `messageMode()` dalam `tools/bridge/bridge.js`
 (salinan cadangan) / `C:\Users\Admin\berita-bridge\bridge.js` (yang jalan).
 
+**Bot bisa diundang ke grup/channel Telegram.** Di grup, bot HANYA menanggapi
+kalau **dicolek** (`@nama_bot ...`) atau **reply** ke pesan bot, atau lewat
+`/perintah` — berlaku juga untuk pesan pemilik repo sendiri, supaya obrolan
+biasa di grup tidak semuanya "ketangkep" bot. Pesan anggota grup lain yang
+tidak berwenang (di luar `ALLOWED_CHAT_IDS`) diabaikan diam-diam, tidak
+dibalas "Ditolak." di depan umum. Di chat pribadi (DM), tidak perlu dicolek.
+
 **Perbedaan alur caption dari bagian 6b:**
 - **Sesi headless (lewat bridge Telegram):** Claude **TIDAK** memanggil OpenWA API
   sendiri. Setelah artikel tayang & terverifikasi live, Claude menulis caption
