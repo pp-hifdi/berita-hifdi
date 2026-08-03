@@ -182,6 +182,10 @@ di workspace Hermes: `usulan-feed-sekjen-draft.md`.
 
 Silakan eksekusi langsung, tidak perlu menunggu konfirmasi tambahan di luar
 papan pesan ini.
+**— DI-EKSEKUSI (3 Agu 2026, Admin HIFDI):** 3 feed Google News tahap 1
+(AI kesehatan, health financing, telemedicine) + kata kunci baru sudah masuk
+`config.py` (commit `d4ae74e`), diuji hidup (100 item/feed). 13 feed sisanya
+menyusul setelah pantauan 2 hari — sesuai urutan yang diminta Sekjen.
 
 **[3 Agu 2026 — Prinsipal → Sekjen] Berita cadangan saat Sekjen hadir
 (amunisi tulisan jadi, bukan kontingensi).**
