@@ -23,12 +23,28 @@ async function send(token, chatId, text) {
   for (const c of chunks) await tg(token, "sendMessage", { chat_id: chatId, text: c });
 }
 
+function messageMode(userText) {
+  if (/^\s*(draft|\/draft)\b/i.test(userText)) return "DRAFT";
+  if (/^\s*(tulis|publish|artikel|\/tulis|\/publish)\b/i.test(userText)) return "PUBLISH";
+  return "CHAT";
+}
+
 function buildPrompt(userText) {
-  const draft = /^\s*(draft|\/draft)\b/i.test(userText);
-  const topic = userText.replace(/^\s*(draft|\/draft)\s*:?\s*/i, "").trim();
-  if (draft) {
+  const mode = messageMode(userText);
+  const topic = userText.replace(/^\s*(draft|\/draft|tulis|publish|artikel|\/tulis|\/publish)\s*:?\s*/i, "").trim();
+
+  if (mode === "CHAT") {
+    return `Baca CLAUDE.md dan SEKJEN.md di folder ini. Ini pesan dari Prinsipal lewat Telegram, MODE OBROLAN — bukan permintaan menulis atau menerbitkan artikel.
+
+Pesan Prinsipal: "${userText}"
+
+Jawab langsung seperti obrolan biasa (diskusi, pendapat, status, koordinasi dengan Admin HIFDI lewat papan pesan SEKJEN.md, dsb). JANGAN menulis, meriset, atau menerbitkan artikel baru dalam mode ini — walau pesan menyinggung topik berita — kecuali Prinsipal secara eksplisit memakai awalan "tulis:" atau "publish:". Kalau ada keputusan yang perlu dicatat permanen (restu ke Admin HIFDI, perubahan pedoman, dsb.), tulis ke SEKJEN.md lalu commit + push, dan sebutkan itu di jawaban. Balasan ringkas, sesuai gaya jawab biasa — bukan format laporan artikel.`;
+  }
+
+  if (mode === "DRAFT") {
     return `Baca CLAUDE.md di folder ini. Tulis DRAFT artikel baru dengan topik/instruksi dari prinsipal (via Telegram): "${topic}". JANGAN publish, JANGAN push, JANGAN kirim WhatsApp. Cukup riset + tulis draft, lalu tampilkan draftnya + usulan gambar untuk saya review. Ringkas.`;
   }
+
   return `Baca CLAUDE.md di folder ini dan jalankan alur penerbitan LENGKAP untuk artikel baru dengan topik/instruksi dari prinsipal (via Telegram): "${topic}".
 
 MODE OTONOM PENUH (tidak ada operator untuk menyetujui di tengah proses):
@@ -114,13 +130,13 @@ async function pollBot(bot) {
       const msg = upd.message; if (!msg || !msg.text) continue;
       const chatId = msg.chat.id, fromId = msg.from.id, text = msg.text.trim();
       if (/^\/id\b/i.test(text)) { await send(bot.token, chatId, `Telegram ID Anda: ${fromId}\nBot: ${bot.name}`); continue; }
-      if (/^\/start\b/i.test(text)) { await send(bot.token, chatId, `Bot ${bot.name} aktif. Kirim topik untuk PUBLISH. Awali "draft:" untuk draft saja.`); continue; }
+      if (/^\/start\b/i.test(text)) { await send(bot.token, chatId, `Bot ${bot.name} aktif. Kirim pesan biasa untuk NGOBROL dengan Sekjen. Awali "tulis:"/"publish:" untuk tulis+terbitkan artikel, atau "draft:" untuk draf saja.`); continue; }
       if (/^\/status\b/i.test(text)) { await send(bot.token, chatId, await statusText()); continue; }
       if (ALLOWED_CHAT_IDS.length && !ALLOWED_CHAT_IDS.includes(fromId)) { await send(bot.token, chatId, "Ditolak."); continue; }
       if (busy[bot.name]) { await send(bot.token, chatId, "Masih mengerjakan tugas sebelumnya. Tunggu selesai."); continue; }
       busy[bot.name] = true; jobStart[bot.name] = Date.now();
-      const mode = /^\s*(draft|\/draft)\b/i.test(text) ? "DRAFT" : "PUBLISH";
-      await send(bot.token, chatId, `Diterima (${bot.name}, mode ${mode}). Sedang mengerjakan, bisa beberapa menit...`);
+      const mode = messageMode(text);
+      await send(bot.token, chatId, `Diterima (${bot.name}, mode ${mode}). Sedang mengerjakan${mode === "CHAT" ? "" : ", bisa beberapa menit"}...`);
       runClaude(bot.folder, buildPrompt(text)).then(async (result) => {
         await send(bot.token, chatId, result);
         if (mode === "PUBLISH") { const waMsg = await deliverCaption(bot); await send(bot.token, chatId, waMsg); }
