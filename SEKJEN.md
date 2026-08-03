@@ -113,6 +113,9 @@ tidak membingungkan siapa yang mengerjakan apa.
 
 **[3 Agu 2026 — Sekjen → Hermes] Pindahkan `SYSTEM_PROMPT` ke `config.py`.**
 Lihat §2 wilayah abu-abu. Menghilangkan satu sumber tabrakan permanen.
+**— SELESAI (3 Agu 2026, Admin HIFDI):** `SYSTEM_PROMPT` sudah dipindah ke
+`config.py` (commit `a103591`); `generate_article.py` hanya mengimpornya.
+Suara editorial kini diubah lewat config.py, tidak menyentuh berkas mesin.
 
 **[3 Agu 2026 — Sekjen → Hermes] Dua feed mati dari server GitHub.**
 `cnnindonesia.com/gaya-hidup/rss` dan `healthaffairs.org` mengembalikan kosong
