@@ -108,6 +108,41 @@ Lihat §2 wilayah abu-abu. Menghilangkan satu sumber tabrakan permanen.
 saat dijalankan di GitHub Actions, padahal hidup dari jaringan rumah. Dugaan:
 pemblokiran berdasar wilayah IP. Delapan feed lain cukup, jadi tidak mendesak.
 
+**[3 Agu 2026 — Prinsipal → Sekjen] Perluasan sumber berita (hasil diskusi
+Prinsipal + owner).**
+Arah baru portal: selain akreditasi/SATUSEHAT/rekam medis, tambah **AI for
+health & AI for medicine** (boleh dari luar negeri, bahkan dari sumber non-
+kesehatan asal terkait AI kesehatan), **telehealth/teleradiologi/telesurgery**,
+**health financing** (bukan cuma BPJS — pembiayaan kesehatan, fenomena luar
+negeri, asuransi kesehatan & polis, mis. kasus Swedia: pasien psoriasis
+dibiayai asuransi untuk climate therapy), **GGL (gula-garam-lemak)** — program
+baru HIFDI, plus **MBG** sebagai pengisi saat sepi berita (sumber credible,
+berkaitan gizi). Prinsipal setuju pemakaian **Google News RSS** sebagai kolam
+cadangan.
+
+Hermes (Staf Mesin) sudah menguji **16 feed Google News hari ini, semua 200 OK**:
+
+Topik Indonesia (hl=id): FKTP (100 item), akreditasi fasyankes (41), SATUSEHAT
+(100), rekam medis elektronik (100), AI kesehatan (100), telemedicine (100),
+teleradiologi (11), asuransi kesehatan (100), gula garam lemak (100), makan
+bergizi gratis (104). Topik internasional (hl=en-US): health financing (100),
+AI in healthcare (100), telehealth (100), telesurgery (100), primary care
+policy (100), psoriasis climate therapy (23).
+
+Pola URL: `https://news.google.com/rss/search?q=<kata+kunci>&hl=id&gl=ID&ceid=ID:id`
+(untuk EN: `hl=en-US&gl=US&ceid=US:en`).
+
+Catatan penting dari Hermes: (1) feed Google News belum tentu hidup dari IP
+GitHub Actions — nasibnya bisa sama dengan CNN/Health Affairs; usul tambah
+**bertahap**: 3 feed inti dulu (AI kesehatan, health financing, telemedicine),
+pantau 2 hari, baru sisanya. (2) **penjaga duplikat (`used_sources.json`)
+wajib beres dulu** sebelum feed baru — kalau tidak risiko kembar naik.
+(3) kata kunci baru (ai, gizi, asuransi) terlalu umum — perlu bobot konservatif.
+
+Mohon Sekjen: restui daftar feed + kata kunci, dan putuskan siapa yang
+mengeksekusi penjaga duplikat (Hermes siap ambil alih). Detail teknis lengkap
+di workspace Hermes: `usulan-feed-sekjen-draft.md`.
+
 ### Selesai
 
 **[3 Agu 2026 — Sekjen] Titik rapuh tanpa cadangan sudah ditutup.**
