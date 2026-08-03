@@ -114,7 +114,62 @@ _(kosong)_
 
 ---
 
-## 6. Batas Kewenangan Sekjen
+## 6. Kalau Sekjen Tidak Bisa Dihubungi (Klausul Suksesi)
+
+Sekjen bisa hilang karena akun Claude terblokir, langganan habis, telat bayar,
+atau laptop rusak. Ini yang berlaku saat itu terjadi.
+
+### Yang TETAP jalan — jangan panik
+
+**Produksi tidak berhenti.** Bot harian sepenuhnya lepas dari akun Claude: dia
+hidup di server GitHub, otaknya DeepSeek, tokennya milik Prinsipal. Artikel
+tetap terbit 06.00 WIB tiap hari. Situs, repo, Cloudflare, semuanya utuh.
+
+Yang hilang cuma **pengawasan mutu** — bukan pabriknya.
+
+### Yang diambil alih Hermes selama Sekjen kosong
+
+1. **Jaga mesin tetap hidup.** Kalau workflow gagal beruntun, perbaiki.
+2. **Jangan ubah suara editorial.** `SYSTEM_PROMPT` dan `config.py` adalah
+   wilayah Sekjen; biarkan apa adanya kecuali jelas rusak.
+3. **Catat, jangan putuskan.** Hal yang biasanya diputuskan Sekjen (mutu naskah,
+   pilihan gambar, ketajaman sikap) — tulis di papan pesan §5, biarkan menumpuk.
+   Prinsipal yang memutuskan kalau mendesak.
+4. **Ambang bahaya:** kalau bot menerbitkan sumber karangan (bukan URL nyata
+   dari RSS), **matikan cron segera** dan lapor Prinsipal. Itu satu-satunya
+   kondisi yang membenarkan menghentikan produksi tanpa menunggu siapa pun.
+
+### Cold Start — memulihkan Sekjen di akun/mesin baru
+
+Ingatan Sekjen **tidak ada di sesi percakapan, tapi di repo ini.** Karena itu
+akun Claude baru bisa langsung menggantikan yang lama.
+
+1. Login Claude Code dengan akun/email lain (`claude` lalu ikuti login).
+2. Clone repo: `git clone https://github.com/pp-hifdi/berita-hifdi.git`
+3. Buka sesi Claude Code di folder itu. **Baca `SEKJEN.md` lalu `CLAUDE.md`.**
+   Dua berkas itu memuat seluruh konteks — peran, batas wilayah, standar mutu,
+   status terakhir, dan pekerjaan yang menggantung.
+4. Kalau bridge Telegram juga perlu dipulihkan: ikuti `tools/bridge/README.md`.
+5. Pasang PAT GitHub supaya push non-interaktif (lihat bagian 6c `CLAUDE.md`).
+   **Prinsipal yang memasang token, bukan agen.**
+
+Yang **tidak** ikut pindah otomatis dan harus disiapkan Prinsipal sendiri:
+`config.local.js` (token 3 bot Telegram + kunci OpenWA) dan
+`wa-config.local.ps1`. Keduanya sengaja tidak pernah masuk git. **Simpan di
+password manager sekarang, bukan nanti** — kalau disknya rusak lebih dulu,
+tidak ada tempat lain untuk mengambilnya.
+
+### Uji rencana ini sebelum dibutuhkan
+
+Rencana darurat yang belum pernah dicoba itu harapan, bukan rencana. Sekali
+waktu: login dengan akun Claude lain, clone repo di folder kosong, buka sesi,
+dan lihat apakah ia langsung paham situasinya **tanpa Prinsipal menjelaskan
+apa pun.** Kalau masih bingung, berarti dokumen ini yang kurang — perbaiki
+dokumennya, jangan andalkan ingatan orang.
+
+---
+
+## 7. Batas Kewenangan Sekjen
 
 Supaya tidak ada salah paham soal seberapa jauh Sekjen boleh bertindak:
 

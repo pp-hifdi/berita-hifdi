@@ -8,7 +8,8 @@ portal Berita HIFDI. Baca sampai habis sebelum mengerjakan apa pun di repo ini.
 > mutu, aturan koordinasi, dan papan pesan antar-agen. Mengedit berkas milik
 > pihak lain tanpa pemberitahuan menyebabkan tabrakan; sudah terjadi.
 
-Terakhir diperbarui: 25 Juli 2026 (akhir sesi Claude web).
+Terakhir diperbarui: 3 Agustus 2026 (Sekjen). Dua jalur produksi aktif; lihat
+bagian 5 untuk status terkini.
 
 ---
 
@@ -114,15 +115,16 @@ Keputusan berikut sudah final di sesi sebelumnya. Jangan diperdebatkan ulang
 tanpa alasan baru.
 
 1. **Penomoran artikel: 3 digit, urut, naik satu.** Nomor baru = nomor folder
-   `article-XXX` tertinggi + 1. Saat ini tertinggi = **article-057**, jadi
-   berikutnya **article-058**.
+   `article-XXX` tertinggi + 1. Saat ini tertinggi = **article-064**, jadi
+   berikutnya **article-065**.
 
 2. **article-001 sampai article-004 memang tidak ada.** Bukan hilang, bukan
    perlu dibuat. Penomoran dimulai dari `article-005`. Jangan mencoba
    "menambal" nomor yang bolong.
 
 3. **Template diambil dengan menyalin artikel yang sudah ada,** bukan menulis
-   ulang CSS dari nol. Sumber salinan paling mutakhir: `article-057/index.html`.
+   ulang CSS dari nol. Sumber salinan paling mutakhir: artikel bernomor
+   tertinggi (kini `article-064/index.html`).
    Ini keputusan sadar — menyalin file yang terbukti tayang jauh lebih aman
    daripada menyusun ulang `<style>` dan berisiko salah ketik.
 
@@ -130,10 +132,10 @@ tanpa alasan baru.
    sebelum kartu lain.
 
 5. **`id="articleCount"` dinaikkan manual** setiap artikel internal baru.
-   Nilai sekarang: **53 artikel**.
+   Nilai sekarang: **60 artikel**.
 
 6. **Angka `articleCount` sengaja tidak sama dengan jumlah kartu.** Folder
-   artikel internal = 53, kartu di `index.html` = 62. Selisih ±9 adalah kartu
+   artikel internal = 60, kartu di `index.html` = 69. Selisih ±9 adalah kartu
    yang menautkan ke media luar (mis. liputan Trastuzumab/CISC, kasus dokter
    koas). **Ini bukan bug.** `articleCount` mengikuti jumlah artikel internal.
 
@@ -177,7 +179,7 @@ berita-hifdi/
 │   └─ hero-hifdi.jpg          ← hero portal
 ├─ .github/workflows/
 │   └─ daily-generate.yml      ← BOT OTOMATIS — RUSAK, lihat bagian 7
-└─ article-005/ … article-057/
+└─ article-005/ … article-064/
     └─ index.html
 ```
 
@@ -211,7 +213,7 @@ git pull --rebase
 
 # 1. baru hitung nomor artikel (folder article-XXX tertinggi + 1)
 # 2. buat folder + file artikel
-#    (salin struktur dari article-057/index.html)
+#    (salin struktur dari artikel bernomor tertinggi)
 
 # 3. sisipkan kartu paling atas grid di index.html
 # 4. naikkan angka id="articleCount"
@@ -280,15 +282,30 @@ adalah baris `<hash-lama>..<hash-baru>  main -> main`**, bukan exit code.
 - Gambar: `photo-1488521787991-ed7bbaae773c` (ID sama dengan article-051).
 - Commit: `5e1cdeb`, lalu perbaikan gambar `61f43f6`.
 
-### Status repo saat serah-terima
-- `main` sinkron dengan `origin/main`.
-- Working tree bersih (kecuali `CLAUDE.md` ini, belum di-commit).
-- Commit terakhir: `61f43f6 fix: ganti gambar article-057 dengan URL Unsplash yang valid`.
+### Status per 3 Agustus 2026
 
-### Belum dikerjakan
-- **article-058 belum dibuat.** Topik belum ditentukan.
-- Verifikasi visual article-057 setelah perbaikan gambar terakhir belum
-  dikonfirmasi pemilik repo.
+**Portal ini sekarang punya DUA jalur produksi yang berjalan bersamaan.**
+
+| Jalur | Pemicu | Otak | Butuh laptop? |
+|---|---|---|---|
+| **Otomatis harian** | Cron GitHub Actions, 06.00 WIB | DeepSeek | **Tidak** |
+| **Semi-otomatis** | Anda kirim topik ke `t.me/HIFDI_BOT` | Claude (`claude -p`) | Ya, bridge harus jalan |
+
+- Artikel terakhir: **article-064** (3 Agustus 2026, terbit otomatis oleh bot).
+- article-058 s/d 062 ditulis di sesi interaktif; 063 & 064 oleh bot harian.
+- Bot harian **sudah hidup dan terbukti jalan sendiri** — ini membatalkan
+  catatan lama di bagian 7 yang menyebut bot rusak.
+- Bridge Telegram kini **nyala otomatis** saat login lewat shortcut di
+  `shell:startup`, dan bangkit sendiri kalau mati. Tidak perlu dijalankan manual.
+
+### Perlu perhatian
+
+- **article-063 & 064 lahir dari URL sumber yang sama** (`d-8595713`), jadi
+  isinya mirip. Penyebabnya dedup membandingkan judul feed dengan judul terbitan
+  — dua hal berbeda. Perbaikan berbasis catatan URL sudah disiapkan tapi
+  **belum di-push**; lihat papan pesan di `SEKJEN.md`.
+- Kolam gambar terkurasi baru **4 buah**, jadi gambar akan cepat berulang.
+  Menambah entri wajib verifikasi visual — alt text lama terbukti berbohong.
 
 ### Topik yang sudah terpakai (jangan diulang)
 Periksa selalu `index.html` sebelum memilih topik. Yang muncul di sesi terakhir
@@ -652,14 +669,16 @@ risiko hotlink, ID salah, dan perubahan kebijakan pihak ketiga.
 | Repo | `C:\OneDrive\Documents\GitHub\berita-hifdi` |
 | Remote | `github.com/pp-hifdi/berita-hifdi` (branch `main`) |
 | Deploy | Cloudflare Pages, otomatis dari `main`, jeda 1–2 menit |
-| Artikel terakhir | **article-057** (23 Juli 2026, Advokasi) |
-| Artikel berikutnya | **article-058** |
-| Folder artikel | 53 (article-005 … article-057) |
-| `articleCount` | 53 |
-| Kartu di portal | 62 (selisih = tautan media luar, bukan bug) |
-| Commit terakhir | `61f43f6` |
+| Artikel terakhir | **article-064** (3 Agustus 2026, oleh bot harian) |
+| Artikel berikutnya | **article-065** |
+| Folder artikel | 60 (article-005 … article-064) |
+| `articleCount` | 60 |
+| Kartu di portal | 69 (selisih = tautan media luar, bukan bug) |
 | Kategori | Advokasi / Edukasi / Mutu / Kabar HIFDI |
 | Panjang artikel | ±500 kata (naskah tokoh boleh lebih, muat utuh) |
-| Template | salin `article-057/index.html` |
+| Template | salin artikel bernomor tertinggi |
 | Titik URL gambar | 3 (og:image, featured-image, kartu portal) |
-| Peringatan utama | bot harian rusak; jangan karang ID Unsplash; curl tak bisa uji gambar |
+| Bot harian | **HIDUP** — GitHub Actions + DeepSeek, 06.00 WIB, tanpa laptop |
+| Bridge Telegram | nyala otomatis saat login (`shell:startup`) |
+| Tata kerja antar-agen | **`SEKJEN.md`** — baca sebelum mengedit apa pun |
+| Peringatan utama | jangan karang ID Unsplash; curl tak bisa uji gambar; `git pull` dulu sebelum hitung nomor |
