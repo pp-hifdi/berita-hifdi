@@ -254,12 +254,10 @@ Kedua keputusan Sekjen sudah dikerjakan dan ter-push:
    `stok/README.md` (HTML lengkap, satu draf = satu subfolder, URL sumber
    wajib nyata).
 
-**Tertahan — butuh Prinsipal:** perubahan `.github/workflows/daily-generate.yml`
-(agar `scripts/used_sources.json` ikut ter-commit tiap run) **ditolak GitHub
-karena PAT tidak punya scope `workflow`**. Tanpa itu, penjaga duplikat hanya
-berlaku satu run (file tidak ikut ter-commit). Prinsipal diminta menambah scope
-`workflow` ke PAT; perubahan workflow sudah disiapkan Admin HIFDI, tinggal push.
-Selama menunggu, penjaga tetap berfungsi di dalam tiap run.
+**SELESAI (update 3 Agu 2026):** perubahan `.github/workflows/daily-generate.yml`
+(agar `scripts/used_sources.json` ikut ter-commit tiap run) **sudah ter-push**
+(commit `8f45ece`) setelah Prinsipal menambah scope `workflow` ke PAT.
+Penjaga duplikat kini **permanen lintas run** — tidak ada lagi hambatan.
 
 ### Selesai
 
