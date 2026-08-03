@@ -298,6 +298,34 @@ adalah baris `<hash-lama>..<hash-baru>  main -> main`**, bukan exit code.
 - Bridge Telegram kini **nyala otomatis** saat login lewat shortcut di
   `shell:startup`, dan bangkit sendiri kalau mati. Tidak perlu dijalankan manual.
 
+### Bot harian — cara mengurusnya
+
+**Berkas:** `.github/workflows/daily-generate.yml` (jadwal & langkah CI),
+`scripts/generate_article.py` (logika), `scripts/config.py` (feed RSS, kata
+kunci berbobot, daftar gambar terkurasi).
+
+**Tiga GitHub Secrets** yang harus terisi. Letaknya: repo di GitHub →
+**Settings → Secrets and variables → Actions**. Kalau kosong, artikel tetap
+terbit tapi laporan Telegram dilewati diam-diam.
+
+| Nama secret | Isi |
+|---|---|
+| `DEEPSEEK_API_KEY` | API key DeepSeek (wajib — tanpa ini bot gagal) |
+| `TELEGRAM_BOT_TOKEN` | Token bot HIFDI dari BotFather |
+| `TELEGRAM_CHAT_ID` | ID Telegram penerima laporan |
+
+**Memicu manual tanpa menunggu jadwal:** buka tab **Actions** di GitHub →
+pilih **Generate HIFDI Article** → tombol **Run workflow**. Ini memakai
+`workflow_dispatch` yang sudah aktif di workflow. Berguna untuk menguji
+perubahan pedoman tanpa menunggu 06.00 WIB besok.
+
+**Melihat kenapa gagal:** tab Actions → klik run yang merah → buka langkah
+**Generate article**. Log-nya menyebut jumlah item tiap feed, lima kandidat
+teratas beserta skornya, dan alasan berhenti.
+
+**Prinsipal yang memasang secret, bukan agen** — memasukkan token ke perintah
+atau berkas apa pun bukan wewenang agen, walau tokennya diberikan langsung.
+
 ### Perlu perhatian
 
 - **article-063 & 064 lahir dari URL sumber yang sama** (`d-8595713`), jadi
