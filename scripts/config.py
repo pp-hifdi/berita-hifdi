@@ -27,6 +27,12 @@ FEEDS = [
     ("STAT News",         "https://www.statnews.com/feed/"),
     ("Health Affairs",    "https://www.healthaffairs.org/action/showFeed?type=etoc&feed=rss&jc=hlthaff"),
     ("KFF Health News",   "https://kffhealthnews.org/feed/"),
+    # --- Google News RSS (restu Sekjen 3 Agu 2026) ---
+    # TAHAP 1 (3 feed inti, dipantau 2 hari sebelum 13 sisanya menyusul).
+    # Catatan Sekjen: query pencarian pakai frasa penuh, bukan singkatan.
+    ("GN: AI kesehatan",  "https://news.google.com/rss/search?q=AI+kesehatan&hl=id&gl=ID&ceid=ID:id"),
+    ("GN: health financing", "https://news.google.com/rss/search?q=health+financing&hl=en-US&gl=US&ceid=US:en"),
+    ("GN: telemedicine",  "https://news.google.com/rss/search?q=telemedicine&hl=id&gl=ID&ceid=ID:id"),
 ]
 
 # ---------------------------------------------------------------------------
@@ -54,6 +60,13 @@ KEYWORDS_STRONG = [   # bobot 10 — inti urusan HIFDI, satu saja sudah cukup
     "quality assurance", "quality improvement", "quality of care",
     "health tech", "health technology", "digital health", "telemedicine",
     "telehealth", "electronic health record", "ehr", "health workforce",
+    # Restu Sekjen 3 Agu 2026 — arah baru portal (AI kesehatan, telehealth,
+    # health financing, GGL, MBG). Catatan Sekjen: "ggl" aman dipakai untuk
+    # PENYARINGAN judul (dicek bersama konteks judul), bukan untuk query RSS.
+    "ai kesehatan", "kecerdasan buatan", "artificial intelligence",
+    "teleradiologi", "telesurgery", "pembiayaan kesehatan",
+    "asuransi kesehatan", "ggl", "gula garam lemak", "mbg",
+    "makan bergizi gratis",
 ]
 
 KEYWORDS_MEDIUM = [   # bobot 3 — relevan, tapi perlu teman
@@ -64,6 +77,8 @@ KEYWORDS_MEDIUM = [   # bobot 3 — relevan, tapi perlu teman
     "clinic", "clinical", "hospital", "physician", "nurse", "midwife",
     "public health", "quality of life", "health worker", "health data",
     "vaccination", "immunization", "health equity", "health outcomes",
+    # Restu Sekjen 3 Agu 2026 — arah baru portal
+    "nutrition", "malnutrition", "health insurance", "ai diagnostics",
 ]
 
 KEYWORDS_WEAK = [     # bobot 1 — terlalu umum untuk berdiri sendiri
