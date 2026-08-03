@@ -3,6 +3,11 @@
 Dokumen serah-terima untuk sesi Claude Code. Berisi seluruh konteks operasional
 portal Berita HIFDI. Baca sampai habis sebelum mengerjakan apa pun di repo ini.
 
+> **⚠️ Repo ini dikerjakan lebih dari satu agen.** Baca **`SEKJEN.md`** lebih
+> dulu — di situ ada batas wilayah berkas (siapa boleh mengedit apa), standar
+> mutu, aturan koordinasi, dan papan pesan antar-agen. Mengedit berkas milik
+> pihak lain tanpa pemberitahuan menyebabkan tabrakan; sudah terjadi.
+
 Terakhir diperbarui: 25 Juli 2026 (akhir sesi Claude web).
 
 ---
