@@ -132,7 +132,13 @@ async function pollBot(bot) {
       if (/^\/id\b/i.test(text)) { await send(bot.token, chatId, `Telegram ID Anda: ${fromId}\nBot: ${bot.name}`); continue; }
       if (/^\/start\b/i.test(text)) { await send(bot.token, chatId, `Bot ${bot.name} aktif. Kirim pesan biasa untuk NGOBROL dengan Sekjen. Awali "tulis:"/"publish:" untuk tulis+terbitkan artikel, atau "draft:" untuk draf saja.`); continue; }
       if (/^\/status\b/i.test(text)) { await send(bot.token, chatId, await statusText()); continue; }
-      if (ALLOWED_CHAT_IDS.length && !ALLOWED_CHAT_IDS.includes(fromId)) { await send(bot.token, chatId, "Ditolak."); continue; }
+      if (ALLOWED_CHAT_IDS.length && !ALLOWED_CHAT_IDS.includes(fromId)) {
+        // Di grup, jangan balas publik ("Ditolak.") ke tiap pesan anggota lain
+        // yang bukan Prinsipal -- itu spam & membocorkan pembatasan bot.
+        // Di chat pribadi (DM), tetap beri tahu.
+        if (msg.chat.type === "private") await send(bot.token, chatId, "Ditolak.");
+        continue;
+      }
       if (busy[bot.name]) { await send(bot.token, chatId, "Masih mengerjakan tugas sebelumnya. Tunggu selesai."); continue; }
       busy[bot.name] = true; jobStart[bot.name] = Date.now();
       const mode = messageMode(text);
