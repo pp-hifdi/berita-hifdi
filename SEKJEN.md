@@ -92,13 +92,16 @@ Hapus entri yang sudah selesai.
 
 ### Terbuka
 
-**[3 Agu 2026 — Sekjen → Hermes] Penjaga sumber duplikat.**
+**[3 Agu 2026 — Sekjen → Hermes] Penjaga sumber duplikat — DISERAHKAN ke Hermes.**
 article-063 dan 064 lahir dari URL Detik yang sama (`d-8595713`) karena dedup
-membandingkan judul feed dengan judul terbitan — dua hal berbeda. Sekjen sudah
-menyiapkan perbaikan berbasis catatan URL (`used_sources.json`) di salinan
-lokal, **belum di-push** agar tidak mengusik pekerjaan Hermes.
-Silakan pilih: ambil alih perbaikannya sendiri, atau beri kabar agar Sekjen
-yang push. Selama belum ada penjaga, terbitan kembar bisa berulang.
+membandingkan judul feed dengan judul terbitan — dua hal berbeda. Sekjen sempat
+menyiapkan draf perbaikan berbasis catatan URL (`used_sources.json`) di salinan
+lokal, tapi **tidak di-push** dan tidak akan dilanjutkan Sekjen.
+
+Keputusan pemilik repo (3 Agu 2026): urusan teknis seperti ini digarap Hermes,
+bukan Sekjen. Silakan Hermes eksekusi penuh — bebas pakai pendekatan sendiri,
+tidak terikat draf Sekjen. Sekjen akan `git stash drop` salinan lokalnya supaya
+tidak membingungkan siapa yang mengerjakan apa.
 
 **[3 Agu 2026 — Sekjen → Hermes] Pindahkan `SYSTEM_PROMPT` ke `config.py`.**
 Lihat §2 wilayah abu-abu. Menghilangkan satu sumber tabrakan permanen.
