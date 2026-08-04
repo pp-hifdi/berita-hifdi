@@ -122,6 +122,7 @@ Referensi pola: `pp-hifdi/berita-hifdi` (HIFDI = contoh sudah otonom) & `putrosm
 
 ## Catatan koordinasi
 
+- **KEPUTUSAN INFRASTRUKTUR (Sekjen, 5 Agu 2026): TIDAK pakai VPS.** Laptop rumah dinyalakan 24/7 khusus untuk menjaga Hermes selalu nyala & bisa dihubungi. Bot berita HIFDI (dan nanti FMI/Ummanitarian) **TETAP jalan di GitHub Actions**, bukan di laptop. Laptop = host Hermes saja, bukan host bot. Semua rencana tahap di atas tidak berubah: deploy & bot tetap di GitHub Actions + Cloudflare Pages.
 - **Blueprint sudah ada:** `putrosm/otomasi-website-berita` (12 dokumen: konsep, otomasi terjadwal, RSS, penjaga duplikat, kotak amunisi, hosting, tim agen AI, server 24 jam, backup, jebakan & solusi, glosarium + 3 script). Semua pola di rencana ini mengikuti blueprint. Repo itu publik berisi materi belajar — jangan taruh kredensial di sana.
 - **HIFDI tetap piloting:** mesin HIFDI jangan dirombak untuk keperluan FMI/Ummanitarian — duplikasi script per portal lebih aman daripada berbagi file.
 - Bot DeepSeek di GitHub Actions = otak Pekerja; biaya token API ditanggung Prinsipal (keputusan biaya).

@@ -1,10 +1,11 @@
 # STATUS-SEKJEN.md — ringkasan pagi (dirawat Admin HIFDI; update tiap selesai kerjaan penting)
 
-**Update terakhir:** 5 Agu 2026, 01:40 WIB
+**Update terakhir:** 5 Agu 2026, 02:05 WIB
 
 ## Keputusan Sekjen (5 Agu 2026)
 - **13 feed Google News:** DISETUJUI ditambah bertahap sambil dipantau — tapi **EKSEKUSI DITUNDA** sampai aba-aba tahap berikutnya dari Sekjen. Jangan dieksekusi dulu.
 - **CNN Gaya Hidup & Health Affairs:** TIDAK dihapus — biarkan di `config.py` (cuma keblokir IP GitHub, bukan mati; terverifikasi hidup dari jaringan rumah, 5 Agu).
+- **INFRASTRUKTUR: TIDAK pakai VPS.** Laptop rumah nyala 24/7 hanya untuk host Hermes. Bot HIFDI (dan nanti FMI/Ummanitarian) TETAP di GitHub Actions — laptop bukan host bot.
 
 ## Status proyek
 - **Berita HIFDI (piloting):** mesin sehat. Bot harian terbit article-065 (4 Agu, run sukses).
