@@ -346,8 +346,8 @@
   "cat-12": [
     {
       "file": "cat-12-001.jpg",
-      "used": 0,
-      "last_article": null,
+      "used": 1,
+      "last_article": 69,
       "source": "https://live.staticflickr.com/2509/4144311617_01cfb2c0fb.jpg",
       "license": "by-sa",
       "status": "excluded",
