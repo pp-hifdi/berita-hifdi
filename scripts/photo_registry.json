@@ -185,7 +185,9 @@
       "used": 0,
       "last_article": null,
       "source": "https://live.staticflickr.com/3032/2487208138_84d32fe9b5_b.jpg",
-      "license": "by-nd"
+      "license": "by-nd",
+      "status": "excluded",
+      "alasan": "lisensi by-nd (NoDerivatives): tidak mengizinkan modifikasi menjadi og-image 1200x630"
     },
     {
       "file": "cat-07-002.jpg",
@@ -215,7 +217,9 @@
       "used": 0,
       "last_article": null,
       "source": "https://live.staticflickr.com/7229/7352235208_dc922c7202_b.jpg",
-      "license": "by-nd"
+      "license": "by-nd",
+      "status": "excluded",
+      "alasan": "lisensi by-nd (NoDerivatives): tidak mengizinkan modifikasi menjadi og-image 1200x630"
     },
     {
       "file": "cat-08-002.jpg",
@@ -410,7 +414,9 @@
       "file": "cat-15-001.jpg",
       "used": 0,
       "last_article": null,
-      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/The_Kaaba_during_Hajj_-_edited.jpg/1280px-The_Kaaba_during_Hajj_-_edited.jpg"
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/The_Kaaba_during_Hajj_-_edited.jpg/1280px-The_Kaaba_during_Hajj_-_edited.jpg",
+      "status": "excluded",
+      "alasan": "lisensi tidak tercatat di registry; sumber wikimedia tanpa status lisensi jelas"
     }
   ],
   "cat-16": [
