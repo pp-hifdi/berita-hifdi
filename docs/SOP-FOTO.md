@@ -41,6 +41,15 @@ artikel situs HIFDI, tanpa pengulangan gambar yang berlebihan.
 3. Pengulangan baru terjadi setelah semua foto kategori itu terpakai.
 4. Registry selalu diperbarui tiap pemilihan.
 
+## 5b. Keterangan Foto (Caption) — GENERIK
+1. Keterangan foto di artikel = **"Ilustrasi"** saja. Tidak usah menulis narasi
+   spesifik yang menebak isi foto atau mencocokkan dengan judul artikel.
+2. Alasan: pembuat artikel (bot/AI) tidak bisa melihat gambar — narasi yang
+   dicocok-cocokkan berisiko janggal/mismatch (pernah jadi masalah, lihat
+   standar mutu §3.4).
+3. Alt text tetap boleh deskripsi jujur (ditulis setelah melihat foto) — itu
+   urusan daftar putih Sekjen, bukan caption tampilan.
+
 ## 6. Larangan
 - ❌ Memakai foto tanpa lisensi yang jelas (termasuk hotlink situs berita).
 - ❌ Memakai foto kategori A untuk artikel kategori B (mismatch).
