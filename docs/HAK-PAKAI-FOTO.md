@@ -7,26 +7,41 @@
 
 | Status | Jumlah | Keterangan |
 |---|---|---|
-| ✅ Aktif (boleh dipakai) | **42** | Generik & netral: lisensi jelas, tanpa orang bisa dikenali / konten sensitif |
+| ✅ Aktif (boleh dipakai) | **47** | Lisensi jelas; tanpa data pribadi terbaca / anak-anak / pasien terekspos |
 | ⛔ Dikeluarkan — lisensi (syarat #1) | 3 | Detail di bawah |
-| ⛔ Dikeluarkan — netralitas (syarat #2) | 12 | Detail di bawah |
+| ⛔ Dikeluarkan — netralitas (syarat #2) | 7 | Detail di bawah |
 | Total | 57 | |
 
-## Rincian lisensi — 42 foto aktif
+> **Aturan privasi (keputusan Prinsipal, 5 Agu 2026) — satu garis:** JANGAN
+> sandingkan wajah yang bisa dikenali DENGAN nama individu. **Foto tanpa nama =
+> boleh. Nama tanpa foto = boleh.** Foto berwajah TIDAK dibuang hanya karena ada
+> wajah — yang dilarang menempelkan nama orang pada wajahnya (di caption/artikel).
+
+## Rincian lisensi — 47 foto aktif
 
 | Lisensi | Jumlah | Arti hak-pakai | Atribusi |
 |---|---|---|---|
-| **CC BY** | 28 | Boleh dipakai komersial & dimodifikasi (crop/og-image) | WAJIB atribusi penulis + link lisensi |
-| **CC BY-SA** | 11 | Sama seperti CC BY, plus turunan harus lisensi sama (share-alike) | WAJIB atribusi |
+| **CC BY** | 30 | Boleh dipakai komersial & dimodifikasi (crop/og-image) | WAJIB atribusi penulis + link lisensi |
+| **CC BY-SA** | 14 | Sama seperti CC BY, plus turunan harus lisensi sama (share-alike) | WAJIB atribusi |
 | **PDM** (Public Domain) | 3 | Bebas dipakai, tanpa atribusi | Tidak wajib |
 
-Semua foto aktif berasal dari sumber yang jelas: **42 Flickr** (URL asli tercatat di registry).
+Semua foto aktif berasal dari sumber yang jelas: **47 Flickr** (URL asli tercatat di registry).
 
-## Foto yang DIKELUARKAN — syarat #2: netralitas (12)
+## Foto yang DIKELUARKAN — syarat #2: netralitas (7, setelah koreksi aturan privasi)
 
-Audit visual AI (mata Qwen, 5 Agu 2026) per foto aktif: memuat **orang yang bisa dikenali / konten sensitif** (anak-anak, pasien + data pribadi, situasi darurat) — dikeluarkan dari rotasi supaya tidak nyasar ke berita duka/sensitif:
+Audit visual AI (mata Qwen, 5 Agu 2026) per foto aktif. Koreksi Prinsipal: **foto berwajah BOLEH selama tidak disandingkan nama** — 5 foto yang sempat dikeluarkan hanya karena wajah (cat-04-001/002/004, cat-05-002/004) **dikembalikan**. Yang TETAP keluar karena kontennya sendiri sensitif (bukan sekadar wajah):
 
-`cat-01-002` (pasien wajah jelas) · `cat-03-002` (anak di konteks klinis) · `cat-04-001/002/004` (potret wajah jelas) · `cat-05-001/002/004` (lansia & anak, wajah jelas) · `cat-06-001` (pasien + terapi ECT) · `cat-11-004` (pasien + nomor kamar terbaca) · `cat-12-001` (nama pasien & data medis terbaca) · `cat-14-001` (bayi + evakuasi darurat).
+| File | Alasan tetap keluar |
+|---|---|
+| `cat-01-002` | Pasien dengan kondisi tubuh terekspos (sensitivitas medis) |
+| `cat-03-002` | Anak-anak di konteks klinis |
+| `cat-05-001` | Memuat anak-anak |
+| `cat-06-001` | Pasien dalam perawatan/terapi invasif |
+| `cat-11-004` | Data pasien terbaca (nomor kamar/identitas) |
+| `cat-12-001` | Nama pasien & data medis terbaca di foto |
+| `cat-14-001` | Bayi dalam situasi darurat |
+
+**Praktik saat memakai foto berwajah:** caption & isi artikel TIDAK boleh menyebut nama orang yang wajahnya tampak; bila artikel menyebut nama individu, pilih foto tanpa wajah orang itu.
 
 ## Foto yang DIKELUARKAN — syarat #1: lisensi (3)
 

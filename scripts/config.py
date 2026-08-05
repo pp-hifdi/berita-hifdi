@@ -154,11 +154,16 @@ DEFAULT_IMAGE = "kebijakan"
 # CATATAN AUDIT 5 Agu 2026 (lihat docs/HAK-PAKAI-FOTO.md & docs/SOP-FOTO.md):
 # - Syarat restu #1 (lisensi): cat-07-001, cat-08-001 (by-nd) & cat-15-001
 #   (lisensi tak tercatat) DIKELUARKAN.
-# - Syarat restu #2 (netralitas): 12 foto memuat orang bisa dikenali/konten
-#   sensitif DIKELUARKAN (cat-01-002, cat-03-002, cat-04-001/002/004,
-#   cat-05-001/002/004, cat-06-001, cat-11-004, cat-12-001, cat-14-001).
-# - Aktif: 42 foto, semua generik & netral. Barang dikeluarkan ada di
-#   images/foto/_ditolak/ (ditandai "status": "excluded" di photo_registry.json).
+# - Syarat restu #2 (netralitas): awalnya 12 foto dikeluarkan; setelah koreksi
+#   aturan privasi Prinsipal (wajah tanpa nama = BOLEH), 5 dikembalikan.
+#   Yang TETAP keluar (7): cat-01-002 (pasien terekspos), cat-03-002 (anak
+#   klinis), cat-05-001 (anak), cat-06-001 (pasien terapi invasif),
+#   cat-11-004 (data pasien terbaca), cat-12-001 (nama & data medis terbaca),
+#   cat-14-001 (bayi darurat).
+# - ATURAN PRIVASI (Prinsipal, 5 Agu 2026): jangan sandingkan wajah bisa
+#   dikenali DENGAN nama individu; foto tanpa nama = boleh.
+# - Aktif: 47 foto. Barang dikeluarkan ada di images/foto/_ditolak/
+#   (ditandai "status": "excluded" di photo_registry.json).
 # ---------------------------------------------------------------------------
 PHOTO_BY_CATEGORY = {
     "Advokasi": ["cat-10", "cat-11", "cat-16", "cat-14"],
