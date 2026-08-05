@@ -28,6 +28,11 @@
 > hak-pakai **difokuskan untuk penambahan foto baru**: setiap foto baru WAJIB
 > tercatat `source` + `license` di `photo_registry.json` dan lolos QC (SOP-FOTO
 > §2–4) sebelum masuk koleksi — tanpa itu, foto tidak boleh dipakai.
+>
+> **Himbauan (5 Agu 2026, Prinsipal) — arah penambahan ke depan** (anjuran,
+> bukan pemblokir): perluas sumber dokumentasi/gambar eksternal lebih luas, dan
+> sebisa mungkin pilih gambar **tanpa wajah individu** — utamakan **alkes
+> (alat kesehatan), fasilitas/faskes, objek/ilustrasi**.
 
 ## Rincian lisensi — 47 foto aktif
 

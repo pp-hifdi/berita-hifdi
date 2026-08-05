@@ -9,6 +9,9 @@ artikel situs HIFDI, tanpa pengulangan gambar yang berlebihan.
 1. Tentukan topik artikel → pilih kategori dari **16 kategori** (lihat README.md).
 2. Kalau topik tidak jelas kategorinya → tanyakan/tentukan dengan editor (Sekjen).
 3. Tidak ada kategori yang pas → bicarakan dulu, jangan memaksakan.
+4. **Preferensi konten (himbauan Prinsipal, 5 Agu 2026):** sebisa mungkin pilih
+   gambar **tanpa wajah individu** — utamakan **alkes (alat kesehatan),
+   fasilitas/faskes, objek/ilustrasi**. Anjuran arah, bukan pemblokir.
 
 ## 2. Sumber Gambar (urutan prioritas)
 1. **Koleksi sendiri** di `images/foto/cat-XX/` (foto kiriman user + hasil koleksi) — dipakai
