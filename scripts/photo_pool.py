@@ -41,7 +41,17 @@ def pick(category, article_no=None, pools=None):
         ) if os.path.isdir(d) else []
         if not files:
             continue
-        known = {i['file']: i for i in reg.get(cat, [])}
+        # Registry: hanya entri yang file-nya BENAR-BENAR ADA di disk dan
+        # tidak berstatus excluded (foto dibuang) — bug nyata 6 Agu 2026:
+        # cat-12-001 (excluded, file dipindah ke _ditolak/) tetap ikut
+        # kompetisi rotasi karena known diisi dari registry, menang (used=0),
+        # lalu dipakai article-069 -> gambar 404.
+        known = {}
+        for i in reg.get(cat, []):
+            if i.get('status') == 'excluded':
+                continue
+            if i['file'] in files:
+                known[i['file']] = i
         for fn in files:
             if fn not in known:
                 known[fn] = {'file': fn, 'used': 0, 'last_article': None}

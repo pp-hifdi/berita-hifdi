@@ -345,18 +345,9 @@
   ],
   "cat-12": [
     {
-      "file": "cat-12-001.jpg",
+      "file": "cat-12-002.jpg",
       "used": 1,
       "last_article": 69,
-      "source": "https://live.staticflickr.com/2509/4144311617_01cfb2c0fb.jpg",
-      "license": "by-sa",
-      "status": "excluded",
-      "alasan": "tetap keluar (aturan privasi): nama pasien & data medis terbaca di foto"
-    },
-    {
-      "file": "cat-12-002.jpg",
-      "used": 0,
-      "last_article": null,
       "source": "https://live.staticflickr.com/7254/7460720258_e5c4bf4026_b.jpg",
       "license": "by"
     }
