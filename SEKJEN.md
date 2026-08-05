@@ -134,6 +134,10 @@ Suara editorial kini diubah lewat config.py, tidak menyentuh berkas mesin.
 `cnnindonesia.com/gaya-hidup/rss` dan `healthaffairs.org` mengembalikan kosong
 saat dijalankan di GitHub Actions, padahal hidup dari jaringan rumah. Dugaan:
 pemblokiran berdasar wilayah IP. Delapan feed lain cukup, jadi tidak mendesak.
+**— SELESAI (5 Agu 2026, Admin HIFDI, acc Prinsipal):** diuji ulang 5 Agu —
+CNN Gaya Hidup hidup (100 item, mati hanya dari IP GitHub → **dipertahankan**);
+Health Affairs **kosong total di semua jaringan (0 item) → dihapus** dari
+`config.py`. Dua belas feed pengganti sudah masuk lewat tahap 2 Google News.
 
 **[3 Agu 2026 — Prinsipal → Sekjen] Perluasan sumber berita (hasil diskusi
 Prinsipal + owner).**

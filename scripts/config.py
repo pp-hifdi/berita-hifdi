@@ -25,7 +25,6 @@ FEEDS = [
     ("Medical Xpress",    "https://medicalxpress.com/rss-feed/"),
     ("Fierce Healthcare", "https://www.fiercehealthcare.com/rss/xml"),
     ("STAT News",         "https://www.statnews.com/feed/"),
-    ("Health Affairs",    "https://www.healthaffairs.org/action/showFeed?type=etoc&feed=rss&jc=hlthaff"),
     ("KFF Health News",   "https://kffhealthnews.org/feed/"),
     # --- Google News RSS (restu Sekjen 3 Agu 2026) ---
     # TAHAP 1 (3 feed inti, dipantau 2 hari sebelum 13 sisanya menyusul).
@@ -33,6 +32,21 @@ FEEDS = [
     ("GN: AI kesehatan",  "https://news.google.com/rss/search?q=AI+kesehatan&hl=id&gl=ID&ceid=ID:id"),
     ("GN: health financing", "https://news.google.com/rss/search?q=health+financing&hl=en-US&gl=US&ceid=US:en"),
     ("GN: telemedicine",  "https://news.google.com/rss/search?q=telemedicine&hl=id&gl=ID&ceid=ID:id"),
+    # TAHAP 2 (13 feed sisanya, terpasang 5 Agu 2026 — pantauan 2 hari selesai,
+    # acc Prinsipal; semua diuji hidup 5 Agu 2026).
+    ("GN: FKTP",          "https://news.google.com/rss/search?q=FKTP&hl=id&gl=ID&ceid=ID:id"),
+    ("GN: akreditasi fasyankes", "https://news.google.com/rss/search?q=akreditasi+fasyankes&hl=id&gl=ID&ceid=ID:id"),
+    ("GN: SATUSEHAT",     "https://news.google.com/rss/search?q=SATUSEHAT&hl=id&gl=ID&ceid=ID:id"),
+    ("GN: rekam medis elektronik", "https://news.google.com/rss/search?q=rekam+medis+elektronik&hl=id&gl=ID&ceid=ID:id"),
+    ("GN: teleradiologi", "https://news.google.com/rss/search?q=teleradiologi&hl=id&gl=ID&ceid=ID:id"),
+    ("GN: asuransi kesehatan", "https://news.google.com/rss/search?q=asuransi+kesehatan&hl=id&gl=ID&ceid=ID:id"),
+    ("GN: gula garam lemak", "https://news.google.com/rss/search?q=gula+garam+lemak&hl=id&gl=ID&ceid=ID:id"),
+    ("GN: makan bergizi gratis", "https://news.google.com/rss/search?q=makan+bergizi+gratis&hl=id&gl=ID&ceid=ID:id"),
+    ("GN: AI in healthcare", "https://news.google.com/rss/search?q=AI+in+healthcare&hl=en-US&gl=US&ceid=US:en"),
+    ("GN: telehealth",    "https://news.google.com/rss/search?q=telehealth&hl=en-US&gl=US&ceid=US:en"),
+    ("GN: telesurgery",   "https://news.google.com/rss/search?q=telesurgery&hl=en-US&gl=US&ceid=US:en"),
+    ("GN: primary care policy", "https://news.google.com/rss/search?q=primary+care+policy&hl=en-US&gl=US&ceid=US:en"),
+    ("GN: psoriasis climate therapy", "https://news.google.com/rss/search?q=psoriasis+climate+therapy&hl=en-US&gl=US&ceid=US:en"),
 ]
 
 # ---------------------------------------------------------------------------
