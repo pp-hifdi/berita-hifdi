@@ -7,21 +7,28 @@
 
 | Status | Jumlah | Keterangan |
 |---|---|---|
-| ✅ Aktif (boleh dipakai) | **54** | Semua punya URL sumber asli + lisensi jelas |
-| ⛔ Dikeluarkan | **3** | Lisensi tidak memenuhi syarat (detail di bawah) |
+| ✅ Aktif (boleh dipakai) | **42** | Generik & netral: lisensi jelas, tanpa orang bisa dikenali / konten sensitif |
+| ⛔ Dikeluarkan — lisensi (syarat #1) | 3 | Detail di bawah |
+| ⛔ Dikeluarkan — netralitas (syarat #2) | 12 | Detail di bawah |
 | Total | 57 | |
 
-## Rincian lisensi — 54 foto aktif
+## Rincian lisensi — 42 foto aktif
 
 | Lisensi | Jumlah | Arti hak-pakai | Atribusi |
 |---|---|---|---|
-| **CC BY** | 35 | Boleh dipakai komersial & dimodifikasi (crop/og-image) | WAJIB atribusi penulis + link lisensi |
-| **CC BY-SA** | 16 | Sama seperti CC BY, plus turunan harus lisensi sama (share-alike) | WAJIB atribusi |
+| **CC BY** | 28 | Boleh dipakai komersial & dimodifikasi (crop/og-image) | WAJIB atribusi penulis + link lisensi |
+| **CC BY-SA** | 11 | Sama seperti CC BY, plus turunan harus lisensi sama (share-alike) | WAJIB atribusi |
 | **PDM** (Public Domain) | 3 | Bebas dipakai, tanpa atribusi | Tidak wajib |
 
-Semua foto aktif berasal dari sumber yang jelas: **56 Flickr + 1 Wikimedia Commons** (URL asli tercatat di registry).
+Semua foto aktif berasal dari sumber yang jelas: **42 Flickr** (URL asli tercatat di registry).
 
-## Foto yang DIKELUARKAN (3)
+## Foto yang DIKELUARKAN — syarat #2: netralitas (12)
+
+Audit visual AI (mata Qwen, 5 Agu 2026) per foto aktif: memuat **orang yang bisa dikenali / konten sensitif** (anak-anak, pasien + data pribadi, situasi darurat) — dikeluarkan dari rotasi supaya tidak nyasar ke berita duka/sensitif:
+
+`cat-01-002` (pasien wajah jelas) · `cat-03-002` (anak di konteks klinis) · `cat-04-001/002/004` (potret wajah jelas) · `cat-05-001/002/004` (lansia & anak, wajah jelas) · `cat-06-001` (pasien + terapi ECT) · `cat-11-004` (pasien + nomor kamar terbaca) · `cat-12-001` (nama pasien & data medis terbaca) · `cat-14-001` (bayi + evakuasi darurat).
+
+## Foto yang DIKELUARKAN — syarat #1: lisensi (3)
 
 | File | Lisensi | Alasan |
 |---|---|---|

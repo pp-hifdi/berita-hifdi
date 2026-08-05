@@ -12,7 +12,9 @@
       "used": 0,
       "last_article": null,
       "source": "https://live.staticflickr.com/3570/3786098177_8836fc1d53_b.jpg",
-      "license": "by"
+      "license": "by",
+      "status": "excluded",
+      "alasan": "syarat restu #2: memuat orang yang bisa dikenali / konten sensitif (anak, pasien, data pribadi, situasi darurat)"
     },
     {
       "file": "cat-01-003.jpg",
@@ -72,7 +74,9 @@
       "used": 0,
       "last_article": null,
       "source": "https://live.staticflickr.com/6084/6119375905_63df465539_b.jpg",
-      "license": "by"
+      "license": "by",
+      "status": "excluded",
+      "alasan": "syarat restu #2: memuat orang yang bisa dikenali / konten sensitif (anak, pasien, data pribadi, situasi darurat)"
     },
     {
       "file": "cat-03-003.jpg",
@@ -95,14 +99,18 @@
       "used": 0,
       "last_article": null,
       "source": "https://live.staticflickr.com/7058/6992823654_beef694420_b.jpg",
-      "license": "by-sa"
+      "license": "by-sa",
+      "status": "excluded",
+      "alasan": "syarat restu #2: memuat orang yang bisa dikenali / konten sensitif (anak, pasien, data pribadi, situasi darurat)"
     },
     {
       "file": "cat-04-002.jpg",
       "used": 0,
       "last_article": null,
       "source": "https://live.staticflickr.com/7177/6993156776_6503ffe81e_b.jpg",
-      "license": "by-sa"
+      "license": "by-sa",
+      "status": "excluded",
+      "alasan": "syarat restu #2: memuat orang yang bisa dikenali / konten sensitif (anak, pasien, data pribadi, situasi darurat)"
     },
     {
       "file": "cat-04-003.jpg",
@@ -116,7 +124,9 @@
       "used": 0,
       "last_article": null,
       "source": "https://live.staticflickr.com/7234/7138904383_89db6ce679_b.jpg",
-      "license": "by-sa"
+      "license": "by-sa",
+      "status": "excluded",
+      "alasan": "syarat restu #2: memuat orang yang bisa dikenali / konten sensitif (anak, pasien, data pribadi, situasi darurat)"
     }
   ],
   "cat-05": [
@@ -125,14 +135,18 @@
       "used": 0,
       "last_article": null,
       "source": "https://live.staticflickr.com/7376/16483711086_5e9d5432f1_b.jpg",
-      "license": "by"
+      "license": "by",
+      "status": "excluded",
+      "alasan": "syarat restu #2: memuat orang yang bisa dikenali / konten sensitif (anak, pasien, data pribadi, situasi darurat)"
     },
     {
       "file": "cat-05-002.jpg",
       "used": 0,
       "last_article": null,
       "source": "https://live.staticflickr.com/8027/7619330614_df736b783b.jpg",
-      "license": "by"
+      "license": "by",
+      "status": "excluded",
+      "alasan": "syarat restu #2: memuat orang yang bisa dikenali / konten sensitif (anak, pasien, data pribadi, situasi darurat)"
     },
     {
       "file": "cat-05-003.jpg",
@@ -146,7 +160,9 @@
       "used": 0,
       "last_article": null,
       "source": "https://live.staticflickr.com/7203/6795118008_679af81cd4_b.jpg",
-      "license": "by"
+      "license": "by",
+      "status": "excluded",
+      "alasan": "syarat restu #2: memuat orang yang bisa dikenali / konten sensitif (anak, pasien, data pribadi, situasi darurat)"
     }
   ],
   "cat-06": [
@@ -155,7 +171,9 @@
       "used": 0,
       "last_article": null,
       "source": "https://live.staticflickr.com/5558/14466087218_9596493d1a.jpg",
-      "license": "by-sa"
+      "license": "by-sa",
+      "status": "excluded",
+      "alasan": "syarat restu #2: memuat orang yang bisa dikenali / konten sensitif (anak, pasien, data pribadi, situasi darurat)"
     },
     {
       "file": "cat-06-002.jpg",
@@ -330,7 +348,9 @@
       "used": 0,
       "last_article": null,
       "source": "https://live.staticflickr.com/7716/17135975317_3d979d2409_b.jpg",
-      "license": "by"
+      "license": "by",
+      "status": "excluded",
+      "alasan": "syarat restu #2: memuat orang yang bisa dikenali / konten sensitif (anak, pasien, data pribadi, situasi darurat)"
     }
   ],
   "cat-12": [
@@ -339,7 +359,9 @@
       "used": 0,
       "last_article": null,
       "source": "https://live.staticflickr.com/2509/4144311617_01cfb2c0fb.jpg",
-      "license": "by-sa"
+      "license": "by-sa",
+      "status": "excluded",
+      "alasan": "syarat restu #2: memuat orang yang bisa dikenali / konten sensitif (anak, pasien, data pribadi, situasi darurat)"
     },
     {
       "file": "cat-12-002.jpg",
@@ -385,7 +407,9 @@
       "used": 0,
       "last_article": null,
       "source": "https://live.staticflickr.com/2834/10838198385_81583dd0eb_b.jpg",
-      "license": "by"
+      "license": "by",
+      "status": "excluded",
+      "alasan": "syarat restu #2: memuat orang yang bisa dikenali / konten sensitif (anak, pasien, data pribadi, situasi darurat)"
     },
     {
       "file": "cat-14-002.jpg",
