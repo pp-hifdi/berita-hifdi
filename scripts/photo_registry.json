@@ -2,8 +2,8 @@
   "cat-01": [
     {
       "file": "cat-01-001.jpg",
-      "used": 0,
-      "last_article": null,
+      "used": 1,
+      "last_article": "067",
       "source": "https://live.staticflickr.com/2500/4058808950_11be8e4061_b.jpg",
       "license": "by"
     },
