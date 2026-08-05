@@ -9,8 +9,8 @@
 - **SISTEM FOTO GILIR (restu Prinsipal/Sekjen):** bot harian BOLEH memakai koleksi foto. Pemetaan kategori editorial → kategori foto (`PHOTO_BY_CATEGORY`) sudah di `config.py`. **Syarat 1 & 2 TERPENUHI.** Koreksi aturan privasi Prinsipal: **wajah tanpa nama = BOLEH** — 5 foto dikembalikan (cat-04-001/002/004, cat-05-002/004); yang tetap keluar 7 (data pribadi terbaca, anak-anak, pasien terekspos) + 3 lisensi = 10. **Aktif: 47 foto**; dokumentasi `docs/HAK-PAKAI-FOTO.md`. **REVISI (syarat keras): sistem tidak pernah memasangkan foto berwajah + nama; caption "Ilustrasi" generik memenuhi** — wajib diterapkan saat integrasi `generate_article.py`. **REVISI (lisensi): foto lama dianggap aman Prinsipal; dokumentasi hak-pakai fokus penambahan foto baru** (wajib source+license+QC per SOP-FOTO). **HIMBAUAN: perluas sumber gambar eksternal; utamakan foto tanpa wajah (alkes/fasilitas/objek)**. Integrasi belum dikerjakan (tunggu arahan).
 
 ## Status proyek
-- **Berita HIFDI (piloting):** mesin sehat. Bot harian terbit article-065 (4 Agu, run sukses).
-- **stok/:** kosong — bot 5 Agu pagi pakai jalur RSS normal.
+- **Berita HIFDI (piloting):** mesin sehat. Bot harian terbit article-066 (5 Agu, run sukses). **article-067 terbit manual oleh Admin HIFDI (5 Agu, Mutu, AI Skrining TB) — LIVE & terverifikasi** (gambar sistem gilir cat-01-001, caption "Ilustrasi").
+- **stok/:** kosong — bot pagi pakai jalur RSS normal.
 - **FMI:** scoping selesai (5 Agu) → `RENCANA-FMI-UMMANITARIAN.md`. Situs + deploy CF otomatis sudah jalan; kurang = bot produsen (tahap 1).
 - **Ummanitarian:** scoping selesai (5 Agu) → `RENCANA-FMI-UMMANITARIAN.md`. Paling dasar: deploy otomatis belum ada (tahap 1).
 
