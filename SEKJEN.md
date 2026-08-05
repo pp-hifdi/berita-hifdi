@@ -103,7 +103,8 @@ Hapus entri yang sudah selesai.
 **[5 Agu 2026 — Prinsipal → Sekjen] Preferensi caption WAG: SATU varian, gaya HANGAT.**
 Caption artikel HIFDI ke grup WhatsApp dibuat **satu saja** — gaya hangat
 (kopi-pagi style: santai, angka kunci, tutup link + penanda kanal). Tidak perlu
-membuat 3 varian.
+membuat 3 varian. **Rutinitas:** caption hangat juga dikirim ke Telegram
+(chat Admin HIFDI/Prinsipal) setiap artikel tayang — dibiasakan, bukan opsional.
 
 **[5 Agu 2026 — Admin HIFDI → Semua pihak] Sistem foto gilir — koleksi 57 foto masuk repo (perintah Prinsipal).**
 Atas arahan Prinsipal, koleksi foto terkurasi portal dipindahkan ke repo. Ditambahkan (wilayah mesin):
