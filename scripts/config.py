@@ -144,6 +144,29 @@ IMAGE_BY_CATEGORY = {
 DEFAULT_IMAGE = "kebijakan"
 
 # ---------------------------------------------------------------------------
+# FOTO GILIR (restu Sekjen/Prinsipal 5 Agu 2026) — koleksi 57 foto terkurasi
+# di images/foto/cat-XX/ (16 kategori, nomenklatur unit Kemenkes 2026;
+# cat-15 = Kemenhaj, cat-16 = Surkarkes). Pemilihan lewat sistem gilir:
+#   python3 scripts/pick_photo.py cat-XX    # foto PALING JARANG dipakai
+# Pemetaan kategori EDITORIAL -> kode kategori foto yang cocok (urut prioritas;
+# daftar lebih dari satu supaya rotasi merata tidak cepat berulang).
+#
+# CATATAN AUDIT 5 Agu 2026 (lihat docs/SOP-FOTO.md):
+# - cat-15-001 (Ka'bah, lisensi TIDAK tercatat) sengaja tidak dipetakan —
+#   SOP §7: bila ragu lisensi, jangan dipakai.
+# - cat-07-001 & cat-08-001 lisensi by-nd (NoDerivatives) — TIDAK boleh
+#   dimodifikasi menjadi -og.jpg; menunggu keputusan Prinsipal untuk dikeluarkan.
+# - cat-04 (potret individu teridentifikasi) tidak dipetakan — risiko sensitivitas
+#   identitas; dipakai hanya jika Prinsipal menyetujui.
+# ---------------------------------------------------------------------------
+PHOTO_BY_CATEGORY = {
+    "Advokasi": ["cat-10", "cat-11", "cat-16", "cat-14"],
+    "Mutu": ["cat-12", "cat-01", "cat-06", "cat-09"],
+    "Edukasi": ["cat-13", "cat-01", "cat-05", "cat-08"],
+    "Kabar HIFDI": ["cat-11", "cat-10", "cat-16", "cat-02"],
+}
+
+# ---------------------------------------------------------------------------
 # DeepSeek — OpenAI-compatible. Kunci dibaca dari env DEEPSEEK_API_KEY
 # (GitHub Secrets), TIDAK PERNAH ditulis di repo.
 # ---------------------------------------------------------------------------

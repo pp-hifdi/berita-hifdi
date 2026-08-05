@@ -6,6 +6,7 @@
 - **13 feed Google News:** DISETUJUI ditambah bertahap sambil dipantau — tapi **EKSEKUSI DITUNDA** sampai aba-aba tahap berikutnya dari Sekjen. Jangan dieksekusi dulu.
 - **CNN Gaya Hidup & Health Affairs:** TIDAK dihapus — biarkan di `config.py` (cuma keblokir IP GitHub, bukan mati; terverifikasi hidup dari jaringan rumah, 5 Agu).
 - **INFRASTRUKTUR: TIDAK pakai VPS.** Laptop rumah nyala 24/7 hanya untuk host Hermes. Bot HIFDI (dan nanti FMI/Ummanitarian) TETAP di GitHub Actions — laptop bukan host bot.
+- **SISTEM FOTO GILIR (restu Prinsipal/Sekjen):** bot harian BOLEH memakai koleksi 57 foto. Pemetaan kategori editorial → kategori foto (`PHOTO_BY_CATEGORY`) sudah ditambahkan di `config.py`. **Audit menemukan 3 foto bermasalah — menunggu keputusan Prinsipal:** `cat-07-001` & `cat-08-001` (lisensi by-nd, tak boleh dimodifikasi) dan `cat-15-001` (lisensi tak tercatat). `cat-04` (potret identitas jelas) tidak dipetakan sementara. Integrasi ke `generate_article.py` belum dikerjakan (tunggu arahan).
 
 ## Status proyek
 - **Berita HIFDI (piloting):** mesin sehat. Bot harian terbit article-065 (4 Agu, run sukses).
