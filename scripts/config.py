@@ -162,6 +162,9 @@ DEFAULT_IMAGE = "kebijakan"
 #   cat-14-001 (bayi darurat).
 # - ATURAN PRIVASI (Prinsipal, 5 Agu 2026): jangan sandingkan wajah bisa
 #   dikenali DENGAN nama individu; foto tanpa nama = boleh.
+#   REVISI: SYARAT KERAS — sistem tidak pernah memasangkan foto berwajah +
+#   nama; caption foto selalu "Ilustrasi" generik (tanpa nama) sudah memenuhi.
+#   Saat integrasi ke generate_article.py: alt/caption WAJIB "Ilustrasi".
 # - Aktif: 47 foto. Barang dikeluarkan ada di images/foto/_ditolak/
 #   (ditandai "status": "excluded" di photo_registry.json).
 # ---------------------------------------------------------------------------

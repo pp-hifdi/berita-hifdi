@@ -16,6 +16,12 @@
 > sandingkan wajah yang bisa dikenali DENGAN nama individu. **Foto tanpa nama =
 > boleh. Nama tanpa foto = boleh.** Foto berwajah TIDAK dibuang hanya karena ada
 > wajah — yang dilarang menempelkan nama orang pada wajahnya (di caption/artikel).
+>
+> **Revisi (5 Agu 2026) — SYARAT KERAS sistem:** sistem TIDAK PERNAH boleh
+> memasangkan foto berwajah + nama individu. **Caption "Ilustrasi" generik
+> sudah memenuhi syarat ini** — karena itu setiap foto di artikel memakai
+> keterangan "Ilustrasi" (tanpa nama, tanpa narasi menebak isi foto). Alt text
+> juga generik; tidak pernah memuat nama orang.
 
 ## Rincian lisensi — 47 foto aktif
 
