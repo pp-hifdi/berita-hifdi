@@ -1,6 +1,10 @@
 # STATUS-SEKJEN.md — ringkasan pagi (dirawat Admin HIFDI; update tiap selesai kerjaan penting)
 
-**Update terakhir:** 5 Agu 2026, 02:05 WIB
+**Update terakhir:** 6 Agu 2026, 00:20 WIB
+
+## Kerjaan selesai (6 Agu 2026 dini hari, Admin HIFDI)
+- **FIX BUG FOTO article-069:** bot harian memilih `cat-12-001` (status **excluded**, file sudah dibuang 5 Agu → dipindah `_ditolak/`) → gambar ilustrasi 404. Root cause: `photo_pool.py` mengisi kandidat dari registry tanpa filter status excluded/keberadaan file. **Sudah dipatch** (`photo_pool.py` kini filter `status=excluded` + hanya file yang ada di disk) + `article-069/index.html` diganti ke `cat-12-002` (featured + og:image) + registry di-update. **LIVE & terverifikasi** (gambar HTTP 200, deploy sukses). Ini mencegah terulang.
+- **Caption article-069** terkirim ke WAG HIFDI Bangkit (6 Agu, via OpenWA, messageId ACK) — sebelumnya hanya ke Telegram @hifdi_bot, tidak ke WAG (inkonsistensi dilaporkan Prinsipal).
 
 ## Keputusan Sekjen (5 Agu 2026)
 - **13 feed Google News:** DISETUJUI ditambah bertahap sambil dipantau — tapi **EKSEKUSI DITUNDA** sampai aba-aba tahap berikutnya dari Sekjen. Jangan dieksekusi dulu.
