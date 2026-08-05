@@ -33,10 +33,11 @@ import feedparser
 from openai import OpenAI
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import photo_pool  # noqa: E402
 from config import (  # noqa: E402
     BLOCKLIST, DEEPSEEK_BASE_URL, DEEPSEEK_MODEL, DEFAULT_IMAGE, FEEDS, IMAGES,
-    IMAGE_BY_CATEGORY, KEYWORDS_MEDIUM, KEYWORDS_STRONG, KEYWORDS_WEAK,
-    MAX_SOURCE_CHARS, MIN_SCORE, MIN_TITLE_WORDS, SYSTEM_PROMPT,
+    IMAGE_BY_CATEGORY, IMAGE_POOLS, KEYWORDS_MEDIUM, KEYWORDS_STRONG,
+    KEYWORDS_WEAK, MAX_SOURCE_CHARS, MIN_SCORE, MIN_TITLE_WORDS, SYSTEM_PROMPT,
 )
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -330,6 +331,14 @@ def call_deepseek(candidate):
     return data
 
 
+def choose_image(category, number=None):
+    """Foto lokal dari kolam (sistem gilir) dulu; fallback daftar putih Unsplash."""
+    pool = photo_pool.pick(category, article_no=number, pools=IMAGE_POOLS)
+    if pool:
+        return pool
+    return IMAGES[IMAGE_BY_CATEGORY.get(category, DEFAULT_IMAGE)]
+
+
 # --------------------------------------------------------------------------
 # 4. Rakit HTML
 # --------------------------------------------------------------------------
@@ -341,7 +350,14 @@ def build_article_html(tpl, article, image, candidate, date_str):
     dan template-nya jadi menunjuk ke berkas yang belum ada.
     """
     esc = lambda s: html.escape(s, quote=True)
-    img_big = f"https://images.unsplash.com/{image['id']}?auto=format&fit=crop&w=1200&h=630&q=80"
+    if image.get('local'):
+        # foto kolam: og pakai varian 1200x630, tampilan pakai versi display
+        og_img = photo_pool.url(image, 'og')
+        feat_img = photo_pool.url(image, 'display')
+    else:
+        unsplash = (f"https://images.unsplash.com/{image['id']}"
+                    "?auto=format&fit=crop&w=1200&h=630&q=80")
+        og_img = feat_img = unsplash
 
     sources = (
         '<div class="sources-box">\n<div class="sources-title">Referensi</div>\n<ul>\n'
@@ -365,7 +381,7 @@ def build_article_html(tpl, article, image, candidate, date_str):
     t = sub(r'<meta property="og:description" content="[^"]*">',
             f'<meta property="og:description" content="{esc(article["subtitle"])}">', t)
     t = sub(r'<meta property="og:image" content="[^"]*">',
-            f'<meta property="og:image" content="{img_big}">', t)
+            f'<meta property="og:image" content="{og_img}">', t)
     t = sub(r"<title>.*?</title>", f'<title>{esc(article["title"])} — HIFDI</title>', t, re.S)
     t = sub(r'<span class="article-category">.*?</span>',
             f'<span class="article-category">{esc(article["category"])}</span>', t, re.S)
@@ -378,7 +394,7 @@ def build_article_html(tpl, article, image, candidate, date_str):
              f"<span>{date_str}</span>\n<span>Redaksi Berita HIFDI</span>\n"
              f'<span>{esc(article["category"])}</span>\n</div>'), t, re.S)
     t = sub(r'<img class="featured-image"[^>]*>',
-            f'<img class="featured-image" src="{img_big}" alt="{esc(image["alt"])}">', t)
+            f'<img class="featured-image" src="{feat_img}" alt="{esc(image["alt"])}">', t)
     t = sub(r'<div class="byline-name">.*?</div>',
             '<div class="byline-name">Redaksi Berita HIFDI</div>', t, re.S)
     t = sub(r'<div class="article-body">.*?</div>\s*(?=<div class="article-footer">)',
@@ -388,7 +404,10 @@ def build_article_html(tpl, article, image, candidate, date_str):
 
 def insert_card(index_html, article, number, image, date_str):
     esc = lambda s: html.escape(s, quote=True)
-    img_card = f"https://images.unsplash.com/{image['id']}?auto=format&fit=crop&w=800&q=80"
+    if image.get('local'):
+        img_card = photo_pool.url(image, 'display')
+    else:
+        img_card = f"https://images.unsplash.com/{image['id']}?auto=format&fit=crop&w=800&q=80"
     slug = article["category"].lower().replace(" ", "-")
     excerpt = article["subtitle"]
 
@@ -527,11 +546,12 @@ def _publish_draft(draft, meta, used):
     os.rename(os.path.join(STOCK_DIR, draft), folder)
     log(f"stok: {draft} -> article-{number:03d}")
 
-    # Gambar kartu: pakai ID unsplash dari draf kalau ada, kalau tidak default.
+    # Gambar kartu: ID unsplash dari draf kalau ada; kalau tidak, kolam foto lokal
+    # (sistem gilir); terakhir default daftar putih.
     if meta["image_id"]:
         image = {"id": meta["image_id"], "alt": meta["subtitle"][:100]}
     else:
-        image = IMAGES[IMAGE_BY_CATEGORY.get(meta["category"], DEFAULT_IMAGE)]
+        image = choose_image(meta["category"], number)
 
     index_html = read_index()
     with open(INDEX, "w", encoding="utf-8", newline="\n") as f:
@@ -593,7 +613,7 @@ def main():
     number = next_article_number()
     today = datetime.now(WIB)
     date_str = f"{today.day} {BULAN_ID[today.month]} {today.year}"
-    image = IMAGES[IMAGE_BY_CATEGORY.get(article["category"], DEFAULT_IMAGE)]
+    image = choose_image(article["category"], number)
 
     # Baca template DULU, sebelum folder baru dibuat (lihat build_article_html).
     with open(template_path(), encoding="utf-8") as f:

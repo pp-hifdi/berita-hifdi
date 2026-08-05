@@ -50,6 +50,6 @@ jobs:
         run: |
           git config user.name "HIFDI Bot"
           git config user.email "bot@hifdi.id"
-          git add index.html images/ article-*/ stok/ scripts/used_sources.json
+          git add index.html images/ article-*/ stok/ scripts/used_sources.json scripts/photo_registry.json
           git diff --cached --quiet || git commit -m "auto: artikel baru"
           git push

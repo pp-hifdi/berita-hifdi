@@ -190,6 +190,19 @@ PHOTO_BY_CATEGORY = {
 }
 
 # ---------------------------------------------------------------------------
+# KOLAM FOTO — pemetaan kategori editorial -> kumpulan foto lokal (sistem gilir).
+# Ditambahkan 5 Agu 2026 (acc Prinsipal). Bot memakai foto lokal ini LEBIH DULU
+# lewat scripts/photo_pool.py (rotasi merata); kalau kolam kosong, fallback ke
+# IMAGES/IMAGE_BY_CATEGORY di atas. Caption foto: "Ilustrasi" (generik).
+# ---------------------------------------------------------------------------
+IMAGE_POOLS = {
+    "Advokasi": ["cat-10", "cat-12", "cat-13"],
+    "Mutu": ["cat-12", "cat-02", "cat-09"],
+    "Edukasi": ["cat-03", "cat-04", "cat-08", "cat-07"],
+    "Kabar HIFDI": ["cat-13", "cat-01", "cat-05"],
+}
+
+# ---------------------------------------------------------------------------
 # DeepSeek — OpenAI-compatible. Kunci dibaca dari env DEEPSEEK_API_KEY
 # (GitHub Secrets), TIDAK PERNAH ditulis di repo.
 # ---------------------------------------------------------------------------

@@ -112,6 +112,7 @@ Semua foto **lolos QC ganda**: verifikasi visual AI + pemeriksaan Prinsipal lewa
 **TIDAK disentuh:** `config.py` (daftar putih tetap wilayah Sekjen), `generate_article.py`, `index.html`, artikel.
 
 **Usul untuk Sekjen:** bila bot harian hendak memakai koleksi ini, tinggal tambahkan pemetaan kategori editorial (Advokasi/Mutu/Edukasi/Kabar HIFDI) → foto kategori di `config.py`. Admin HIFDI siap bantu sisi teknisnya.
+**— TERINTEGRASI (5 Agu 2026, acc Prinsipal):** bot kini memakai kolam foto otomatis — `IMAGE_POOLS` di `config.py` (pemetaan kategori editorial → kategori foto) + `scripts/photo_pool.py` (sistem gilir, pilih paling jarang dipakai, catat pemakaian). Fallback ke daftar putih Unsplash bila kolam kosong. `photo_registry.json` ikut ter-commit tiap run (workflow diperbarui). Caption: "Ilustrasi".
 
 **[3 Agu 2026 — Sekjen → Hermes] Penjaga sumber duplikat — DISERAHKAN ke Hermes.**
 article-063 dan 064 lahir dari URL Detik yang sama (`d-8595713`) karena dedup
