@@ -1,0 +1,432 @@
+{
+  "cat-01": [
+    {
+      "file": "cat-01-001.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/2500/4058808950_11be8e4061_b.jpg",
+      "license": "by"
+    },
+    {
+      "file": "cat-01-002.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/3570/3786098177_8836fc1d53_b.jpg",
+      "license": "by"
+    },
+    {
+      "file": "cat-01-003.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/3856/14260114249_1ebdbe94dd_b.jpg",
+      "license": "by"
+    },
+    {
+      "file": "cat-01-004.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/6080/6104068209_d134b246f5_b.jpg",
+      "license": "by"
+    }
+  ],
+  "cat-02": [
+    {
+      "file": "cat-02-001.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/4017/4526025788_72a3f037d6_b.jpg",
+      "license": "by"
+    },
+    {
+      "file": "cat-02-002.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/7478/15361240464_c8e98a947f.jpg",
+      "license": "by"
+    },
+    {
+      "file": "cat-02-003.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/8640/15957730256_61bf18be15.jpg",
+      "license": "by"
+    },
+    {
+      "file": "cat-02-004.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/3949/14994063023_865ac41cdd_b.jpg",
+      "license": "by"
+    }
+  ],
+  "cat-03": [
+    {
+      "file": "cat-03-001.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/2889/33419793703_3c2d313341_b.jpg",
+      "license": "by"
+    },
+    {
+      "file": "cat-03-002.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/6084/6119375905_63df465539_b.jpg",
+      "license": "by"
+    },
+    {
+      "file": "cat-03-003.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/4620/40170805301_a1d3626559_b.jpg",
+      "license": "by-sa"
+    },
+    {
+      "file": "cat-03-004.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/65535/54558719132_cc01fb4a08_b.jpg",
+      "license": "by"
+    }
+  ],
+  "cat-04": [
+    {
+      "file": "cat-04-001.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/7058/6992823654_beef694420_b.jpg",
+      "license": "by-sa"
+    },
+    {
+      "file": "cat-04-002.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/7177/6993156776_6503ffe81e_b.jpg",
+      "license": "by-sa"
+    },
+    {
+      "file": "cat-04-003.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/7254/6992821124_1f653c7111_b.jpg",
+      "license": "by-sa"
+    },
+    {
+      "file": "cat-04-004.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/7234/7138904383_89db6ce679_b.jpg",
+      "license": "by-sa"
+    }
+  ],
+  "cat-05": [
+    {
+      "file": "cat-05-001.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/7376/16483711086_5e9d5432f1_b.jpg",
+      "license": "by"
+    },
+    {
+      "file": "cat-05-002.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/8027/7619330614_df736b783b.jpg",
+      "license": "by"
+    },
+    {
+      "file": "cat-05-003.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/4508/37710716382_e1dccb0612_b.jpg",
+      "license": "pdm"
+    },
+    {
+      "file": "cat-05-004.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/7203/6795118008_679af81cd4_b.jpg",
+      "license": "by"
+    }
+  ],
+  "cat-06": [
+    {
+      "file": "cat-06-001.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/5558/14466087218_9596493d1a.jpg",
+      "license": "by-sa"
+    },
+    {
+      "file": "cat-06-002.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/7429/9755029014_7f526caaca_b.jpg",
+      "license": "by-sa"
+    },
+    {
+      "file": "cat-06-003.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/3910/14466087758_6c84c0f092.jpg",
+      "license": "by-sa"
+    },
+    {
+      "file": "cat-06-004.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/8173/8042765672_8519cb5e37_b.jpg",
+      "license": "by"
+    }
+  ],
+  "cat-07": [
+    {
+      "file": "cat-07-001.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/3032/2487208138_84d32fe9b5_b.jpg",
+      "license": "by-nd"
+    },
+    {
+      "file": "cat-07-002.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/5200/5890269227_ef5b36b1b9.jpg",
+      "license": "by"
+    },
+    {
+      "file": "cat-07-003.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/5119/5890270217_e2548ae9be.jpg",
+      "license": "by"
+    },
+    {
+      "file": "cat-07-004.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/65535/52101776832_a9b1ebddd7_b.jpg",
+      "license": "pdm"
+    }
+  ],
+  "cat-08": [
+    {
+      "file": "cat-08-001.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/7229/7352235208_dc922c7202_b.jpg",
+      "license": "by-nd"
+    },
+    {
+      "file": "cat-08-002.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/8193/8411824245_da573d0176_b.jpg",
+      "license": "by"
+    },
+    {
+      "file": "cat-08-003.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/3679/10117713865_e832b13d38_b.jpg",
+      "license": "by-sa"
+    },
+    {
+      "file": "cat-08-004.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/65535/52282554441_de079b3fbb_b.jpg",
+      "license": "by-sa"
+    }
+  ],
+  "cat-09": [
+    {
+      "file": "cat-09-001.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/65535/49600621026_ff30bf7046_b.jpg",
+      "license": "by"
+    },
+    {
+      "file": "cat-09-002.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/3409/3669682422_1fc0fb6d40_b.jpg",
+      "license": "by"
+    },
+    {
+      "file": "cat-09-003.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/43/122164551_52a6e42357_b.jpg",
+      "license": "by"
+    },
+    {
+      "file": "cat-09-004.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/5685/21250485141_bbeccaaa5c_b.jpg",
+      "license": "by"
+    }
+  ],
+  "cat-10": [
+    {
+      "file": "cat-10-001.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/5031/5893752031_c0c8133972_b.jpg",
+      "license": "by"
+    },
+    {
+      "file": "cat-10-002.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/25/35653069_29c3db03a4_b.jpg",
+      "license": "by"
+    },
+    {
+      "file": "cat-10-003.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/5142/5628816590_53d3ba000a_b.jpg",
+      "license": "by-sa"
+    },
+    {
+      "file": "cat-10-004.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/4051/4457709666_daff98d7ba_b.jpg",
+      "license": "by"
+    }
+  ],
+  "cat-11": [
+    {
+      "file": "cat-11-001.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/6143/5922265991_f44c36f478_b.jpg",
+      "license": "by"
+    },
+    {
+      "file": "cat-11-002.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/3523/3830824612_a56c9b5f8a_b.jpg",
+      "license": "by"
+    },
+    {
+      "file": "cat-11-003.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/2674/3830810414_bfe4c251ac_b.jpg",
+      "license": "by"
+    },
+    {
+      "file": "cat-11-004.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/7716/17135975317_3d979d2409_b.jpg",
+      "license": "by"
+    }
+  ],
+  "cat-12": [
+    {
+      "file": "cat-12-001.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/2509/4144311617_01cfb2c0fb.jpg",
+      "license": "by-sa"
+    },
+    {
+      "file": "cat-12-002.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/7254/7460720258_e5c4bf4026_b.jpg",
+      "license": "by"
+    }
+  ],
+  "cat-13": [
+    {
+      "file": "cat-13-001.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/33/43019049_c4ccc423c9.jpg",
+      "license": "by-sa"
+    },
+    {
+      "file": "cat-13-002.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/7433/12546298703_a496446f56_b.jpg",
+      "license": "pdm"
+    },
+    {
+      "file": "cat-13-003.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/5520/9261420812_5c1fc12e4e_b.jpg",
+      "license": "by"
+    },
+    {
+      "file": "cat-13-004.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/3273/2358996957_9c9e7c6774.jpg",
+      "license": "by-sa"
+    }
+  ],
+  "cat-14": [
+    {
+      "file": "cat-14-001.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/2834/10838198385_81583dd0eb_b.jpg",
+      "license": "by"
+    },
+    {
+      "file": "cat-14-002.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/2740/4283361189_3cd6c40b93.jpg",
+      "license": "by-sa"
+    },
+    {
+      "file": "cat-14-003.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/3019/2881216433_f49882a74d_b.jpg",
+      "license": "by"
+    },
+    {
+      "file": "cat-14-004.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/3086/2845426702_d2d391e506_b.jpg",
+      "license": "by"
+    }
+  ],
+  "cat-15": [
+    {
+      "file": "cat-15-001.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/The_Kaaba_during_Hajj_-_edited.jpg/1280px-The_Kaaba_during_Hajj_-_edited.jpg"
+    }
+  ],
+  "cat-16": [
+    {
+      "file": "cat-16-001.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/7369/9016948970_8f7a43f94e_b.jpg",
+      "license": "by-sa"
+    },
+    {
+      "file": "cat-16-002.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://live.staticflickr.com/2451/3780451216_ebed600888_b.jpg",
+      "license": "by"
+    }
+  ]
+}

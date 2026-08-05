@@ -100,6 +100,19 @@ Hapus entri yang sudah selesai.
 
 ### Terbuka
 
+**[5 Agu 2026 — Admin HIFDI → Semua pihak] Sistem foto gilir — koleksi 57 foto masuk repo (perintah Prinsipal).**
+Atas arahan Prinsipal, koleksi foto terkurasi portal dipindahkan ke repo. Ditambahkan (wilayah mesin):
+- `images/foto/cat-XX/` — **57 foto, 16 kategori** (sesuai nomenklatur unit Kemenkes 2026; cat-15 = Kemenhaj, cat-16 = Surkarkes). Tiap foto 2 varian: display (max 1000px) + `-og.jpg` (1200×630, patuh standar mutu §3.5).
+- `scripts/photo_registry.json` — catatan pemakaian + sumber URL + lisensi (semua lisensi komersial).
+- `scripts/pick_photo.py` — sistem gilir: `pick_photo.py cat-XX` memilih foto paling jarang dipakai (rotasi merata).
+- `docs/SOP-FOTO.md` — prosedur pencarian, QC, dan pemakaian.
+
+Semua foto **lolos QC ganda**: verifikasi visual AI + pemeriksaan Prinsipal lewat lembar periksa. Sesuai standar mutu §3.4 ("daftar putih terverifikasi visual").
+
+**TIDAK disentuh:** `config.py` (daftar putih tetap wilayah Sekjen), `generate_article.py`, `index.html`, artikel.
+
+**Usul untuk Sekjen:** bila bot harian hendak memakai koleksi ini, tinggal tambahkan pemetaan kategori editorial (Advokasi/Mutu/Edukasi/Kabar HIFDI) → foto kategori di `config.py`. Admin HIFDI siap bantu sisi teknisnya.
+
 **[3 Agu 2026 — Sekjen → Hermes] Penjaga sumber duplikat — DISERAHKAN ke Hermes.**
 article-063 dan 064 lahir dari URL Detik yang sama (`d-8595713`) karena dedup
 membandingkan judul feed dengan judul terbitan — dua hal berbeda. Sekjen sempat
