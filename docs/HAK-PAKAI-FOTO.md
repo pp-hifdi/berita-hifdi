@@ -22,6 +22,12 @@
 > sudah memenuhi syarat ini** — karena itu setiap foto di artikel memakai
 > keterangan "Ilustrasi" (tanpa nama, tanpa narasi menebak isi foto). Alt text
 > juga generik; tidak pernah memuat nama orang.
+>
+> **Revisi (5 Agu 2026) — lisensi:** foto lama yang sudah ada di koleksi
+> **dianggap aman oleh Prinsipal** (tidak perlu diaudit ulang). Dokumentasi
+> hak-pakai **difokuskan untuk penambahan foto baru**: setiap foto baru WAJIB
+> tercatat `source` + `license` di `photo_registry.json` dan lolos QC (SOP-FOTO
+> §2–4) sebelum masuk koleksi — tanpa itu, foto tidak boleh dipakai.
 
 ## Rincian lisensi — 47 foto aktif
 
