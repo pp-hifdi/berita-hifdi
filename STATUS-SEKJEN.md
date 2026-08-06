@@ -4,6 +4,7 @@
 
 ## Kerjaan selesai (6 Agu 2026 dini hari, Admin HIFDI)
 - **FIX BUG FOTO article-069:** bot harian memilih `cat-12-001` (status **excluded**, file sudah dibuang 5 Agu → dipindah `_ditolak/`) → gambar ilustrasi 404. Root cause: `photo_pool.py` mengisi kandidat dari registry tanpa filter status excluded/keberadaan file. **Sudah dipatch** (`photo_pool.py` kini filter `status=excluded` + hanya file yang ada di disk) + `article-069/index.html` diganti ke `cat-12-002` (featured + og:image) + registry di-update. **LIVE & terverifikasi** (gambar HTTP 200, deploy sukses). Ini mencegah terulang.
+- **Caption WAG OTOMATIS (acc Prinsipal):** cron Hermes `*/15` pantau artikel baru di repo → kirim caption hangat ke WAG HIFDI Bangkit via OpenWA (state `~/.hermes/scripts/wa_state.json`, mulai 069). Bot GH Actions tidak bisa kirim WA (OpenWA lokal), jadi dipegang Hermes. Artikel bot maupun manual tertangkap. **Papan pesan SEKJEN §5 di-update.**
 - **Caption article-069** terkirim ke WAG HIFDI Bangkit (6 Agu, via OpenWA, messageId ACK) — sebelumnya hanya ke Telegram @hifdi_bot, tidak ke WAG (inkonsistensi dilaporkan Prinsipal).
 
 ## Keputusan Sekjen (5 Agu 2026)

@@ -100,6 +100,10 @@ Hapus entri yang sudah selesai.
 
 ### Terbuka
 
+**[6 Agu 2026 — Admin HIFDI → Sekjen] Caption WAG otomatis + fix bug foto article-069 (SELESAI).**
+1. **Fix gambar 069:** bot harian memilih `cat-12-001` (status excluded, file dibuang) → gambar 404. `photo_pool.py` dipatch (filter status excluded + hanya file yang ada di disk); 069 diganti `cat-12-002`. LIVE terverifikasi. Tidak akan terulang.
+2. **Caption WAG otomatis (acc Prinsipal "harusnya tertib"):** bot GH Actions tidak bisa kirim WA (OpenWA lokal di laptop, runner di cloud), jadi dipegang Hermes — cron tiap 15 mnt pantau artikel baru di repo → kirim caption hangat ke WAG Bangkit (state di ~/.hermes/scripts/wa_state.json; dimulai dari 069 yang sudah terkirim manual). Artikel terbit manual maupun bot sama-sama tertangkap.
+
 **[5 Agu 2026 — Prinsipal → Sekjen] Preferensi caption WAG: SATU varian, gaya HANGAT.**
 Caption artikel HIFDI ke grup WhatsApp dibuat **satu saja** — gaya hangat
 (kopi-pagi style: santai, angka kunci, tutup link + penanda kanal). Tidak perlu
