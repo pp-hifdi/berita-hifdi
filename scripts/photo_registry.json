@@ -282,8 +282,8 @@
     },
     {
       "file": "cat-10-002.jpg",
-      "used": 0,
-      "last_article": null,
+      "used": 1,
+      "last_article": 73,
       "source": "https://live.staticflickr.com/25/35653069_29c3db03a4_b.jpg",
       "license": "by"
     },
