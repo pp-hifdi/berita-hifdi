@@ -1,8 +1,9 @@
 # STATUS-SEKJEN.md — ringkasan pagi (dirawat Admin HIFDI; update tiap selesai kerjaan penting)
 
-**Update terakhir:** 7 Agu 2026, 09:10 WIB
+**Update terakhir:** 7 Agu 2026, 19:00 WIB
 
 ## Kerjaan selesai (7 Agu 2026, Admin HIFDI)
+- **article-072 terbit MANUAL (perintah Prinsipal, acc langsung):** "Gula Berlebih pada Anak: Banyak Anak SD Sudah Berisiko Diabetes" (Edukasi, 7 Agu). Sumber 4 feed (ANTARA, BBC Indonesia, Kemenko PMK, MetroTV) via Google News; gambar sistem gilir `cat-03-003` (by-sa). LIVE terverifikasi (artikel/foto/og 200, kartu tampil, count 68). Caption WAG otomatis menyusul (cron `*/5`).
 - **Run bot 7 Agu SKIP oleh cron GitHub** (bukan batal — TERTUNDA ~12 mnt). Admin trigger manual 08:27 (article-070) → cron telat jalan 08:39 (article-071) = **2 artikel 1 hari (dobel, kesalahan Admin: trigger tanpa konfirmasi)**. Prinsipal memutuskan biarkan keduanya. Watchdog Hermes dipasang `0 7 * * *` (07:00 WIB) — trigger otomatis hanya kalau sampai 07.00 belum ada run; aturan baru: Admin tidak trigger manual tanpa konfirmasi Prinsipal.
 - **Foto konteks artikel (perintah Prinsipal):** article-070 (UNNES/mahasiswa) → `cat-18` mahasiswa Indonesia (CC BY-SA 4.0, Wikimedia); article-071 (Sierra Leone) → `cat-19` Connaught Hospital Freetown (CC BY 2.0, Wikimedia). QC vision lolos, og 1200×630 dibuat, registry di-update. LIVE terverifikasi.
 - **Caption WAG otomatis dipercepat `*/15 → */5`** — artikel terbit ≤5 mnt → WAG + info ke Telegram Prinsipal.
