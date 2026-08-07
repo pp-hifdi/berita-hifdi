@@ -439,5 +439,25 @@
       "source": "foto Prinsipal (dokumentasi kegiatan HIFDI)",
       "license": "milik sendiri"
     }
+  ],
+  "cat-18": [
+    {
+      "file": "cat-18-001.jpg",
+      "used": 1,
+      "last_article": null,
+      "source": "https://commons.wikimedia.org/wiki/File:Mahasiswa_Unsurya_berfoto_bersama_di_depan_gedung_Kampus_C.jpg",
+      "license": "CC BY-SA 4.0",
+      "status": "active"
+    }
+  ],
+  "cat-19": [
+    {
+      "file": "cat-19-001.jpg",
+      "used": 1,
+      "last_article": null,
+      "source": "https://commons.wikimedia.org/wiki/File:Connaught_Hospital_-_on_the_frontline_of_Ebola_in_Freetown,_Sierra_Leone.jpg",
+      "license": "CC BY 2.0",
+      "status": "active"
+    }
   ]
 }
