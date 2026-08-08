@@ -9,6 +9,9 @@
 3. **07.00** — watchdog: sudah terbit? belum → trigger ulang + lapor.
 Aturan: pipeline macet = berhenti & perbaiki; Admin tidak trigger manual tanpa konfirmasi Prinsipal.
 
+## Keputusan Prinsipal (8 Agu 2026)
+- **KETERANGAN ILUSTRASI WAJIB:** foto stok/CC yang bukan objek berita tidak boleh tampil tanpa penjelasan (bisa diasosiasikan sebagai klinik/instansi bersangkutan). Featured image wajib caption tampak "Ilustrasi: … — bukan <objek> pada berita" + alt deskriptif + atribusi lisensi; berlaku manual & bot. Preseden: article-069 → cat-20 (Puskesmas Tamblong, CC BY-SA 4.0, ≤150KB).
+
 ## Kerjaan selesai (7 Agu 2026, Admin HIFDI)
 - **article-072 terbit MANUAL (perintah Prinsipal, acc langsung):** "Gula Berlebih pada Anak: Banyak Anak SD Sudah Berisiko Diabetes" (Edukasi, 7 Agu). Sumber 4 feed (ANTARA, BBC Indonesia, Kemenko PMK, MetroTV) via Google News; gambar sistem gilir `cat-03-003` (by-sa). LIVE terverifikasi (artikel/foto/og 200, kartu tampil, count 68). Caption WAG otomatis menyusul (cron `*/5`).
 - **Run bot 7 Agu SKIP oleh cron GitHub** (bukan batal — TERTUNDA ~12 mnt). Admin trigger manual 08:27 (article-070) → cron telat jalan 08:39 (article-071) = **2 artikel 1 hari (dobel, kesalahan Admin: trigger tanpa konfirmasi)**. Prinsipal memutuskan biarkan keduanya. Watchdog Hermes dipasang `0 7 * * *` (07:00 WIB) — trigger otomatis hanya kalau sampai 07.00 belum ada run; aturan baru: Admin tidak trigger manual tanpa konfirmasi Prinsipal.
