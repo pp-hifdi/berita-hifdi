@@ -459,5 +459,15 @@
       "license": "CC BY 2.0",
       "status": "active"
     }
+  ],
+  "cat-20": [
+    {
+      "file": "cat-20-001.jpg",
+      "used": 1,
+      "last_article": 69,
+      "source": "https://commons.wikimedia.org/wiki/File:Puskesmas_Tamblong_1.jpg",
+      "license": "CC BY-SA 4.0",
+      "status": "active"
+    }
   ]
 }
