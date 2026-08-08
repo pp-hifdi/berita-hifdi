@@ -38,5 +38,12 @@ Aturan: pipeline macet = berhenti & perbaiki; Admin tidak trigger manual tanpa k
 - **FMI (DITUNDA):** scoping selesai (5 Agu) → `RENCANA-FMI.md`. Situs + deploy CF otomatis sudah jalan; kurang = bot produsen (tahap 1). Dikerjakan SETELAH Ummanitarian.
 
 ## Butuh keputusan Sekjen
-1. **Review RENCANA-UMMANITARIAN.md** — 3 keputusan: U1 (og-image, Sekjen), U2–U3 (secrets & project CF Pages, Prinsipal). Urgent U2–U3 (prasyarat Tahap 1).
+1. **Review RENCANA-UMMANITARIAN.md** — 3 keputusan: U1 (og-image, Sekjen), U2–U3 (Cloudflare, Prinsipal). Urgent U2–U3 (prasyarat Tahap 1).
 2. **FMI menyusul** — `RENCANA-FMI.md` (K1–K6) dibuka lagi setelah Ummanitarian jalan.
+
+## Klarifikasi Cloudflare Ummanitarian (8 Agu 2026, hasil cek Admin — minta konfirmasi Prinsipal)
+- **U2 TERJAWAB dari DNS (tanpa dashboard):** project Cloudflare Pages insight.ummanitarian.org = **`ummanitarian-insight`** (CNAME → ummanitarian-insight.pages.dev, HTTP 200 terverifikasi 8 Agu). Ketiga situs di Cloudflare: ummanitarian-insight / berita-hifdi / berita-fmi.
+- **PERTANYAAN KE PRINSIPAL (via Sekjen):** project `ummanitarian-insight` ada di akun Cloudflare (email) yang **SAMA** dengan berita-hifdi/berita-fmi, atau **akun terpisah**?
+  - Sama → token CF yang sudah dipakai HIFDI/FMI bisa langsung dipakai → U3 = tinggal salin secrets ke repo Ummanitarian, tidak perlu token baru.
+  - Beda → perlu API token Pages-edit dari akun pemilik project; token lama TIDAK bisa dipakai lintas akun.
+- Yang diminta: konfirmasi akun/email pemilik project + ketersediaan token untuk akun itu.

@@ -35,7 +35,7 @@ Referensi pola: `pp-hifdi/berita-hifdi` (HIFDI = contoh sudah otonom) & `putrosm
 6. **Struktur folder `NNN-slug/`** berbeda dari HIFDI/FMI (file di root) — script harus adaptasi path & link relatif.
 7. **Bahasa EN** — SYSTEM_PROMPT bot harus EN (bukan ID seperti HIFDI).
 8. **Alur guest writer harus dipertahankan** — register menandai produsen; bot jangan menimpa/menduplikasi naskah guest.
-9. **Kredensial belum ada** di repo ini: CF token/account, DeepSeek key; nama project Cloudflare Pages untuk insight.ummanitarian.org perlu dikonfirmasi (situs sudah live, kemungkinan project sudah ada di dashboard).
+9. **Kredensial belum ada** di repo ini: CF token/account, DeepSeek key. Nama project = **`ummanitarian-insight`** (terverifikasi via DNS 8 Agu 2026 — tidak perlu cek dashboard); yang belum jelas = **akun/email Cloudflare pemilik project** & ketersediaan token untuk akun itu.
 10. **`.gitignore *.md`** menghambat pedoman & register baru.
 
 ### (c) Rencana bertahap
@@ -65,8 +65,8 @@ Referensi pola: `pp-hifdi/berita-hifdi` (HIFDI = contoh sudah otonom) & `putrosm
 | Kode | Keputusan | Pemutus | Dibutuhkan |
 |------|-----------|---------|------------|
 | U1 | og-image: tetap 1 global atau per artikel | Sekjen | Tahap 2 |
-| U2 | Nama project Cloudflare Pages untuk insight.ummanitarian.org (cek dashboard) | Prinsipal | Tahap 1 |
-| U3 | Secrets CF (token/account) + DeepSeek di repo Ummanitarian | Prinsipal | Tahap 1–2 |
+| U2 | Project CF Pages = `ummanitarian-insight` (**TERVERIFIKASI via DNS 8 Agu**); sisa: konfirmasi akun/email pemilik | Prinsipal | Tahap 1 |
+| U3 | Secrets CF (token/account — tergantung akun pemilik project) + DeepSeek di repo Ummanitarian | Prinsipal | Tahap 1–2 |
 
 ## Catatan koordinasi
 
