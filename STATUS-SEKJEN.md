@@ -1,6 +1,6 @@
 # STATUS-SEKJEN.md — ringkasan pagi (dirawat Admin HIFDI; update tiap selesai kerjaan penting)
 
-**Update terakhir:** 8 Agu 2026, 10:30 WIB
+**Update terakhir:** 8 Agu 2026, 12:45 WIB
 
 ## SOP PAGI — revisi 8 Agu 2026 (koreksi Prinsipal: cek pipeline dulu, baru produksi)
 0. **05.55** — Hermes cek pipeline (cron): OpenWA session ready? cron caption aktif? clone sehat? situs 200? Merah → perbaiki dulu (auto-fix OpenWA), baru produksi.
@@ -34,8 +34,9 @@ Aturan: pipeline macet = berhenti & perbaiki; Admin tidak trigger manual tanpa k
 ## Status proyek
 - **Berita HIFDI (piloting):** mesin sehat. Bot harian terbit article-066 (5 Agu, run sukses). **article-067 terbit manual oleh Admin HIFDI (5 Agu, Mutu, AI Skrining TB) — LIVE & terverifikasi** (gambar sistem gilir cat-01-001, caption "Ilustrasi").
 - **stok/:** kosong — bot pagi pakai jalur RSS normal.
-- **FMI:** scoping selesai (5 Agu) → `RENCANA-FMI-UMMANITARIAN.md`. Situs + deploy CF otomatis sudah jalan; kurang = bot produsen (tahap 1).
-- **Ummanitarian:** scoping selesai (5 Agu) → `RENCANA-FMI-UMMANITARIAN.md`. Paling dasar: deploy otomatis belum ada (tahap 1).
+- **Ummanitarian (FOKUS SEKARANG, arahan Prinsipal 8 Agu — satu kantor berita per rencana):** scoping selesai (5 Agu) → `RENCANA-UMMANITARIAN.md` (DRAFT). Paling dasar: deploy otomatis belum ada (tahap 1). Butuh: U2–U3 (Prinsipal) + U1 (Sekjen).
+- **FMI (DITUNDA):** scoping selesai (5 Agu) → `RENCANA-FMI.md`. Situs + deploy CF otomatis sudah jalan; kurang = bot produsen (tahap 1). Dikerjakan SETELAH Ummanitarian.
 
 ## Butuh keputusan Sekjen
-1. **Review RENCANA-FMI-UMMANITARIAN.md** — 9 keputusan K1–K9; urgent: K1–K3 (FMI tahap 1) & K8–K9 (Ummanitarian tahap 1).
+1. **Review RENCANA-UMMANITARIAN.md** — 3 keputusan: U1 (og-image, Sekjen), U2–U3 (secrets & project CF Pages, Prinsipal). Urgent U2–U3 (prasyarat Tahap 1).
+2. **FMI menyusul** — `RENCANA-FMI.md` (K1–K6) dibuka lagi setelah Ummanitarian jalan.
