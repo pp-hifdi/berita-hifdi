@@ -1,6 +1,13 @@
 # STATUS-SEKJEN.md — ringkasan pagi (dirawat Admin HIFDI; update tiap selesai kerjaan penting)
 
-**Update terakhir:** 7 Agu 2026, 19:00 WIB
+**Update terakhir:** 8 Agu 2026, 10:30 WIB
+
+## SOP PAGI — revisi 8 Agu 2026 (koreksi Prinsipal: cek pipeline dulu, baru produksi)
+0. **05.55** — Hermes cek pipeline (cron): OpenWA session ready? cron caption aktif? clone sehat? situs 200? Merah → perbaiki dulu (auto-fix OpenWA), baru produksi.
+1. **06.00** — bot GH Actions tersulut: `stok/` → RSS → DeepSeek tulis → foto gilir → article-0XX → commit → deploy LIVE.
+2. **±06.25** — caption hangat → WAG Bangkit + info ke chat Prinsipal (deliver telegram).
+3. **07.00** — watchdog: sudah terbit? belum → trigger ulang + lapor.
+Aturan: pipeline macet = berhenti & perbaiki; Admin tidak trigger manual tanpa konfirmasi Prinsipal.
 
 ## Kerjaan selesai (7 Agu 2026, Admin HIFDI)
 - **article-072 terbit MANUAL (perintah Prinsipal, acc langsung):** "Gula Berlebih pada Anak: Banyak Anak SD Sudah Berisiko Diabetes" (Edukasi, 7 Agu). Sumber 4 feed (ANTARA, BBC Indonesia, Kemenko PMK, MetroTV) via Google News; gambar sistem gilir `cat-03-003` (by-sa). LIVE terverifikasi (artikel/foto/og 200, kartu tampil, count 68). Caption WAG otomatis menyusul (cron `*/5`).
