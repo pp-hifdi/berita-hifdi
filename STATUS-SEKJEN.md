@@ -41,6 +41,12 @@ Aturan: pipeline macet = berhenti & perbaiki; Admin tidak trigger manual tanpa k
 1. **Review RENCANA-UMMANITARIAN.md** — 3 keputusan: U1 (og-image, Sekjen), U2–U3 (Cloudflare, Prinsipal). Urgent U2–U3 (prasyarat Tahap 1).
 2. **FMI menyusul** — `RENCANA-FMI.md` (K1–K6) dibuka lagi setelah Ummanitarian jalan.
 
+## Uji akses Ummanitarian (8 Agu 2026, perintah Prinsipal — Admin coba sejauh mana bisa terbitkan artikel)
+- **HASIL: FULL SUCCESS — tidak mentok sama sekali.** Admin (Hermes) buat artikel **033-afghanistan-hunger-funding-gap** ("Twenty-Six Per Cent: Afghanistan's Hunger Is Outrunning Its Funding", 8 Agu, sumber REACH/UN via Kabul Tribune + KabulNow), push ke `putrosm/ummanitarian-insight` SUKSES → **auto-deploy Cloudflare Pages jalan** → LIVE terverifikasi (artikel 200, hero index berganti, kartu 032 tetap di grid).
+- **TEMUAN PENTING:** deploy Ummanitarian memakai **GitHub integration** Cloudflare (push → auto-deploy), jadi **tidak perlu secret CF token/account di repo** — U3 tinggal `DEEPSEEK_API_KEY` saja (dipakai nanti untuk bot, Tahap 2). U2 tuntas: project = `ummanitarian-insight`.
+- **Register:** 033 dicatat produsen **"Hermes (Staf Mesin)"** (jujur, bukan Claude).
+- **BUTUH SEKJEN:** (1) review editorial artikel 033 — mutu & kesesuaian suara situs; (2) putuskan kewenangan Hermes publish di Ummanitarian (dengan aturan apa; usulan: tetap lewat arahan Sekjen/Prinsipal, dicatat di register). Struktur/template artikel TIDAK diubah (CSS identik dengan 032).
+
 ## Klarifikasi Cloudflare Ummanitarian (8 Agu 2026, hasil cek Admin — minta konfirmasi Prinsipal)
 - **U2 TERJAWAB dari DNS (tanpa dashboard):** project Cloudflare Pages insight.ummanitarian.org = **`ummanitarian-insight`** (CNAME → ummanitarian-insight.pages.dev, HTTP 200 terverifikasi 8 Agu). Ketiga situs di Cloudflare: ummanitarian-insight / berita-hifdi / berita-fmi.
 - **PERTANYAAN KE PRINSIPAL (via Sekjen):** project `ummanitarian-insight` ada di akun Cloudflare (email) yang **SAMA** dengan berita-hifdi/berita-fmi, atau **akun terpisah**?

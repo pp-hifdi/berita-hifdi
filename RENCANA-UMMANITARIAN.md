@@ -65,8 +65,8 @@ Referensi pola: `pp-hifdi/berita-hifdi` (HIFDI = contoh sudah otonom) & `putrosm
 | Kode | Keputusan | Pemutus | Dibutuhkan |
 |------|-----------|---------|------------|
 | U1 | og-image: tetap 1 global atau per artikel | Sekjen | Tahap 2 |
-| U2 | Project CF Pages = `ummanitarian-insight` (**TERVERIFIKASI via DNS 8 Agu**); sisa: konfirmasi akun/email pemilik | Prinsipal | Tahap 1 |
-| U3 | Secrets CF (token/account — tergantung akun pemilik project) + DeepSeek di repo Ummanitarian | Prinsipal | Tahap 1–2 |
+| U2 | Project CF Pages = `ummanitarian-insight` + **auto-deploy GitHub integration TERBUKTI jalan (8 Agu)** — tidak perlu dashboard | Selesai | Tahap 1 |
+| U3 | Deploy TIDAK butuh secret CF (integration GitHub). Tersisa: `DEEPSEEK_API_KEY` di secrets repo (untuk bot, Tahap 2) | Prinsipal | Tahap 2 |
 
 ## Catatan koordinasi
 
