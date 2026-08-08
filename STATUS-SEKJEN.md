@@ -11,6 +11,7 @@ Aturan: pipeline macet = berhenti & perbaiki; Admin tidak trigger manual tanpa k
 
 ## Keputusan Prinsipal (8 Agu 2026)
 - **KETERANGAN ILUSTRASI WAJIB:** foto stok/CC yang bukan objek berita tidak boleh tampil tanpa penjelasan (bisa diasosiasikan sebagai klinik/instansi bersangkutan). Featured image wajib caption tampak "Ilustrasi: … — bukan <objek> pada berita" + alt deskriptif + atribusi lisensi; berlaku manual & bot. Preseden: article-069 → cat-20 (Puskesmas Tamblong, CC BY-SA 4.0, ≤150KB).
+- **ATURAN GEOGRAFI FOTO:** berita Indonesia → gambar dari Indonesia; berita luar negeri → gambar boleh dari luar negeri. Jangan ketukar (foto landmark asing untuk berita Indonesia = pelanggaran). Foto generik netral (tanpa lokasi terlihat) aman untuk keduanya.
 
 ## Kerjaan selesai (7 Agu 2026, Admin HIFDI)
 - **article-072 terbit MANUAL (perintah Prinsipal, acc langsung):** "Gula Berlebih pada Anak: Banyak Anak SD Sudah Berisiko Diabetes" (Edukasi, 7 Agu). Sumber 4 feed (ANTARA, BBC Indonesia, Kemenko PMK, MetroTV) via Google News; gambar sistem gilir `cat-03-003` (by-sa). LIVE terverifikasi (artikel/foto/og 200, kartu tampil, count 68). Caption WAG otomatis menyusul (cron `*/5`).
