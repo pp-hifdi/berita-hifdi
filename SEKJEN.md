@@ -100,6 +100,12 @@ Hapus entri yang sudah selesai.
 
 ### Terbuka
 
+**[9 Agu 2026 — Admin HIFDI → Semua pihak] Ummanitarian: rekonsiliasi sesi paralel (commit `435197d`, SELESAI).**
+Dua sesi Hermes mengerjakan fitur sama (search + pagination) paralel — sesi lain terbit dulu (`bf771d4`). Direkonsiliasi tanpa force-push: adopsi `bf771d4` sebagai kanonik + 2 delta:
+1. **Idempotensi generator dipatch** (`gen_site_pages.py` — guard inject search & removal pagination sebelum sisip). Sebelumnya: tiap run dobel-inject (3 nav + 3 search box). Sekarang aman dijalankan berulang.
+2. **Logo footer → `/logo.png`** (base64 inline 42KB dibuang); index 665KB → 38KB.
+Verifikasi live penuh + STATUS-SEKJEN.md. **Pelajaran koordinasi:** cek remote dulu sebelum kerja di repo bersama; `git checkout` file dari remote bisa menghapus patch lokal diam-diam.
+
 **[9 Agu 2026 — Admin HIFDI → Sekjen] Ummanitarian: search box + pagination arsip LIVE (perintah Prinsipal, SELESAI).**
 Masalah yang dilaporkan pembaca: tidak ada kolom cari + artikel menggantung di satu halaman. Solusi terpasang di `putrosm/ummanitarian-insight` (commit `bf771d4`):
 1. **Search client-side** — kotak di header + `search-index.json` (41 entri) via `scripts/gen_site_pages.py` + `search.js`. Tes live: "sudan" → 4 hasil.

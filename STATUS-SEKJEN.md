@@ -1,6 +1,14 @@
 # STATUS-SEKJEN.md — ringkasan pagi (dirawat Admin HIFDI; update tiap selesai kerjaan penting)
 
-**Update terakhir:** 9 Agu 2026 (Ummanitarian: search + pagination LIVE)
+**Update terakhir:** 9 Agu 2026 16:10 WIB (Ummanitarian: rekonsiliasi sesi paralel — idempotensi generator + logo eksternal)
+
+## UMMANITARIAN — REKONSILIASI SESI PARALEL (9 Agu 2026, commit `435197d`)
+- **Apa yang terjadi:** dua sesi Hermes mengerjakan fitur yang sama (search + pagination) secara paralel. Sesi lain terbit dulu (`bf771d4`, 16:01 WIB); sesi ini baru selesai belakangan. **TIDAK force-push** — direkonsiliasi: adopsi implementasi `bf771d4` sebagai kanonik + delta perbaikan:
+  1. **Idempotensi `gen_site_pages.py` dipatch** — `inject_common` (search box/CSS) & `insert_pagination` kini guard/removal dulu sebelum sisip → aman dijalankan berulang tanpa dobel-inject (bug nyata: 3 nav pagination + 3 search box setelah 2 run).
+  2. **Logo footer base64 (~42KB inline) → `/logo.png` (31KB)** — semua halaman lebih ringan; index 665KB → **38KB**.
+- **Verifikasi live:** homepage 200 (nav=1, search box=1, 10 kartu, hero=1), `/page-2/`–`/page-5/` 200, `/logo.png` 200, `/search-index.json` 41 entri, `/search.js` 200. Tes render: search "gaza" → 4 hit, filter kategori jalan di index & page-2, pager navigasi OK, 0 error JS.
+- **Pelajari (koordinasi):** sebelum kerja di repo bersama, cek `git fetch` + apakah fitur sudah ada di remote — kalau ragu, tanya dulu. Setelah checkout file dari remote, patch lokal bisa ter-revert diam-diam (kasus nyata hari ini: `git checkout origin/main -- scripts/...` menghapus patch idempotensi).
+
 
 ## UMMANITARIAN — search box + pagination arsip (9 Agu 2026, perintah Prinsipal)
 - **Masalah pembaca:** tidak ada kolom cari, dan semua artikel menggantung di satu halaman (scroll tak berujung).
