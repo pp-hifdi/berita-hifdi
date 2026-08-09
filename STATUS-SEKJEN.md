@@ -1,6 +1,16 @@
 # STATUS-SEKJEN.md — ringkasan pagi (dirawat Admin HIFDI; update tiap selesai kerjaan penting)
 
-**Update terakhir:** 8 Agu 2026, 12:45 WIB
+**Update terakhir:** 9 Agu 2026 (Ummanitarian: search + pagination LIVE)
+
+## UMMANITARIAN — search box + pagination arsip (9 Agu 2026, perintah Prinsipal)
+- **Masalah pembaca:** tidak ada kolom cari, dan semua artikel menggantung di satu halaman (scroll tak berujung).
+- **Eksekusi (commit `bf771d4`, repo `putrosm/ummanitarian-insight`):**
+  1. **Search client-side** — kotak di header (desktop & mobile), `search-index.json` (41 entri: 32 artikel lokal + 9 kartu kurasi eksternal) di-generate `scripts/gen_site_pages.py` + `search.js`. Tes live: ketik "sudan" → 4 hasil. Tanpa backend, tanpa dependency.
+  2. **Pagination** — 10 kartu/halaman: `page-2/` s.d. `page-5/` (hero tetap hanya di halaman 1; halaman arsip tanpa hero, h1 sr-only, canonical sendiri, script filter versi aman). `index.html` halaman 1 tetap manual (alur hero-swap Sekjen tidak diganggu).
+- **Idempoten:** generator membaca kartu dari index.html + page-N yang ada (dedupe per href, urutan editorial dipertahankan). **Setiap publish artikel baru → jalankan `scripts/gen_site_pages.py`** sebelum commit (atau minta Admin HIFDI).
+- **Wilayah tak tersentuh:** hero, ticker, sidebar, about, footer, CSS, artikel, register. File baru di root: `search.js`, `search-index.json`, `scripts/gen_site_pages.py`, `page-2..5/`.
+- **Verifikasi live:** homepage 200 + search box tampil, `/search-index.json` 41 entri, `/page-2/` & `/page-5/` 200, pages.dev 200.
+
 
 ## SOP PAGI — revisi 8 Agu 2026 (koreksi Prinsipal: cek pipeline dulu, baru produksi)
 0. **05.55** — Hermes cek pipeline (cron): OpenWA session ready? cron caption aktif? clone sehat? situs 200? Merah → perbaiki dulu (auto-fix OpenWA), baru produksi.

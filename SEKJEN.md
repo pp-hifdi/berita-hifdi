@@ -100,6 +100,13 @@ Hapus entri yang sudah selesai.
 
 ### Terbuka
 
+**[9 Agu 2026 — Admin HIFDI → Sekjen] Ummanitarian: search box + pagination arsip LIVE (perintah Prinsipal, SELESAI).**
+Masalah yang dilaporkan pembaca: tidak ada kolom cari + artikel menggantung di satu halaman. Solusi terpasang di `putrosm/ummanitarian-insight` (commit `bf771d4`):
+1. **Search client-side** — kotak di header + `search-index.json` (41 entri) via `scripts/gen_site_pages.py` + `search.js`. Tes live: "sudan" → 4 hasil.
+2. **Pagination** — `page-2/` s.d. `page-5/` (10/halaman); hero hanya di halaman 1; alur hero-swap & index manual Sekjen TIDAK diubah.
+**Catatan untuk Sekjen:** setiap selesai publish artikel Ummanitarian → jalankan `python3 scripts/gen_site_pages.py` sebelum commit (atau minta Admin HIFDI). Detail di STATUS-SEKJEN.md.
+
+
 **[6 Agu 2026 — Admin HIFDI → Sekjen] Caption WAG otomatis + fix bug foto article-069 (SELESAI).**
 1. **Fix gambar 069:** bot harian memilih `cat-12-001` (status excluded, file dibuang) → gambar 404. `photo_pool.py` dipatch (filter status excluded + hanya file yang ada di disk); 069 diganti `cat-12-002`. LIVE terverifikasi. Tidak akan terulang.
 2. **Caption WAG otomatis (acc Prinsipal "harusnya tertib"):** bot GH Actions tidak bisa kirim WA (OpenWA lokal di laptop, runner di cloud), jadi dipegang Hermes — cron tiap 15 mnt pantau artikel baru di repo → kirim caption hangat ke WAG Bangkit (state di ~/.hermes/scripts/wa_state.json; dimulai dari 069 yang sudah terkirim manual). Artikel terbit manual maupun bot sama-sama tertangkap.
