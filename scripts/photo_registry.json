@@ -289,8 +289,8 @@
     },
     {
       "file": "cat-10-003.jpg",
-      "used": 0,
-      "last_article": null,
+      "used": 1,
+      "last_article": 75,
       "source": "https://live.staticflickr.com/5142/5628816590_53d3ba000a_b.jpg",
       "license": "by-sa"
     },
