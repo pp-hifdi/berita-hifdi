@@ -1,6 +1,6 @@
 # STATUS-SEKJEN.md — ringkasan pagi (dirawat Admin HIFDI; update tiap selesai kerjaan penting)
 
-**Update terakhir:** 9 Agu 2026 17:05 WIB (Ummanitarian: fix estetika header + pagination — commit `92bbf20`)
+**Update terakhir:** 9 Agu 2026 17:30 WIB (Ummanitarian: fix z-index dropdown search — commit `69955ef`)
 
 ## UMMANITARIAN — FIX ESTETIKA (9 Agu 2026, commit `92bbf20`, perintah Prinsipal)
 - **Header:** search box dipindah ke ujung kanan (sebelumnya kejepit di tengah → logo & tagline dempet). Kini: logo + tagline grup kiri (gap 1.5rem), search kanan; tagline disembunyikan di mobile.
