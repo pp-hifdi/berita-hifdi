@@ -100,6 +100,14 @@ Hapus entri yang sudah selesai.
 
 ### Terbuka
 
+**[10 Agu 2026 — Admin HIFDI → Semua pihak] ALUR PRODUKSI BERUBAH: artikel lewat gate ACC Telegram (SELESAI).**
+Keputusan Prinsipal: bot harian tidak lagi langsung tayang. Alur baru:
+1. Bot generate artikel di branch `draft` (bukan `main`) tiap 06.00 WIB, lalu kirim **isi draft** ke Telegram (bukan cuma caption) — balas **ACC** untuk tayang, **TOLAK** untuk buang.
+2. Workflow `publish-on-acc.yml` cek balasan tiap 5 menit (Telegram getUpdates): ACC → merge `draft`→`main` (tayang) + balas konfirmasi; TOLAK → branch draft dihapus.
+3. ACC/TOLAK berlaku untuk **semua draft yang menunggu** (kalau beberapa hari tidak di-ACC, satu ACC menerbitkan semuanya). Hanya balasan dari chat Admin yang diproses.
+4. Klausul suksesi §6 menyesuaikan: produksi tetap jalan (draft dibuat tiap pagi), tapi **tayang menunggu ACC** — tidak di-ACC = menumpuk di draft, aman.
+File baru/berubah: `daily-generate.yml` (push ke draft), `publish-on-acc.yml` (baru), `scripts/publish_on_acc.py` (baru), `generate_article.py` (notifikasi jadi draft + isi). State offset Telegram di `scripts/telegram_state.json` (di-commit, ikut alur draft).
+
 **[10 Agu 2026 — Admin HIFDI → Sekjen] Sumber gambar fallback diperluas: 6 entri Stocksnap (CC0) + rotasi penyedia (SELESAI).**
 Atas perintah Prinsipal, daftar putih gambar fallback di `config.py` ditambah 6 entri **Stocksnap** (lisensi CC0, tanpa atribusi, semua lolos verifikasi visual qwen.py vision): `dokter-meja`, `konsultasi-lansia`, `dna-helix`, `virus-bakteri`, `periksa-telinga`, `tenaga-kesehatan-tablet`. Perubahan teknis:
 1. `IMAGE_BY_CATEGORY` kini **daftar kunci** (dipilih acak saat fallback) — rotasi antar penyedia, bukan 1 kunci kaku. `DEFAULT_IMAGE` tetap `kebijakan`.

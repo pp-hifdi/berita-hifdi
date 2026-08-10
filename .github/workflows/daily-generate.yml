@@ -17,6 +17,18 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          # Semua branch (origin/main + origin/draft) diperlukan untuk
+          # menyinkronkan draft dengan main sebelum generate.
+          fetch-depth: 0
+
+      # ALUR DRAFT (keputusan Prinsipal 10 Agu 2026): artikel tidak langsung
+      # tayang. Generate di branch `draft`, kirim isi draft ke Telegram,
+      # lalu tunggu balasan ACC/TOLAK dari publish-on-acc.yml (tiap 5 menit).
+      - name: Siapkan branch draft
+        run: |
+          git switch draft 2>/dev/null || git switch -c draft
+          git merge --ff-only origin/main 2>/dev/null || git rebase origin/main
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -50,6 +62,6 @@ jobs:
         run: |
           git config user.name "HIFDI Bot"
           git config user.email "bot@hifdi.id"
-          git add index.html images/ article-*/ stok/ scripts/used_sources.json scripts/photo_registry.json
-          git diff --cached --quiet || git commit -m "auto: artikel baru"
-          git push
+          git add index.html images/ article-*/ stok/ scripts/used_sources.json scripts/photo_registry.json scripts/telegram_state.json
+          git diff --cached --quiet || git commit -m "auto: draft artikel baru"
+          git push origin draft

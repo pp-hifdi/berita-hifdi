@@ -82,6 +82,21 @@ def notify_telegram(text):
         log(f"lapor Telegram gagal: {exc}")
 
 
+def draft_body_text(body_html, subtitle="", limit=3800):
+    """Isi artikel sebagai teks polos untuk review draft di Telegram.
+
+    Artikel ±500 kata muat di batas 4096 karakter pesan Telegram; HTML
+    dibuang supaya yang direview Prinsipal adalah teks, bukan markup.
+    """
+    text = re.sub(r"<[^>]+>", " ", body_html or "")
+    text = re.sub(r"\s+", " ", text).strip()
+    if not text:
+        text = subtitle
+    if len(text) > limit:
+        text = text[:limit].rsplit(" ", 1)[0] + " …"
+    return text
+
+
 # --------------------------------------------------------------------------
 # 1. Keadaan repo sekarang
 # --------------------------------------------------------------------------
@@ -579,13 +594,12 @@ def _publish_draft(draft, meta, used):
 
     log(f"SELESAI article-{number:03d} (dari stok Sekjen): {meta['title']}")
     notify_telegram(
-        f"BOT HARIAN — artikel {number:03d} tayang (dari stok Sekjen)\n\n"
+        f"📝 DRAF {number:03d} SIAP REVIEW (dari stok Sekjen)\n\n"
         f"Judul    : {meta['title']}\n"
         f"Kategori : {meta['category']}\n"
-        f"Link     : {link}\n\n"
-        f"Cloudflare butuh 1-2 menit sebelum tayang."
+        f"\nBalas ACC untuk tayang, TOLAK untuk buang."
     )
-    notify_telegram(caption)
+    notify_telegram(draft_body_text(meta.get("body_html", ""), meta.get("subtitle", "")))
     return True
 
 
@@ -651,19 +665,18 @@ def main():
     log(f"SELESAI article-{number:03d}: {article['title']}")
     log(f"kategori={article['category']} gambar={image['id']}")
 
-    # Dua pesan terpisah: laporan dulu, lalu caption polos supaya bisa
-    # diteruskan/disalin ke WAG tanpa ikut membawa teks laporan.
+    # Dua pesan terpisah: laporan draft dulu, lalu isi artikel untuk review.
+    # Caption WAG tetap ditulis ke wa-caption.txt (dipakai saat artikel tayang
+    # setelah ACC — cron WAG Hermes yang meneruskannya).
     notify_telegram(
-        f"BOT HARIAN — artikel {number:03d} tayang\n\n"
+        f"📝 DRAF {number:03d} SIAP REVIEW\n\n"
         f"Judul    : {article['title']}\n"
         f"Kategori : {article['category']}\n"
         f"Sumber   : {candidate['source']} (skor {candidate['score']})\n"
         f"           {candidate['link']}\n"
-        f"Link     : {link}\n\n"
-        f"Cloudflare butuh 1-2 menit sebelum tayang.\n"
-        f"Caption WA menyusul di pesan berikut — tinggal teruskan ke WAG."
+        f"\nBalas ACC untuk tayang, TOLAK untuk buang."
     )
-    notify_telegram(caption)
+    notify_telegram(draft_body_text(article.get("body_html", ""), article.get("subtitle", "")))
     return 0
 
 
