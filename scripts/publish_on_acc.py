@@ -20,7 +20,9 @@ import os
 import re
 import subprocess
 import sys
+import time
 import urllib.request
+import urllib.error
 from datetime import datetime, timedelta, timezone
 
 TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
@@ -42,6 +44,26 @@ def tg(method, **params):
     )
     with urllib.request.urlopen(req, timeout=30) as resp:
         return json.load(resp)
+
+
+def get_updates(**params):
+    """getUpdates dengan retry untuk HTTP 409 (konflik polling bot lain).
+
+    Telegram mengizinkan hanya SATU sesi getUpdates per bot; kalau bot ini
+    sedang dipolling proses lain (mis. gateway Hermes), 409 muncul. Setelah
+    3 percobaan gagal, kembalikan None — jangan bikin workflow merah tiap
+    5 menit; run berikutnya mencoba lagi.
+    """
+    for i, delay in enumerate((0, 5, 10)):
+        try:
+            return tg("getUpdates", **params)
+        except urllib.error.HTTPError as exc:
+            if exc.code == 409 and i < 2:
+                log("getUpdates 409 (konflik polling bot lain) — coba lagi")
+                time.sleep(delay + 5)
+            else:
+                raise
+    return None
 
 
 def load_state():
@@ -107,9 +129,11 @@ def main():
     # Run pertama: jangan proses pesan lama — cukup catat offset terakhir.
     if "offset" not in state:
         try:
-            upd = tg("getUpdates", offset=-1, timeout=1)
+            upd = get_updates(offset=-1, timeout=1)
         except Exception as exc:
             log(f"getUpdates gagal: {exc}")
+            return 1
+        if upd is None:
             return 1
         res = upd.get("result", [])
         state["offset"] = res[-1]["update_id"] if res else 0
@@ -122,10 +146,12 @@ def main():
         return 0
 
     try:
-        upd = tg("getUpdates", offset=state["offset"] + 1, timeout=1,
-                 allowed_updates=["message"])
+        upd = get_updates(offset=state["offset"] + 1, timeout=1,
+                          allowed_updates=["message"])
     except Exception as exc:
         log(f"getUpdates gagal: {exc}")
+        return 1
+    if upd is None:
         return 1
     res = upd.get("result", [])
 
