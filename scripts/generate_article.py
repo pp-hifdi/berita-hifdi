@@ -24,6 +24,7 @@ itu bukan kegagalan, cuma hari yang sepi berita relevan.
 import html
 import json
 import os
+import random
 import re
 import sys
 import urllib.request
@@ -332,11 +333,15 @@ def call_deepseek(candidate):
 
 
 def choose_image(category, number=None):
-    """Foto lokal dari kolam (sistem gilir) dulu; fallback daftar putih Unsplash."""
+    """Foto lokal dari kolam (sistem gilir) dulu; fallback daftar putih
+    (Unsplash + penyedia lain), dipilih acak antar kunci kategori."""
     pool = photo_pool.pick(category, article_no=number, pools=IMAGE_POOLS)
     if pool:
         return pool
-    return IMAGES[IMAGE_BY_CATEGORY.get(category, DEFAULT_IMAGE)]
+    keys = IMAGE_BY_CATEGORY.get(category, [DEFAULT_IMAGE])
+    if isinstance(keys, str):
+        keys = [keys]
+    return IMAGES[random.choice(keys)]
 
 
 # --------------------------------------------------------------------------
@@ -355,9 +360,12 @@ def build_article_html(tpl, article, image, candidate, date_str):
         og_img = photo_pool.url(image, 'og')
         feat_img = photo_pool.url(image, 'display')
     else:
-        unsplash = (f"https://images.unsplash.com/{image['id']}"
-                    "?auto=format&fit=crop&w=1200&h=630&q=80")
-        og_img = feat_img = unsplash
+        og_img = image.get('og') or image.get('url')
+        feat_img = image.get('url')
+        if not feat_img:  # entri Unsplash lama: bangun dari id
+            unsplash = (f"https://images.unsplash.com/{image['id']}"
+                        "?auto=format&fit=crop&w=1200&h=630&q=80")
+            og_img = feat_img = unsplash
 
     sources = (
         '<div class="sources-box">\n<div class="sources-title">Referensi</div>\n<ul>\n'
@@ -407,7 +415,8 @@ def insert_card(index_html, article, number, image, date_str):
     if image.get('local'):
         img_card = photo_pool.url(image, 'display')
     else:
-        img_card = f"https://images.unsplash.com/{image['id']}?auto=format&fit=crop&w=800&q=80"
+        img_card = image.get('url') or (
+            f"https://images.unsplash.com/{image['id']}?auto=format&fit=crop&w=800&q=80")
     slug = article["category"].lower().replace(" ", "-")
     excerpt = article["subtitle"]
 

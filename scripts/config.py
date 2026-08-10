@@ -126,6 +126,9 @@ BLOCKLIST = [
 #
 # Menambah entri baru: buka https://images.unsplash.com/<ID>?auto=format&fit=crop&w=800&q=80
 # di browser sungguhan, lihat fotonya, baru tulis alt yang jujur di sini.
+# Entri penyedia lain (Stocksnap dkk.) memakai URL penuh CDN di kunci "url"
+# (+ "og" untuk varian og:image; boleh sama dengan url). Verifikasi visual
+# tetap wajib sebelum masuk daftar ini.
 # ---------------------------------------------------------------------------
 IMAGES = {
     "rokok": {
@@ -144,16 +147,52 @@ IMAGES = {
         "id": "photo-1527613426441-4da17471b66d",
         "alt": "Petugas berjas lab memeriksa sampel dengan alat pelindung diri",
     },
+
+    # --- Stocksnap (CC0, tanpa atribusi) — ditambahkan 10 Agu 2026, restu
+    # Prinsipal. Semua entri lolos verifikasi visual (qwen.py vision) —
+    # alt di bawah jujur sesuai isi foto. og memakai URL sama (960x640,
+    # rasio 3:2, mendekati standar og 1200x630).
+    "dokter-meja": {
+        "url": "https://cdn.stocksnap.io/img-thumbs/960w/doctor-patient_49VHFGUKVA.jpg",
+        "og": "https://cdn.stocksnap.io/img-thumbs/960w/doctor-patient_49VHFGUKVA.jpg",
+        "alt": "Dokter berjas putih dengan stetoskop menjelaskan sesuatu di meja kerjanya kepada pasien",
+    },
+    "konsultasi-lansia": {
+        "url": "https://cdn.stocksnap.io/img-thumbs/960w/caregiver-nurse_CAH3TSDLUS.jpg",
+        "og": "https://cdn.stocksnap.io/img-thumbs/960w/caregiver-nurse_CAH3TSDLUS.jpg",
+        "alt": "Dokter senior berbincang dengan pasien lanjut usia di ruang konsultasi",
+    },
+    "dna-helix": {
+        "url": "https://cdn.stocksnap.io/img-thumbs/960w/dna-helix_CHEZDDXUJY.jpg",
+        "og": "https://cdn.stocksnap.io/img-thumbs/960w/dna-helix_CHEZDDXUJY.jpg",
+        "alt": "Model struktur DNA heliks ganda dengan bola-bola berwarna",
+    },
+    "virus-bakteri": {
+        "url": "https://cdn.stocksnap.io/img-thumbs/960w/germ-disease_BKGJGBMHPM.jpg",
+        "og": "https://cdn.stocksnap.io/img-thumbs/960w/germ-disease_BKGJGBMHPM.jpg",
+        "alt": "Ilustrasi mikroskopis partikel virus dan bakteri di latar gelap",
+    },
+    "periksa-telinga": {
+        "url": "https://cdn.stocksnap.io/img-thumbs/960w/ear-exam_GEL2EZASDG.jpg",
+        "og": "https://cdn.stocksnap.io/img-thumbs/960w/ear-exam_GEL2EZASDG.jpg",
+        "alt": "Dokter memeriksa telinga pasien menggunakan otoskop",
+    },
+    "tenaga-kesehatan-tablet": {
+        "url": "https://cdn.stocksnap.io/img-thumbs/960w/health-care_GKABW8BS4I.jpg",
+        "og": "https://cdn.stocksnap.io/img-thumbs/960w/health-care_GKABW8BS4I.jpg",
+        "alt": "Tenaga kesehatan berjas putih menunjukkan tablet kepada pasien",
+    },
 }
 
-# Kategori artikel -> kunci gambar di atas. Dipakai kalau model tidak
-# memberi petunjuk yang jelas. "kebijakan" jadi default paling aman karena
-# mayoritas artikel portal ini bertema kebijakan/administrasi.
+# Kategori artikel -> daftar kunci gambar di atas (dipilih acak saat fallback).
+# Dipakai kalau model tidak memberi petunjuk yang jelas / kolam foto lokal
+# kosong. "kebijakan" jadi default paling aman karena mayoritas artikel portal
+# ini bertema kebijakan/administrasi.
 IMAGE_BY_CATEGORY = {
-    "Advokasi": "kebijakan",
-    "Mutu": "laboratorium",
-    "Edukasi": "klinis",
-    "Kabar HIFDI": "kebijakan",
+    "Advokasi": ["kebijakan", "dokter-meja", "konsultasi-lansia"],
+    "Mutu": ["laboratorium", "tenaga-kesehatan-tablet"],
+    "Edukasi": ["klinis", "dna-helix", "virus-bakteri", "periksa-telinga"],
+    "Kabar HIFDI": ["kebijakan", "dokter-meja"],
 }
 DEFAULT_IMAGE = "kebijakan"
 

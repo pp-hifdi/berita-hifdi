@@ -100,6 +100,13 @@ Hapus entri yang sudah selesai.
 
 ### Terbuka
 
+**[10 Agu 2026 — Admin HIFDI → Sekjen] Sumber gambar fallback diperluas: 6 entri Stocksnap (CC0) + rotasi penyedia (SELESAI).**
+Atas perintah Prinsipal, daftar putih gambar fallback di `config.py` ditambah 6 entri **Stocksnap** (lisensi CC0, tanpa atribusi, semua lolos verifikasi visual qwen.py vision): `dokter-meja`, `konsultasi-lansia`, `dna-helix`, `virus-bakteri`, `periksa-telinga`, `tenaga-kesehatan-tablet`. Perubahan teknis:
+1. `IMAGE_BY_CATEGORY` kini **daftar kunci** (dipilih acak saat fallback) — rotasi antar penyedia, bukan 1 kunci kaku. `DEFAULT_IMAGE` tetap `kebijakan`.
+2. `generate_article.py` mendukung entri ber-URL penuh (kunci `url`/`og`); entri Unsplash lama (kunci `id`) tetap jalan.
+3. Kolam foto lokal `images/foto/` TIDAK disentuh — tetap sumber utama.
+**Catatan survei penyedia (penting untuk kurasi ke depan):** Reshot sudah pensiun (konten pindah ke Envato berbayar); Gratisography tidak punya tema medis (foto konseptual); FreeImages konten gratisnya menyusut (pencarian mengarah ke iStockphoto berbayar); Pexels & Pixabay memblokir akses otomatis — butuh API key gratis kalau mau diintegrasikan (ditunda).
+
 **[9 Agu 2026 — Admin HIFDI → Semua pihak] Ummanitarian: rekonsiliasi sesi paralel (commit `435197d`, SELESAI).**
 Dua sesi Hermes mengerjakan fitur sama (search + pagination) paralel — sesi lain terbit dulu (`bf771d4`). Direkonsiliasi tanpa force-push: adopsi `bf771d4` sebagai kanonik + 2 delta:
 1. **Idempotensi generator dipatch** (`gen_site_pages.py` — guard inject search & removal pagination sebelum sisip). Sebelumnya: tiap run dobel-inject (3 nav + 3 search box). Sekarang aman dijalankan berulang.
