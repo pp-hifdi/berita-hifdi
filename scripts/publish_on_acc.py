@@ -115,7 +115,9 @@ def main():
         state["offset"] = res[-1]["update_id"] if res else 0
         save_state(state)
         git("add", STATE_FILE)
-        git("commit", "-m", "state: telegram offset awal", check=False)
+        r = git("commit", "-m", "state: telegram offset awal", check=False)
+        if r.returncode == 0:
+            git("push", "origin", "HEAD:main")
         log(f"inisialisasi: offset awal {state['offset']} (pesan lama dilewati)")
         return 0
 
