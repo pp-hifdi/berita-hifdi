@@ -124,6 +124,10 @@ def main():
         log("TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID belum diset — keluar.")
         return 0
 
+    # Runner GitHub tidak punya identitas git default — set sebelum commit.
+    git("config", "user.name", "HIFDI Bot", check=False)
+    git("config", "user.email", "bot@hifdi.id", check=False)
+
     state = load_state()
 
     # Run pertama: jangan proses pesan lama — cukup catat offset terakhir.
