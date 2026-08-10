@@ -1,6 +1,6 @@
-# CLAUDE.md — Berita HIFDI
+# AGENTS.md — Berita HIFDI
 
-Dokumen serah-terima untuk sesi Claude Code. Berisi seluruh konteks operasional
+Dokumen serah-terima untuk sesi bridge DeepSeek. Berisi seluruh konteks operasional
 portal Berita HIFDI. Baca sampai habis sebelum mengerjakan apa pun di repo ini.
 
 > **⚠️ Repo ini dikerjakan lebih dari satu agen.** Baca **`SEKJEN.md`** lebih
@@ -15,8 +15,8 @@ bagian 5 untuk status terkini.
 
 ## 1) Peran & Tujuan
 
-**Peran Claude di repo ini:** penulis sekaligus penerbit artikel untuk portal
-Berita HIFDI. Bukan sekadar drafter — Claude menulis artikel, membuat file HTML,
+**Peran Sekjen di repo ini:** penulis sekaligus penerbit artikel untuk portal
+Berita HIFDI. Bukan sekadar drafter — Sekjen menulis artikel, membuat file HTML,
 menyisipkan kartu di portal, lalu commit dan push sampai artikel benar-benar
 tayang.
 
@@ -173,7 +173,7 @@ tanpa alasan baru.
 berita-hifdi/
 ├─ index.html                  ← portal, grid kartu + articleCount
 ├─ 404.html
-├─ CLAUDE.md                   ← dokumen ini
+├─ AGENTS.md                   ← dokumen ini
 ├─ images/
 │   ├─ logo-hifdi.png          ← dipakai header tiap artikel (../images/logo-hifdi.png)
 │   └─ hero-hifdi.jpg          ← hero portal
@@ -292,7 +292,7 @@ adalah baris `<hash-lama>..<hash-baru>  main -> main`**, bukan exit code.
 | Jalur | Pemicu | Otak | Butuh laptop? |
 |---|---|---|---|
 | **Otomatis harian** | Cron GitHub Actions, 06.00 WIB | DeepSeek | **Tidak** |
-| **Semi-otomatis** | Anda kirim topik ke `t.me/HIFDI_BOT` | Claude (`claude -p`) | Ya, bridge harus jalan |
+| **Semi-otomatis** | Anda kirim topik ke `t.me/HIFDI_BOT` | Sekjen (bridge DeepSeek) | Ya, bridge harus jalan |
 
 - Artikel terakhir: **article-064** (3 Agustus 2026, terbit otomatis oleh bot).
 - article-058 s/d 062 ditulis di sesi interaktif; 063 & 064 oleh bot harian.
@@ -355,7 +355,7 @@ Select-String -Path index.html -Pattern '<div class="card-title">(.+)</div>' |
 ## 6) Alur Distribusi
 
 Setelah artikel tayang, pemilik repo menyebarkannya lewat **Grup WhatsApp**.
-Claude diminta membuatkan caption.
+Sekjen diminta membuatkan caption.
 
 ### Format caption WAG
 - Judul dibungkus `*bold*` (format WhatsApp, bukan markdown `**`).
@@ -382,10 +382,10 @@ Claude diminta membuatkan caption.
 ## 6b) Distribusi Otomatis via OpenWA (loop tertutup)
 
 Grup **HIFDI Bangkit** (grup admin/pengurus HIFDI) boleh dikirimi caption secara
-otomatis oleh Claude Code — varian **formal/ringkas**. Grup senior/tokoh dan
+otomatis oleh bridge DeepSeek — varian **formal/ringkas**. Grup senior/tokoh dan
 varian **personal** (salam Islam, "Bapak") TETAP dikirim manual oleh pemilik repo.
 
-**Gateway:** OpenWA lokal di Docker, `http://localhost:2785`. Shell Claude Code
+**Gateway:** OpenWA lokal di Docker, `http://localhost:2785`. Shell bridge DeepSeek
 jalan di mesin lokal, jadi bisa nyapa localhost langsung (sama seperti `git push`).
 
 **Prasyarat sebelum kirim:**
@@ -436,20 +436,20 @@ banyak grup sekaligus.
 
 ## 6c) Publish via Bridge Telegram (headless, mandiri)
 
-Sejak 31 Juli 2026 ada jalur publish tanpa membuka Claude Code langsung:
+Sejak 31 Juli 2026 ada jalur publish tanpa membuka bridge DeepSeek langsung:
 
 ```
 Chat topik ke bot Telegram HIFDI (t.me/HIFDI_BOT)
   -> Bridge Node (C:\Users\Admin\berita-bridge\bridge.js) nangkep pesan
-  -> jalankan `claude -p` headless di folder repo ini
-     (baca CLAUDE.md ini -> riset -> tulis artikel -> publish)
-  -> Claude tulis caption final ke wa-caption.txt (root repo, UTF-8, teks murni)
+  -> bridge panggil DeepSeek API
+     (baca AGENTS.md ini -> tulis artikel -> publish)
+  -> Sekjen tulis caption final ke wa-caption.txt (root repo, UTF-8, teks murni)
   -> Bridge yang BACA file itu & KIRIM ke grup WhatsApp HIFDI Bangkit
   -> bot Telegram balas laporan + status kirim WA
 ```
 
 **Mode perintah di Telegram (diperbarui 3 Agustus 2026):**
-- Kirim pesan biasa, **tanpa awalan** = MODE OBROLAN. Sekjen membaca `CLAUDE.md`
+- Kirim pesan biasa, **tanpa awalan** = MODE OBROLAN. Sekjen membaca `AGENTS.md`
   + `SEKJEN.md` dan menjawab seperti sesi interaktif — diskusi, pendapat,
   status, restu ke Admin HIFDI lewat papan pesan. **Tidak** menulis/menerbitkan
   artikel dalam mode ini, walau pesannya menyinggung topik berita.
@@ -471,14 +471,14 @@ tidak berwenang (di luar `ALLOWED_CHAT_IDS`) diabaikan diam-diam, tidak
 dibalas "Ditolak." di depan umum. Di chat pribadi (DM), tidak perlu dicolek.
 
 **Perbedaan alur caption dari bagian 6b:**
-- **Sesi headless (lewat bridge Telegram):** Claude **TIDAK** memanggil OpenWA API
-  sendiri. Setelah artikel tayang & terverifikasi live, Claude menulis caption
+- **Sesi headless (lewat bridge Telegram):** Sekjen **TIDAK** memanggil OpenWA API
+  sendiri. Setelah artikel tayang & terverifikasi live, Sekjen menulis caption
   final ke file `wa-caption.txt` di root repo. Bridge yang membaca file itu dan
   mengirim ke WhatsApp. Ini mencegah bug `[object Object]` (PowerShell/Node
   serialization) dan emoji rusak `??` (encoding) yang pernah terjadi saat
-  Claude kirim langsung.
-- **Sesi interaktif (kerja langsung di Claude Code seperti biasa):** tetap
-  ikuti alur 6b — Claude boleh memanggil OpenWA API langsung untuk kirim
+  Sekjen kirim langsung.
+- **Sesi interaktif (kerja langsung di bridge DeepSeek seperti biasa):** tetap
+  ikuti alur 6b — Sekjen boleh memanggil OpenWA API langsung untuk kirim
   formal/ringkas ke HIFDI Bangkit.
 - `wa-caption.txt` masuk `.gitignore` — jangan sampai ter-commit.
 
@@ -505,16 +505,16 @@ jalan, cek proses Node di mesin lokal atau tanya pemilik repo dulu sebelum
 mulai publish.
 
 **Status push non-interaktif (prasyarat bridge headless berfungsi):**
-`claude -p` headless **tidak bisa** menjawab popup login Git Credential
+Bridge headless (DeepSeek) **tidak bisa** menjawab popup login Git Credential
 Manager, sehingga `git push` dari proses headless akan gagal (401 lalu hang
 tanpa timeout jelas — lihat kasus nyata di sesi 29-31 Juli 2026 di mana push
 macet total sampai re-auth GCM manual di sesi interaktif). Solusinya: pasang
 Personal Access Token (PAT) GitHub di remote URL lokal
 (`git remote set-url origin https://x-access-token:TOKEN@github.com/...`).
 
-**Claude TIDAK BOLEH menjalankan perintah ini sendiri** — memasukkan API
+**Sekjen TIDAK BOLEH menjalankan perintah ini sendiri** — memasukkan API
 key/token ke command apa pun (termasuk git remote URL) adalah tindakan yang
-harus dilakukan pemilik repo sendiri, bukan diketikkan/dieksekusi oleh Claude,
+harus dilakukan pemilik repo sendiri, bukan diketikkan/dieksekusi oleh Sekjen,
 walau pemilik repo memberikan tokennya langsung di chat. Kalau status PAT ini
 belum jelas, cek `git remote -v` — kalau URL masih polos tanpa token, berarti
 publish via bridge headless **masih akan gagal push** dan perlu ditangani
@@ -616,9 +616,9 @@ terutama saat menulis file besar. Mitigasi:
 - **Tulis file dalam potongan ≤30 baris**, jangan sekali tulis besar.
 - Setelah timeout, **periksa dulu keadaan file** sebelum menulis ulang —
   tulisan sebelumnya bisa jadi sudah berhasil sebagian.
-- Kalau macet, minta pemilik repo me-restart Claude Desktop.
+- Kalau macet, minta pemilik repo me-restart Sekjen Desktop.
 
-Di Claude Code masalah ini kemungkinan besar hilang karena akses berkas
+Di bridge DeepSeek masalah ini kemungkinan besar hilang karena akses berkas
 langsung, tanpa MCP.
 
 ### ⚠️ Hal kecil yang sering luput
@@ -639,7 +639,7 @@ langsung, tanpa MCP.
 ## Action Item yang Belum Selesai
 
 Diurutkan berdasarkan mendesaknya. Nomor 1–3 perlu keputusan pemilik repo,
-bukan keputusan Claude.
+bukan keputusan Sekjen.
 
 ### Perlu keputusan pemilik repo
 
@@ -656,7 +656,7 @@ dipakai aktif di caption WAG/Telegram. Lihat bagian 4.
 bagian 6c. Tanpa ini, publish lewat bot Telegram akan macet di tahap
 `git push` (401, lalu hang). Owner perlu generate PAT di
 github.com/settings/tokens (scope `repo`) lalu jalankan `git remote set-url`
-sendiri di sesi interaktif — Claude tidak boleh menjalankan perintah ini
+sendiri di sesi interaktif — Sekjen tidak boleh menjalankan perintah ini
 sendiri karena melibatkan token/API key.
 
 **A3 — Putuskan penulisan gelar untuk Zaenal Abidin.** Byline article-057 kini
@@ -680,11 +680,11 @@ gagal dan apakah ada notifikasi menumpuk.
 lewat web search → periksa `index.html` agar tidak mengulang → pilih kategori →
 tulis → publish → buatkan caption WAG.
 
-**A7 — Commit `CLAUDE.md` ini.** Berkas ini baru dibuat dan **belum masuk git**.
+**A7 — Commit `AGENTS.md` ini.** Berkas ini baru dibuat dan **belum masuk git**.
 Kalau disetujui:
 ```bash
-git add CLAUDE.md
-git commit -m "docs: tambah CLAUDE.md sebagai panduan kerja repo"
+git add AGENTS.md
+git commit -m "docs: tambah AGENTS.md sebagai panduan kerja repo"
 git push
 ```
 

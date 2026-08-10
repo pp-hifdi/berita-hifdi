@@ -52,7 +52,7 @@ jobs:
 
       # Penambahan spesifik, BUKAN git add -A — supaya file nyasar
       # (mis. wa-caption.txt) tidak ikut ter-commit. Sejalan dengan
-      # keputusan no. 7 di CLAUDE.md.
+      # keputusan no. 7 di AGENTS.md.
       # scripts/used_sources.json: penjaga duplikat (3 Agu 2026) — wajib
       # ikut ter-commit supaya penjaga berlaku lintas run.
       # stok/: draf Sekjen yang sudah dipindah ke article-XXX perlu "dihapus"

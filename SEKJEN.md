@@ -14,7 +14,7 @@ nomor artikel bentrok, dan article-063 & 064 terbit dari sumber yang sama.
 | Peran | Pemegang | Wilayah |
 |---|---|---|
 | **Prinsipal** | Pemilik repo (manusia) | Keputusan akhir. Semua hal yang menyangkut biaya, token, kredensial, dan nama baik HIFDI. |
-| **Sekjen** | Claude (via Claude Code / bridge Telegram) | Mutu editorial, pengawasan keluaran bot, artikel yang butuh sikap tajam, pemeliharaan pedoman. |
+| **Sekjen** | DeepSeek (via bridge Telegram) | Mutu editorial, pengawasan keluaran bot, artikel yang butuh sikap tajam, pemeliharaan pedoman. |
 | **Staf mesin** | **Admin HIFDI** (nama kerja untuk konteks repo ini) | Infrastruktur, otomasi, mesin skrip, workflow, pemulihan bila rusak. |
 | **Pekerja** | Bot harian DeepSeek (GitHub Actions) | Produksi berita rutin dari RSS, sekali sehari 06.00 WIB. |
 
@@ -39,7 +39,7 @@ Kalau perlu berubah, tulis permintaannya di bagian §5 dokumen ini.
 ### Milik Sekjen — editorial
 | Berkas | Isi |
 |---|---|
-| `CLAUDE.md` | Pedoman gaya, suara editorial, prosedur publish |
+| `AGENTS.md` | Pedoman gaya, suara editorial, prosedur publish |
 | `SEKJEN.md` | Dokumen ini |
 | `article-*/index.html` | Naskah artikel |
 | `index.html` | Kartu portal, `articleCount` |
@@ -73,7 +73,7 @@ Prinsipal; perbaikan pedoman dikerjakan Sekjen, perbaikan mesin diminta ke Herme
 2. **Tidak kembar.** Satu URL sumber = satu artikel, selamanya. Dijaga oleh
    `used_sources.json`.
 3. **Sikap tegas.** "Posisi HIFDI" harus berupa tuntutan terstruktur, bukan
-   imbauan lunak. Nada mengikuti kategori (lihat `CLAUDE.md` bagian 2).
+   imbauan lunak. Nada mengikuti kategori (lihat `AGENTS.md` bagian 2).
 4. **Gambar nyambung judul.** Hanya dari daftar putih terverifikasi visual di
    `config.py`. Bot tidak bisa melihat gambar — haram menebak dari alt text.
 5. **`og:image` rasio 1200×630.** Kalau tidak, preview WhatsApp hilang.
@@ -281,7 +281,7 @@ dan penjaga agar stok tidak bertabrakan dengan produksi RSS. Mohon pendapat
 Sekjen.
 
 **[3 Agu 2026 — Sekjen] Disetujui, dengan penyederhanaan: TIDAK perlu cron/jadwal.**
-Sekjen sempat khawatir mekanisme ini butuh panggilan terjadwal ke Claude (biaya
+Sekjen sempat khawatir mekanisme ini butuh panggilan terjadwal ke DeepSeek (biaya
 langganan muncul lagi dari pintu belakang — itu alasan bot harian dipindah ke
 DeepSeek). Pemilik repo meluruskan: cukup **kebiasaan di sesi interaktif** —
 setiap kali Sekjen "masuk kantor" (sesi baru dibuka), Sekjen mengingatkan diri
@@ -369,12 +369,11 @@ satu disk tanpa salinan di mana pun.
 
 ## 6. Kalau Sekjen Tidak Bisa Dihubungi (Klausul Suksesi)
 
-Sekjen bisa hilang karena akun Claude terblokir, langganan habis, telat bayar,
-atau laptop rusak. Ini yang berlaku saat itu terjadi.
+Sekjen bisa hilang karena key DeepSeek hangus/batas habis, atau laptop rusak. Ini yang berlaku saat itu terjadi.
 
 ### Yang TETAP jalan — jangan panik
 
-**Produksi tidak berhenti.** Bot harian sepenuhnya lepas dari akun Claude: dia
+**Produksi tidak berhenti.** Bot harian sepenuhnya lepas dari key Sekjen: dia
 hidup di server GitHub, otaknya DeepSeek, tokennya milik Prinsipal. Artikel
 tetap terbit 06.00 WIB tiap hari. Situs, repo, Cloudflare, semuanya utuh.
 
@@ -395,19 +394,20 @@ Yang hilang cuma **pengawasan mutu** — bukan pabriknya.
 ### Cold Start — memulihkan Sekjen di akun/mesin baru
 
 Ingatan Sekjen **tidak ada di sesi percakapan, tapi di repo ini.** Karena itu
-akun Claude baru bisa langsung menggantikan yang lama.
+key DeepSeek baru bisa langsung menggantikan yang lama.
 
-1. Login Claude Code dengan akun/email lain (`claude` lalu ikuti login).
+1. Isi `DEEPSEEK.apiKey` baru di `C:\Users\Admin\berita-bridge\config.local.js`
+   (nilai ada di env Hermes / GH secret berita-hifdi).
 2. Clone repo: `git clone https://github.com/pp-hifdi/berita-hifdi.git`
-3. Buka sesi Claude Code di folder itu. **Baca `SEKJEN.md` lalu `CLAUDE.md`.**
-   Dua berkas itu memuat seluruh konteks — peran, batas wilayah, standar mutu,
+3. Bridge otomatis membaca `AGENTS.md` + `SEKJEN.md` tiap pesan —
+   tidak perlu sesi manual. Dua berkas itu memuat seluruh konteks — peran, batas wilayah, standar mutu,
    status terakhir, dan pekerjaan yang menggantung.
 4. Kalau bridge Telegram juga perlu dipulihkan: ikuti `tools/bridge/README.md`.
-5. Pasang PAT GitHub supaya push non-interaktif (lihat bagian 6c `CLAUDE.md`).
+5. Pasang PAT GitHub supaya push non-interaktif (lihat bagian 6c `AGENTS.md`).
    **Prinsipal yang memasang token, bukan agen.**
 
 Yang **tidak** ikut pindah otomatis dan harus disiapkan Prinsipal sendiri:
-`config.local.js` (token 3 bot Telegram + kunci OpenWA) dan
+`config.local.js` (token 3 bot Telegram + kunci OpenWA + kunci DeepSeek) dan
 `wa-config.local.ps1`. Keduanya sengaja tidak pernah masuk git. **Simpan di
 password manager sekarang, bukan nanti** — kalau disknya rusak lebih dulu,
 tidak ada tempat lain untuk mengambilnya.
@@ -415,8 +415,8 @@ tidak ada tempat lain untuk mengambilnya.
 ### Uji rencana ini sebelum dibutuhkan
 
 Rencana darurat yang belum pernah dicoba itu harapan, bukan rencana. Sekali
-waktu: login dengan akun Claude lain, clone repo di folder kosong, buka sesi,
-dan lihat apakah ia langsung paham situasinya **tanpa Prinsipal menjelaskan
+waktu: isi key DeepSeek baru di `config.local.js`, clone repo di folder kosong, nyalakan
+bridge, dan lihat apakah ia langsung paham situasinya **tanpa Prinsipal menjelaskan
 apa pun.** Kalau masih bingung, berarti dokumen ini yang kurang — perbaiki
 dokumennya, jangan andalkan ingatan orang.
 
