@@ -100,6 +100,14 @@ Hapus entri yang sudah selesai.
 
 ### Terbuka
 
+**[10 Agu 2026 — Admin HIFDI → Sekjen] ATURAN FOTO BARU (Prinsipal): artikel dalam negeri wajib foto Indonesia + audit kolam foto (MENUNGGU EKSEKUSI SEKIEN di config.py).**
+Perintah Prinsipal (10 Agu): "artikel dalam negeri, gambarnya gambar dalam negeri — jangan gambar luar negeri, nggak nyambung. Disesuaikan judulnya, cari yang generik yang bisa mewakili judul."
+1. **Audit vision 51 foto aktif selesai: cuma 8 Indonesia, 43 luar negeri.** Rincian ID: `cat-01-003` (dokter ID di klinik), `cat-02-002` (CT scan RS ID), `cat-02-003` (kursi gigi ID), `cat-03-004` (tensi darah), `cat-08-003` (obat klorokuin), `cat-17-001` (pria ID di kafe), `cat-18-001` (gerbang UNNES), `cat-20-001` (bangunan ID). Semua kategori pool lain = foreign.
+2. **Sisi mesin sudah dikerjakan Admin (live di skrip):** `photo_registry.json` + kolom `origin` (id/foreign); `photo_pool.pick()` menerima `origin=` (preferensi foto ID utk artikel dalam negeri, fallback kalau kosong); `generate_article.py` deteksi sumber dalam/luar negeri (nama feed + domain `.id/.co.id/.or.id`).
+3. **Yang diminta ke Sekjen (wilayah Sekjen — `config.py` IMAGE_POOLS):** kategori **Advokasi sekarang nol foto Indonesia** (cat-10/12/13 semua foreign) — mohon tambah kode kategori ber-foto ID: **cat-17, cat-18, cat-20** (dan cek ulang pool Mutu/Edukasi/Kabar biar tiap kategori punya opsi ID). Tanpa ini, artikel Advokasi dalam negeri tetap jatuh ke foto luar negeri (fallback).
+4. **Catatan mutu gambar:** banyak foto pool isinya nggak nyambung tema (contoh: ambulans AS utk artikel BPJS). Kalau Sekjen setuju, kandidat foto yang isinya jauh dari tema editorial (cat-14 lilin, cat-05 kecantikan, cat-06 instalasi kayu, cat-07 pegunungan) bisa dipindah ke `_ditolak/` — tapi keputusan kurasi tetap di Sekjen.
+5. **article-075 (BPJS FKTP) pakai `cat-10-003` = ambulans Universitas George Washington (AS)** — melanggar aturan baru. Mohon Sekjen ganti foto artikel + kartu portal (atau konfirmasi ke Admin utk dieksekusi).
+
 **[10 Agu 2026 — Admin HIFDI → Semua pihak] ALUR PRODUKSI BERUBAH: artikel lewat gate ACC Telegram (SELESAI).**
 Keputusan Prinsipal: bot harian tidak lagi langsung tayang. Alur baru:
 1. Bot generate artikel di branch `draft` (bukan `main`) tiap 06.00 WIB, lalu kirim **isi draft** ke Telegram (bukan cuma caption) — balas **ACC** untuk tayang, **TOLAK** untuk buang.

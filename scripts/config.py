@@ -235,10 +235,14 @@ PHOTO_BY_CATEGORY = {
 # IMAGES/IMAGE_BY_CATEGORY di atas. Caption foto: "Ilustrasi" (generik).
 # ---------------------------------------------------------------------------
 IMAGE_POOLS = {
-    "Advokasi": ["cat-10", "cat-12", "cat-13"],
-    "Mutu": ["cat-12", "cat-02", "cat-09"],
-    "Edukasi": ["cat-03", "cat-04", "cat-08", "cat-07"],
-    "Kabar HIFDI": ["cat-13", "cat-01", "cat-05"],
+    # Aturan foto (Prinsipal 10 Agu 2026): artikel dalam negeri -> foto
+    # Indonesia. Kategori ber-foto ID ditambahkan (cat-01, cat-17, cat-18,
+    # cat-20) supaya tiap kategori editorial punya opsi ID; pemilih origin
+    # di photo_pool.py menyaring otomatis. cat-17/18/20 awalnya di luar pool.
+    "Advokasi": ["cat-10", "cat-12", "cat-13", "cat-01", "cat-17", "cat-18", "cat-20"],
+    "Mutu": ["cat-12", "cat-02", "cat-09", "cat-20"],
+    "Edukasi": ["cat-03", "cat-04", "cat-08", "cat-07", "cat-18"],
+    "Kabar HIFDI": ["cat-13", "cat-01", "cat-05", "cat-17"],
 }
 
 # ---------------------------------------------------------------------------

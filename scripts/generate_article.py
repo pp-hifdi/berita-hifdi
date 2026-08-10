@@ -29,6 +29,7 @@ import re
 import sys
 import urllib.request
 from datetime import datetime, timedelta, timezone
+from urllib.parse import urlparse
 
 import feedparser
 from openai import OpenAI
@@ -344,13 +345,40 @@ def call_deepseek(candidate):
         data["caption"] = f"*{data['title']}*\n\n{data['subtitle']}"
         log("caption kosong -> disusun dari judul + subjudul")
 
+    # Bawa konteks sumber (feed + URL asli) ke bawah — dipakai choose_image
+    # untuk menentukan preferensi foto dalam/luar negeri (aturan Prinsipal
+    # 10 Agu 2026: artikel dalam negeri -> foto Indonesia).
+    data["source"] = candidate.get("source", "")
+    data["link"] = candidate.get("link", "")
+
     return data
 
 
-def choose_image(category, number=None):
+# Feed dalam negeri (aturan foto 10 Agu 2026): artikel dari media Indonesia
+# wajib memakai foto Indonesia; sisanya (WHO, Medical Xpress, dll) pakai foto
+# luar negeri. Deteksi lewat nama feed + domain URL.
+DOMESTIC_FEEDS = {"Detik Health", "CNN Indonesia", "ANTARA News", "Republika"}
+
+
+def is_domestic_source(source_name, link=""):
+    """True bila sumber artikel adalah media/publikasi Indonesia."""
+    if link:
+        netloc = (urlparse(link).netloc or "").lower()
+        if netloc.endswith(".id") or netloc.endswith(".co.id") or netloc.endswith(".or.id"):
+            return True
+    return source_name in DOMESTIC_FEEDS
+
+
+def choose_image(category, number=None, source_name="", link=""):
     """Foto lokal dari kolam (sistem gilir) dulu; fallback daftar putih
-    (Unsplash + penyedia lain), dipilih acak antar kunci kategori."""
-    pool = photo_pool.pick(category, article_no=number, pools=IMAGE_POOLS)
+    (Unsplash + penyedia lain), dipilih acak antar kunci kategori.
+
+    Aturan foto (Prinsipal 10 Agu 2026): artikel dalam negeri -> preferensi
+    foto Indonesia (origin='id'); artikel internasional -> origin='foreign'.
+    """
+    origin = "id" if is_domestic_source(source_name, link) else "foreign"
+    pool = photo_pool.pick(category, article_no=number, pools=IMAGE_POOLS,
+                           origin=origin)
     if pool:
         return pool
     keys = IMAGE_BY_CATEGORY.get(category, [DEFAULT_IMAGE])
@@ -575,7 +603,9 @@ def _publish_draft(draft, meta, used):
     if meta["image_id"]:
         image = {"id": meta["image_id"], "alt": meta["subtitle"][:100]}
     else:
-        image = choose_image(meta["category"], number)
+        image = choose_image(meta["category"], number,
+                             source_name=meta.get("source", ""),
+                             link=meta.get("link", ""))
 
     index_html = read_index()
     with open(INDEX, "w", encoding="utf-8", newline="\n") as f:
@@ -636,7 +666,9 @@ def main():
     number = next_article_number()
     today = datetime.now(WIB)
     date_str = f"{today.day} {BULAN_ID[today.month]} {today.year}"
-    image = choose_image(article["category"], number)
+    image = choose_image(article["category"], number,
+                         source_name=article.get("source", ""),
+                         link=article.get("link", ""))
 
     # Baca template DULU, sebelum folder baru dibuat (lihat build_article_html).
     with open(template_path(), encoding="utf-8") as f:
