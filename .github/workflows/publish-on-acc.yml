@@ -1,10 +1,10 @@
 name: Publish Draft on ACC
 
 on:
-  schedule:
-    # Tiap 5 menit UTC — cek balasan ACC/TOLAK di Telegram
-    # (keputusan Prinsipal 10 Agu 2026: artikel tayang setelah ACC).
-    - cron: '*/5 * * * *'
+  # PAUSED 11 Agu 2026: alur ACC dipindah ke Hermes (chat Prinsipal) —
+  # token bot lama 401 & bentrok polling. Jalankan manual kalau perlu.
+  # schedule:
+  #   - cron: '*/5 * * * *'
   workflow_dispatch:
 
 jobs:
