@@ -1,6 +1,13 @@
 # STATUS-SEKJEN.md — ringkasan pagi (dirawat Admin HIFDI; update tiap selesai kerjaan penting)
 
-**Update terakhir:** 9 Agu 2026 17:30 WIB (Ummanitarian: fix z-index dropdown search — commit `69955ef`)
+**Update terakhir:** 11 Agu 2026 23:20 WIB (HIFDI: GH Actions merah sejak 07:33 — token bot Telegram 401, butuh token baru dari Prinsipal)
+
+## HIFDI — GH ACTIONS MERAH (11 Agu 2026, insiden + perbaikan pipeline)
+- **Gejala:** `Publish Draft on ACC` gagal tiap 5 menit sejak 07:33 (sebelumnya sukses sampai 06:08); `Generate HIFDI Article` 23:27 gagal.
+- **Akar masalah 1 (ACC):** token bot Telegram HIFDI (8634246819) **401 Unauthorized** — dicabut/di-regenerate. Token sama dipakai bridge (config.local.js) & GH secret → bot tak bisa baca balasan ACC/TOLAK. **BUKAN karena draft tidak di-ACC** (tanpa balasan pun workflow sukses diam).
+- **Akar masalah 2 (generate):** branch `draft` menyimpang dari main — berisi article-076 (Kanker Prostat, 10 Agu) yang **bentrok nomor** dengan article-076 (HUT ke-81 RI, naskah Zaenal Abidin) yang sudah tayang → rebase konflik.
+- **Yang sudah dibereskan Hermes:** branch `draft` dihapus (`git push origin --delete draft`) — draft lama recoverable (commit `e24ecd5`, bisa di-restore jadi article-077 kalau Prinsipal mau tayang). Pipeline generate siap normal besok 06:00.
+- **Menunggu Prinsipal:** token Telegram baru — (a) bot HIFDI regenerate (`/token` di @BotFather) untuk bridge, (b) bot BARU khusus alur ACC (biar tidak bentrok 409) → pasang ke GH secret `TELEGRAM_BOT_TOKEN`.
 
 ## UMMANITARIAN — FIX ESTETIKA (9 Agu 2026, commit `92bbf20`, perintah Prinsipal)
 - **Header:** search box dipindah ke ujung kanan (sebelumnya kejepit di tengah → logo & tagline dempet). Kini: logo + tagline grup kiri (gap 1.5rem), search kanan; tagline disembunyikan di mobile.
