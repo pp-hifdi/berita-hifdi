@@ -147,7 +147,7 @@ produksi tidak pernah macet menunggu selamanya.
 
 ## 9. CATATAN DESAIN (keputusan 11 Agu 2026)
 
-- **Tanpa peran editor perantara (Sekjen)** — efisiensi token & workflow.
+- **Tanpa peran editor perantara** — efisiensi token & workflow.
   Pedoman editorial tetap ada sebagai DOKUMEN, bukan sebagai peran.
 - **Gate pakai chat pemilik yang sudah ada** — tidak perlu bot baru.
 - **Fail-open dengan tenggat** (30 menit tanpa ACC → auto-tayang).
