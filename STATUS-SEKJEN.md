@@ -7,7 +7,8 @@
 - **Akar masalah 1 (ACC):** token bot Telegram HIFDI (8634246819) **401 Unauthorized** — dicabut/di-regenerate. Token sama dipakai bridge (config.local.js) & GH secret → bot tak bisa baca balasan ACC/TOLAK. **BUKAN karena draft tidak di-ACC** (tanpa balasan pun workflow sukses diam).
 - **Akar masalah 2 (generate):** branch `draft` menyimpang dari main — berisi article-076 (Kanker Prostat, 10 Agu) yang **bentrok nomor** dengan article-076 (HUT ke-81 RI, naskah Zaenal Abidin) yang sudah tayang → rebase konflik.
 - **Yang sudah dibereskan Hermes:** branch `draft` dihapus (`git push origin --delete draft`) — draft lama recoverable (commit `e24ecd5`, bisa di-restore jadi article-077 kalau Prinsipal mau tayang). Pipeline generate siap normal besok 06:00.
-- **Menunggu Prinsipal:** token Telegram baru — (a) bot HIFDI regenerate (`/token` di @BotFather) untuk bridge, (b) bot BARU khusus alur ACC (biar tidak bentrok 409) → pasang ke GH secret `TELEGRAM_BOT_TOKEN`.
+- **KEPUTUSAN (11 Agu 2026):** alur ACC dipindah dari GH Actions ke **Hermes (chat Prinsipal)** — workflow `publish-on-acc.yml` di-pause (commit `7d01010`); cron Hermes `022deb64759f` tiap 06:20 WIB cek branch draft → kirim **judul + narasi lengkap + link foto** ke chat → balas ACC/TOLAK → Hermes publish. Token bot lama (401) tidak dipakai lagi untuk ACC; bot baru tidak diperlukan.
+- **Buka (opsional):** token bot HIFDI/FMI/Ummanitarian di config bridge (C:\Users\Admin\berita-bridge\config.local.js) semuanya 401 — perlu regenerate via @BotFather kalau relay WA↔TG bridge mau hidup lagi.
 
 ## UMMANITARIAN — FIX ESTETIKA (9 Agu 2026, commit `92bbf20`, perintah Prinsipal)
 - **Header:** search box dipindah ke ujung kanan (sebelumnya kejepit di tengah → logo & tagline dempet). Kini: logo + tagline grup kiri (gap 1.5rem), search kanan; tagline disembunyikan di mobile.
