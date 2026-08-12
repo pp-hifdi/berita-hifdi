@@ -125,8 +125,26 @@ def next_article_number():
 
 
 def template_path():
-    """Template = artikel bernomor tertinggi (struktur terbukti tayang)."""
-    return os.path.join(REPO, f"article-{next_article_number() - 1:03d}", "index.html")
+    """Template = artikel bernomor tertinggi BERSTRUKTUR BOT (punya div
+    article-footer). Artikel manual/naskah tokoh bisa beda struktur dan
+    membuat regex build gagal (kasus nyata: article-076 naskah HUT RI,
+    12 Agu 2026 — "Template tidak cocok pola")."""
+    top = next_article_number() - 1
+    for n in range(top, 0, -1):
+        p = os.path.join(REPO, f"article-{n:03d}", "index.html")
+        if not os.path.exists(p):
+            continue
+        try:
+            with open(p, encoding="utf-8") as f:
+                tpl = f.read()
+        except OSError:
+            continue
+        if '<div class="article-footer">' in tpl:
+            return p
+    raise SystemExit(
+        f"Tidak ada template bot yang cocok (article-005..{top:03d} semua "
+        "tanpa div article-footer). Periksa struktur artikel manual terbaru."
+    )
 
 
 # --------------------------------------------------------------------------
