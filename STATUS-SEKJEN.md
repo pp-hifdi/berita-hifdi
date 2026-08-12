@@ -1,6 +1,6 @@
 # STATUS-SEKJEN.md — ringkasan pagi (dirawat Admin HIFDI; update tiap selesai kerjaan penting)
 
-**Update terakhir:** 11 Agu 2026 23:20 WIB (HIFDI: GH Actions merah sejak 07:33 — token bot Telegram 401, butuh token baru dari Prinsipal)
+**Update terakhir:** 12 Agu 2026 14:00 WIB (HIFDI: artikel-077 tayang, fix template bot) (HIFDI: GH Actions merah sejak 07:33 — token bot Telegram 401, butuh token baru dari Prinsipal)
 
 ## HIFDI — GH ACTIONS MERAH (11 Agu 2026, insiden + perbaikan pipeline)
 - **Gejala:** `Publish Draft on ACC` gagal tiap 5 menit sejak 07:33 (sebelumnya sukses sampai 06:08); `Generate HIFDI Article` 23:27 gagal.
@@ -86,3 +86,8 @@ Aturan: pipeline macet = berhenti & perbaiki; Admin tidak trigger manual tanpa k
   - Sama → token CF yang sudah dipakai HIFDI/FMI bisa langsung dipakai → U3 = tinggal salin secrets ke repo Ummanitarian, tidak perlu token baru.
   - Beda → perlu API token Pages-edit dari akun pemilik project; token lama TIDAK bisa dipakai lintas akun.
 - Yang diminta: konfirmasi akun/email pemilik project + ketersediaan token untuk akun itu.
+## HIFDI — RESOLUSI (12 Agu 2026, artikel-077 tayang)
+- **Akar generate gagal pagi ini:** template bot diambil dari artikel bernomor tertinggi = article-076 (naskah manual HUT RI) yang TIDAK punya `<div class="article-footer">` → regex build gagal "Template tidak cocok pola".
+- **Fix:** `template_path()` di generate_article.py kini memilih artikel bot tertinggi yang punya article-footer (commit `8cd9859`).
+- **Artikel hari ini:** article-077 "Kursus Pembiayaan Kesehatan WHO Barcelona 2025" tayang (publish manual atas perintah Prinsipal — utang rilis pagi).
+- **Alur besok normal:** 06:20 draft dikirim ke chat Prinsipal (narasi+foto) → ACC/TOLAK → 06:50 auto-tayang.
