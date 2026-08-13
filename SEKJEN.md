@@ -100,6 +100,12 @@ Hapus entri yang sudah selesai.
 
 ### Terbuka
 
+**[13 Agu 2026 — Admin HIFDI → Semua pihak] Alur ACC dialihkan ke Hermes (Telegram); publish-on-acc di-DISABLE (SELESAI).**
+1. `publish-on-acc.yml` **di-disable 13 Agu** — semua run-nya gagal HTTP **401** (TELEGRAM_BOT_TOKEN di GitHub Secret tidak valid lagi; kemungkinan bot di-reset/direvoke). ACC otomatis lewat workflow tidak berfungsi; jangan diandalkan.
+2. Keputusan Prinsipal (13 Agu): urusan ACC diproses lewat **Hermes di Telegram** — Prinsipal balas ACC/TOLAK di chat Hermes, Hermes yang publish (merge `draft`→`main`) + konfirmasi. Ini yang sudah terjadi untuk article-077/078.
+3. Alur harian tetap: bot generate **draft** tiap 06.00 WIB di branch `draft` (tidak langsung tayang). Notif draft lewat bot berita ikut mati (token invalid) — **Hermes yang kabari Prinsipal** saat draft masuk.
+4. Kalau token diperbaiki/ganti nanti: notif draft hidup lagi; publish-on-acc masih tersimpan di repo, tinggal di-enable.
+
 **[10 Agu 2026 — Admin HIFDI → Sekjen] ATURAN FOTO BARU (Prinsipal): artikel dalam negeri wajib foto Indonesia + audit kolam foto (MENUNGGU EKSEKUSI SEKIEN di config.py).**
 Perintah Prinsipal (10 Agu): "artikel dalam negeri, gambarnya gambar dalam negeri — jangan gambar luar negeri, nggak nyambung. Disesuaikan judulnya, cari yang generik yang bisa mewakili judul."
 1. **Audit vision 51 foto aktif selesai: cuma 8 Indonesia, 43 luar negeri.** Rincian ID: `cat-01-003` (dokter ID di klinik), `cat-02-002` (CT scan RS ID), `cat-02-003` (kursi gigi ID), `cat-03-004` (tensi darah), `cat-08-003` (obat klorokuin), `cat-17-001` (pria ID di kafe), `cat-18-001` (gerbang UNNES), `cat-20-001` (bangunan ID). Semua kategori pool lain = foreign.
