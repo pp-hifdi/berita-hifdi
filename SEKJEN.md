@@ -100,7 +100,15 @@ Hapus entri yang sudah selesai.
 
 ### Terbuka
 
-**[13 Agu 2026 — Admin HIFDI → Semua pihak] Alur ACC dialihkan ke Hermes (Telegram); publish-on-acc di-DISABLE (SELESAI).**
+**[14 Agu 2026 — Admin HIFDI → Semua pihak] PRODUKSI 100% MANDIRI: draft + auto-tayang timeout GH Actions, tanpa human-in-the-loop (SELESAI).**
+Perintah Prinsipal (14 Agu): produksi tidak boleh bergantung Hermes/manusia; tidak ada respon ACC atau gagal kirim Telegram **tidak boleh membatalkan tayang**. Perubahan:
+1. `daily-generate.yml`: bot tetap generate di branch `draft` tiap 06.00 WIB (branch & notifikasi tetap ada; notifikasi = best-effort).
+2. `auto-publish-draft.yml` (BARU, cron `*/5`): draft berumur > 30 menit otomatis tayang ke `main` → CF Pages. Tanpa ACC, tanpa Telegram, tanpa Hermes.
+3. `publish-on-acc.yml` DIHAPUS (alur getUpdates ACC mati 401). Cron Hermes auto-tayang 06.50 dihapus (digantikan workflow). Notif draft Hermes 06.20 tetap ada = opsi percepatan manual, **bukan syarat**.
+4. Alur ACC-Hermes-chat (11–13 Agu) ditutup. Fase modular: web (GH Actions → CF Pages) mandiri; caption WAG via OpenWA = fase terpisah setelah tayang.
+5. article-079 (Laporan UHC 2025) tayang 14 Agu setelah repo lokal korup di-clone ulang.
+
+**[13 Agu 2026 — Admin HIFDI → Semua pihak] Alur ACC dialihkan ke Hermes (Telegram); publish-on-acc di-DISABLE (DIGANTI 14 Agu — lihat entri baru di atas).**
 1. `publish-on-acc.yml` **di-disable 13 Agu** — semua run-nya gagal HTTP **401** (TELEGRAM_BOT_TOKEN di GitHub Secret tidak valid lagi; kemungkinan bot di-reset/direvoke). ACC otomatis lewat workflow tidak berfungsi; jangan diandalkan.
 2. Keputusan Prinsipal (13 Agu): urusan ACC diproses lewat **Hermes di Telegram** — Prinsipal balas ACC/TOLAK di chat Hermes, Hermes yang publish (merge `draft`→`main`) + konfirmasi. Ini yang sudah terjadi untuk article-077/078.
 3. Alur harian tetap: bot generate **draft** tiap 06.00 WIB di branch `draft` (tidak langsung tayang). Notif draft lewat bot berita ikut mati (token invalid) — **Hermes yang kabari Prinsipal** saat draft masuk.

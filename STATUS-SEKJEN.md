@@ -91,3 +91,10 @@ Aturan: pipeline macet = berhenti & perbaiki; Admin tidak trigger manual tanpa k
 - **Fix:** `template_path()` di generate_article.py kini memilih artikel bot tertinggi yang punya article-footer (commit `8cd9859`).
 - **Artikel hari ini:** article-077 "Kursus Pembiayaan Kesehatan WHO Barcelona 2025" tayang (publish manual atas perintah Prinsipal — utang rilis pagi).
 - **Alur besok normal:** 06:20 draft dikirim ke chat Prinsipal (narasi+foto) → ACC/TOLAK → 06:50 auto-tayang.
+
+## HIFDI — PIPELINE 100% MANDIRI (14 Agu 2026, article-079 tayang)
+- **Insiden repo:** repo lokal WSL korup (8 objek git kosong) → clone ulang fresh, swap folder. Draft 079 (Laporan UHC 2025) yang menunggu sejak 06:29 WIB diterbitkan (recovery). LIVE terverifikasi.
+- **Keputusan Prinsipal (14 Agu): produksi TANPA human-in-the-loop — tidak ada respon ACC / gagal kirim Telegram TIDAK boleh membatalkan tayang. Fase-fase modular.**
+- **Alur baru (murni GH Actions):** 06:00 `daily-generate.yml` buat draft di branch `draft` (tetap ada, notif best-effort) → `auto-publish-draft.yml` (baru, cron */5) terbitkan draft berumur > 30 menit ke main → CF Pages deploy. `publish-on-acc.yml` dihapus; cron Hermes auto-tayang dihapus. Notif Hermes 06:20 = opsi percepatan, bukan syarat.
+- **Fase 2 (terpisah):** caption WAG via OpenWA — Docker Desktop sempat mati (13-14 Agu), container up lagi 11:30 WIB, session berita-wa ready → cron caption (81de00d7d596) di-resume, akan kirim caption 079.
+- **Open item:** verifikasi live besok 15 Agu 06:00-06:35 (watchdog 07:00 juga memantau).
