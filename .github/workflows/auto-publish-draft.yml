@@ -1,0 +1,61 @@
+name: Auto-publish draft HIFDI
+
+# ALUR AUTO-TAYANG TIMEOUT (keputusan Prinsipal 14 Agu 2026):
+# Draft artikel dari daily-generate.yml TIDAK menunggu respon apa pun
+# (ACC manusia / notifikasi Telegram). Workflow ini berjalan tiap 5 menit
+# dan menerbitkan draft yang berumur > 30 menit ke main — 100% tetap tayang.
+# - Tidak butuh Telegram, tidak butuh Hermes, tidak butuh manusia.
+# - Notifikasi draft yang gagal / tidak ada ACC tidak pernah membatalkan tayang.
+# - ACC manual (jika ada) hanya mempercepat; tidak pernah menjadi syarat.
+#
+# Konflik rebase (jarang: artikel manual bernomor sama masuk main duluan) →
+# abort + diam, draft menunggu; generate berikutnya akan membuat draft baru.
+# Fix manual bila menumpuk: `git push origin --delete draft`.
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Terbitkan draft berumur > 30 menit
+        run: |
+          git fetch origin --prune --quiet
+          if ! git rev-parse --verify -q origin/draft >/dev/null; then
+            echo "Tidak ada draft — diam."
+            exit 0
+          fi
+          draft_hash=$(git rev-parse origin/draft)
+          main_hash=$(git rev-parse origin/main)
+          if [ "$draft_hash" = "$main_hash" ]; then
+            echo "Draft sudah sama dengan main — diam."
+            exit 0
+          fi
+          draft_age=$(( $(date +%s) - $(git log -1 --format=%ct origin/draft) ))
+          echo "Umur draft: ${draft_age} detik"
+          if [ "$draft_age" -lt 1800 ]; then
+            echo "Draft belum 30 menit — menunggu (tidak memblokir apa pun)."
+            exit 0
+          fi
+          # Draft berumur > 30 menit tanpa ACC → tayang otomatis.
+          git config user.name "HIFDI Bot"
+          git config user.email "bot@hifdi.id"
+          git checkout --quiet --detach origin/draft
+          if ! git rebase origin/main; then
+            git rebase --abort
+            echo "Konflik rebase — draft tetap menunggu (tidak ada yang batal)."
+            exit 0
+          fi
+          git push origin HEAD:main
+          echo "Draft tayang otomatis tanpa menunggu respon."

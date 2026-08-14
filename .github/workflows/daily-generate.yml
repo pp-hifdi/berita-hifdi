@@ -18,14 +18,21 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          # fetch-depth 0: git log dibutuhkan generate_article.py untuk
-          # memilih nomor artikel & template (cek riwayat main).
+          # Semua branch (origin/main + origin/draft) diperlukan untuk
+          # menyinkronkan draft dengan main sebelum generate.
           fetch-depth: 0
 
-      # ALUR LANGSUNG TAYANG (keputusan Prinsipal 14 Agu 2026): artikel
-      # generate langsung commit ke main dan langsung tayang. Gate ACC
-      # (branch draft + publish-on-acc.yml + Hermes) DIHAPUS total — produksi
-      # mandiri murni GitHub Actions, tanpa human-in-the-loop.
+      # ALUR DRAFT + AUTO-TAYANG TIMEOUT (keputusan Prinsipal 14 Agu 2026):
+      # artikel generate di branch `draft` (tetap ada, tetap dikirim ke repo),
+      # notifikasi draft dikirim best-effort. TIDAK menunggu respon apa pun:
+      # workflow auto-publish-draft.yml (cron */5) menerbitkan draft yang
+      # berumur > 30 menit ke main. Notifikasi gagal / tidak ada ACC tidak
+      # pernah membatalkan tayang — 100% tetap tayang, fase-fase modular.
+      - name: Siapkan branch draft
+        run: |
+          git switch draft 2>/dev/null || git switch -c draft
+          git merge --ff-only origin/main 2>/dev/null || git rebase origin/main
+
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
@@ -54,12 +61,13 @@ jobs:
       # stok/: draf Sekjen yang sudah dipindah ke article-XXX perlu "dihapus"
       # dari git (rename terlihat sebagai delete+add) — stok/ kosong tidak
       # menambah apa pun, jadi aman masuk git add.
-      # FASE 1 (mandiri): push langsung ke main → Cloudflare Pages deploy.
-      # Distribusi caption ke WAG (OpenWA) = FASE 2 terpisah di luar repo ini.
+      # FASE 1 (mandiri): push draft → auto-publish-draft.yml yang menerbitkan
+      # ke main (timeout 30 menit, tanpa menunggu respon). Distribusi caption
+      # ke WAG (OpenWA) = FASE 2 terpisah di luar repo ini.
       - name: Commit and push
         run: |
           git config user.name "HIFDI Bot"
           git config user.email "bot@hifdi.id"
           git add index.html images/ article-*/ stok/ scripts/used_sources.json scripts/photo_registry.json scripts/telegram_state.json
-          git diff --cached --quiet || git commit -m "auto: artikel baru"
-          git push origin main
+          git diff --cached --quiet || git commit -m "auto: draft artikel baru"
+          git push origin draft
