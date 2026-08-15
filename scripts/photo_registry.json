@@ -392,8 +392,8 @@
     },
     {
       "file": "cat-13-002.jpg",
-      "used": 0,
-      "last_article": null,
+      "used": 1,
+      "last_article": 81,
       "source": "https://live.staticflickr.com/7433/12546298703_a496446f56_b.jpg",
       "license": "pdm",
       "origin": "foreign"
