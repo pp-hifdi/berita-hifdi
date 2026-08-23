@@ -1,0 +1,21 @@
+{
+  "lokasi": {
+    "demak": { "kata": ["demak"], "tag": "lokasi:demak", "label": "Demak" },
+    "batam": { "kata": ["batam"], "tag": "lokasi:batam", "label": "Batam" },
+    "karimun": { "kata": ["karimun"], "tag": "lokasi:karimun", "label": "Karimun" },
+    "kotabaru": { "kata": ["kotabaru"], "tag": "lokasi:kotabaru", "label": "Kotabaru" },
+    "ungaran": { "kata": ["ungaran"], "tag": "lokasi:ungaran", "label": "Ungaran" },
+    "bombana": { "kata": ["bombana"], "tag": "lokasi:bombana", "label": "Bombana" },
+    "pasuruan": { "kata": ["pasuruan"], "tag": "lokasi:pasuruan", "label": "Pasuruan" },
+    "seijang": { "kata": ["sei jang"], "tag": "lokasi:seijang", "label": "Sei Jang" }
+  },
+  "isu": {
+    "lapas": { "kata": ["lapas", "lembaga pemasyarakatan", "warga binaan"], "tag": "isu:lapas", "label": "Lapas", "prioritas": "tinggi" },
+    "jkn_mobile": { "kata": ["mobile jkn", "jkn mobile", "antrean online"], "tag": "isu:jkn-mobile", "label": "Mobile JKN" },
+    "rujukan": { "kata": ["rujukan", "rujuk"], "tag": "isu:rujukan", "label": "Rujukan berjenjang" },
+    "kapitasi": { "kata": ["kapitasi"], "tag": "isu:kapitasi", "label": "Kapitasi" },
+    "akreditasi": { "kata": ["akreditasi"], "tag": "isu:akreditasi", "label": "Akreditasi" },
+    "rme": { "kata": ["rekam medis elektronik", "rme", "satusehat", "digitalisasi fasyankes"], "tag": "isu:rme", "label": "RME/SATUSEHAT" },
+    "telemedicine": { "kata": ["telemedicine", "telehealth"], "tag": "isu:telemedicine", "label": "Telemedicine" }
+  }
+}

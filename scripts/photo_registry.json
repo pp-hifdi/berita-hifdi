@@ -527,5 +527,141 @@
       "status": "active",
       "origin": "id"
     }
+  ],
+  "cat-21": [
+    {
+      "file": "lokasi-demak-001.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://upload.wikimedia.org/wikipedia/commons/3/33/Masjid_Agung_Demak_DiKab.Demak_Jateng_Indonesia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "license": "cc-by-sa",
+      "origin": "id",
+      "tags": [
+        "lokasi:demak"
+      ],
+      "added": "2026-08-24"
+    },
+    {
+      "file": "lokasi-batam-001.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Skyline_Teluk_Tering_2026.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "license": "cc0",
+      "origin": "id",
+      "tags": [
+        "lokasi:batam"
+      ],
+      "added": "2026-08-24"
+    },
+    {
+      "file": "lokasi-karimun-001.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Milky_Way_from_Karimun_Pier.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "license": "cc-by-sa",
+      "origin": "id",
+      "tags": [
+        "lokasi:karimun"
+      ],
+      "added": "2026-08-24"
+    },
+    {
+      "file": "lokasi-kotabaru-001.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Kantor_Kelurahan_Kotabaru_Hulu%2C_Kotabaru.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "license": "attribution",
+      "origin": "id",
+      "tags": [
+        "lokasi:kotabaru"
+      ],
+      "added": "2026-08-24"
+    },
+    {
+      "file": "lokasi-ungaran-001.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Mount_Ungaran_from_Town_of_Ungaran.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "license": "cc-by-sa",
+      "origin": "id",
+      "tags": [
+        "lokasi:ungaran"
+      ],
+      "added": "2026-08-24"
+    },
+    {
+      "file": "lokasi-bombana-001.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Desa_Morengke.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "license": "cc-by-sa",
+      "origin": "id",
+      "tags": [
+        "lokasi:bombana"
+      ],
+      "added": "2026-08-24"
+    }
+  ],
+  "cat-22": [
+    {
+      "file": "isu-rujukan-001.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "generated (qwen)",
+      "license": "generated",
+      "origin": "id",
+      "tags": [
+        "isu:rujukan"
+      ],
+      "added": "2026-08-24"
+    },
+    {
+      "file": "isu-jkn-mobile-001.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "generated (qwen)",
+      "license": "generated",
+      "origin": "id",
+      "tags": [
+        "isu:jkn-mobile"
+      ],
+      "added": "2026-08-24"
+    },
+    {
+      "file": "isu-kapitasi-001.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "generated (qwen)",
+      "license": "generated",
+      "origin": "id",
+      "tags": [
+        "isu:kapitasi"
+      ],
+      "added": "2026-08-24"
+    },
+    {
+      "file": "isu-lapas-001.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "generated (qwen)",
+      "license": "generated",
+      "origin": "id",
+      "tags": [
+        "isu:lapas"
+      ],
+      "added": "2026-08-24"
+    },
+    {
+      "file": "isu-akreditasi-001.jpg",
+      "used": 0,
+      "last_article": null,
+      "source": "generated (qwen)",
+      "license": "generated",
+      "origin": "id",
+      "tags": [
+        "isu:akreditasi"
+      ],
+      "added": "2026-08-24"
+    }
   ]
 }

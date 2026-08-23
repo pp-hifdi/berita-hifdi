@@ -387,16 +387,18 @@ def is_domestic_source(source_name, link=""):
     return source_name in DOMESTIC_FEEDS
 
 
-def choose_image(category, number=None, source_name="", link=""):
+def choose_image(category, number=None, source_name="", link="", title=""):
     """Foto lokal dari kolam (sistem gilir) dulu; fallback daftar putih
     (Unsplash + penyedia lain), dipilih acak antar kunci kategori.
 
     Aturan foto (Prinsipal 10 Agu 2026): artikel dalam negeri -> preferensi
     foto Indonesia (origin='id'); artikel internasional -> origin='foreign'.
+    Penyegaran 24 Agu 2026: kalau judul memuat entitas lokasi/isu, foto dipilih
+    berdasarkan entitas (pick_by_entities); fallback ke sistem gilir lama.
     """
     origin = "id" if is_domestic_source(source_name, link) else "foreign"
-    pool = photo_pool.pick(category, article_no=number, pools=IMAGE_POOLS,
-                           origin=origin)
+    pool = photo_pool.pick_by_entities(title, category, article_no=number,
+                                       pools=IMAGE_POOLS, origin=origin)
     if pool:
         return pool
     keys = IMAGE_BY_CATEGORY.get(category, [DEFAULT_IMAGE])
@@ -623,7 +625,8 @@ def _publish_draft(draft, meta, used):
     else:
         image = choose_image(meta["category"], number,
                              source_name=meta.get("source", ""),
-                             link=meta.get("link", ""))
+                             link=meta.get("link", ""),
+                             title=meta.get("title", ""))
 
     index_html = read_index()
     with open(INDEX, "w", encoding="utf-8", newline="\n") as f:
@@ -686,7 +689,8 @@ def main():
     date_str = f"{today.day} {BULAN_ID[today.month]} {today.year}"
     image = choose_image(article["category"], number,
                          source_name=article.get("source", ""),
-                         link=article.get("link", ""))
+                         link=article.get("link", ""),
+                         title=article.get("title", ""))
 
     # Baca template DULU, sebelum folder baru dibuat (lihat build_article_html).
     with open(template_path(), encoding="utf-8") as f:

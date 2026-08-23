@@ -99,6 +99,103 @@ def _commit(cat, known, cand, reg, article_no):
     }
 
 
+# ---------------------------------------------------------------------------
+# Pemilihan berbasis ENTITAS (lokasi/isu) — penyegaran 24 Agu 2026.
+# Prioritas: isu prioritas-tinggi (mis. lapas) > lokasi > isu biasa > kategori.
+# Bot tidak bisa melihat gambar: kamus entitas + tag di registry menjembatani
+# judul artikel ke foto yang relevan secara topik/lokasi.
+# ---------------------------------------------------------------------------
+KAMUS = os.path.join(REPO, 'scripts', 'kamus_entitas.json')
+
+
+def load_kamus():
+    if os.path.exists(KAMUS):
+        with open(KAMUS, encoding='utf-8') as f:
+            return json.load(f)
+    return {}
+
+
+def _find_tagged(tag, reg, skip_cats=('cat-01',)):
+    """Cari foto bertag di semua folder; kembalikan (cat, entri) paling jarang dipakai."""
+    best = None
+    for cat, entries in reg.items():
+        for i in entries:
+            if i.get('status') == 'excluded':
+                continue
+            tags = i.get('tags') or []
+            if tag not in tags:
+                continue
+            fp = os.path.join(IMGDIR, cat, i['file'])
+            if not os.path.exists(fp):
+                continue
+            if best is None or i['used'] < best[1]['used']:
+                best = (cat, i)
+    return best
+
+
+def _commit_tagged(cat, entry, reg, article_no):
+    entry['used'] = entry.get('used', 0) + 1
+    if article_no:
+        entry['last_article'] = article_no
+    reg[cat] = list(reg.get(cat, []))
+    save_registry(reg)
+    base = entry['file'][:-4]
+    return {
+        'local': True,
+        'id': f'foto/{cat}/{entry["file"]}',
+        'og': f'foto/{cat}/{base}-og.jpg',
+        'alt': 'Ilustrasi',
+    }
+
+
+def pick_by_entities(title, category, article_no=None, pools=None, origin='id'):
+    """Pilih foto berdasarkan entitas di judul; fallback ke pick() lama.
+
+    Urutan prioritas:
+      1. isu prioritas-tinggi di judul (mis. 'lapas')
+      2. lokasi di judul (mis. 'Demak', 'Batam')
+      3. isu biasa di judul (mis. 'rujukan', 'kapitasi')
+      4. kategori editorial (perilaku lama)
+    """
+    kamus = load_kamus()
+    if not title or not kamus:
+        return pick(category, article_no=article_no, pools=pools, origin=origin)
+
+    low = title.lower()
+
+    def find_tag(entries):
+        for slug, meta in entries.items():
+            for kw in meta.get('kata', []):
+                if kw in low:
+                    hit = _find_tagged(meta['tag'], load_registry())
+                    if hit:
+                        return hit
+        return None
+
+    # 1) isu prioritas tinggi
+    isu = kamus.get('isu', {})
+    for slug, meta in isu.items():
+        if meta.get('prioritas') == 'tinggi':
+            for kw in meta.get('kata', []):
+                if kw in low:
+                    hit = _find_tagged(meta['tag'], load_registry())
+                    if hit:
+                        return _commit_tagged(hit[0], hit[1], load_registry(), article_no)
+
+    # 2) lokasi
+    hit = find_tag(kamus.get('lokasi', {}))
+    if hit:
+        return _commit_tagged(hit[0], hit[1], load_registry(), article_no)
+
+    # 3) isu biasa
+    hit = find_tag({k: v for k, v in isu.items() if v.get('prioritas') != 'tinggi'})
+    if hit:
+        return _commit_tagged(hit[0], hit[1], load_registry(), article_no)
+
+    # 4) fallback kategori lama
+    return pick(category, article_no=article_no, pools=pools, origin=origin)
+
+
 def url(image, variant='display'):
     """URL absolut di situs untuk gambar lokal; None bila bukan lokal."""
     if not image or not image.get('local'):
