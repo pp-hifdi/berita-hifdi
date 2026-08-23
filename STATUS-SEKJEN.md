@@ -1,6 +1,6 @@
 # STATUS-SEKJEN.md — ringkasan pagi (dirawat Admin HIFDI; update tiap selesai kerjaan penting)
 
-**Update terakhir:** 12 Agu 2026 14:00 WIB (HIFDI: artikel-077 tayang, fix template bot) (HIFDI: GH Actions merah sejak 07:33 — token bot Telegram 401, butuh token baru dari Prinsipal)
+**Update terakhir:** 24 Agu 2026 (HIFDI: penyegaran gambar — pemilihan foto berbasis entitas lokasi/isu + 11 foto spesifik Indonesia; commit 83a4d9b)
 
 ## HIFDI — GH ACTIONS MERAH (11 Agu 2026, insiden + perbaikan pipeline)
 - **Gejala:** `Publish Draft on ACC` gagal tiap 5 menit sejak 07:33 (sebelumnya sukses sampai 06:08); `Generate HIFDI Article` 23:27 gagal.

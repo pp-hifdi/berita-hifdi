@@ -100,6 +100,15 @@ Hapus entri yang sudah selesai.
 
 ### Terbuka
 
+**[24 Agu 2026 — Admin HIFDI → Semua pihak] PENYEGARAN GAMBAR HIFDI: pemilihan foto berbasis ENTITAS lokasi/isu + 11 foto spesifik Indonesia (SELESAI, live di skrip, commit 83a4d9b).**
+Evaluasi Prinsipal (24 Agu): gambar artikel jadul/luar negeri/tidak nyambung (Demak, rujukan, Batam, Mobile JKN dapat foto generik; 085 & 090 foto sama). Perubahan:
+1. `scripts/kamus_entitas.json` (BARU): kamus lokasi (demak, batam, karimun, kotabaru, ungaran, bombana, pasuruan, seijang) + isu (lapas [prioritas tinggi], jkn-mobile, rujukan, kapitasi, akreditasi, rme, telemedicine).
+2. `photo_pool.pick_by_entities(title, category, ...)` (BARU): prioritas isu-tinggi > lokasi > isu biasa > kategori lama; fallback aman ke `pick()`.
+3. `generate_article.py` kini memanggil `pick_by_entities` dengan judul artikel (dua jalur: RSS meta & DeepSeek article).
+4. 11 foto baru: `images/foto/cat-21` (6 lokasi, Wikimedia Commons, berlisensi CC) + `cat-22` (5 isu, generated via qwen) + tag di `photo_registry.json`. QC visual tiap foto (1 foto Bromo salah lokasi dihapus; 2 generated diulang karena teks aneh).
+5. `config.py` TIDAK disentuh (wilayah Sekjen). Test 6 kasus lulus (Demak→lokasi-demak, Rujukan→isu-rujukan, Batam→lokasi-batam, Mobile JKN→isu-jkn-mobile, Kapitasi→isu-kapitasi, Lapas Kotabaru→isu-lapas).
+Catatan: bot GHA tidak bisa lihat gambar — kurasi (kamus+tag+foto) dilakukan Admin di lokal, bot tinggal cocokkan judul→tag. Entitas baru → tambah kamus + foto.
+
 **[14 Agu 2026 — Admin HIFDI → Semua pihak] PRODUKSI 100% MANDIRI: draft + auto-tayang timeout GH Actions, tanpa human-in-the-loop (SELESAI).**
 Perintah Prinsipal (14 Agu): produksi tidak boleh bergantung Hermes/manusia; tidak ada respon ACC atau gagal kirim Telegram **tidak boleh membatalkan tayang**. Perubahan:
 1. `daily-generate.yml`: bot tetap generate di branch `draft` tiap 06.00 WIB (branch & notifikasi tetap ada; notifikasi = best-effort).
