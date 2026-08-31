@@ -28,10 +28,15 @@ jobs:
       # workflow auto-publish-draft.yml (cron */5) menerbitkan draft yang
       # berumur > 30 menit ke main. Notifikasi gagal / tidak ada ACC tidak
       # pernah membatalkan tayang — 100% tetap tayang, fase-fase modular.
+      # Sinkronkan draft LOKAL dengan origin/draft DULU (fix 31 Agu 2026):
+      # sebelumnya hanya rebase dari origin/main, tanpa fetch/reset origin/draft.
+      # origin/draft yang stale (sisa auto-publish yang tidak menghapus branch)
+      # membuat push ditolak non-fast-forward -> generate gagal tiap hari.
       - name: Siapkan branch draft
         run: |
-          git switch draft 2>/dev/null || git switch -c draft
-          git merge --ff-only origin/main 2>/dev/null || git rebase origin/main
+          git fetch origin
+          git switch -C draft origin/draft 2>/dev/null || git switch -c draft origin/main
+          git rebase origin/main
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -70,4 +75,6 @@ jobs:
           git config user.email "bot@hifdi.id"
           git add index.html images/ article-*/ stok/ scripts/used_sources.json scripts/photo_registry.json scripts/telegram_state.json
           git diff --cached --quiet || git commit -m "auto: draft artikel baru"
-          git push origin draft
+          # Safety net: kalau push ditolak (race dengan auto-publish), sinkronkan
+          # dulu ke origin/draft, baru push ulang (fix 31 Agu 2026).
+          git push origin draft || { git fetch origin && git rebase origin/draft && git push origin draft; }
