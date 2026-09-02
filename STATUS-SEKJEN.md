@@ -1,6 +1,13 @@
 # STATUS-SEKJEN.md — ringkasan pagi (dirawat Admin HIFDI; update tiap selesai kerjaan penting)
 
-**Update terakhir:** 24 Agu 2026 (HIFDI: penyegaran gambar — pemilihan foto berbasis entitas lokasi/isu + 11 foto spesifik Indonesia; commit 83a4d9b)
+**Update terakhir:** 2 Sep 2026 (HIFDI: article-098 tayang, edukasi ambulans AS vs kegawatdaruratan Indonesia; commit dfd77f6)
+
+## HIFDI — ARTICLE-098 TAYANG (2 Sep 2026, manual atas ACC Prinsipal)
+- **Judul:** Ambulans di Amerika Mahal, Warga Pilih Menolak: Pelajaran bagi Pertolongan Darurat di Indonesia (kategori Edukasi).
+- **Sumber:** fenomena viral biaya ambulans AS; 5 referensi terverifikasi HTTP 200 (UHC, YouGov 2024, PAN, PPNI PSC 119, Cyberity BPJS). Foto Commons CC BY-SA 4.0 (SwarmCheng), crop hero 1200x675 + og 1200x630.
+- **Rakit+publish:** via Claude Code (claude-task), Hermes verifikasi mandiri (rev-parse sama, em-dash 0, count 94 = 93 folder + 1, live 200).
+- **Caption WAG:** terkirim via wa_caption_auto.py; sekaligus mengejar article-096/097 yang sempat terlewat (state basi).
+- URL: https://berita.hifdi.id/article-098/
 
 ## HIFDI — GH ACTIONS MERAH (11 Agu 2026, insiden + perbaikan pipeline)
 - **Gejala:** `Publish Draft on ACC` gagal tiap 5 menit sejak 07:33 (sebelumnya sukses sampai 06:08); `Generate HIFDI Article` 23:27 gagal.
