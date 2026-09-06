@@ -105,3 +105,9 @@ Aturan: pipeline macet = berhenti & perbaiki; Admin tidak trigger manual tanpa k
 - **Alur baru (murni GH Actions):** 06:00 `daily-generate.yml` buat draft di branch `draft` (tetap ada, notif best-effort) → `auto-publish-draft.yml` (baru, cron */5) terbitkan draft berumur > 30 menit ke main → CF Pages deploy. `publish-on-acc.yml` dihapus; cron Hermes auto-tayang dihapus. Notif Hermes 06:20 = opsi percepatan, bukan syarat.
 - **Fase 2 (terpisah):** caption WAG via OpenWA — Docker Desktop sempat mati (13-14 Agu), container up lagi 11:30 WIB, session berita-wa ready → cron caption (81de00d7d596) di-resume, akan kirim caption 079.
 - **Open item:** verifikasi live besok 15 Agu 06:00-06:35 (watchdog 07:00 juga memantau).
+
+## HIFDI — artikel-099 manual (6 Sep 2026, atas perintah Prinsipal)
+- **Topik:** SE Kemenkes KL.01.02/A/17765/2026 kesiapsiagaan faskes hadapi erupsi & abu vulkanik Anak Krakatau. Kategori Edukasi, byline Redaksi Berita HIFDI.
+- **Sumber:** dokumen SE dari Prinsipal + 3 berita terverifikasi HTTP 200 (MetroTV pusat krisis kesehatan, CNN sebaran abu Jakarta, detik/BMKG). Hero foto Commons Pierre Markuse CC BY 2.0, crop featured + og selesai.
+- **Eksekusi:** rakit+publish via Claude Code (commit `7d72bbb`), verifikasi Hermes: HEAD==origin/main, em-dash 0, curl article HTTP 200, articleCount 95, kartu teratas #articlesGrid.
+- **Caption WAG:** terkirim (link + caption) via wa_caption_auto.py. Draf: ~/workspace/draf-099-abu-vulkanik.md.
