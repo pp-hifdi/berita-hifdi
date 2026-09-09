@@ -111,3 +111,7 @@ Aturan: pipeline macet = berhenti & perbaiki; Admin tidak trigger manual tanpa k
 - **Sumber:** dokumen SE dari Prinsipal + 3 berita terverifikasi HTTP 200 (MetroTV pusat krisis kesehatan, CNN sebaran abu Jakarta, detik/BMKG). Hero foto Commons Pierre Markuse CC BY 2.0, crop featured + og selesai.
 - **Eksekusi:** rakit+publish via Claude Code (commit `7d72bbb`), verifikasi Hermes: HEAD==origin/main, em-dash 0, curl article HTTP 200, articleCount 95, kartu teratas #articlesGrid.
 - **Caption WAG:** terkirim (link + caption) via wa_caption_auto.py. Draf: ~/workspace/draf-099-abu-vulkanik.md.
+
+## Hermes infra - cron WAG caption dihapus (9 Sep 2026)
+- Cron 'WAG caption artikel harian' (tiap 06:45, script-only `wa_caption_auto.py`) DIHAPUS atas perintah Prinsipal. Sebab: gagal 11x berturut-turut (symlink lintas profil diblokir guard) dan melanggar aturan no-cron: otomasi harus event-driven (GHA), bukan jadwal harian.
+- Simpulan: caption WAG dikirim manual per artikel (saat publish) seperti praktik article-099; skrip `wa_caption_auto.py` tetap tersedia di ~/.hermes/scripts/.
