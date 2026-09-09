@@ -116,9 +116,8 @@ Aturan: pipeline macet = berhenti & perbaiki; Admin tidak trigger manual tanpa k
 - Cron 'WAG caption artikel harian' (tiap 06:45, script-only `wa_caption_auto.py`) DIHAPUS atas perintah Prinsipal. Sebab: gagal 11x berturut-turut (symlink lintas profil diblokir guard) dan melanggar aturan no-cron: otomasi harus event-driven (GHA), bukan jadwal harian.
 - Simpulan: caption WAG dikirim manual per artikel (saat publish) seperti praktik article-099; skrip `wa_caption_auto.py` tetap tersedia di ~/.hermes/scripts/.
 
-## HIFDI — article-100 draft siap (9 Sep 2026, BELUM publish)
-- **Topik (Edukasi):** hipertensi FKTP, "Tensi Belum Target? Tambahkan Obat Kedua, Bukan Dosis Maksimal" (kombinasi dosis rendah vs titrasi maksimal amlodipine).
-- **Sumber:** materi edukasi dr. Bayushi Eka Putra (@bayushiep), IG 8 Sep 2026 (HTTP 200); Law dkk BMJ 2003 via PMC162261 (HTTP 200); ESH 2023 (link diverifikasi ulang saat publish). Klaim slide yang tak terverifikasi TIDAK dipakai; sitasi meta-analisis dikoreksi (slide tulis Am J Med 2009, benar BMJ 2003).
-- **Visual:** ilustrasi AI v2 flat (tanpa stetoskop, disetujui Prinsipal 9 Sep) + layout brand kit ~/workspace/desain-hifdi; hero 1200x675 + og 1200x630 siap.
-- **File kerja:** ~/workspace/draf-100-amlodipine/ (draf-artikel-100.md, hero-final.html, png siap).
-- **Tindak lanjut:** menunggu ACC Prinsipal -> publish article-100.
+## HIFDI — article-100 TAYANG (9 Sep 2026, commit `34a67e0`)
+- **Topik (Edukasi):** hipertensi FKTP, "Tensi Belum Target di Puskesmas: Naikkan Dosis atau Tambah Obat Kedua?" (kombinasi dosis rendah vs titrasi maksimal amlodipine). URL: https://berita.hifdi.id/article-100/
+- **Sumber:** materi edukasi dr. Bayushi Eka Putra (@bayushiep), IG 8 Sep 2026 (HTTP 200); Law dkk BMJ 2003 via PMC162261 (HTTP 200); ESH 2023 (link publisher). Klaim slide yang tak terverifikasi TIDAK dipakai; sitasi meta-analisis dikoreksi (slide tulis Am J Med 2009, benar BMJ 2003).
+- **Visual:** ilustrasi AI v2 flat (tanpa stetoskop, disetujui Prinsipal) + layout brand kit; hero images/article-100-tensi-kombinasi.jpg (1200x675) + og (1200x630). Verifikasi live: article HTTP 200, og:image 200, articleCount 96, kartu teratas #articlesGrid, em-dash 0.
+- **Caption WAG:** dikirim setelah tayang (wa_caption_auto.py).
