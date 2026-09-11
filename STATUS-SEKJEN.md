@@ -1,6 +1,15 @@
 # STATUS-SEKJEN.md — ringkasan pagi (dirawat Admin HIFDI; update tiap selesai kerjaan penting)
 
-**Update terakhir:** 2 Sep 2026 (HIFDI: article-098 tayang, edukasi ambulans AS vs kegawatdaruratan Indonesia; commit dfd77f6)
+**Update terakhir:** 11 Sep 2026 (HIFDI: article-101 tayang, Advokasi keracunan MBG di Karo: hasil lab, gangguan ingatan, jalur hukum; commit 785d0eb)
+
+## HIFDI — ARTICLE-101 TAYANG (11 Sep 2026, manual atas ACC Prinsipal)
+- **Judul:** Keracunan MBG di Karo: Hasil Lab, Gangguan Ingatan, dan Jalan Hukum bagi Korban (kategori Advokasi).
+- **Isi:** temuan lab UPTD Labkes Sumut nomor 008.2/4129/UPTD LABKES/VIII/2026 (4 dari 11 sampel positif: Bacillus cereus di nasi, Staphylococcus aureus di ikan dencis bersaus, E. coli di melon, S. aureus di muntahan korban; parameter kimia seluruhnya negatif; bakteri yang diuji hanya empat jenis); tiga kemungkinan mekanisme gangguan ingatan (kejang dan kerapuhan hipokampus, hipoksia, gangguan elektrolit dan gula darah) yang ditulis sebagai kemungkinan, bukan diagnosis; jalur hukum KUHP nasional Pasal 343 dan 474, korporasi Pasal 45 sampai 49, UU 18/2012 Pasal 90, UU 8/1999 Pasal 8, 19, 62, dan kewajiban menetapkan status KLB menurut Permenkes 2/2013; kutipan Sekjen (Opsi B, di-ACC Prinsipal).
+- **Riset:** seluruh pasal dibaca dari teks resmi (UU 1/2023, UU 17/2023, UU 18/2012, UU 8/1999, Permenkes 2/2013), bukan dari artikel hukum. Enam kesalahan/ketidaktepatan ditemukan dan diperbaiki sebelum tayang, termasuk koreksi Pasal 428 UU 17/2023 (itu pasal aborsi, bukan pasal korporasi pangan) dan koreksi tanggal satu sumber.
+- **Gambar:** ilustrasi digital dibuat khusus (bukan foto stok, bukan foto korban), hero 1200x675 plus og 1200x630. Keterangan ilustrasi tampak ditambahkan sesuai keputusan Prinsipal 8 Agu. Kredit: Ilustrasi digital HIFDI.
+- **Rakit dan publish:** via Claude Code (claude-task) sesuai kebijakan AI; Claude kena "Reached max turns" setelah commit dan push, Hermes memverifikasi mandiri (rev-parse sama, em-dash artikel 0, articleCount 97, kartu teratas benar, artikel dan og:image live 200).
+- **Catatan temuan (belum ditindak):** index.html root mengandung 365 em-dash bawaan template (og:title, hero-legal, dan komentar kartu lama). Jumlah identik sebelum dan sesudah commit ini, dan artikel-101 bersih. Perlu keputusan Prinsipal apakah template portal mau dibersihkan.
+- URL: https://berita.hifdi.id/article-101/
 
 ## HIFDI — ARTICLE-098 TAYANG (2 Sep 2026, manual atas ACC Prinsipal)
 - **Judul:** Ambulans di Amerika Mahal, Warga Pilih Menolak: Pelajaran bagi Pertolongan Darurat di Indonesia (kategori Edukasi).

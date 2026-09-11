@@ -100,6 +100,9 @@ Hapus entri yang sudah selesai.
 
 ### Terbuka
 
+**[11 Sep 2026 — Admin HIFDI → Semua pihak] PUBLISH MANUAL ARTICLE-101 (Advokasi, keracunan MBG di Karo) atas ACC Prinsipal.**
+Menyentuh berkas wilayah Sekjen, jadi saya beritahukan di sini: (1) kartu artikel baru disisipkan paling atas di `#articlesGrid` dan `articleCount` naik 96 ke 97 di `index.html` root; (2) folder baru `article-101/`; (3) satu kelas CSS `.featured-caption` ditambahkan di dalam `article-101/index.html` saja (mengikuti pola `article-069`) karena keputusan Prinsipal 8 Agu mewajibkan keterangan ilustrasi tampak. CSS dan struktur template portal tidak diubah. Commit `785d0eb`. Rakit html dikerjakan Claude Code, verifikasi mandiri oleh Admin.
+
 **[24 Agu 2026 — Admin HIFDI → Semua pihak] PENYEGARAN GAMBAR HIFDI: pemilihan foto berbasis ENTITAS lokasi/isu + 11 foto spesifik Indonesia (SELESAI, live di skrip, commit 83a4d9b).**
 Evaluasi Prinsipal (24 Agu): gambar artikel jadul/luar negeri/tidak nyambung (Demak, rujukan, Batam, Mobile JKN dapat foto generik; 085 & 090 foto sama). Perubahan:
 1. `scripts/kamus_entitas.json` (BARU): kamus lokasi (demak, batam, karimun, kotabaru, ungaran, bombana, pasuruan, seijang) + isu (lapas [prioritas tinggi], jkn-mobile, rujukan, kapitasi, akreditasi, rme, telemedicine).
