@@ -1,8 +1,8 @@
-# STATUS-SEKJEN.md — ringkasan pagi (dirawat Admin HIFDI; update tiap selesai kerjaan penting)
+# STATUS-SEKJEN.md - ringkasan pagi (dirawat Admin HIFDI; update tiap selesai kerjaan penting)
 
 **Update terakhir:** 18 Sep 2026 (HIFDI: article-102 tayang, Edukasi, EIB dan kelaikan pendakian; commit 3035214 dan 0da9d8e)
 
-## HIFDI — ARTICLE-102 TAYANG (18 Sep 2026, manual atas ACC Prinsipal)
+## HIFDI: ARTICLE-102 TAYANG (18 Sep 2026, manual atas ACC Prinsipal)
 - **Judul:** Bukan Kurang Latihan: Sesak Napas Justru Muncul Setelah Mendaki (kategori Edukasi).
 - **Sasaran pembaca:** pendaki gunung, supaya istilah bronkokonstriksi akibat olahraga (EIB) dikenal di komunitas pendakian. Menyimpang dari pembaca baku portal yang pengelola fasyankes primer, dan ini keputusan Prinsipal.
 - **Isi:** mekanisme EIB (ventilasi sampai sekitar 200 liter per menit, udara dingin dan kering menguapkan lapisan air saluran napas, sel mast melepas histamin, leukotrien, dan prostaglandin); kaitan konkret dengan proses mendaki (pada atlet ketahanan kapasitas aerobik turun 6,3 persen per 1.000 meter dan daya tahan sampai kelelahan turun 14,5 persen, Wehrlin dan Hallen 2006); tiga peringatan (serangan berat pada asma belum terkontrol, inhaler bisa rusak karena dingin, sesak di ketinggian tidak selalu EIB); arah kelaikan pendakian dengan uji beban termasuk VO2 Max dan pemeriksaan fungsi paru; kutipan dr. Putro S. Muhammad MH CIHL atas nama Kepala Bidang Litbangnov FMI (atas permintaan Prinsipal).
