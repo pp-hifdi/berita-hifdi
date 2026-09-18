@@ -1,132 +1,19 @@
 # STATUS-SEKJEN.md — ringkasan pagi (dirawat Admin HIFDI; update tiap selesai kerjaan penting)
 
-**Update terakhir:** 11 Sep 2026 (HIFDI: article-101 tayang, Advokasi keracunan MBG di Karo: hasil lab, gangguan ingatan, jalur hukum; commit 785d0eb)
+**Update terakhir:** 18 Sep 2026 (HIFDI: article-102 tayang, Edukasi, EIB dan kelaikan pendakian; commit 3035214 dan 0da9d8e)
 
-## HIFDI — ARTICLE-101 TAYANG (11 Sep 2026, manual atas ACC Prinsipal)
-- **Judul:** Keracunan MBG di Karo: Hasil Lab, Gangguan Ingatan, dan Jalan Hukum bagi Korban (kategori Advokasi).
-- **Isi:** temuan lab UPTD Labkes Sumut nomor 008.2/4129/UPTD LABKES/VIII/2026 (4 dari 11 sampel positif: Bacillus cereus di nasi, Staphylococcus aureus di ikan dencis bersaus, E. coli di melon, S. aureus di muntahan korban; parameter kimia seluruhnya negatif; bakteri yang diuji hanya empat jenis); tiga kemungkinan mekanisme gangguan ingatan (kejang dan kerapuhan hipokampus, hipoksia, gangguan elektrolit dan gula darah) yang ditulis sebagai kemungkinan, bukan diagnosis; jalur hukum KUHP nasional Pasal 343 dan 474, korporasi Pasal 45 sampai 49, UU 18/2012 Pasal 90, UU 8/1999 Pasal 8, 19, 62, dan kewajiban menetapkan status KLB menurut Permenkes 2/2013; kutipan Sekjen (Opsi B, di-ACC Prinsipal).
-- **Riset:** seluruh pasal dibaca dari teks resmi (UU 1/2023, UU 17/2023, UU 18/2012, UU 8/1999, Permenkes 2/2013), bukan dari artikel hukum. Enam kesalahan/ketidaktepatan ditemukan dan diperbaiki sebelum tayang, termasuk koreksi Pasal 428 UU 17/2023 (itu pasal aborsi, bukan pasal korporasi pangan) dan koreksi tanggal satu sumber.
-- **Gambar:** ilustrasi digital dibuat khusus (bukan foto stok, bukan foto korban), hero 1200x675 plus og 1200x630. Keterangan ilustrasi tampak ditambahkan sesuai keputusan Prinsipal 8 Agu. Kredit: Ilustrasi digital HIFDI.
-- **Rakit dan publish:** via Claude Code (claude-task) sesuai kebijakan AI; Claude kena "Reached max turns" setelah commit dan push, Hermes memverifikasi mandiri (rev-parse sama, em-dash artikel 0, articleCount 97, kartu teratas benar, artikel dan og:image live 200).
-- **Catatan temuan (belum ditindak):** index.html root mengandung 365 em-dash bawaan template (og:title, hero-legal, dan komentar kartu lama). Jumlah identik sebelum dan sesudah commit ini, dan artikel-101 bersih. Perlu keputusan Prinsipal apakah template portal mau dibersihkan.
-- URL: https://berita.hifdi.id/article-101/
+## HIFDI — ARTICLE-102 TAYANG (18 Sep 2026, manual atas ACC Prinsipal)
+- **Judul:** Bukan Kurang Latihan: Sesak Napas Justru Muncul Setelah Mendaki (kategori Edukasi).
+- **Sasaran pembaca:** pendaki gunung, supaya istilah bronkokonstriksi akibat olahraga (EIB) dikenal di komunitas pendakian. Menyimpang dari pembaca baku portal yang pengelola fasyankes primer, dan ini keputusan Prinsipal.
+- **Isi:** mekanisme EIB (ventilasi sampai sekitar 200 liter per menit, udara dingin dan kering menguapkan lapisan air saluran napas, sel mast melepas histamin, leukotrien, dan prostaglandin); kaitan konkret dengan proses mendaki (pada atlet ketahanan kapasitas aerobik turun 6,3 persen per 1.000 meter dan daya tahan sampai kelelahan turun 14,5 persen, Wehrlin dan Hallen 2006); tiga peringatan (serangan berat pada asma belum terkontrol, inhaler bisa rusak karena dingin, sesak di ketinggian tidak selalu EIB); arah kelaikan pendakian dengan uji beban termasuk VO2 Max dan pemeriksaan fungsi paru; kutipan dr. Putro S. Muhammad MH CIHL atas nama Kepala Bidang Litbangnov FMI (atas permintaan Prinsipal).
+- **Sumber:** 6 referensi, 5 bertaut hidup dan sudah diuji HTTP 200 (StatPearls, PubMed Wehrlin, PubMed Durand, UIAA, GAAPP), 1 tanpa tautan karena akses ditolak otomatis (Doan dan Luks, Wilderness and Environmental Medicine 2014).
+- **Gambar:** foto Wikimedia Commons (Timothy A. Gonsalves, CC BY-SA 4.0), hero 1200x675 dan og 1200x630, kredit tampil di halaman.
+- **Panjang:** 658 kata badan artikel, 8 kata di atas rentang 550 sampai 650 karena tambahan materi kelaikan dan kutipan. Dilaporkan apa adanya ke Prinsipal.
+- **Rakit dan publish:** via Claude Code (claude-task, akun utama) sesuai kebijakan AI. Claude kena "Reached max turns" setelah commit dan push; Hermes memverifikasi mandiri dan menemukan satu penyimpangan: Claude menulis dek versinya sendiri, lalu dek disamakan dengan naskah yang disetujui lewat commit 0da9d8e.
+- **Verifikasi mandiri (Hermes):** rev-parse lokal sama dengan origin/main; halaman live 200; hero dan og:image 200; jumlah folder artikel 98 dan articleCount 98; em-dash nol di artikel; keterangan gambar tampil; kemiripan teks badan artikel dengan naskah 98,5 persen dan seluruh selisihnya hanya judul bagian.
+- **Caption WhatsApp Bangkit:** terkirim sekali jalan (link preview lalu caption), state caption sekarang menunjuk article-102.
 
-## HIFDI — ARTICLE-098 TAYANG (2 Sep 2026, manual atas ACC Prinsipal)
-- **Judul:** Ambulans di Amerika Mahal, Warga Pilih Menolak: Pelajaran bagi Pertolongan Darurat di Indonesia (kategori Edukasi).
-- **Sumber:** fenomena viral biaya ambulans AS; 5 referensi terverifikasi HTTP 200 (UHC, YouGov 2024, PAN, PPNI PSC 119, Cyberity BPJS). Foto Commons CC BY-SA 4.0 (SwarmCheng), crop hero 1200x675 + og 1200x630.
-- **Rakit+publish:** via Claude Code (claude-task), Hermes verifikasi mandiri (rev-parse sama, em-dash 0, count 94 = 93 folder + 1, live 200).
-- **Caption WAG:** terkirim via wa_caption_auto.py; sekaligus mengejar article-096/097 yang sempat terlewat (state basi).
-- URL: https://berita.hifdi.id/article-098/
-
-## HIFDI — GH ACTIONS MERAH (11 Agu 2026, insiden + perbaikan pipeline)
-- **Gejala:** `Publish Draft on ACC` gagal tiap 5 menit sejak 07:33 (sebelumnya sukses sampai 06:08); `Generate HIFDI Article` 23:27 gagal.
-- **Akar masalah 1 (ACC):** token bot Telegram HIFDI (8634246819) **401 Unauthorized** — dicabut/di-regenerate. Token sama dipakai bridge (config.local.js) & GH secret → bot tak bisa baca balasan ACC/TOLAK. **BUKAN karena draft tidak di-ACC** (tanpa balasan pun workflow sukses diam).
-- **Akar masalah 2 (generate):** branch `draft` menyimpang dari main — berisi article-076 (Kanker Prostat, 10 Agu) yang **bentrok nomor** dengan article-076 (HUT ke-81 RI, naskah Zaenal Abidin) yang sudah tayang → rebase konflik.
-- **Yang sudah dibereskan Hermes:** branch `draft` dihapus (`git push origin --delete draft`) — draft lama recoverable (commit `e24ecd5`, bisa di-restore jadi article-077 kalau Prinsipal mau tayang). Pipeline generate siap normal besok 06:00.
-- **KEPUTUSAN (11 Agu 2026):** alur ACC dipindah dari GH Actions ke **Hermes (chat Prinsipal)** — workflow `publish-on-acc.yml` di-pause (commit `7d01010`); cron Hermes `022deb64759f` tiap 06:20 WIB cek branch draft → kirim **judul + narasi lengkap + link foto** ke chat → balas ACC/TOLAK → Hermes publish. Token bot lama (401) tidak dipakai lagi untuk ACC; bot baru tidak diperlukan.
-- **Buka (opsional):** token bot HIFDI/FMI/Ummanitarian di config bridge (C:\Users\Admin\berita-bridge\config.local.js) semuanya 401 — perlu regenerate via @BotFather kalau relay WA↔TG bridge mau hidup lagi.
-
-## UMMANITARIAN — FIX ESTETIKA (9 Agu 2026, commit `92bbf20`, perintah Prinsipal)
-- **Header:** search box dipindah ke ujung kanan (sebelumnya kejepit di tengah → logo & tagline dempet). Kini: logo + tagline grup kiri (gap 1.5rem), search kanan; tagline disembunyikan di mobile.
-- **Bawah halaman:** pagination diberi jarak bawah (margin 4rem) sebelum kotak About (sebelumnya nempel).
-- Diterapkan ke index + page-2..5 + `SEARCH_HTML`/`SEARCH_CSS` di `gen_site_pages.py` (build fresh ke depan konsisten). Live terverifikasi; tes render 0 error JS.
-
-
-## UMMANITARIAN — REKONSILIASI SESI PARALEL (9 Agu 2026, commit `435197d`)
-- **Apa yang terjadi:** dua sesi Hermes mengerjakan fitur yang sama (search + pagination) secara paralel. Sesi lain terbit dulu (`bf771d4`, 16:01 WIB); sesi ini baru selesai belakangan. **TIDAK force-push** — direkonsiliasi: adopsi implementasi `bf771d4` sebagai kanonik + delta perbaikan:
-  1. **Idempotensi `gen_site_pages.py` dipatch** — `inject_common` (search box/CSS) & `insert_pagination` kini guard/removal dulu sebelum sisip → aman dijalankan berulang tanpa dobel-inject (bug nyata: 3 nav pagination + 3 search box setelah 2 run).
-  2. **Logo footer base64 (~42KB inline) → `/logo.png` (31KB)** — semua halaman lebih ringan; index 665KB → **38KB**.
-- **Verifikasi live:** homepage 200 (nav=1, search box=1, 10 kartu, hero=1), `/page-2/`–`/page-5/` 200, `/logo.png` 200, `/search-index.json` 41 entri, `/search.js` 200. Tes render: search "gaza" → 4 hit, filter kategori jalan di index & page-2, pager navigasi OK, 0 error JS.
-- **Pelajari (koordinasi):** sebelum kerja di repo bersama, cek `git fetch` + apakah fitur sudah ada di remote — kalau ragu, tanya dulu. Setelah checkout file dari remote, patch lokal bisa ter-revert diam-diam (kasus nyata hari ini: `git checkout origin/main -- scripts/...` menghapus patch idempotensi).
-
-
-## UMMANITARIAN — search box + pagination arsip (9 Agu 2026, perintah Prinsipal)
-- **Masalah pembaca:** tidak ada kolom cari, dan semua artikel menggantung di satu halaman (scroll tak berujung).
-- **Eksekusi (commit `bf771d4`, repo `putrosm/ummanitarian-insight`):**
-  1. **Search client-side** — kotak di header (desktop & mobile), `search-index.json` (41 entri: 32 artikel lokal + 9 kartu kurasi eksternal) di-generate `scripts/gen_site_pages.py` + `search.js`. Tes live: ketik "sudan" → 4 hasil. Tanpa backend, tanpa dependency.
-  2. **Pagination** — 10 kartu/halaman: `page-2/` s.d. `page-5/` (hero tetap hanya di halaman 1; halaman arsip tanpa hero, h1 sr-only, canonical sendiri, script filter versi aman). `index.html` halaman 1 tetap manual (alur hero-swap Sekjen tidak diganggu).
-- **Idempoten:** generator membaca kartu dari index.html + page-N yang ada (dedupe per href, urutan editorial dipertahankan). **Setiap publish artikel baru → jalankan `scripts/gen_site_pages.py`** sebelum commit (atau minta Admin HIFDI).
-- **Wilayah tak tersentuh:** hero, ticker, sidebar, about, footer, CSS, artikel, register. File baru di root: `search.js`, `search-index.json`, `scripts/gen_site_pages.py`, `page-2..5/`.
-- **Verifikasi live:** homepage 200 + search box tampil, `/search-index.json` 41 entri, `/page-2/` & `/page-5/` 200, pages.dev 200.
-
-
-## SOP PAGI — revisi 8 Agu 2026 (koreksi Prinsipal: cek pipeline dulu, baru produksi)
-0. **05.55** — Hermes cek pipeline (cron): OpenWA session ready? cron caption aktif? clone sehat? situs 200? Merah → perbaiki dulu (auto-fix OpenWA), baru produksi.
-1. **06.00** — bot GH Actions tersulut: `stok/` → RSS → DeepSeek tulis → foto gilir → article-0XX → commit → deploy LIVE.
-2. **±06.25** — caption hangat → WAG Bangkit + info ke chat Prinsipal (deliver telegram).
-3. **07.00** — watchdog: sudah terbit? belum → trigger ulang + lapor.
-Aturan: pipeline macet = berhenti & perbaiki; Admin tidak trigger manual tanpa konfirmasi Prinsipal.
-
-## Keputusan Prinsipal (8 Agu 2026)
-- **KETERANGAN ILUSTRASI WAJIB:** foto stok/CC yang bukan objek berita tidak boleh tampil tanpa penjelasan (bisa diasosiasikan sebagai klinik/instansi bersangkutan). Featured image wajib caption tampak "Ilustrasi: … — bukan <objek> pada berita" + alt deskriptif + atribusi lisensi; berlaku manual & bot. Preseden: article-069 → cat-20 (Puskesmas Tamblong, CC BY-SA 4.0, ≤150KB).
-- **ATURAN GEOGRAFI FOTO:** berita Indonesia → gambar dari Indonesia; berita luar negeri → gambar boleh dari luar negeri. Jangan ketukar (foto landmark asing untuk berita Indonesia = pelanggaran). Foto generik netral (tanpa lokasi terlihat) aman untuk keduanya.
-
-## Kerjaan selesai (7 Agu 2026, Admin HIFDI)
-- **article-072 terbit MANUAL (perintah Prinsipal, acc langsung):** "Gula Berlebih pada Anak: Banyak Anak SD Sudah Berisiko Diabetes" (Edukasi, 7 Agu). Sumber 4 feed (ANTARA, BBC Indonesia, Kemenko PMK, MetroTV) via Google News; gambar sistem gilir `cat-03-003` (by-sa). LIVE terverifikasi (artikel/foto/og 200, kartu tampil, count 68). Caption WAG otomatis menyusul (cron `*/5`).
-- **Run bot 7 Agu SKIP oleh cron GitHub** (bukan batal — TERTUNDA ~12 mnt). Admin trigger manual 08:27 (article-070) → cron telat jalan 08:39 (article-071) = **2 artikel 1 hari (dobel, kesalahan Admin: trigger tanpa konfirmasi)**. Prinsipal memutuskan biarkan keduanya. Watchdog Hermes dipasang `0 7 * * *` (07:00 WIB) — trigger otomatis hanya kalau sampai 07.00 belum ada run; aturan baru: Admin tidak trigger manual tanpa konfirmasi Prinsipal.
-- **Foto konteks artikel (perintah Prinsipal):** article-070 (UNNES/mahasiswa) → `cat-18` mahasiswa Indonesia (CC BY-SA 4.0, Wikimedia); article-071 (Sierra Leone) → `cat-19` Connaught Hospital Freetown (CC BY 2.0, Wikimedia). QC vision lolos, og 1200×630 dibuat, registry di-update. LIVE terverifikasi.
-- **Caption WAG otomatis dipercepat `*/15 → */5`** — artikel terbit ≤5 mnt → WAG + info ke Telegram Prinsipal.
-- **SOP TAKE DOWN dibuat (7 Agu, acc Prinsipal):** keputusan level Admin HIFDI, taktis, TANPA ACC Sekjen (paralel publish). 3 tingkat: errata / tarik (`scripts/takedown.py --tarik` → `_ditarik/`) / hapus (`--hapus`). Info wajib via STATUS ini + pesan koreksi WAG bila caption tersebar. Dok: `docs/SOP-TAKE-DOWN.md`.
-
-## Kerjaan selesai (6 Agu 2026 dini hari, Admin HIFDI)
-- **FIX BUG FOTO article-069:** bot harian memilih `cat-12-001` (status **excluded**, file sudah dibuang 5 Agu → dipindah `_ditolak/`) → gambar ilustrasi 404. Root cause: `photo_pool.py` mengisi kandidat dari registry tanpa filter status excluded/keberadaan file. **Sudah dipatch** (`photo_pool.py` kini filter `status=excluded` + hanya file yang ada di disk) + `article-069/index.html` diganti ke `cat-12-002` (featured + og:image) + registry di-update. **LIVE & terverifikasi** (gambar HTTP 200, deploy sukses). Ini mencegah terulang.
-- **Caption WAG OTOMATIS (acc Prinsipal):** cron Hermes `*/15` pantau artikel baru di repo → kirim caption hangat ke WAG HIFDI Bangkit via OpenWA (state `~/.hermes/scripts/wa_state.json`, mulai 069). Bot GH Actions tidak bisa kirim WA (OpenWA lokal), jadi dipegang Hermes. Artikel bot maupun manual tertangkap. **Papan pesan SEKJEN §5 di-update.**
-- **Caption article-069** terkirim ke WAG HIFDI Bangkit (6 Agu, via OpenWA, messageId ACK) — sebelumnya hanya ke Telegram @hifdi_bot, tidak ke WAG (inkonsistensi dilaporkan Prinsipal).
-
-## Keputusan Sekjen (5 Agu 2026)
-- **13 feed Google News:** DISETUJUI ditambah bertahap sambil dipantau — tapi **EKSEKUSI DITUNDA** sampai aba-aba tahap berikutnya dari Sekjen. Jangan dieksekusi dulu.
-- **CNN Gaya Hidup & Health Affairs:** TIDAK dihapus — biarkan di `config.py` (cuma keblokir IP GitHub, bukan mati; terverifikasi hidup dari jaringan rumah, 5 Agu).
-- **INFRASTRUKTUR: TIDAK pakai VPS.** Laptop rumah nyala 24/7 hanya untuk host Hermes. Bot HIFDI (dan nanti FMI/Ummanitarian) TETAP di GitHub Actions — laptop bukan host bot.
-- **SISTEM FOTO GILIR (restu Prinsipal/Sekjen):** bot harian BOLEH memakai koleksi foto. Pemetaan kategori editorial → kategori foto (`PHOTO_BY_CATEGORY`) sudah di `config.py`. **Syarat 1 & 2 TERPENUHI.** Koreksi aturan privasi Prinsipal: **wajah tanpa nama = BOLEH** — 5 foto dikembalikan (cat-04-001/002/004, cat-05-002/004); yang tetap keluar 7 (data pribadi terbaca, anak-anak, pasien terekspos) + 3 lisensi = 10. **Aktif: 47 foto**; dokumentasi `docs/HAK-PAKAI-FOTO.md`. **REVISI (syarat keras): sistem tidak pernah memasangkan foto berwajah + nama; caption "Ilustrasi" generik memenuhi** — wajib diterapkan saat integrasi `generate_article.py`. **REVISI (lisensi): foto lama dianggap aman Prinsipal; dokumentasi hak-pakai fokus penambahan foto baru** (wajib source+license+QC per SOP-FOTO). **HIMBAUAN: perluas sumber gambar eksternal; utamakan foto tanpa wajah (alkes/fasilitas/objek)**. Integrasi belum dikerjakan (tunggu arahan).
-
-## Status proyek
-- **Berita HIFDI (piloting):** mesin sehat. Bot harian terbit article-066 (5 Agu, run sukses). **article-067 terbit manual oleh Admin HIFDI (5 Agu, Mutu, AI Skrining TB) — LIVE & terverifikasi** (gambar sistem gilir cat-01-001, caption "Ilustrasi").
-- **stok/:** kosong — bot pagi pakai jalur RSS normal.
-- **Ummanitarian (FOKUS SEKARANG, arahan Prinsipal 8 Agu — satu kantor berita per rencana):** scoping selesai (5 Agu) → `RENCANA-UMMANITARIAN.md` (DRAFT). Paling dasar: deploy otomatis belum ada (tahap 1). Butuh: U2–U3 (Prinsipal) + U1 (Sekjen).
-- **FMI (DITUNDA):** scoping selesai (5 Agu) → `RENCANA-FMI.md`. Situs + deploy CF otomatis sudah jalan; kurang = bot produsen (tahap 1). Dikerjakan SETELAH Ummanitarian.
-
-## Butuh keputusan Sekjen
-1. **Review RENCANA-UMMANITARIAN.md** — 3 keputusan: U1 (og-image, Sekjen), U2–U3 (Cloudflare, Prinsipal). Urgent U2–U3 (prasyarat Tahap 1).
-2. **FMI menyusul** — `RENCANA-FMI.md` (K1–K6) dibuka lagi setelah Ummanitarian jalan.
-
-## Uji akses Ummanitarian (8 Agu 2026, perintah Prinsipal — Admin coba sejauh mana bisa terbitkan artikel)
-- **HASIL: FULL SUCCESS — tidak mentok sama sekali.** Admin (Hermes) buat artikel **033-afghanistan-hunger-funding-gap** ("Twenty-Six Per Cent: Afghanistan's Hunger Is Outrunning Its Funding", 8 Agu, sumber REACH/UN via Kabul Tribune + KabulNow), push ke `putrosm/ummanitarian-insight` SUKSES → **auto-deploy Cloudflare Pages jalan** → LIVE terverifikasi (artikel 200, hero index berganti, kartu 032 tetap di grid).
-- **TEMUAN PENTING:** deploy Ummanitarian memakai **GitHub integration** Cloudflare (push → auto-deploy), jadi **tidak perlu secret CF token/account di repo** — U3 tinggal `DEEPSEEK_API_KEY` saja (dipakai nanti untuk bot, Tahap 2). U2 tuntas: project = `ummanitarian-insight`.
-- **Register:** 033 dicatat produsen **"Hermes (Staf Mesin)"** (jujur).
-- **BUTUH SEKJEN:** (1) review editorial artikel 033 — mutu & kesesuaian suara situs; (2) putuskan kewenangan Hermes publish di Ummanitarian (dengan aturan apa; usulan: tetap lewat arahan Sekjen/Prinsipal, dicatat di register). Struktur/template artikel TIDAK diubah (CSS identik dengan 032).
-- **REHEARSAL "human-in-the-loop" (8 Agu, acc Prinsipal):** artikel **034-iom-2025-reach-funding-gap** terbit lewat alur draft → review → ACC → terbit (bukan langsung push). SOP Sekjen (struktur artikel + proses cari gambar: tematik, lisensi jelas, caption 3 unsur, kredit) **sudah dipetakan & disimpan permanen** (skill Hermes: `references/ummanitarian-sop-sekjen.md`) supaya bisa ditiru persis oleh agen/bot. Artikel 034 live & terverifikasi. Tahap berikut: uji Buzz (workspace agen+manusia) menyusul.
-
-## Klarifikasi Cloudflare Ummanitarian (8 Agu 2026, hasil cek Admin — minta konfirmasi Prinsipal)
-- **U2 TERJAWAB dari DNS (tanpa dashboard):** project Cloudflare Pages insight.ummanitarian.org = **`ummanitarian-insight`** (CNAME → ummanitarian-insight.pages.dev, HTTP 200 terverifikasi 8 Agu). Ketiga situs di Cloudflare: ummanitarian-insight / berita-hifdi / berita-fmi.
-- **PERTANYAAN KE PRINSIPAL (via Sekjen):** project `ummanitarian-insight` ada di akun Cloudflare (email) yang **SAMA** dengan berita-hifdi/berita-fmi, atau **akun terpisah**?
-  - Sama → token CF yang sudah dipakai HIFDI/FMI bisa langsung dipakai → U3 = tinggal salin secrets ke repo Ummanitarian, tidak perlu token baru.
-  - Beda → perlu API token Pages-edit dari akun pemilik project; token lama TIDAK bisa dipakai lintas akun.
-- Yang diminta: konfirmasi akun/email pemilik project + ketersediaan token untuk akun itu.
-## HIFDI — RESOLUSI (12 Agu 2026, artikel-077 tayang)
-- **Akar generate gagal pagi ini:** template bot diambil dari artikel bernomor tertinggi = article-076 (naskah manual HUT RI) yang TIDAK punya `<div class="article-footer">` → regex build gagal "Template tidak cocok pola".
-- **Fix:** `template_path()` di generate_article.py kini memilih artikel bot tertinggi yang punya article-footer (commit `8cd9859`).
-- **Artikel hari ini:** article-077 "Kursus Pembiayaan Kesehatan WHO Barcelona 2025" tayang (publish manual atas perintah Prinsipal — utang rilis pagi).
-- **Alur besok normal:** 06:20 draft dikirim ke chat Prinsipal (narasi+foto) → ACC/TOLAK → 06:50 auto-tayang.
-
-## HIFDI — PIPELINE 100% MANDIRI (14 Agu 2026, article-079 tayang)
-- **Insiden repo:** repo lokal WSL korup (8 objek git kosong) → clone ulang fresh, swap folder. Draft 079 (Laporan UHC 2025) yang menunggu sejak 06:29 WIB diterbitkan (recovery). LIVE terverifikasi.
-- **Keputusan Prinsipal (14 Agu): produksi TANPA human-in-the-loop — tidak ada respon ACC / gagal kirim Telegram TIDAK boleh membatalkan tayang. Fase-fase modular.**
-- **Alur baru (murni GH Actions):** 06:00 `daily-generate.yml` buat draft di branch `draft` (tetap ada, notif best-effort) → `auto-publish-draft.yml` (baru, cron */5) terbitkan draft berumur > 30 menit ke main → CF Pages deploy. `publish-on-acc.yml` dihapus; cron Hermes auto-tayang dihapus. Notif Hermes 06:20 = opsi percepatan, bukan syarat.
-- **Fase 2 (terpisah):** caption WAG via OpenWA — Docker Desktop sempat mati (13-14 Agu), container up lagi 11:30 WIB, session berita-wa ready → cron caption (81de00d7d596) di-resume, akan kirim caption 079.
-- **Open item:** verifikasi live besok 15 Agu 06:00-06:35 (watchdog 07:00 juga memantau).
-
-## HIFDI — artikel-099 manual (6 Sep 2026, atas perintah Prinsipal)
-- **Topik:** SE Kemenkes KL.01.02/A/17765/2026 kesiapsiagaan faskes hadapi erupsi & abu vulkanik Anak Krakatau. Kategori Edukasi, byline Redaksi Berita HIFDI.
-- **Sumber:** dokumen SE dari Prinsipal + 3 berita terverifikasi HTTP 200 (MetroTV pusat krisis kesehatan, CNN sebaran abu Jakarta, detik/BMKG). Hero foto Commons Pierre Markuse CC BY 2.0, crop featured + og selesai.
-- **Eksekusi:** rakit+publish via Claude Code (commit `7d72bbb`), verifikasi Hermes: HEAD==origin/main, em-dash 0, curl article HTTP 200, articleCount 95, kartu teratas #articlesGrid.
-- **Caption WAG:** terkirim (link + caption) via wa_caption_auto.py. Draf: ~/workspace/draf-099-abu-vulkanik.md.
-
-## Hermes infra - cron WAG caption dihapus (9 Sep 2026)
-- Cron 'WAG caption artikel harian' (tiap 06:45, script-only `wa_caption_auto.py`) DIHAPUS atas perintah Prinsipal. Sebab: gagal 11x berturut-turut (symlink lintas profil diblokir guard) dan melanggar aturan no-cron: otomasi harus event-driven (GHA), bukan jadwal harian.
-- Simpulan: caption WAG dikirim manual per artikel (saat publish) seperti praktik article-099; skrip `wa_caption_auto.py` tetap tersedia di ~/.hermes/scripts/.
-
-## HIFDI — article-100 TAYANG (9 Sep 2026, commit `34a67e0`)
-- **Topik (Edukasi):** hipertensi FKTP, "Tensi Belum Target di Puskesmas: Naikkan Dosis atau Tambah Obat Kedua?" (kombinasi dosis rendah vs titrasi maksimal amlodipine). URL: https://berita.hifdi.id/article-100/
-- **Sumber:** materi edukasi dr. Bayushi Eka Putra (@bayushiep), IG 8 Sep 2026 (HTTP 200); Law dkk BMJ 2003 via PMC162261 (HTTP 200); ESH 2023 (link publisher). Klaim slide yang tak terverifikasi TIDAK dipakai; sitasi meta-analisis dikoreksi (slide tulis Am J Med 2009, benar BMJ 2003).
-- **Visual:** ilustrasi AI v2 flat (tanpa stetoskop, disetujui Prinsipal) + layout brand kit; hero images/article-100-tensi-kombinasi.jpg (1200x675) + og (1200x630). Verifikasi live: article HTTP 200, og:image 200, articleCount 96, kartu teratas #articlesGrid, em-dash 0.
-- **Caption WAG:** dikirim setelah tayang (wa_caption_auto.py).
+## Item yang masih butuh keputusan Prinsipal
+1. **Nama bidang FMI.** Artikel memakai "Kepala Bidang Litbangnov (penelitian, pengembangan, dan inovasi) FMI" sesuai sebutan Prinsipal. Di repo Berita FMI sebutan yang sudah dipakai adalah "Pengurus FMI Bidang Litbang & Inovasi". Perlu satu penetapan supaya konsisten lintas portal.
+2. **365 em-dash bawaan template di index.html root** (og:title, hero-legal, komentar kartu lama). Jumlahnya sama sebelum dan sesudah penerbitan article-101 dan 102, jadi bukan dari artikel baru. Menunggu keputusan apakah dibersihkan.
+3. **Kutipan dr. Putro untuk kanal lain** (5 butir hasil diskusi dan wawancara) sudah disiapkan di `~/workspace/artikel-eib-pendaki/ARTIKEL-v5.md` bagian lampiran, belum dipakai di kanal mana pun.
