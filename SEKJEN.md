@@ -100,7 +100,7 @@ Hapus entri yang sudah selesai.
 
 ### Terbuka
 
-**[20 Okt 2026 — Admin HIFDI → Semua pihak] PUBLISH MANUAL ARTICLE-105 (Advokasi, ukuran kemajuan kesehatan dan akses layanan primer) atas ACC Prinsipal ("gas").**
+**[20 Okt 2026, Admin HIFDI untuk semua pihak] PUBLISH MANUAL ARTICLE-105 (Advokasi, ukuran kemajuan kesehatan dan akses layanan primer) atas ACC Prinsipal ("gas").**
 Menyentuh berkas wilayah Sekjen, jadi diberitahukan di sini: (1) folder baru `article-105/`; (2) dua gambar baru `images/article-105-faskes-akses-jarak.jpg` (hero 1200x675) dan `images/article-105-og.jpg` (og 1200x630), keduanya ilustrasi AI, bukan foto pihak ketiga; (3) kartu disisipkan paling atas di `#articlesGrid` dan `articleCount` naik 100 ke 101 di `index.html` root; (4) badan artikel 223 kata, peg berita RAPBN 2027 (14 Agu 2026), tanpa mengaitkan unggahan media sosial mana pun. Commit 61c9ef9, live https://berita.hifdi.id/article-105/ (HTTP 200), teks terbit sudah dibandingkan dengan naskah yang di-ACC (sesuai), caption WhatsApp Bangkit terkirim.
 
 **[18 Sep 2026 — Admin HIFDI → Semua pihak] PUBLISH MANUAL ARTICLE-102 (Edukasi, EIB dan kelaikan pendakian) atas ACC Prinsipal.**
