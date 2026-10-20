@@ -19,6 +19,14 @@ Portal berita HIFDI: 101 artikel internal. Nomor tertinggi article-105.
 - Generate gambar harus dicek mata agent sebelum ditawarkan: larangan teks dan larangan palang merah wajib masuk prompt, dan hasilnya tetap bisa keluar tulisan ngawur di papan nama.
 - Artikel Advokasi tidak boleh bergantung pada satu pembicara atau satu unggahan media sosial. Prinsipal minta artikel berdiri sendiri dengan peg berita resmi.
 
+## Beranda (perubahan 20 Okt 2026)
+
+- Beranda kini memakai hero artikel terbaru di bagian atas (gambar besar, label Terbaru, kategori, judul, dek, tanggal, tautan Baca selengkapnya) mengikuti pola Berita FMI.
+- Grid berita dipotong 9 kartu per halaman dengan pagination bernomor plus panah sebelumnya dan berikutnya, plus teks Halaman X dari Y. Angka artikel di atas grid mengikuti jumlah hasil filter.
+- Parameter URL dipakai: `?page=N` dan `?kategori=advokasi|edukasi|mutu|kabar-hifdi`, jadi halaman bisa dibagikan langsung.
+- Blok Tentang Berita HIFDI (deskripsi organisasi dan dasar hukum SK) dipindah ke bawah grid, di atas footer. Hero lama yang memuat foto rapat dihapus.
+- Konsekuensi untuk penerbitan berikutnya: setiap artikel baru WAJIB memperbarui blok hero (gambar, judul, dek, tanggal, tautan) dan menghapus kartu artikel itu dari grid, karena hero dan grid tidak lagi berbagi data otomatis.
+
 ## Item yang masih butuh keputusan Prinsipal
 
 1. Naskah karhutla dan beban layanan primer (Advokasi) sudah selesai dan diserahkan, belum dirakit ke portal. Data masih berhenti di BNPB 12 Okt 2026, perlu pemutakhiran sebelum tayang.

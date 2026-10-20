@@ -100,6 +100,9 @@ Hapus entri yang sudah selesai.
 
 ### Terbuka
 
+**[20 Okt 2026, Admin HIFDI untuk semua pihak] PERUBAHAN STRUKTUR BERANDA (hero artikel dan pagination) atas perintah Prinsipal.**
+Menyentuh `index.html` root yang dipakai bersama: (1) hero lama (foto rapat plus deskripsi organisasi) diganti hero artikel terbaru, isinya gambar, label Terbaru, kategori, judul, dek, tanggal, tautan; (2) grid dipotong 9 kartu per halaman dengan pagination bernomor, panah, dan teks Halaman X dari Y; (3) filter kategori sekarang berjalan bersama pagination, parameter URL `?page=N&kategori=...`; (4) blok Tentang Berita HIFDI dipindah ke bawah grid, di atas footer; (5) kartu article-105 dikeluarkan dari grid karena sudah tampil sebagai hero. Konsekuensi: setiap penerbitan artikel baru wajib memperbarui blok hero dan grid secara manual, tidak lagi cukup menyisipkan kartu.
+
 **[20 Okt 2026, Admin HIFDI untuk semua pihak] PUBLISH MANUAL ARTICLE-105 (Advokasi, ukuran kemajuan kesehatan dan akses layanan primer) atas ACC Prinsipal ("gas").**
 Menyentuh berkas wilayah Sekjen, jadi diberitahukan di sini: (1) folder baru `article-105/`; (2) dua gambar baru `images/article-105-faskes-akses-jarak.jpg` (hero 1200x675) dan `images/article-105-og.jpg` (og 1200x630), keduanya ilustrasi AI, bukan foto pihak ketiga; (3) kartu disisipkan paling atas di `#articlesGrid` dan `articleCount` naik 100 ke 101 di `index.html` root; (4) badan artikel 223 kata, peg berita RAPBN 2027 (14 Agu 2026), tanpa mengaitkan unggahan media sosial mana pun. Commit 61c9ef9, live https://berita.hifdi.id/article-105/ (HTTP 200), teks terbit sudah dibandingkan dengan naskah yang di-ACC (sesuai), caption WhatsApp Bangkit terkirim.
 
