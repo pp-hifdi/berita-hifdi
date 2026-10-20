@@ -492,6 +492,9 @@
 .lead-cta { align-self: flex-start; font-family: var(--font-body); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-300); text-decoration: none; }
 .lead-cta:hover { color: #ffffff; }
 
+/* HERO BAWAH: profil organisasi sebagai penutup */
+.hero-bottom { border-top: 1px solid rgba(232,171,40,0.2); border-bottom: none; }
+
 /* PAGINATION */
 .pagination-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--neutral-200); }
 .pagination { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -502,12 +505,6 @@
 .pagination .pg-ellipsis { border: none; background: none; cursor: default; min-width: 20px; color: var(--neutral-500); }
 .pagination-info { font-family: var(--font-mono); font-size: 11px; color: var(--neutral-500); }
 
-/* TENTANG (pindahan dari hero lama) */
-.about-strip { background: #ffffff; border-top: 1px solid var(--neutral-200); }
-.about-inner { max-width: 1100px; margin: 0 auto; padding: 28px 24px; display: flex; flex-direction: column; gap: 8px; }
-.about-title { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--green-800); }
-.about-desc { font-family: var(--font-body); font-size: 13.5px; font-weight: 300; line-height: 1.7; color: var(--neutral-600); max-width: 900px; }
-.about-legal { font-family: var(--font-mono); font-size: 10px; color: var(--neutral-500); letter-spacing: 0.03em; }
 
 @media (max-width: 960px) {
   .lead-inner { grid-template-columns: 1fr; gap: 20px; padding: 28px 20px; }
@@ -1821,12 +1818,20 @@
   </div>
 </div>
 
-<!-- TENTANG -->
-<section class="about-strip">
-  <div class="about-inner">
-    <span class="about-title">Tentang Berita HIFDI</span>
-    <p class="about-desc">HIFDI adalah perhimpunan independen yang menghimpun para dokter, pengelola, dan pemilik fasilitas pelayanan kesehatan di seluruh Indonesia. Portal ini memuat sikap organisasi dan literasi bagi pengelola layanan primer: klinik pratama, tempat praktik mandiri dokter, dan puskesmas.</p>
-    <span class="about-legal">Badan Hukum. SK Menkumham RI No. AHU 0005242.AH.01.07.Tahun 2023, 5 Juli 2023</span>
+<!-- HERO BAWAH: PROFIL ORGANISASI -->
+<section class="hero hero-bottom">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="hero-label">Himpunan Fasyankes Dokter Indonesia</span>
+      <h2 class="hero-title">HIFDI</h2>
+      <p class="hero-desc">HIFDI adalah perhimpunan independen yang menghimpun para dokter, pengelola, dan pemilik fasilitas pelayanan kesehatan di seluruh Indonesia. Organisasi ini didirikan dengan tujuan untuk meningkatkan kualitas dan aksesibilitas pelayanan kesehatan melalui integrasi berbagai fasilitas kesehatan seperti klinik, fasilitas pelayanan kesehatan primer, dan praktik dokter mandiri.</p>
+      <span class="hero-legal">Badan Hukum. SK Menkumham RI No. AHU 0005242.AH.01.07.Tahun 2023, 5 Juli 2023</span>
+    </div>
+    <div class="hero-image-wrap">
+      <a href="https://hifdi.id/tentang-kami" target="_blank">
+        <img class="hero-image" src="./images/hero-hifdi.jpg" alt="Rapat Pengurus HIFDI">
+      </a>
+    </div>
   </div>
 </section>
 

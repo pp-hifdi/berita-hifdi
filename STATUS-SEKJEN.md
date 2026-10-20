@@ -24,7 +24,7 @@ Portal berita HIFDI: 101 artikel internal. Nomor tertinggi article-105.
 - Beranda kini memakai hero artikel terbaru di bagian atas (gambar besar, label Terbaru, kategori, judul, dek, tanggal, tautan Baca selengkapnya) mengikuti pola Berita FMI.
 - Grid berita dipotong 9 kartu per halaman dengan pagination bernomor plus panah sebelumnya dan berikutnya, plus teks Halaman X dari Y. Angka artikel di atas grid mengikuti jumlah hasil filter.
 - Parameter URL dipakai: `?page=N` dan `?kategori=advokasi|edukasi|mutu|kabar-hifdi`, jadi halaman bisa dibagikan langsung.
-- Blok Tentang Berita HIFDI (deskripsi organisasi dan dasar hukum SK) dipindah ke bawah grid, di atas footer. Hero lama yang memuat foto rapat dihapus.
+- Blok profil organisasi memakai hero lama (label, judul HIFDI, deskripsi, dasar hukum SK, foto rapat yang menaut ke halaman tentang kami) dan ditempatkan di bawah pagination sebagai penutup, sebelum footer. Judulnya memakai h2 supaya halaman tetap punya satu h1 di hero berita.
 - Konsekuensi untuk penerbitan berikutnya: setiap artikel baru WAJIB memperbarui blok hero (gambar, judul, dek, tanggal, tautan) dan menghapus kartu artikel itu dari grid, karena hero dan grid tidak lagi berbagi data otomatis.
 
 ## Item yang masih butuh keputusan Prinsipal
