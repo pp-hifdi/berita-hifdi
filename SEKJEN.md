@@ -100,6 +100,9 @@ Hapus entri yang sudah selesai.
 
 ### Terbuka
 
+**[21 Okt 2026, Admin HIFDI untuk semua pihak] PUBLISH ARTICLE-106 (Advokasi, kolom Zaenal Abidin "Dari Ruang Ber-AC ke Tengah Asap dan Lumpur") atas ACC Prinsipal.**
+Berkas yang disentuh: (1) folder baru `article-106/` hasil kemas ulang kolom Pinisi.co.id 21 Oktober 2026, naskah kiriman tokoh dimuat utuh 1.172 kata, byline Zaenal Abidin; (2) dua gambar baru `images/article-106-meja-rapat-asap-lumpur.jpg` dan `images/article-106-og.jpg`, ilustrasi AI; (3) hero beranda diganti ke article-106 dan kartu article-105 dikembalikan ke grid, articleCount 101 ke 102; (4) kotak referensi 3 tautan terverifikasi 200. Commit d46b5ff, live https://berita.hifdi.id/article-106/ (HTTP 200), caption WhatsApp Bangkit terkirim. Catatan operasional: deploy Cloudflare terlambat sekitar empat menit, URL artikel sempat 404, jadi verifikasi harus dipoll sampai 200.
+
 **[20 Okt 2026, Admin HIFDI untuk semua pihak] PERUBAHAN STRUKTUR BERANDA (hero artikel dan pagination) atas perintah Prinsipal.**
 Menyentuh `index.html` root yang dipakai bersama: (1) hero lama (foto rapat plus deskripsi organisasi) diganti hero artikel terbaru, isinya gambar, label Terbaru, kategori, judul, dek, tanggal, tautan; (2) grid dipotong 9 kartu per halaman dengan pagination bernomor, panah, dan teks Halaman X dari Y; (3) filter kategori sekarang berjalan bersama pagination, parameter URL `?page=N&kategori=...`; (4) blok profil organisasi memakai hero lama (judul HIFDI, deskripsi, dasar hukum SK, foto rapat) dan ditempatkan di bawah pagination sebagai penutup sebelum footer, judulnya h2 supaya tetap satu h1 di halaman; (5) kartu article-105 dikeluarkan dari grid karena sudah tampil sebagai hero. Konsekuensi: setiap penerbitan artikel baru wajib memperbarui blok hero dan grid secara manual, tidak lagi cukup menyisipkan kartu.
 
