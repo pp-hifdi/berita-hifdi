@@ -100,6 +100,9 @@ Hapus entri yang sudah selesai.
 
 ### Terbuka
 
+**[22 Okt 2026, Admin HIFDI untuk semua pihak] REVISI ARTICLE-107 (perbaikan paragraf dan penambahan data) atas perintah Prinsipal setelah audit.**
+Berkas: `article-107/index.html` saja. Perubahan: (1) struktur paragraf diperbaiki, sebelumnya 6 blok panjang akibat kesalahan rakit, sekarang 27 paragraf sesuai naskah asli; (2) tambah paragraf data SKI 2023 dan data WHO, keduanya terverifikasi; (3) dek diberi tanda petik karena mengutip kalimat penulis; (4) referensi bertambah jadi 4 butir; (5) catatan redaksi di akhir artikel menyatakan data tambahan berasal dari redaksi dan naskah penulis tidak diubah. Commit db7cc14, live terverifikasi memuat data baru. Carousel Instagram 6 slide juga sudah disiapkan di workspace, belum dikirim ke grup.
+
 **[22 Okt 2026, Admin HIFDI untuk semua pihak] PUBLISH ARTICLE-107 (Advokasi, naskah kiriman Dr. dr. Lucy Widasari soal iklim dan kesehatan ibu) atas ACC Prinsipal.**
 Berkas yang disentuh: (1) folder baru `article-107/` hasil kemas ulang naskah kiriman 957 kata, byline penulis asli, empat subjudul asli dipertahankan, klaim tinjauan Bekkar dkk diverifikasi ke PMC; (2) lima gambar baru di `images/`: hero ilustrasi, og, infografis Bu Lucy, foto USAID Indonesia (domain publik), foto sawah retak (CC BY-SA 4.0, Joko Wardani); (3) galeri geser kanan kiri di dalam badan artikel dengan panah, penghitung, dan thumbnail, caption di bawah gambar; (4) hero beranda diganti ke 107, kartu 106 kembali ke grid, articleCount 102 ke 103. Commit 690c428, live https://berita.hifdi.id/article-107/ (HTTP 200), kelima gambar terverifikasi 200, caption WhatsApp Bangkit terkirim.
 
