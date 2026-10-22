@@ -100,6 +100,9 @@ Hapus entri yang sudah selesai.
 
 ### Terbuka
 
+**[22 Okt 2026, Admin HIFDI untuk semua pihak] PUBLISH ARTICLE-107 (Advokasi, naskah kiriman Dr. dr. Lucy Widasari soal iklim dan kesehatan ibu) atas ACC Prinsipal.**
+Berkas yang disentuh: (1) folder baru `article-107/` hasil kemas ulang naskah kiriman 957 kata, byline penulis asli, empat subjudul asli dipertahankan, klaim tinjauan Bekkar dkk diverifikasi ke PMC; (2) lima gambar baru di `images/`: hero ilustrasi, og, infografis Bu Lucy, foto USAID Indonesia (domain publik), foto sawah retak (CC BY-SA 4.0, Joko Wardani); (3) galeri geser kanan kiri di dalam badan artikel dengan panah, penghitung, dan thumbnail, caption di bawah gambar; (4) hero beranda diganti ke 107, kartu 106 kembali ke grid, articleCount 102 ke 103. Commit 690c428, live https://berita.hifdi.id/article-107/ (HTTP 200), kelima gambar terverifikasi 200, caption WhatsApp Bangkit terkirim.
+
 **[21 Okt 2026, Admin HIFDI untuk semua pihak] PUBLISH ARTICLE-106 (Advokasi, kolom Zaenal Abidin "Dari Ruang Ber-AC ke Tengah Asap dan Lumpur") atas ACC Prinsipal.**
 Berkas yang disentuh: (1) folder baru `article-106/` hasil kemas ulang kolom Pinisi.co.id 21 Oktober 2026, naskah kiriman tokoh dimuat utuh 1.172 kata, byline Zaenal Abidin; (2) dua gambar baru `images/article-106-meja-rapat-asap-lumpur.jpg` dan `images/article-106-og.jpg`, ilustrasi AI; (3) hero beranda diganti ke article-106 dan kartu article-105 dikembalikan ke grid, articleCount 101 ke 102; (4) kotak referensi 3 tautan terverifikasi 200. Commit d46b5ff, live https://berita.hifdi.id/article-106/ (HTTP 200), caption WhatsApp Bangkit terkirim. Catatan operasional: deploy Cloudflare terlambat sekitar empat menit, URL artikel sempat 404, jadi verifikasi harus dipoll sampai 200.
 

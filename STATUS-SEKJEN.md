@@ -1,16 +1,16 @@
 # STATUS-SEKJEN.md - ringkasan pagi (dirawat Admin HIFDI; update tiap selesai kerjaan penting)
 
-**Update terakhir:** 21 Okt 2026 (HIFDI: article-106 tayang, kolom Zaenal Abidin soal meja rapat dipindah ke tengah asap dan lumpur)
+**Update terakhir:** 22 Okt 2026 (HIFDI: article-107 tayang, naskah kiriman Dr. Lucy Widasari soal perubahan iklim dan kesehatan ibu, dengan galeri geser)
 
-Portal berita HIFDI: 102 artikel internal. Nomor tertinggi article-106.
+Portal berita HIFDI: 103 artikel internal. Nomor tertinggi article-107.
 
 ## Artikel terakhir
 
-- **article-106** (Advokasi, 21 Okt 2026): "Dari Ruang Ber-AC ke Tengah Asap dan Lumpur: Pindahkan Meja Rapat ke Tempat Rakyat Menanggung Derita". Naskah kiriman tokoh, byline Zaenal Abidin (Ketua Umum PB IDI 2012-2015; Ketua HIFDI), dimuat utuh 1.172 kata tanpa dipotong. Sumber asli kolom Pinisi.co.id, 21 Oktober 2026.
-- Isi: pembuka kisah Umar bin Khattab memikul gandum, tesis bahwa kebijakan kesehatan dirumuskan terlalu jauh dari lokasi bencana, karhutla sebagai bencana kesehatan yang menyamar sebagai bencana lingkungan, dampak galodo Marapi dan pencemaran Citarum, tenaga kesehatan posko sebagai saksi kunci, lalu enam rekomendasi termasuk rapat di lokasi terdampak dan ruang aman berudara bersih di tingkat RT/RW.
-- Kemasan: enam subjudul asli jadi heading, satu kalimat jadi blockquote, kotak referensi 3 tautan (kolom Pinisi, WHO 2016, rilis Kemenkes 21 Agustus 2026), semua HTTP 200. Gambar generated, varian rapat di kampung berasap yang dipilih Prinsipal.
-- Status teknis: commit d46b5ff, live https://berita.hifdi.id/article-106/ (HTTP 200), hero beranda berganti ke 106, kartu 105 kembali masuk grid, articleCount 101 ke 102, caption WhatsApp Bangkit terkirim, wa_state.json last_article 106.
-- Catatan urutan deploy: Cloudflare sempat menyajikan versi lama sekitar empat menit, artikel baru 404 sampai deploy selesai. Jangan lapor gagal dari percobaan pertama, poll sampai 200.
+- **article-107** (Advokasi, 22 Okt 2026): "Ketika Bumi Memanas, Rahim Ibu Ikut Menanggung Luka". Naskah kiriman Dr. dr. Lucy Widasari, M.Si. (praktisi kesehatan, dosen, pemerhati kesehatan dan gizi, anggota Healthy Mother Healthy Babies), dimuat utuh 957 kata. Empat subjudul asli dipertahankan.
+- Isi: ketidakadilan iklim, dampak panas ekstrem dan PM2,5 sejak dalam kandungan, peran layanan primer sebagai garda terdepan, dan seruan agar krisis tidak diwariskan. Klaim tinjauan Bekkar dkk (2020) sudah diverifikasi ke sumber aslinya: 68 studi, 57 signifikan, total 32.798.152 kelahiran.
+- **Galeri geser kanan kiri** di badan artikel, pola meniru IHSC: empat slide berisi ilustrasi hero, infografis Bu Lucy, foto USAID Indonesia (domain publik) soal ibu hamil didampingi tenaga kesehatan, dan foto sawah retak karya Joko Wardani (CC BY-SA 4.0). Ada panah, penghitung 1/4, dan thumbnail. Caption di bawah gambar, bukan overlay.
+- Gambar hero: ilustrasi generated, bidan memeriksa ibu hamil di klinik pratama saat panas. Prinsipal meminta perut ibu tertutup pakaian, jadi ilustrasi dibuat ulang dengan gaun hamil panjang.
+- Status teknis: commit 690c428, live https://berita.hifdi.id/article-107/ (HTTP 200), hero beranda berganti ke 107, kartu 106 kembali ke grid, articleCount 103, caption WhatsApp Bangkit terkirim, wa_state.json last_article 107.
 
 ## Beranda (perubahan 20 Okt 2026)
 
