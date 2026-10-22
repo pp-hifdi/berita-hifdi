@@ -54,12 +54,28 @@ def parse_date(text: str) -> datetime | None:
 
 
 def git_date(path: pathlib.Path) -> datetime | None:
+    """Tanggal commit terakhir yang MENGUBAH ISI artikel.
+
+    Commit pemeliharaan SEO diabaikan: commit itu hanya menyisipkan canonical/JSON-LD,
+    bukan perubahan isi, jadi tidak boleh dipakai sebagai dateModified (kalau dipakai,
+    semua tanggal artikel melompat ke hari pemeliharaan).
+    """
     try:
-        out = subprocess.run(["git", "log", "-1", "--format=%aI", "--", str(path)],
-                             cwd=ROOT, capture_output=True, text=True, timeout=20).stdout.strip()
-        return datetime.fromisoformat(out) if out else None
+        out = subprocess.run(["git", "log", "--format=%aI%x09%s", "--", str(path)],
+                             cwd=ROOT, capture_output=True, text=True, timeout=30).stdout
     except Exception:
         return None
+    for line in out.splitlines():
+        if "\t" not in line:
+            continue
+        iso, subj = line.split("\t", 1)
+        if "SEO" in subj:  # chore: SEO maintenance / feat: fondasi SEO
+            continue
+        try:
+            return datetime.fromisoformat(iso.strip())
+        except ValueError:
+            continue
+    return None
 
 
 def first(pattern: str, html: str, flags=re.S) -> str:
@@ -86,14 +102,21 @@ def add_canonical(html: str, url: str) -> tuple[str, bool]:
     return html[:i] + tag + html[i:], True
 
 
-def add_jsonld(html: str, data: dict) -> tuple[str, bool]:
-    head = html[:head_end(html)]
-    if "application/ld+json" in head:
-        return html, False
-    block = ('<script type="application/ld+json">\n'
-             + json.dumps(data, ensure_ascii=False, indent=2) + "\n</script>\n")
+def jsonld_block(data: dict) -> str:
+    return ('<script type="application/ld+json">\n'
+            + json.dumps(data, ensure_ascii=False, indent=2) + "\n</script>")
+
+
+def sync_jsonld(html: str, data: dict) -> tuple[str, bool]:
+    """Sisipkan blok JSON-LD, atau segarkan blok yang sudah ada bila datanya berubah."""
+    block = jsonld_block(data)
+    m = re.search(r'<script type="application/ld\+json">\s*\{.*?\}\s*</script>', html, re.S)
+    if m:
+        if m.group(0).strip() == block.strip():
+            return html, False
+        return html[:m.start()] + block + html[m.end():], True
     i = head_end(html)
-    return html[:i] + block + html[i:], True
+    return html[:i] + block + "\n" + html[i:], True
 
 
 def article_meta(path: pathlib.Path, html: str) -> dict:
@@ -171,7 +194,7 @@ def main() -> None:
     home = ROOT / "index.html"
     html = home.read_text(encoding="utf-8")
     new, c1 = add_canonical(html, BASE + "/")
-    new, c2 = add_jsonld(new, homepage_jsonld())
+    new, c2 = sync_jsonld(new, homepage_jsonld())
     if c1 or c2:
         home.write_text(new, encoding="utf-8")
         changed_files.append(home.name)
@@ -186,7 +209,7 @@ def main() -> None:
         html = f.read_text(encoding="utf-8")
         m = article_meta(f, html)
         new, c1 = add_canonical(html, m["url"])
-        new, c2 = add_jsonld(new, newsarticle_jsonld(m))
+        new, c2 = sync_jsonld(new, newsarticle_jsonld(m))
         if c1 or c2:
             f.write_text(new, encoding="utf-8")
             changed_files.append(str(f.relative_to(ROOT)))
