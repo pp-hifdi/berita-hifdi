@@ -1,0 +1,7 @@
+# robots.txt Berita HIFDI
+User-agent: *
+Allow: /
+Disallow: /scripts/
+Disallow: /*.json$
+
+Sitemap: https://berita.hifdi.id/sitemap.xml

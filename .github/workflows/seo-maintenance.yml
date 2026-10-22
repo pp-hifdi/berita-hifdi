@@ -1,0 +1,48 @@
+name: SEO maintenance (sitemap, canonical, JSON-LD)
+
+# Dijalankan setiap push ke main (termasuk artikel baru dari daily-generate).
+# Idempoten: kalau semua halaman sudah punya canonical + JSON-LD dan sitemap
+# sudah mutakhir, workflow tidak membuat commit apa pun.
+#
+# Loop terhenti sendiri: commit hasil workflow ini tidak mengubah apa pun pada
+# run berikutnya, jadi run kedua hanya menghasilkan "tidak ada perubahan".
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: seo-maintenance
+  cancel-in-progress: false
+
+jobs:
+  seo:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Segarkan canonical, JSON-LD, sitemap, robots
+        run: python3 scripts/seo_refresh.py
+
+      - name: Validasi hasil
+        run: python3 scripts/validate_seo.py
+
+      - name: Commit bila ada perubahan
+        run: |
+          if git diff --quiet && [ -z "$(git status --porcelain)" ]; then
+            echo "Tidak ada perubahan SEO. Selesai."
+            exit 0
+          fi
+          git config user.name "HIFDI SEO Bot"
+          git config user.email "bot@hifdi.id"
+          git add sitemap.xml robots.txt index.html 'article-*/index.html'
+          git commit -m "chore: SEO maintenance (sitemap, canonical, JSON-LD)"
+          git pull --rebase --autostash origin main
+          git push origin HEAD:main
