@@ -2,7 +2,7 @@
 """Validasi hasil seo_refresh: JSON-LD terparse, canonical unik, tidak ada em-dash baru."""
 import json, pathlib, re, sys
 
-ROOT = pathlib.Path("/home/hermes/workspace/berita-hifdi")
+ROOT = pathlib.Path(__file__).resolve().parent.parent
 bad, no_canon, seen = [], [], {}
 files = [ROOT / "index.html"] + sorted(ROOT.glob("article-*/index.html"))
 
