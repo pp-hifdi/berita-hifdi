@@ -1,3 +1,5 @@
 
 wa-config.local.ps1
 wa-caption.txt
+raw/
+scripts/__pycache__/
