@@ -44,7 +44,7 @@ Portal berita HIFDI: 106 artikel internal. Nomor tertinggi article-111.
 ## Item yang masih butuh keputusan Prinsipal
 
 0. Caption WhatsApp untuk article-108, 109, dan 110 tidak pernah terkirim (wa_state.json berhenti di 107). Saat menerbitkan article-111, state dinaikkan ke 110 supaya grup tidak dibanjiri tiga artikel lama. Kirim susulan bila Prinsipal mau.
-   - Carousel Instagram article-111 (6 slide 1080x1350, tipografi, QR terverifikasi) sudah dibuat di `~/workspace/ig-111-nakes/` dan dikirim ke WAG HIFDI Bangkit lewat bridge :3002 pada 18 Nov 2026. Menunggu unggahan petugas.
+   - Carousel Instagram article-111 (6 slide 1080x1350, tipografi, QR terverifikasi) sudah dibuat di `~/workspace/ig-111-nakes/`, dikirim ke WAG HIFDI Bangkit lewat bridge :3002 pada 18 Nov 2026, dan atas permintaan Prinsipal ikut ditanam di badan artikel sebagai galeri geser kanan-kiri (bagian "Ringkasan dalam enam slide", sebelum kotak referensi). Menunggu unggahan petugas.
 1. Versi Instagram carousel untuk article-106 menunggu pilihan desain dari tiga opsi yang diajukan (editorial gelap, putih bersih dengan ilustrasi, tipografi kutipan).
 2. Naskah karhutla dan beban layanan primer (Advokasi) sudah selesai dan diserahkan, belum dirakit ke portal. Data masih berhenti di BNPB 12 Okt 2026, perlu pemutakhiran sebelum tayang, dan sudutnya perlu dipertajam ke pembiayaan klinik pratama serta TPMD karena kolom article-106 sudah membahas karhutla dari sisi kebijakan.
 3. 365 em-dash bawaan template di index.html root (bukan dari artikel baru) belum dibersihkan, menunggu keputusan.
