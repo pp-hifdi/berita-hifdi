@@ -1,11 +1,22 @@
 # STATUS-SEKJEN.md - ringkasan pagi (dirawat Admin HIFDI; update tiap selesai kerjaan penting)
 
-**Update terakhir:** 22 Okt 2026 (HIFDI: article-107 tayang, naskah kiriman Dr. Lucy Widasari soal perubahan iklim dan kesehatan ibu, dengan galeri geser)
+**Update terakhir:** 18 Nov 2026 (HIFDI: article-111 tayang, esai naskah kiriman Gigih Pratama soal kesejahteraan tenaga medis)
 
-Portal berita HIFDI: 103 artikel internal. Nomor tertinggi article-107.
+Portal berita HIFDI: 106 artikel internal. Nomor tertinggi article-111.
 
 ## Artikel terakhir
 
+- **article-111** (Advokasi, 18 Nov 2026): "Butuh Berapa Banyak Contoh Lagi: Potret Kesejahteraan Tenaga Medis Indonesia". Esai naskah kiriman Gigih Pratama, dokter lulusan Universitas Palangka Raya, Wakil Chief Nasional PIDI. Naskah dimuat utuh 1.140 kata, empat subjudul ditambahkan sebagai kemasan, satu blockquote dari kalimat penulis sendiri, tujuh butir referensi bertaut.
+- Lima koreksi pada naskah kiriman: (1) rasio dokter "0,47 sampai 0,69" diganti 0,76 per 1.000 penduduk (Kemenkes, Des 2025) plus 0,19 untuk dokter spesialis; (2) angka 62 persen kekerasan kerja dipertahankan karena cocok dengan rilis PAHO 24 Sep 2026 (sempat dikira salah, ternyata benar); (3) klaim "Working for Health diinisiasi 2024" dibuang karena program ILO/OECD/WHO itu jalan sejak 2018; (4) "Badan Penjamin Jasa Kesehatan (BPJS)" dibetulkan jadi Badan Penyelenggara Jaminan Sosial dan klaim perlindungan hukum disandarkan ke Pasal 273 ayat (1) UU 17/2023; (5) kasus NTT dipertegas (RS Leona, TTU, 13 Jun 2026, tiga anggota DPRD berstatus tersangka, praperadilan ditolak Okt 2026).
+- Foto penulis tidak dipasang di tengah narasi. Atas koreksi Prinsipal, foto dipotong persegi 96 px dan diletakkan di samping kiri kotak "Tentang penulis" di kaki artikel, di atas kotak referensi.
+- Hero bukan ilustrasi AI melainkan kartu desain dari kit HIFDI (tiga angka kunci: 0,76, 733, 62 persen), karena kuota gambar DashScope balas 403 dan OpenRouter 402.
+- Status teknis: commit cdf483a, live https://berita.hifdi.id/article-111/ (HTTP 200), hero beranda berganti ke 111, articleCount 106, sitemap memuat 111, caption WhatsApp Bangkit terkirim, wa_state.json last_article 111.
+
+### Riwayat singkat (article-108 sampai 110)
+
+- **article-108** (Kabar HIFDI, Okt 2026): "Empat Tahun HIFDI: Enam Langkah supaya Layanan Primer Tidak Berhenti di Kertas", Redaksi Berita HIFDI.
+- **article-109** (Kabar HIFDI, 24 Okt 2026): "76 Tahun IDI, HIFDI Soroti Tiga Pekerjaan Rumah di Layanan Primer", lengkap dengan galeri dua slide.
+- **article-110** (Kabar HIFDI, 28 Okt 2026): "Sumpah Pemuda ke-98: Pemuda Paling Rentan Depresi, Paling Jarang Berobat".
 - **article-107** (Advokasi, 22 Okt 2026): "Ketika Bumi Memanas, Rahim Ibu Ikut Menanggung Luka". Naskah kiriman Dr. dr. Lucy Widasari, M.Si. (praktisi kesehatan, dosen, pemerhati kesehatan dan gizi, anggota Healthy Mother Healthy Babies), dimuat utuh 957 kata. Empat subjudul asli dipertahankan.
 - Isi: ketidakadilan iklim, dampak panas ekstrem dan PM2,5 sejak dalam kandungan, peran layanan primer sebagai garda terdepan, dan seruan agar krisis tidak diwariskan. Klaim tinjauan Bekkar dkk (2020) sudah diverifikasi ke sumber aslinya: 68 studi, 57 signifikan, total 32.798.152 kelahiran.
 - **Galeri geser kanan kiri** di badan artikel, pola meniru IHSC: empat slide berisi ilustrasi hero, infografis Bu Lucy, foto USAID Indonesia (domain publik) soal ibu hamil didampingi tenaga kesehatan, dan foto sawah retak karya Joko Wardani (CC BY-SA 4.0). Ada panah, penghitung 1/4, dan thumbnail. Caption di bawah gambar, bukan overlay.
@@ -32,6 +43,8 @@ Portal berita HIFDI: 103 artikel internal. Nomor tertinggi article-107.
 
 ## Item yang masih butuh keputusan Prinsipal
 
+0. Caption WhatsApp untuk article-108, 109, dan 110 tidak pernah terkirim (wa_state.json berhenti di 107). Saat menerbitkan article-111, state dinaikkan ke 110 supaya grup tidak dibanjiri tiga artikel lama. Kirim susulan bila Prinsipal mau.
+   - Carousel Instagram article-111 belum dibuat, menunggu perintah.
 1. Versi Instagram carousel untuk article-106 menunggu pilihan desain dari tiga opsi yang diajukan (editorial gelap, putih bersih dengan ilustrasi, tipografi kutipan).
 2. Naskah karhutla dan beban layanan primer (Advokasi) sudah selesai dan diserahkan, belum dirakit ke portal. Data masih berhenti di BNPB 12 Okt 2026, perlu pemutakhiran sebelum tayang, dan sudutnya perlu dipertajam ke pembiayaan klinik pratama serta TPMD karena kolom article-106 sudah membahas karhutla dari sisi kebijakan.
 3. 365 em-dash bawaan template di index.html root (bukan dari artikel baru) belum dibersihkan, menunggu keputusan.
