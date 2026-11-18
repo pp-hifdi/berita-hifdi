@@ -39,6 +39,65 @@ BIO = ("Gigih Pratama merupakan dokter lulusan Universitas Palangka Raya, Kalima
        "Internsip Dokter Indonesia (PIDI). Ia menaruh perhatian pada kesehatan masyarakat, kebijakan "
        "kesehatan, isu sosial, pendidikan, literasi, dan pemberdayaan masyarakat.")
 
+GALLERY = """<div class="gal-title">Ringkasan dalam enam slide</div>
+<p class="gal-lead">Versi ringkas artikel ini dalam enam kartu, sama dengan carousel Instagram Berita HIFDI. Geser ke kanan atau pakai tombol panah.</p>
+<figure class="fig-gallery" data-gallery>
+  <div class="fg-stage">
+    <div class="fg-main">
+      <div class="fg-slide">
+        <img src="../images/article-111-slide-01.jpg" alt="Slide carousel Berita HIFDI nomor 1 dari 6: Sampul: judul esai dan tiga angka kunci, 0,76 dokter per 1.000 penduduk, 733 laporan perundungan PPDS terbukti, dan 62 persen tenaga kesehatan pernah mengalami kekerasan kerja." loading="lazy">
+        <div class="fg-cap">1/6. Sampul: judul esai dan tiga angka kunci, 0,76 dokter per 1.000 penduduk, 733 laporan perundungan PPDS terbukti, dan 62 persen tenaga kesehatan pernah mengalami kekerasan kerja.</div>
+      </div>
+      <div class="fg-slide">
+        <img src="../images/article-111-slide-02.jpg" alt="Slide carousel Berita HIFDI nomor 2 dari 6: Kesejahteraan bukan soal slip gaji: keselamatan kerja, kesehatan mental, perlindungan hukum, dan pemerataan." loading="lazy">
+        <div class="fg-cap">2/6. Kesejahteraan bukan soal slip gaji: keselamatan kerja, kesehatan mental, perlindungan hukum, dan pemerataan.</div>
+      </div>
+      <div class="fg-slide">
+        <img src="../images/article-111-slide-03.jpg" alt="Slide carousel Berita HIFDI nomor 3 dari 6: Rasio dokter 0,76 dan dokter spesialis 0,19 per 1.000 penduduk, berbanding rujukan WHO 1 per 1.000." loading="lazy">
+        <div class="fg-cap">3/6. Rasio dokter 0,76 dan dokter spesialis 0,19 per 1.000 penduduk, berbanding rujukan WHO 1 per 1.000.</div>
+      </div>
+      <div class="fg-slide">
+        <img src="../images/article-111-slide-04.jpg" alt="Slide carousel Berita HIFDI nomor 4 dari 6: Kutipan penulis: kita begitu cepat menuntut pelayanan yang sempurna, tetapi sering lupa bahwa orang yang kita tuntut juga manusia." loading="lazy">
+        <div class="fg-cap">4/6. Kutipan penulis: kita begitu cepat menuntut pelayanan yang sempurna, tetapi sering lupa bahwa orang yang kita tuntut juga manusia.</div>
+      </div>
+      <div class="fg-slide">
+        <img src="../images/article-111-slide-05.jpg" alt="Slide carousel Berita HIFDI nomor 5 dari 6: Dua angka tekanan: 733 laporan perundungan PPDS terbukti dan 62 persen tenaga kesehatan di dunia pernah mengalami kekerasan kerja." loading="lazy">
+        <div class="fg-cap">5/6. Dua angka tekanan: 733 laporan perundungan PPDS terbukti dan 62 persen tenaga kesehatan di dunia pernah mengalami kekerasan kerja.</div>
+      </div>
+      <div class="fg-slide">
+        <img src="../images/article-111-slide-06.jpg" alt="Slide carousel Berita HIFDI nomor 6 dari 6: Penutup dan kode QR menuju artikel ini di berita.hifdi.id." loading="lazy">
+        <div class="fg-cap">6/6. Penutup dan kode QR menuju artikel ini di berita.hifdi.id.</div>
+      </div>
+    </div>
+    <button class="fg-nav fg-prev" type="button" aria-label="Slide sebelumnya">&lsaquo;</button>
+    <button class="fg-nav fg-next" type="button" aria-label="Slide berikutnya">&rsaquo;</button>
+    <span class="fg-count">1 / 6</span>
+  </div>
+</figure>"""
+
+GALLERY_JS = """<script>
+document.querySelectorAll('[data-gallery]').forEach(function (g) {
+  var main = g.querySelector('.fg-main');
+  var count = g.querySelector('.fg-count');
+  var prev = g.querySelector('.fg-prev');
+  var next = g.querySelector('.fg-next');
+  var total = g.querySelectorAll('.fg-slide').length;
+  function go(i) {
+    var n = Math.max(0, Math.min(i, total - 1));
+    main.scrollTo({ left: n * main.clientWidth, behavior: 'smooth' });
+  }
+  prev.addEventListener('click', function () { go(Math.round(main.scrollLeft / main.clientWidth) - 1); });
+  next.addEventListener('click', function () { go(Math.round(main.scrollLeft / main.clientWidth) + 1); });
+  main.addEventListener('scroll', function () {
+    var i = Math.round(main.scrollLeft / main.clientWidth);
+    count.textContent = (i + 1) + ' / ' + total;
+    prev.disabled = i === 0;
+    next.disabled = i === total - 1;
+  }, { passive: true });
+  prev.disabled = true;
+});
+</script>"""
+
 BLOCKQUOTE = ("Kita begitu cepat menuntut pelayanan yang sempurna, tetapi sering lupa bahwa orang yang "
               "kita tuntut juga manusia. Kita berharap mereka selalu kuat. Selalu sabar. Selalu tersedia.")
 FIG_HTML = ""
@@ -68,6 +127,20 @@ SOURCES = [
 ]
 
 EXTRA_CSS = """
+.gal-title { font-family: var(--font-display); font-size: 24px; margin: 46px 0 6px; }
+.gal-lead { font-size: 14.5px; line-height: 1.65; color: var(--neutral-500); margin-bottom: 4px; }
+.fig-gallery { margin: 26px 0 40px; }
+.fg-stage { position: relative; border-radius: 12px; overflow: hidden; border: 1px solid var(--neutral-200); background: var(--neutral-100); }
+.fg-main { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; }
+.fg-main::-webkit-scrollbar { display: none; }
+.fg-slide { flex: 0 0 100%; scroll-snap-align: start; display: flex; flex-direction: column; }
+.fg-slide img { display: block; width: 100%; height: auto; background: #fff; }
+.fg-cap { font-family: var(--font-body); font-size: 12.5px; line-height: 1.6; color: var(--neutral-500); padding: 10px 14px 12px; background: #fff; }
+.fg-nav { position: absolute; top: 42%; transform: translateY(-50%); width: 38px; height: 38px; border-radius: 50%; border: none; background: rgba(18,43,26,0.72); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; line-height: 1; z-index: 2; }
+.fg-nav:hover { background: rgba(18,43,26,0.92); }
+.fg-nav:disabled { opacity: 0.3; cursor: default; }
+.fg-prev { left: 12px; } .fg-next { right: 12px; }
+.fg-count { position: absolute; right: 12px; top: 12px; background: rgba(18,43,26,0.72); color: #fff; font-family: var(--font-mono); font-size: 11px; padding: 3px 9px; border-radius: 999px; z-index: 2; }
 .author-box { margin: 44px 0 10px; padding: 20px 22px; background: var(--neutral-50, #F7F7F5); border-left: 3px solid var(--green-800, #1B4028); border-radius: 6px; display: flex; gap: 18px; align-items: flex-start; }
 .author-photo { flex: 0 0 96px; width: 96px; height: 96px; object-fit: cover; border-radius: 6px; border: 1px solid var(--neutral-200); }
 .author-title { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--neutral-500); margin-bottom: 6px; }
@@ -104,6 +177,7 @@ def body_html(blocks: list[str]) -> str:
         '<div class="author-text"><div class="author-title">Tentang penulis</div>'
         f'<p>{esc(BIO)}</p></div></div>'
     )
+    out.append(GALLERY)
     return "\n\n".join(out)
 
 
@@ -177,6 +251,7 @@ def main() -> None:
 <a class="back-to-portal" href="../">&larr; Kembali ke Portal Berita</a>
 </div>
 </div>
+{GALLERY_JS}
 <footer>
 <p>&copy; 2026 Himpunan Fasyankes Dokter Indonesia (HIFDI) &nbsp;|&nbsp; <a href="https://hifdi.id">hifdi.id</a> &nbsp;|&nbsp; <a href="https://academy.hifdi.id">academy.hifdi.id</a></p>
 </footer>
