@@ -45,12 +45,12 @@ GALLERY = """
   <div class="fg-stage">
     <div class="fg-main">
       <div class="fg-slide">
-        <div class="fg-frame fit"><img src="../images/article-113-kartu.jpg" alt="Kartu ringkasan Berita HIFDI: biaya strok yang ditanggung BPJS 2025, capaian deteksi dini, dan porsi strok yang dapat dicegah." loading="lazy"></div>
-        <div class="fg-cap">Ringkasan angka yang dipakai artikel ini. Desain: Berita HIFDI.</div>
+        <div class="fg-frame fit"><a href="../images/article-113-kartu.jpg" target="_blank" rel="noopener"><img src="../images/article-113-kartu.jpg" alt="Kartu ringkasan Berita HIFDI: biaya strok yang ditanggung BPJS 2025, capaian deteksi dini, dan porsi strok yang dapat dicegah." loading="lazy"></a></div>
+        <div class="fg-cap">Ringkasan angka yang dipakai artikel ini. Desain: Berita HIFDI. <a href="../images/article-113-kartu.jpg" target="_blank" rel="noopener">Buka ukuran penuh</a>.</div>
       </div>
       <div class="fg-slide">
-        <div class="fg-frame fit"><img src="../images/article-113-waspada.jpg" alt="Halaman A6 Harian Waspada edisi Rabu 18 November 2026 yang memuat opini Menyelamatkan Otak Sebelum Terlambat." loading="lazy"></div>
-        <div class="fg-cap">Halaman A6 (Opini) Harian Waspada, Rabu 18 November 2026, tempat tulisan ini pertama dimuat. Foto: dokumen.</div>
+        <div class="fg-frame fit"><a href="../images/article-113-waspada.jpg" target="_blank" rel="noopener"><img src="../images/article-113-waspada.jpg" alt="Halaman A6 Harian Waspada edisi Rabu 18 November 2026 yang memuat opini Menyelamatkan Otak Sebelum Terlambat." loading="lazy"></a></div>
+        <div class="fg-cap">Halaman A6 (Opini) Harian Waspada, Rabu 18 November 2026, tempat tulisan ini pertama dimuat. Foto: dokumen. <a href="../images/article-113-waspada.jpg" target="_blank" rel="noopener">Buka ukuran penuh</a>.</div>
       </div>
     </div>
     <button class="fg-nav fg-prev" type="button" aria-label="Slide sebelumnya">&lsaquo;</button>
@@ -68,10 +68,12 @@ GALLERY_CSS = """
 .fg-main::-webkit-scrollbar { display: none; }
 .fg-slide { flex: 0 0 100%; scroll-snap-align: start; display: flex; flex-direction: column; }
 .fg-frame { height: 340px; display: flex; align-items: center; justify-content: center; background: #F4F1E7; }
+.fg-frame a { display: block; width: 100%; height: 100%; cursor: zoom-in; }
 .fg-frame img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .fg-frame.fit img { object-fit: contain; }
 @media (max-width: 560px) { .fg-frame { height: 240px; } }
 .fg-cap { font-family: var(--font-body); font-size: 12.5px; line-height: 1.6; color: var(--neutral-500); padding: 10px 14px 12px; background: #fff; }
+.fg-cap a { color: var(--green-800); text-decoration: underline; }
 .fg-nav { position: absolute; top: 42%; transform: translateY(-50%); width: 38px; height: 38px; border-radius: 50%; border: none; background: rgba(18,43,26,0.72); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; line-height: 1; z-index: 2; }
 .fg-nav:hover { background: rgba(18,43,26,0.92); }
 .fg-nav:disabled { opacity: 0.3; cursor: default; }
