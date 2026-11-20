@@ -11,6 +11,7 @@ Portal berita HIFDI: 108 artikel internal. Nomor tertinggi article-113.
 - Hero memakai foto konferensi pers KONAS XI PERDOSNI dan AOCN XX di Medan (Sumut Pos), atas pilihan Prinsipal. Kartu angka dipindah ke slide 1 galeri, halaman A6 Waspada jadi slide 2.
 - Foto toga Prof. Akbar yang sempat dipakai pada draf pertama dibuang, berkasnya dihapus dari repo.
 - Status teknis: commit 22b1c19, live https://berita.hifdi.id/article-113/ (HTTP 200), enam subjudul, satu blockquote, dua slide galeri, articleCount 108, sitemap memuat 113, caption WhatsApp Bangkit terkirim.
+- Carousel Instagram 6 slide di `~/workspace/ig-113-strok/`, QR terverifikasi, dikirim ke WAG HIFDI Bangkit lewat bridge :3002 pada 20 Nov 2026 (1 pesan teks plus 6 slide). Menunggu unggahan petugas.
 
 ### Riwayat singkat
 
