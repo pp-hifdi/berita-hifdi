@@ -1,10 +1,18 @@
 # STATUS-SEKJEN.md - ringkasan pagi (dirawat Admin HIFDI; update tiap selesai kerjaan penting)
 
-**Update terakhir:** 20 Nov 2026 (HIFDI: article-112 tayang, KONAS XI PERDOSNI di Medan, Prof. Muhammad Akbar terpilih sebagai Ketua Umum 2026 sampai 2029)
+**Update terakhir:** 20 Nov 2026 (HIFDI: article-113 tayang, beban biaya strok dan skrining di fasyankes primer, diolah dari opini Prof. Akbar di Harian Waspada)
 
-Portal berita HIFDI: 107 artikel internal. Nomor tertinggi article-112.
+Portal berita HIFDI: 108 artikel internal. Nomor tertinggi article-113.
 
 ## Artikel terakhir
+
+- **article-113** (Advokasi, 20 Nov 2026): "Negara Membayar Rp7,2 Triliun untuk Strok, tapi Skriningnya Baru Menyentuh Puskesmas". Diolah dari opini Prof. dr. Muhammad Akbar di Harian Waspada, halaman A6, 18 November 2026. Byline Redaksi Berita HIFDI, 889 kata, catatan redaksi mencantumkan sumber dan bahwa butir tuntutan adalah pengembangan redaksi.
+- Lima sudut yang diangkat: pembiayaan BPJS (9,5 juta kasus, Rp7,2 triliun pada 2025, naik dari Rp2,55 triliun 2019), beban pada usia muda (IHME 19,42 persen lawan jantung iskemik 14,38 persen, 664.000 kasus baru per tahun, kenaikan 100 persen sebelum usia 70 sejak 1990), kesenjangan deteksi (90 persen dapat dicegah, capaian 11,3 persen), skrining jangan hanya di Puskesmas (inti advokasi: klinik pratama dan TPMD mitra JKN), serta tempat kerja dan literasi warga.
+- Hero memakai foto konferensi pers KONAS XI PERDOSNI dan AOCN XX di Medan (Sumut Pos), atas pilihan Prinsipal. Kartu angka dipindah ke slide 1 galeri, halaman A6 Waspada jadi slide 2.
+- Foto toga Prof. Akbar yang sempat dipakai pada draf pertama dibuang, berkasnya dihapus dari repo.
+- Status teknis: commit 22b1c19, live https://berita.hifdi.id/article-113/ (HTTP 200), enam subjudul, satu blockquote, dua slide galeri, articleCount 108, sitemap memuat 113, caption WhatsApp Bangkit terkirim.
+
+### Riwayat singkat
 
 - **article-112** (Kabar HIFDI, 20 Nov 2026): "Prof. Muhammad Akbar Nakhodai PERDOSNI, HIFDI Soroti Deteksi Dini Stroke di Layanan Primer". Berita Kongres XI PERDOSNI dan AOCN XX di Medan, Rapat Pleno III 19 November 2026: Akbar 135 suara, Dr. dr. Fritz 101 suara dari 236 suara, selisih 34 suara atau 57,2 persen.
 - Sudut HIFDI: beban stroke ada di hulu. Data Kemenkes 2024 (18,5 persen kematian, 11,2 persen kecacatan, prevalensi 8,3 per 1.000 penduduk SKI 2023, biaya Rp5,2 triliun, deteksi dini baru 11,3 persen dari target), lalu tiga tuntutan soal skrining di klinik pratama dan TPMD, protokol rujukan setara untuk mitra JKN, dan kolaborasi PERDOSNI dengan layanan primer.
