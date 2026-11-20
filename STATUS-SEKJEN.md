@@ -1,10 +1,20 @@
 # STATUS-SEKJEN.md - ringkasan pagi (dirawat Admin HIFDI; update tiap selesai kerjaan penting)
 
-**Update terakhir:** 18 Nov 2026 (HIFDI: article-111 tayang, esai naskah kiriman Gigih Pratama soal kesejahteraan tenaga medis)
+**Update terakhir:** 20 Nov 2026 (HIFDI: article-112 tayang, KONAS XI PERDOSNI di Medan, Prof. Muhammad Akbar terpilih sebagai Ketua Umum 2026 sampai 2029)
 
-Portal berita HIFDI: 106 artikel internal. Nomor tertinggi article-111.
+Portal berita HIFDI: 107 artikel internal. Nomor tertinggi article-112.
 
 ## Artikel terakhir
+
+- **article-112** (Kabar HIFDI, 20 Nov 2026): "Prof. Muhammad Akbar Nakhodai PERDOSNI, HIFDI Soroti Deteksi Dini Stroke di Layanan Primer". Berita Kongres XI PERDOSNI dan AOCN XX di Medan, Rapat Pleno III 19 November 2026: Akbar 135 suara, Dr. dr. Fritz 101 suara dari 236 suara, selisih 34 suara atau 57,2 persen.
+- Sudut HIFDI: beban stroke ada di hulu. Data Kemenkes 2024 (18,5 persen kematian, 11,2 persen kecacatan, prevalensi 8,3 per 1.000 penduduk SKI 2023, biaya Rp5,2 triliun, deteksi dini baru 11,3 persen dari target), lalu tiga tuntutan soal skrining di klinik pratama dan TPMD, protokol rujukan setara untuk mitra JKN, dan kolaborasi PERDOSNI dengan layanan primer.
+- Bahan dari Prinsipal memuat narasi balapan MotoGP dan angka 3.005 dokter serta 31 cabang. Narasi balapan dibuang karena bukan gaya portal; angka anggota tidak dipakai karena tidak ada di pemberitaan mana pun.
+- Kutipan Ketua Umum HIFDI dr. Zaenal Abidin, M.H. disusun redaksi sebagai blockquote (pola sama dengan article-109), bukan hasil wawancara.
+- Galeri tiga slide di badan artikel: foto Prof. Akbar, foto Ketua Umum HIFDI (memakai berkas article-076, 588x330 sehingga agak lunak saat dibesarkan), dan kartu kutipan. Tinggi frame diseragamkan 340 px dengan object-fit agar tidak ada ruang kosong.
+- Status teknis: commit e15b561, live https://berita.hifdi.id/article-112/ (HTTP 200), hero beranda berganti ke 112, articleCount 107, sitemap memuat 112, caption WhatsApp Bangkit terkirim.
+- Catatan: foto Ketua Umum versi resolusi tinggi belum ada di aset; kalau Prinsipal mengirim file aslinya, ganti `images/article-112-zaenal-abidin.jpg`.
+
+### Riwayat singkat
 
 - **article-111** (Advokasi, 18 Nov 2026): "Butuh Berapa Banyak Contoh Lagi: Potret Kesejahteraan Tenaga Medis Indonesia". Esai naskah kiriman Gigih Pratama, dokter lulusan Universitas Palangka Raya, Wakil Chief Nasional PIDI. Naskah dimuat utuh 1.140 kata, empat subjudul ditambahkan sebagai kemasan, satu blockquote dari kalimat penulis sendiri, tujuh butir referensi bertaut.
 - Lima koreksi pada naskah kiriman: (1) rasio dokter "0,47 sampai 0,69" diganti 0,76 per 1.000 penduduk (Kemenkes, Des 2025) plus 0,19 untuk dokter spesialis; (2) angka 62 persen kekerasan kerja dipertahankan karena cocok dengan rilis PAHO 24 Sep 2026 (sempat dikira salah, ternyata benar); (3) klaim "Working for Health diinisiasi 2024" dibuang karena program ILO/OECD/WHO itu jalan sejak 2018; (4) "Badan Penjamin Jasa Kesehatan (BPJS)" dibetulkan jadi Badan Penyelenggara Jaminan Sosial dan klaim perlindungan hukum disandarkan ke Pasal 273 ayat (1) UU 17/2023; (5) kasus NTT dipertegas (RS Leona, TTU, 13 Jun 2026, tiga anggota DPRD berstatus tersangka, praperadilan ditolak Okt 2026).
