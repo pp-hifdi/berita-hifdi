@@ -13,6 +13,7 @@ Portal berita HIFDI: 107 artikel internal. Nomor tertinggi article-112.
 - Galeri tiga slide di badan artikel: foto Prof. Akbar, foto Ketua Umum HIFDI (memakai berkas article-076, 588x330 sehingga agak lunak saat dibesarkan), dan kartu kutipan. Tinggi frame diseragamkan 340 px dengan object-fit agar tidak ada ruang kosong.
 - Status teknis: commit e15b561, live https://berita.hifdi.id/article-112/ (HTTP 200), hero beranda berganti ke 112, articleCount 107, sitemap memuat 112, caption WhatsApp Bangkit terkirim.
 - Catatan: foto Ketua Umum versi resolusi tinggi belum ada di aset; kalau Prinsipal mengirim file aslinya, ganti `images/article-112-zaenal-abidin.jpg`.
+- Carousel Instagram 6 slide 1080x1350 dibuat di `~/workspace/ig-112-perdosni/`, QR terverifikasi, dan dikirim ke WAG HIFDI Bangkit lewat bridge :3002 pada 20 Nov 2026 (1 pesan teks plus 6 slide). Menunggu unggahan petugas.
 
 ### Riwayat singkat
 
